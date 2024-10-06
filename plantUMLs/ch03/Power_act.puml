@@ -1,0 +1,40 @@
+@startuml
+skinparam Activity {
+    FontSize 12
+    
+    Diamond {
+        LineColor yellow
+        BackgroundColor burlywood
+        FontSize 14
+        FontStyle bold
+    }
+}
+
+skinparam Partition {
+    BorderColor<<invisible>> none
+    FontColor<<invisible>> none
+}
+title Activity diagram of \n<font name=monospace><color #5132be>Power.main()</color></font> method
+
+start
+
+:int e, result;;
+
+partition #9bd68d for loop {
+    :int i = 0;; <<task>>
+    while(i < 10) is (<color:green>true)
+        :result = 1;; <<task>>
+        :e = i;; <<task>>
+        partition #dfa9cd while loop {
+            while(e > 0) is (<color:green>true)
+                :result *= 2;; <<task>>
+                :e--;; <<task>>
+            endwhile (<color:red>false)
+        }
+        :System.out.println("2 to the " + \ni + " power is " + result);; <<output>>
+        backward:i++;; <<task>>
+    endwhile (<color:red>false)
+}
+
+stop
+@enduml

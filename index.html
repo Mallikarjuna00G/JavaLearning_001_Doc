@@ -5601,6 +5601,495 @@ Factorial is 120</code></pre>  <!-- plaintext block -->
                             </div>  <!-- content -->
                         </div>  <!-- right -->
                     </div>  <!-- lvl1 -->
+                    <div class="lvl1">
+                        <div class="left">
+                            <h2>THE WHILE LOOP</h2>
+                        </div>  <!-- left -->
+                        <div class="right">
+                            <div class="content">
+                                <p>Another of Java's loops is the <code>while</code>. The general form of the <code>while</code> loop is</p>
+                                <pre><code class="language-plaintext">while(condition) statement;</code></pre>  <!-- plaintext block -->
+                                <p>where statement may be a single statement or a block of statements, and condition defines the condition that controls the loop. The condition may be any valid Boolean expression. The loop repeats while the condition is true. When the condition becomes false, program control passes to the line immediately following the loop.</p>
+                                <p>Here is a simple example in which a <code>while</code> is used to print the alphabet:</p>
+                                <p class="srcFile"><a href="../JBG_HS_Ch03/JBG_HS_Ch03_Exmp/WhileDemo.java" target="_blank">../JBG_HS_Ch03/JBG_HS_Ch03_Exmp/WhileDemo.java</a></p>
+                                <pre><code class="language-java">/**
+ * Demonstrate the while loop.
+ * 
+ * Call this file "WhileDemo.java".
+ */
+class WhileDemo {
+    public static void main(String[] args) {
+        char ch;
+
+        // print the alphabet using a while loop.
+        ch = 'a';
+        while(ch <= 'z') {
+            System.out.println(ch);
+            ch++;
+        }
+    }
+}</code></pre>  <!-- java code -->
+                                <div class="gallery2">
+                                    <figure class="standAloneFigure">
+                                        <img src="./plantUMLs/ch03/WhileDemo_class.svg" alt="Class diagram of WhileDemo class">
+                                        <figcaption>Class diagram of WhileDemo class<br>src: <a href="./plantUMLs/ch03/WhileDemo_class.puml" target="_blank">./plantUMLs/ch03/WhileDemo_class.puml</a></figcaption>
+                                    </figure>  <!-- standAloneFigure -->
+                                    <figure class="standAloneFigure">
+                                        <img src="./plantUMLs/ch03/WhileDemo_act.svg" alt="Activity diagram of WhileDemo.main() method">
+                                        <figcaption>Acivity diagram of WhileDemo.main() method<br>src: <a href="./plantUMLs/ch03/WhileDemo_act.puml" target="_blank">./plantUMLs/ch03/WhileDemo_act.puml</a></figcaption>
+                                    </figure>  <!-- standAloneFigure -->
+                                </div>  <!-- gallery2 -->
+                                <p><b>Execution Logs: </b></p>
+                                <pre><code class="language-plaintext">a
+b
+c
+d
+e
+f
+g
+h
+i
+j
+k
+l
+m
+n
+o
+p
+q
+r
+s
+t
+u
+v
+w
+x
+y
+z</code></pre>  <!-- plaintext block -->
+                                <p>Here, <code>ch</code> is initialized to the letter <code>a</code>. Each time through the loop, <code>ch</code> is output and then incremented. This process continues until <code>ch</code> is greater than <code>z</code>.</p>
+                                <p>As with the <code>for</code> loop, the <code>while</code> checks the conditional expression at the top of the loop, which means that the loop code may not execute at all. This eliminates the need for performing a separate test before the loop. The following program illustrates this characteristic of the <code>while</code> loop. It computes the integer powers of 2, from 0 to 9.</p>
+                                <p class="srcFile"><a href="../JBG_HS_Ch03/JBG_HS_Ch03_Exmp/Power.java" target="_blank">../JBG_HS_Ch03/JBG_HS_Ch03_Exmp/Power.java</a></p>
+                                <pre><code class="language-java">/**
+ * Compute integer powers of 2.
+ * 
+ * Call this file "Power.java".
+ */
+class Power {
+    public static void main(String[] args) {
+        int e, result;
+
+        for(int i = 0; i < 10; i++) {
+            result = 1;
+            e = i;
+            while(e > 0) {
+                result *= 2;
+                e--;
+            }
+            System.out.println("2 to the " + i + " power is " + result);
+        }
+    }
+}</code></pre>  <!-- java code -->
+                                <div class="gallery2">
+                                    <figure class="standAloneFigure">
+                                        <img src="./plantUMLs/ch03/Power_class.svg" alt="Class diagram of Power class">
+                                        <figcaption>Class diagram of Power class<br>src: <a href="./plantUMLs/ch03/Power_class.puml" target="_blank">./plantUMLs/ch03/Power_class.puml</a></figcaption>
+                                    </figure>  <!-- standAloneFigure -->
+                                    <figure class="standAloneFigure">
+                                        <img src="./plantUMLs/ch03/Power_act.svg" alt="Activity diagram of Power.main() method">
+                                        <figcaption>Acivity diagram of Power.main() method<br>src: <a href="./plantUMLs/ch03/Power_act.puml" target="_blank">./plantUMLs/ch03/Power_act.puml</a></figcaption>
+                                    </figure>  <!-- standAloneFigure -->
+                                </div>  <!-- gallery2 -->
+                                <p><b>Execution Logs: </b></p>
+                                <pre><code class="language-plaintext">2 to the 0 power is 1
+2 to the 1 power is 2
+2 to the 2 power is 4
+2 to the 3 power is 8
+2 to the 4 power is 16
+2 to the 5 power is 32
+2 to the 6 power is 64
+2 to the 7 power is 128
+2 to the 8 power is 256
+2 to the 9 power is 512</code></pre>  <!-- plaintext block -->
+                                <p>Notice that the <code>while</code> loop executes only when <code>e</code> is greater than 0. Thus, when <code>e</code> is zero, as it is in the first iteration of the <code>for</code> loop, the while loop is skipped.</p>
+                            </div>  <!-- content -->
+                        </div>  <!-- right -->
+                    </div>  <!-- lvl1 -->
+                    <div class="lvl1">
+                        <div class="left">
+                            <h2>THE DO-WHILE LOOP</h2>
+                        </div>  <!-- left -->
+                        <div class="right">
+                            <div class="content">
+                                <p>The last of Java's loops is the <code>do</code>-<code>while</code>. Unlike the <code>for</code> and the <code>while</code> loops, in which the condition is tested at the top of the loop, the <code>do</code>-<code>while</code> loop checks its condition at the bottom of the loop. This means that a <code>do</code>-<code>while</code> loop will always execute at least once. The general form of the <code>do</code>-<code>while</code> loop is</p>
+                                <pre><code class="language-plaintext">do {
+    statements;
+} while(condition);</code></pre>  <!-- plaintext block -->
+                                <p>Although the braces are not necessary when only one statement is present, they are often used to improve readability of the <code>do</code>-<code>while</code> construct, thus preventing confusion with the <code>while</code>. The <code>do</code>-<code>while</code> loop executes as long as the conditional expression is true.</p>
+                                <p>The following program loops until the user enters the letter <code>q</code>:</p>
+                                <p class="srcFile"><a href="../JBG_HS_Ch03/JBG_HS_Ch03_Exmp/DWDemo.java" target="_blank">../JBG_HS_Ch03/JBG_HS_Ch03_Exmp/DWDemo.java</a></p>
+                                <pre><code class="language-java">/**
+ * Demonstrate the do-while loop.
+ * 
+ * Call this file "DWDemo.java".
+ */
+class DWDemo {
+    public static void main(String[] args) 
+        throws java.io.IOException{
+        char ch;
+
+        do {
+            System.out.print("Press a key followed by ENTER: ");
+            ch = (char) System.in.read();  // get a char
+        } while(ch != 'q');
+    }
+}</code></pre>  <!-- java code -->
+                                <div class="gallery2">
+                                    <figure class="standAloneFigure">
+                                        <img src="./plantUMLs/ch03/DWDemo_class.svg" alt="Class diagram of DWDemo class">
+                                        <figcaption>Class diagram of DWDemo class<br>src: <a href="./plantUMLs/ch03/DWDemo_class.puml" target="_blank">./plantUMLs/ch03/DWDemo_class.puml</a></figcaption>
+                                    </figure>  <!-- standAloneFigure -->
+                                    <figure class="standAloneFigure">
+                                        <img src="./plantUMLs/ch03/DWDemo_act.svg" alt="Activity diagram of DWDemo.main() method">
+                                        <figcaption>Acivity diagram of DWDemo.main() method<br>src: <a href="./plantUMLs/ch03/DWDemo_act.puml" target="_blank">./plantUMLs/ch03/DWDemo_act.puml</a></figcaption>
+                                    </figure>  <!-- standAloneFigure -->
+                                </div>  <!-- gallery2 -->
+                                <p><b>Execution Logs: </b></p>
+                                <pre><code class="language-plaintext">Press a key followed by ENTER: a
+Press a key followed by ENTER: Press a key followed by ENTER: b
+Press a key followed by ENTER: Press a key followed by ENTER: c
+Press a key followed by ENTER: Press a key followed by ENTER: w
+Press a key followed by ENTER: Press a key followed by ENTER: q</code></pre>  <!-- plaintext block -->
+                                <b>Inference:</b> The statement <code>Press a key followed by ENTER:</code> getting printed twice after the first input during for each iteration. Because, <code>ENTER</code> is available in the buffer which is getting read by <code>read()</code> statement.
+                                <p>Using a <code>do</code>-<code>while</code> loop, we can further improve the guessing game program from earlier in this chapter. This time, the program loops until you guess the letter.</p>
+                                <p class="srcFile"><a href="../JBG_HS_Ch03/JBG_HS_Ch03_Exmp/Guess4.java" target="_blank">../JBG_HS_Ch03/JBG_HS_Ch03_Exmp/Guess4.java</a></p>
+                                <pre><code class="language-java">/**
+ * Guess the letter game. Version 4.
+ * 
+ * Call this file "Guess4.java".
+ */
+class Guess4 {
+    public static void main(String[] args) 
+        throws java.io.IOException {
+        char ch, ignore, answer = 'K';
+
+        do {
+            System.out.println("I am thinking of a letter between A and Z.");
+            System.out.print("Can you guess it?: ");
+
+            ch = (char) System.in.read();  // read a character from the keyboard
+
+            // discard any other characters in the input buffer
+            do {
+                ignore = (char) System.in.read();
+            } while(ignore != '\n');
+
+            if(ch == answer) System.out.println("** Right **");
+            else {
+                System.out.print("...Sorry, you're ");
+                // a nested if
+                if(ch < answer) System.out.println("too low");
+                else System.out.println("too high");
+                System.out.println("Try again!\n");
+            }
+        }while(answer != ch);
+    }
+}</code></pre>  <!-- java code -->
+                                <div class="gallery2">
+                                    <figure class="standAloneFigure">
+                                        <img src="./plantUMLs/ch03/Guess4_class.svg" alt="Class diagram of Guess4 class">
+                                        <figcaption>Class diagram of Guess4 class<br>src: <a href="./plantUMLs/ch03/Guess4_class.puml" target="_blank">./plantUMLs/ch03/Guess4_class.puml</a></figcaption>
+                                    </figure>  <!-- standAloneFigure -->
+                                    <figure class="standAloneFigure">
+                                        <img src="./plantUMLs/ch03/Guess4_act.svg" alt="Activity diagram of Guess4.main() method">
+                                        <figcaption>Acivity diagram of Guess4.main() method<br>src: <a href="./plantUMLs/ch03/Guess4_act.puml" target="_blank">./plantUMLs/ch03/Guess4_act.puml</a></figcaption>
+                                    </figure>  <!-- standAloneFigure -->
+                                </div>  <!-- gallery2 -->
+                                <p><b>Execution Logs: </b></p>
+                                <pre><code class="language-plaintext">I am thinking of a letter between A and Z.
+Can you guess it?: A
+...Sorry, you're too low
+Try again!
+
+I am thinking of a letter between A and Z.
+Can you guess it?: BCDK
+...Sorry, you're too low
+Try again!
+
+I am thinking of a letter between A and Z.
+Can you guess it?: M
+...Sorry, you're too high
+Try again!
+
+I am thinking of a letter between A and Z.
+Can you guess it?: K
+** Right **</code></pre>  <!-- plaintext block -->
+                                <p>Notice one other thing of interest in this program. There are two <code>do</code>-<code>while</code> loops in the program. The first loops until the user guesses the letter. Its operation and meaning should be clear. The second <code>do</code>-<code>while</code> loop, shown again here, warrants some explanation:</p>
+                                <pre><code class="language-java">// discard any other characters in the input buffer
+do {
+    ignore = (char) System.in.read();
+} while(ignore != '\n');</code></pre>  <!-- java code -->
+                                <p>As explained earlier, <span class="highlight">console input is line buffered—you have to press <code>ENTER</code> before characters are sent. Pressing <code>ENTER</code> causes a carriage return and a line feed (newline) sequence to be generated. These characters are left pending in the input buffer. Also, if you typed more than one key before pressing ENTER, they too would still be in the input buffer.</span> This loop discards those characters by continuing to read input until the end of the line is reached. If they were not discarded, then those characters would also be sent to the program as guesses, which is not what is wanted. (To see the effect of this, you might try removing the inner <code>do</code>-<code>while</code> loop.) In Chapter 10, after you have learned more about Java, some other, higher-level ways of handling console input are described. However, the use of <code>read()</code> here gives you insight into how the foundation of Java's I/O system operates. It also shows another example of Java's loops in action.</p>
+                            </div>  <!-- content -->
+                        </div>  <!-- right -->
+                    </div>  <!-- lvl1 -->
+                    <div class="lvl1">
+                        <div class="left">
+                            <h2>Ask the Expert</h2>
+                        </div>  <!-- left -->
+                        <div class="right">
+                            <div class="askTheExpert">
+                                <h3 class="top"></h3>
+                                <p class="question">Given the flexibility inherent in all of Java's loops, what criteria should I use when selecting a loop? That is, how do I choose the right loop for a specific job?</p>
+                                <p class="answer">Use a <code>for</code> loop when performing a known number of iterations based on the value of a loop control variable. Use the <code>do</code>-<code>while</code> when you need a loop that will always perform at least one iteration. The <code>while</code> is best used when the loop will repeat until some condition becomes false.</p>
+                            </div>  <!-- askTheExpert -->
+                        </div>  <!-- right -->
+                    </div>  <!-- lvl1 -->
+                    <div class="lvl1">
+                        <div class="left">
+                            <h2>Try This 3-2</h2>
+                        </div>  <!-- left -->
+                        <div class="right">
+                            <div class="content">
+                                <h3 class="tryThis"><span class="hl">TryThis 3-2</span> Improve the Java Help System</h3>
+                                <ul class="tryThisSrc">
+                                    <li><code>Help2.java</code></li>
+                                </ul>
+                                <p>This project expands on the Java help system that was created in Try This 3-1. This version adds the syntax for the <code>for</code>, <code>while</code>, and <code>do</code>-<code>while</code> loops. It also checks the user's menu selection, looping until a valid response is entered.</p>
+                                <ol class="tryThisOl">
+                                    <li>Copy <code>Help.java</code> to a new file called <code>Help2.java</code>.</li>
+                                    <li>
+                                        <div>
+                                            <p>Change the first part of <code>main()</code> so that it uses a loop to display the choices, as shown here:</p>
+                                            <pre><code class="language-java">public static void main(String[] args) 
+throws java.io.IOException {
+char choice, ignore;
+
+do {
+    System.out.println("Help on: ");
+    System.out.println("  1. if");
+    System.out.println("  2. switch");
+    System.out.println("  3. for");
+    System.out.println("  4. while");
+    System.out.println("  5. do-while");
+    System.out.print("Choose one: ");
+
+    choice = (char) System.in.read();  // Get the user input
+
+    do {
+        ignore = (char) System.in.read();
+    } while(ignore != '\n');
+} while(choice < '1' | choice > '5');</code></pre>  <!-- java code -->
+                                            <p>Notice that a nested <code>do</code>-<code>while</code> loop is used to discard any unwanted characters remaining in the input buffer. After making this change, the program will loop, displaying the menu until the user enters a response that is between 1 and 5.</p>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div>
+                                            <p>Expand the <code>switch</code> statement to include the <code>for</code>, <code>while</code>, and <code>do</code>-<code>while</code> loops, as shown here:</p>
+                                            <pre><code class="language-java">switch(choice) {
+    case '1':  // if
+        System.out.println("The if:\n");
+        System.out.println("if(condition) statement;");
+        System.out.println("else statement;");
+        break;
+    case '2':  // switch
+        System.out.println("The switch:\n");
+        System.out.println("switch(expression) {");
+        System.out.println("    case constant:");
+        System.out.println("        statement sequence");
+        System.out.println("        break;");
+        System.out.println("}");
+        break;
+    case '3': // for
+        System.out.println("The for:\n");
+        System.out.println("for(init; condition; iteration)");
+        System.out.println("    statement;");
+        break;
+    case '4': // while
+        System.out.println("The while:\n");
+        System.out.println("while(condition) statement;");
+        break;
+    case '5':  // do-while
+        System.out.println("The do-while:\n");
+        System.out.println("do {");
+        System.out.println("    statement;");
+        System.out.println("} while(condition);");
+        break;
+}</code></pre>  <!-- java code -->
+                                            <p>Notice that no <code>default</code> statement is present in this version of the <code>switch</code>. Since the menu loop ensures that a valid response will be entered, it is no longer necessary to include a <code>default</code> statement to handle an invalid choice.</p>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div>
+                                            <p>Here is the entire <code>Help2.java</code> program listing:</p>
+                                            <p class="srcFile"><a href="../JBG_HS_Ch03/JBG_HS_Ch03_Exmp/Help2.java" target="_blank">../JBG_HS_Ch03/JBG_HS_Ch03_Exmp/Help2.java</a></p>
+                                            <pre><code class="language-java">/**
+ * Try This 3-2 An improved help system that uses a 
+ * do-while to process a menu selection.
+ * 
+ * Call this file Help2.java
+ */
+class Help2 {
+    public static void main(String[] args) 
+        throws java.io.IOException {
+        char choice, ignore;
+
+        do {
+            System.out.println("Help on: ");
+            System.out.println("  1. if");
+            System.out.println("  2. switch");
+            System.out.println("  3. for");
+            System.out.println("  4. while");
+            System.out.println("  5. do-while");
+            System.out.print("Choose one: ");
+
+            choice = (char) System.in.read();  // Get the user input
+
+            do {
+                ignore = (char) System.in.read();
+            } while(ignore != '\n');
+        } while(choice < '1' | choice > '5');
+
+        System.out.println();
+
+        switch(choice) {
+            case '1':  // if
+                System.out.println("The if:\n");
+                System.out.println("if(condition) statement;");
+                System.out.println("else statement;");
+                break;
+            case '2':  // switch
+                System.out.println("The switch:\n");
+                System.out.println("switch(expression) {");
+                System.out.println("    case constant:");
+                System.out.println("        statement sequence");
+                System.out.println("        break;");
+                System.out.println("}");
+                break;
+            case '3': // for
+                System.out.println("The for:\n");
+                System.out.println("for(init; condition; iteration)");
+                System.out.println("    statement;");
+                break;
+            case '4': // while
+                System.out.println("The while:\n");
+                System.out.println("while(condition) statement;");
+                break;
+            case '5':  // do-while
+                System.out.println("The do-while:\n");
+                System.out.println("do {");
+                System.out.println("    statement;");
+                System.out.println("} while(condition);");
+                break;
+        }
+    }
+}</code></pre>  <!-- java code -->
+
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div>
+                                            <p><b>Execution Logs: </b></p>
+                                            <p><u>Execution 1: </u></p>
+                                            <pre><code class="language-plaintext">Help on: 
+  1. if
+  2. switch
+  3. for
+  4. while
+  5. do-while
+Choose one: 1
+
+The if:
+
+if(condition) statement;
+else statement;</code></pre>  <!-- plaintext block -->
+                                            <p><u>Execution 2: </u></p>
+                                            <pre><code class="language-plaintext">Help on: 
+  1. if
+  2. switch
+  3. for
+  4. while
+  5. do-while
+Choose one: 2
+
+The switch:
+
+switch(expression) {
+    case constant:
+        statement sequence
+        break;
+}</code></pre>  <!-- plaintext block -->
+                                            <p><u>Execution 3: </u></p>
+                                            <pre><code class="language-plaintext">Help on: 
+  1. if
+  2. switch
+  3. for
+  4. while
+  5. do-while
+Choose one: 3
+
+The for:
+
+for(init; condition; iteration)
+    statement;</code></pre>  <!-- plaintext block -->
+                                            <p><u>Execution 4: </u></p>
+                                            <pre><code class="language-plaintext">Help on: 
+  1. if
+  2. switch
+  3. for
+  4. while
+  5. do-while
+Choose one: 4
+
+The while:
+
+while(condition) statement;</code></pre>  <!-- plaintext block -->
+                                            <p><u>Execution 5: </u></p>
+                                            <pre><code class="language-plaintext">Help on: 
+  1. if
+  2. switch
+  3. for
+  4. while
+  5. do-while
+Choose one: 5
+
+The do-while:
+
+do {
+    statement;
+} while(condition);</code></pre>  <!-- plaintext block -->
+                                            <p><u>Execution 6: </u></p>
+                                            <pre><code class="language-plaintext">Help on: 
+  1. if
+  2. switch
+  3. for
+  4. while
+  5. do-while
+Choose one: 7
+Help on: 
+  1. if
+  2. switch
+  3. for
+  4. while
+  5. do-while
+Choose one: 0
+Help on: 
+  1. if
+  2. switch
+  3. for
+  4. while
+  5. do-while
+Choose one: 3sdfs
+
+The for:
+
+for(init; condition; iteration)
+    statement;</code></pre>  <!-- plaintext block -->
+                                        </div>
+                                    </li>
+                                </ol>  <!-- tryThisOl -->
+                            </div>  <!-- content -->
+                        </div>  <!-- right -->
+                    </div>  <!-- lvl1 -->
                 </div>  <!-- right -->
             </div>  <!-- lvl0 -->
             <div class="lvl0" id="theoryCh04">

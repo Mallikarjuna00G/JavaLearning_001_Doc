@@ -1,0 +1,34 @@
+@startuml
+skinparam Activity {
+    FontSize 12
+    
+    Diamond {
+        LineColor yellow
+        BackgroundColor burlywood
+        FontSize 14
+        FontStyle bold
+    }
+}
+
+skinparam Partition {
+    BorderColor<<invisible>> none
+    FontColor<<invisible>> none
+}
+title Activity diagram of \n<font name=monospace><color #5132be>WhileDemo.main()</color></font> method
+
+start
+
+:char ch;;
+
+->print the alphabet \nusing a while loop.;
+:ch = 'a';; <<task>>
+
+partition #dfa9cd while loop {
+    while(ch <= 'z') is (<color:green>true)
+        :System.out.println(ch);; <<output>>
+        :ch++;; <<task>>
+    endwhile (<color:red>false)
+}
+
+stop
+@enduml

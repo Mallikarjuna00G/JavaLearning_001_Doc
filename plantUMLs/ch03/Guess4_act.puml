@@ -1,0 +1,55 @@
+@startuml
+skinparam Activity {
+    FontSize 12
+    
+    Diamond {
+        LineColor yellow
+        BackgroundColor burlywood
+        FontSize 14
+        FontStyle bold
+    }
+}
+
+skinparam Partition {
+    BorderColor<<invisible>> none
+    FontColor<<invisible>> none
+}
+title Activity diagram of \n<font name=monospace><color #5132be>Guess4.main()</color></font> method
+
+start
+note : throws java.io.IOException
+
+:char ch, ignore, answer = 'K';;
+
+partition #b9ddd0 do-while loop {
+    repeat
+        :System.out.println("I am thinking of \na letter between A and Z.");; <<output>>
+        :System.out.print("Can you guess it?: ");; <<output>>
+
+        :ch = (char) System.in.read();; <<input>>
+        note : read a character \nfrom the keyboard
+
+        ->discard any other characters \nin the input buffer;
+        partition #a3dfc9 do-while loop {
+            repeat
+                :ignore = (char) System.in.read();; <<input>>
+            repeat while (ignore != '\\n') is (<color:green>true) not (<color:red>false)
+        }
+
+        if(ch == answer) then (<color:green>true)
+            :System.out.println("~** Right ~**");; <<output>>
+        else (<color:red>false)
+            :System.out.print("...Sorry, you're ");; <<output>>
+            ->a nested if;
+            if(ch < answer) then (<color:green>true)
+                :System.out.println("too low");; <<output>>
+            else (<color:red>false)
+                :System.out.println("too high");; <<output>>
+            endif
+            :System.out.println("Try again!\\n");; <<output>>
+        endif
+    repeat while (answer != ch) is (<color:green>true) not (<color:red>false)
+}
+
+stop
+@enduml

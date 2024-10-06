@@ -60,7 +60,7 @@
 		"description": "local snippet:: skinparam for plantuml Activity diagram."
 	},
 	
-	"lsnip::for loop": {
+	"lsnip::for loop plantuml": {
 		"scope": ["plantuml", "puml"],
 		"prefix": "forLoop",
 		"body": [
@@ -72,7 +72,60 @@
 			"    endwhile (<color:red>false)",
 			"}",
 		],
-		"description": "local snippet:: lvl-x class div element."
+		"description": "local snippet:: plantuml for loop."
+	},
+
+	"lsnip::for loop lvl2 color": {
+		"scope": ["plantuml", "puml"],
+		"prefix": "for2Color",
+		"body": [
+			"#8cd06d",
+		],
+		"description": "local snippet:: for loop lvl2 color."
+	},
+
+	"lsnip::while loop plantuml": {
+		"scope": ["plantuml", "puml"],
+		"prefix": "whileLoop",
+		"body": [
+			"partition #dfa9cd while loop {",
+			"    while($1${2| < 10|}) is (<color:green>true)",
+			"        :${3|body|};",
+			"    endwhile (<color:red>false)",
+			"}",
+		],
+		"description": "local snippet:: plantuml while loop"
+	},
+
+	"lsnip::while loop lvl2 color": {
+		"scope": ["plantuml", "puml"],
+		"prefix": "while2Color",
+		"body": [
+			"#e097c8",
+		],
+		"description": "local snippet:: while loop lvl2 color."
+	},
+
+	"lsnip::do-while loop plantuml": {
+		"scope": ["plantuml", "puml"],
+		"prefix": "doWhileLoop",
+		"body": [
+			"partition #b9ddd0 do-while loop {",
+			"    repeat",
+			"        :${3|body|};",
+			"    repeat while ($1${2| < 10|}) is (<color:green>true) not (<color:red>false)",
+			"}",
+		],
+		"description": "local snippet:: plantuml do-while loop"
+	},
+
+	"lsnip::do-while loop lvl2 color": {
+		"scope": ["plantuml", "puml"],
+		"prefix": "doWhile2Color",
+		"body": [
+			"#a3dfc9",
+		],
+		"description": "local snippet:: do-while loop lvl2 color."
 	},
 
 	"lsnip::if condition plantuml": {
@@ -144,15 +197,6 @@
 			"\\<U+200B>t",
 		],
 		"description": "local snippet:: Activity title."
-	},
-
-	"lsnip::for loop lvl2 color": {
-		"scope": ["plantuml", "puml"],
-		"prefix": "for2Color",
-		"body": [
-			"#8cd06d",
-		],
-		"description": "local snippet:: for loop lvl2 color."
 	},
 
 	"lsnip::Switch statement": {

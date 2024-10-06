@@ -1,0 +1,14 @@
+@startuml
+
+title Class diagram of \n<font name=monospace><color #5132be>WhileDemo</color></font> class
+
+class WhileDemo {
+    {method} + {static} main(String[] args): void
+}
+note bottom of WhileDemo
+    file: WhileDemo.java
+    
+    Demonstrate the while loop.
+end note
+
+@enduml
