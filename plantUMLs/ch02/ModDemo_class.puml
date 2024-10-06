@@ -1,0 +1,13 @@
+@startuml
+title Class diagram of \n<font name=monospace><color #5132be>ModDemo</color></font> class
+
+class ModDemo {
+    {method} + {static} main(String[] args): void
+}
+note bottom of ModDemo
+    file: ModDemo.java
+    
+    Demonstrate the 
+    % operator
+end note
+@enduml

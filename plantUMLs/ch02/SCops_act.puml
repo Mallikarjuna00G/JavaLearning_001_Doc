@@ -1,0 +1,57 @@
+@startuml
+<style>
+    Activity {
+        FontSize 12
+        diamond {
+            LineColor yellow
+            BackgroundColor burlywood
+            FontSize 14
+            FontStyle bold
+        }
+    }
+</style>
+title Activity diagram of \n<font name=monospace><color #5132be>SCops.main()</color></font> method
+
+start
+
+:int n, d, q;;
+
+:n = 10;; <<task>>
+:d = 2;; <<task>>
+
+->(d != 0 && (n % d) == 0);
+if(d != 0) then (<color:green>true)
+    if((n % d) == 0) then (<color:green>true)
+        :System.out.println(d + " is a factor of " + n);; <<output>>
+    endif
+endif
+
+
+:d = 0;; <<task>>
+note: now, set d to zero
+
+->(d != 0 && (n % d) == 0)
+since d is zero, the second 
+operand is not evaluated.;
+if(d != 0) then (<color:green>true)
+    if((n % d) == 0) then (<color:green>true)
+        :System.out.println(d + " is a factor of " + n);; <<output>>
+    endif
+    note : Will not enter the block
+endif
+
+->(d != 0 & (n % d) == 0)
+Now, try same thing without 
+short-circuit operator.
+This will cause a divide-by-zero error.;
+
+if(d != 0) then (<color:green>true)
+    if((n % d) == 0) then (<color:green>true)
+        :System.out.println(d + " is a factor of " + n);;  <<output>>
+    endif
+else (<color:red>false)
+    :(n % d) == 0;;  <<task>>
+endif
+
+stop
+@enduml

@@ -1,0 +1,7 @@
+@startuml
+title Class diagram of \nIfDemo class
+
+class IfDemo {
+    {method} + {static} main(String[] args): void
+}
+@enduml

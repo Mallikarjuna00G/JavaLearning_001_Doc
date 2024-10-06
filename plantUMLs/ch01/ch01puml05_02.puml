@@ -1,0 +1,29 @@
+@startuml
+title Activity diagram of \n"Example3.main()" method
+
+start
+:int v;;
+note : This declares an int variable.
+
+:double x;;
+note : This declares a floating-point variable.
+
+:v = 10;; <<task>>
+note : Assign v the value 10.
+
+:x = 10.0;; <<task>>
+note : Assign x the value 10.0.
+
+:System.out.println("Original value of v: " + v);; <<output>>
+:System.out.println("Original value of x: " + x);; <<output>>
+:System.out.println();  // Print a blank line.; <<output>>
+
+->Now, divide both by 4.;
+:v = v / 4;; <<task>>
+:x = x / 4;; <<task>>
+
+:System.out.println("v after division: " + v);; <<output>>
+:System.out.println("x after division: " + x);; <<output>>
+
+stop
+@enduml

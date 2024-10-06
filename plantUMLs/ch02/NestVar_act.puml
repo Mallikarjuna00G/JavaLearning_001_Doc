@@ -1,0 +1,39 @@
+@startuml
+<style>
+    Activity {
+        FontSize 12
+        diamond {
+            LineColor yellow
+            BackgroundColor burlywood
+            FontSize 14
+            FontStyle bold
+        }
+    }
+</style>
+title Activity diagram of \n<font name=monospace><color #5132be>NestVar.main()</color></font> method
+
+start
+
+:int count;;
+
+partition #9bd68d for loop {
+    :count = 0;; <<task>>
+    while(count < 10) is (<color:green>true)
+        :System.out.println("This is count: " + count);; <<output>>
+        :int count;;
+        note : illegal!!!
+
+        partition #8cd06d for loop {
+            :count = 0;; <<task>>
+            while(count < 2) is (<color:green>true)
+                :System.out.println("This \nprogram is in error!");; <<output>>
+                backward:count++;; <<task>>
+            endwhile (<color:red>false)
+        }
+
+        backward:count = count + 1;; <<task>>
+    endwhile (<color:red>false)
+}
+
+stop
+@enduml

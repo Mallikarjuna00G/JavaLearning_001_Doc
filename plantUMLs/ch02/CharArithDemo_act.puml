@@ -1,0 +1,33 @@
+@startuml
+<style>
+    Activity {
+        FontSize 12
+        diamond {
+            LineColor yellow
+            BackgroundColor burlywood
+            FontSize 14
+            FontStyle bold
+        }
+    }
+</style>
+title Activity diagram of \n<font name=monospace><color #5132be>CharArithDemo.main()</color></font> method
+
+start
+
+:char ch;;
+
+:ch = 'X';; <<task>>
+:System.out.println("ch contains " + ch);; <<output>>
+
+:ch++;; <<task>>
+note : increment ch
+
+:System.out.println("ch is now " + ch);; <<output>>
+
+:ch = 90;; <<task>>
+note : give ch the value 'Z'.
+
+:System.out.println("ch is now " + ch);; <<output>>
+
+stop
+@enduml

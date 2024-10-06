@@ -1,0 +1,8 @@
+@startuml
+title Class diagram \nof "Example3"
+
+class Example3 {
+    {method} + {static} main(String[] args): void
+}
+
+@enduml

@@ -1,0 +1,7 @@
+@startuml
+title Class diagram of \n"ForDemo" class
+
+class ForDemo {
+    {method} + {static} main(String[] args): void
+}
+@enduml

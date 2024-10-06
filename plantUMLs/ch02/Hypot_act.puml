@@ -1,0 +1,27 @@
+@startuml
+<style>
+    Activity {
+        FontSize 12
+        diamond {
+            LineColor yellow
+            BackgroundColor burlywood
+            FontSize 14
+            FontStyle bold
+        }
+    }
+</style>
+title Activity diagram of Hypot.main() method
+
+start
+
+:double x, y, z;;
+
+:x = 3;; <<task>>
+:y = 4;; <<task>>
+
+:z = Math.sqrt(x*x + y*y);; <<procedure>>
+
+:System.out.println("Hypotenuse is " + z);; <<output>>
+
+stop
+@enduml

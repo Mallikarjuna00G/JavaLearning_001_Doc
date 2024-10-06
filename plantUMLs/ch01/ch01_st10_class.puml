@@ -1,0 +1,7 @@
+@startuml
+title Class diagram of \nJBG_HS_Ch01_SelfTest_10 class
+
+class JBG_HS_Ch01_SelfTest_10 {
+    {method} + {static} main(String[] args): void
+}
+@enduml

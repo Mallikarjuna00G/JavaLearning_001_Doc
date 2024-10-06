@@ -1,0 +1,27 @@
+@startuml
+<style>
+    Activity {
+        FontSize 12
+        diamond {
+            LineColor yellow
+            BackgroundColor burlywood
+            FontSize 14
+            FontStyle bold
+        }
+    }
+</style>
+title Activity diagram of \n<font name=monospace><color #5132be>LtoD.main()</color></font> method
+
+start
+
+:long L;;
+:double D;;
+
+:L = 100123285L;; <<task>>
+:D = L;; <<task>>
+note : Automatic conversion \nfrom long to double
+
+:System.out.println("L and D: " + L + " " + D);; <<output>>
+
+stop
+@enduml

@@ -1,0 +1,9 @@
+@startuml
+
+title Activity digram of \n`Example.main()` method
+
+start
+    :System.out.println("Java drives the web.");>
+stop
+
+@enduml

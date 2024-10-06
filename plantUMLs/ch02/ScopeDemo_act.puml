@@ -1,0 +1,39 @@
+@startuml
+<style>
+    Activity {
+        FontSize 12
+        diamond {
+            LineColor yellow
+            BackgroundColor burlywood
+            FontSize 14
+            FontStyle bold
+        }
+    }
+</style>
+title Activity diagram of \n<font name=monospace><color #5132be>ScopeDemo.main()</color></font> method
+
+start
+
+:int x;;
+note : known to all \ncode within main
+
+:x = 10;; <<task>>
+
+if(x == 10) then (<color:green>true)
+    :int y = 20;; <<task>>
+    note : known only \nto this block
+
+    ->x and y both \nknown here.;
+    :System.out.println("x and y: " + x + " " + y);; <<output>>
+    :x = y * 2;; <<task>>
+endif
+note : start new scope
+
+:// y = 100;; <<task>>
+note : Error! y not known here \nso commented out
+
+->x is still known here.;
+:System.out.println("x is " + x);; <<output>>
+ 
+stop
+@enduml

@@ -1,0 +1,12 @@
+@startuml
+title Class diagram of \n<font name=monospace><color #5132be>Empty</color></font> class
+
+class Empty {
+    {method} + {static} main(String[] args): void
+}
+note bottom of Empty
+    file: Empty.java
+    
+    Parts of the for can be empty.
+end note
+@enduml

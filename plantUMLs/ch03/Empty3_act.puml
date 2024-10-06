@@ -1,0 +1,34 @@
+@startuml
+skinparam Activity {
+    FontSize 12
+    
+    Diamond {
+        LineColor yellow
+        BackgroundColor burlywood
+        FontSize 14
+        FontStyle bold
+    }
+}
+
+skinparam Partition {
+    BorderColor<<invisible>> none
+    FontColor<<invisible>> none
+}
+title Activity diagram of \n<font name=monospace><color #5132be>Empty3.main()</color></font> method
+
+start
+
+:int i, sum = 0;;
+
+partition #9bd68d for loop {
+    note : No body in \nthis loop
+    :i = 1;; <<task>>
+    while(i <= 5) is (<color:green>true)
+        backward:sum += i++;; <<task>>
+    endwhile (<color:red>false)
+}
+
+:System.out.println("Sum is " + sum);; <<output>>
+
+stop
+@enduml

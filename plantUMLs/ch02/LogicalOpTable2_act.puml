@@ -1,0 +1,181 @@
+@startuml
+<style>
+    Activity {
+        FontSize 12
+        diamond {
+            LineColor yellow
+            BackgroundColor burlywood
+            FontSize 14
+            FontStyle bold
+        }
+    }
+</style>
+title Activity diagram of \n<font name=monospace><color #5132be>LogicalOpTable2.main()</color></font> method
+
+start
+
+:boolean pBoolean, qBoolean;;
+:byte p, q, pANDq, pORq, pXORq, pNOT = 0;;
+:boolean b_pANDq, b_pORq, b_pXORq;;
+
+
+:System.out.println("P\<U+200B>tQ\<U+200B>tAND\<U+200B>tOR\<U+200B>tXOR\<U+200B>tNOT");; <<output>>
+
+:pBoolean = true;; <<task>>
+:qBoolean = true;; <<task>>
+
+:p = 0;; <<task>>
+:q = 0;; <<task>>
+if(pBoolean) then (<color:green>true)
+    :p = 1;; <<task>>
+endif
+if(qBoolean) then (<color:green>true)
+    :q = 1;; <<task>>
+endif
+
+:b_pANDq = pBoolean & qBoolean;; <<task>>
+:pANDq = 0;; <<task>>
+if(b_pANDq) then (<color:green>true)
+    :pANDq = 1;;
+endif
+:b_pORq = pBoolean | qBoolean;; <<task>>
+:pORq = 0;; <<task>>
+if(b_pORq) then (<color:green>true)
+    :pORq = 1;; <<task>>
+endif
+:b_pXORq = pBoolean ^ qBoolean;; <<task>>
+:pXORq = 0;; <<task>>
+if(b_pXORq) then (<color:green>true)
+    :pXORq = 1;; <<task>>
+endif
+
+if(pBoolean) then (<color:green>true)
+    :pNOT = 0;; <<task>>
+endif
+if(!pBoolean) then (<color:green>true)
+    :pNOT = 1;; <<task>>
+endif
+
+:System.out.print(p + "\<U+200B>t" + q + "\<U+200B>t");; <<output>>
+:System.out.print(pANDq + "\<U+200B>t" + pORq + "\<U+200B>t");; <<output>>
+:System.out.println(pXORq + "\<U+200B>t" + pNOT);; <<output>>
+
+:pBoolean = true;; <<task>>
+:qBoolean = false;; <<task>>
+
+:p = 0;; <<task>>
+:q = 0;; <<task>>
+if(pBoolean) then (<color:green>true)
+    :p = 1;; <<task>>
+endif
+if(qBoolean) then (<color:green>true)
+    :q = 1;; <<task>>
+endif
+
+:b_pANDq = pBoolean & qBoolean;; <<task>>
+:pANDq = 0;; <<task>>
+if(b_pANDq) then (<color:green>true)
+    :pANDq = 1;; <<task>>
+endif
+:b_pORq = pBoolean | qBoolean;; <<task>>
+:pORq = 0;; <<task>>
+if(b_pORq) then (<color:green>true)
+    :pORq = 1;; <<task>>
+endif
+:b_pXORq = pBoolean ^ qBoolean;; <<task>>
+:pXORq = 0;; <<task>>
+if(b_pXORq) then (<color:green>true)
+    :pXORq = 1;;  <<task>>
+endif
+
+if(pBoolean) then (<color:green>true)
+    :pNOT = 0;;  <<task>>
+endif
+if(!pBoolean) then (<color:green>true)
+    :pNOT = 1;;  <<task>>
+endif
+
+:System.out.print(p + "\<U+200B>t" + q + "\<U+200B>t");; <<output>>
+:System.out.print(pANDq + "\<U+200B>t" + pORq + "\<U+200B>t");; <<output>>
+:System.out.println(pXORq + "\<U+200B>t" + pNOT);; <<output>>
+
+:pBoolean = false;; <<task>>
+:qBoolean = true;; <<task>>
+
+:p = 0;; <<task>>
+:q = 0;; <<task>>
+if(pBoolean) then (<color:green>true)
+    :p = 1;; <<task>>
+endif
+if(qBoolean) then (<color:green>true)
+    :q = 1;; <<task>>
+endif
+
+:b_pANDq = pBoolean & qBoolean;; <<task>>
+:pANDq = 0;; <<task>>
+if(b_pANDq) then (<color:green>true)
+    :pANDq = 1;; <<task>>
+endif
+:b_pORq = pBoolean | qBoolean;; <<task>>
+:pORq = 0;; <<task>>
+if(b_pORq) then (<color:green>true)
+    :pORq = 1;; <<task>>
+endif
+:b_pXORq = pBoolean ^ qBoolean;; <<task>>
+:pXORq = 0;; <<task>>
+if(b_pXORq) then (<color:green>true)
+    :pXORq = 1;; <<task>>
+endif
+
+if(pBoolean) then (<color:green>true)
+    :pNOT = 0;; <<task>>
+endif
+if(!pBoolean) then (<color:green>true)
+    :pNOT = 1;; <<task>>
+endif
+
+:System.out.print(p + "\<U+200B>t" + q + "\<U+200B>t");; <<output>>
+:System.out.print(pANDq + "\<U+200B>t" + pORq + "\<U+200B>t");; <<output>>
+:System.out.println(pXORq + "\<U+200B>t" + pNOT);; <<output>>
+
+:pBoolean = false;; <<task>>
+:qBoolean = false;; <<task>>
+
+:p = 0;; <<task>>
+:q = 0;; <<task>>
+if(pBoolean) then (<color:green>true)
+    :p = 1;; <<task>>
+endif
+if(qBoolean) then (<color:green>true)
+    :q = 1;; <<task>>
+endif
+
+:b_pANDq = pBoolean & qBoolean;; <<task>>
+:pANDq = 0;; <<task>>
+if(b_pANDq) then (<color:green>true)
+    :pANDq = 1;; <<task>>
+endif
+:b_pORq = pBoolean | qBoolean;; <<task>>
+:pORq = 0;; <<task>>
+if(b_pORq) then (<color:green>true)
+    :pORq = 1;; <<task>>
+endif
+:b_pXORq = pBoolean ^ qBoolean;; <<task>>
+:pXORq = 0;; <<task>>
+if(b_pXORq) then (<color:green>true)
+    :pXORq = 1;; <<task>>
+endif
+
+if(pBoolean) then (<color:green>true)
+    :pNOT = 0;; <<task>>
+endif
+if(!pBoolean) then (<color:green>true)
+    :pNOT = 1;; <<task>>
+endif
+
+:System.out.print(p + "\<U+200B>t" + q + "\<U+200B>t");; <<output>>
+:System.out.print(pANDq + "\<U+200B>t" + pORq + "\<U+200B>t");; <<output>>
+:System.out.println(pXORq + "\<U+200B>t" + pNOT);; <<output>>
+
+stop
+@enduml

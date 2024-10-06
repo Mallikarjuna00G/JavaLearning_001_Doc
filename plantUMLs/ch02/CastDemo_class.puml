@@ -1,0 +1,12 @@
+@startuml
+title Class diagram of \n<font name=monospace><color #5132be>CastDemo</color></font> class
+
+class CastDemo {
+    
+}
+note bottom of CastDemo
+    file: CastDemo.java
+    
+    Demonstrate casting.
+end note
+@enduml

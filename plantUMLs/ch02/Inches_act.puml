@@ -1,0 +1,26 @@
+@startuml
+<style>
+    Activity {
+        FontSize 12
+        diamond {
+            LineColor yellow
+            BackgroundColor burlywood
+            FontSize 14
+            FontStyle bold
+        }
+    }
+</style>
+title Activity diagram of \nInches.main() method
+start
+
+:long ci;;
+:long im;;
+
+:im = 5280 * 12;; <<task>>
+note : There are 12 inches \nin a foot, and \n5280 feet in a mile.
+:ci = im * im * im;; <<task>>
+
+:System.out.println("There are " + \nci + " cubic inches in a cubic mile.");; <<output>>
+
+stop
+@enduml

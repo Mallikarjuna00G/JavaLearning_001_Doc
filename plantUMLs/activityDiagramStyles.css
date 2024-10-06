@@ -1,0 +1,34 @@
+activityDiagram {
+    /* BackgroundColor #33668E; */
+    /* BorderColor #33668E; */
+    /* FontColor #888; */
+    /* FontName arial; */
+
+    diamond {
+        /* BackgroundColor #ccf; */
+        /* LineColor #00FF00; */
+        /* FontColor green; */
+        /* FontName arial; */
+        /* FontSize 15; */
+        BorderColor brown
+    }
+
+    arrow {
+        /* FontColor gold; */
+        /* FontName arial; */
+        /* FontSize 15; */
+    }
+
+    partition {
+        LineColor red;
+        FontColor green;
+        RoundCorner 10;
+        BackgroundColor PeachPuff;
+    }
+    
+    note {
+        FontColor Blue;
+        LineColor Navy;
+        BackgroundColor #ccf;
+    }
+}

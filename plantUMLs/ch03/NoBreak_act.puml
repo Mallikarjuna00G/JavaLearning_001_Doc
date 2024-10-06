@@ -1,0 +1,58 @@
+@startuml
+skinparam Activity {
+    FontSize 12
+    
+    Diamond {
+        LineColor yellow
+        BackgroundColor burlywood
+        FontSize 14
+        FontStyle bold
+    }
+}
+
+skinparam Partition {
+    BorderColor<<invisible>> none
+    FontColor<<invisible>> none
+}
+title Activity diagram of \n<font name=monospace><color #5132be>NoBreak.main()</color></font> method
+
+start
+
+:int i;;
+
+partition #9bd68d for loop {
+    :i = 0;; <<task>>
+    while(i < 5) is (<color:green>true)
+        partition #f7f790 switch statement {
+            switch(i) 
+                case(0)
+                    :System.out.println("i is less than one.");; <<output>>
+                    (1)
+                    detach
+                case(1)
+                    (1)
+                    :System.out.println("i is less than two.");; <<output>>
+                    (2)
+                    detach
+                case(2)
+                    (2)
+                    :System.out.println("i is less than three.");; <<output>>
+                    (3)
+                    detach
+                case(3)
+                    (3)
+                    :System.out.println("i is less than four.");; <<output>>
+                    (4)
+                    detach
+                case(4)
+                    (4)
+                    :System.out.println("i is less than five.");; <<output>>
+            endswitch
+        }
+        :System.out.println();; <<output>>
+        backward:i++;; <<task>>
+    endwhile (<color:red>false)
+}
+
+stop
+@enduml

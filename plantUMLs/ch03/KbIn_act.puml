@@ -1,0 +1,16 @@
+@startuml
+title Activity diagram of \n<font name=monospace><color #5132be>KbIn.main()</color></font> method
+
+start
+note: throws java.io.IOException
+
+:char ch;;
+
+:System.out.print("Press a key followed by ENTER: ");; <<output>>
+:ch = (char) System.in.read();; <<input>>
+note : get a char \nand notice the casting \nto store as char.
+
+:System.out.println("Your key is: " + ch);; <<output>>
+
+stop
+@enduml

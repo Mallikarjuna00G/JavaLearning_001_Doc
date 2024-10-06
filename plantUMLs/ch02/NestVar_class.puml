@@ -1,0 +1,16 @@
+@startuml
+title Class diagram of \n<font name=monospace><color #5132be>NestVar</color></font> class
+
+class NestVar {
+    {method} + {static} main(String[] args): void
+}
+note bottom of NestVar
+    file: NestVar.java
+    
+    This program attempts to declare a variable
+    in an inner scope with the same name as one
+    defined in an outer scope.
+    
+    --- This program will not compile. ---
+end note
+@enduml

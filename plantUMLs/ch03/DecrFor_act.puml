@@ -1,0 +1,34 @@
+@startuml
+skinparam Activity {
+    FontSize 12
+    
+    Diamond {
+        LineColor yellow
+        BackgroundColor burlywood
+        FontSize 14
+        FontStyle bold
+    }
+}
+
+skinparam Partition {
+    BorderColor<<invisible>> none
+    FontColor<<invisible>> none
+}
+
+title Activity diagram of \n<font name=monospace><color #5132be>DecrFor.main()</color></font> method
+
+start
+
+:int x;;
+
+partition #9bd68d for loop {
+    note : Loop control variable \nis decremented by \n5 each time
+    :x = 100;; <<task>>
+    while(x > -100) is (<color:green>true)
+        :System.out.println(x);; <<output>>
+        backward:x -= 5;; <<task>>
+    endwhile (<color:red>false)
+}
+
+stop
+@enduml

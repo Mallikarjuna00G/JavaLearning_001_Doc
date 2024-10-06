@@ -1,0 +1,42 @@
+@startuml
+skinparam Activity {
+    FontSize 12
+    
+    Diamond {
+        LineColor yellow
+        BackgroundColor burlywood
+        FontSize 14
+        FontStyle bold
+    }
+}
+
+skinparam Partition {
+    BorderColor<<invisible>> none
+    FontColor<<invisible>> none
+}
+title Activity diagram of \n<font name=monospace><color #5132be>ForVar.main()</color></font> method
+
+start
+
+:int sum = 0;;
+:int fact = 1;;
+
+->Compute the factorial of the \nnumbers through 5;
+
+partition #9bd68d for loop {
+    note : i is declared inside \nthe for statement
+    :int i = 1;; <<task>>
+    while(i <= 5) is (<color:green>true)
+        ->i is known throughout \nthe loop;
+        :sum += i;; <<task>>
+        :fact *= i;; <<task>>
+        backward:i++;; <<task>>
+    endwhile (<color:red>false)
+}
+->but i is not \nknown here.;
+
+:System.out.println("Sum is " + sum);; <<output>>
+:System.out.println("Factorial is " + fact);; <<output>>
+
+stop
+@enduml

@@ -1,0 +1,27 @@
+@startuml
+<style>
+    Activity {
+        FontSize 12
+        diamond {
+            LineColor yellow
+            BackgroundColor burlywood
+            FontSize 14
+            FontStyle bold
+        }
+    }
+</style>
+title Activity diagram of \n<font name=monospace><color #5132be>DynInit.main()</color></font> method
+
+start
+
+:double radius = 4, height = 5;;
+note : Variable \ninitializations
+
+:double volume = 
+3.1416 * radius * radius * height;; <<task>>
+note : dynamically \ninitialize volume
+
+:System.out.println("Volume is " + volume);; <<output>>
+
+stop
+@enduml

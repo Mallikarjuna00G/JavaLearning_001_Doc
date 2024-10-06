@@ -1,0 +1,33 @@
+@startuml
+<style>
+    Activity {
+        FontSize 12
+        diamond {
+            LineColor yellow
+            BackgroundColor burlywood
+            FontSize 14
+            FontStyle bold
+        }
+    }
+</style>
+title Activity diagram of \n<font name=monospace><color #5132be>Guess2.main()</color></font> method
+
+start
+note : throws java.io.IOException
+
+:char ch, answer = 'K';;
+
+:System.out.println("I am thinking of a \nletter between A and Z.");; <<output>>
+:System.out.print("Can you guess it?: ");; <<output>>
+
+:ch = (char) System.in.read();; <<input>>
+note : read a character \nfrom the keyboard
+
+if(ch == answer) then (<color:green>true)
+    :System.out.println("~** Right ~**");; <<output>>
+else (<color:red>false)
+    :System.out.println("...Sorry, \nyou're wrong.");; <<output>>
+endif
+
+stop
+@enduml

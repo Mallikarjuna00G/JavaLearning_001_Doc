@@ -1,0 +1,30 @@
+@startuml
+<style>
+    Activity {
+        FontSize 12
+        diamond {
+            LineColor yellow
+            BackgroundColor burlywood
+            FontSize 14
+            FontStyle bold
+        }
+    }
+</style>
+title Activity diagram of \n<font name=monospace><color #5132be>UseCast.main()</color></font> method
+
+start
+
+:int i;;
+
+partition #9bd68d for loop {
+    :i = 0; <<task>>
+    while(i < 5) is (<color:green>true)
+        :System.out.println(i + " / 3: " + i / 3);; <<output>>
+        :System.out.println(i + " / 3 with fractions: " + (double) i / 3);; <<output>>
+        :System.out.println();; <<output>>
+        backward:i++;; <<task>>
+    endwhile (<color:red>false)
+}
+
+stop
+@enduml

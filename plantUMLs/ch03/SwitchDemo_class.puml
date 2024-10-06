@@ -1,0 +1,12 @@
+@startuml
+title Class diagram of \n<font name=monospace><color #5132be>SwitchDemo</color></font> class
+
+class SwitchDemo {
+    
+}
+note bottom of SwitchDemo
+    file: SwitchDemo.java
+    
+    Demonstrate the switch.
+end note
+@enduml

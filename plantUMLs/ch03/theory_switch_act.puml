@@ -1,0 +1,36 @@
+@startuml
+skinparam Activity {
+    FontSize 12
+    
+    Diamond {
+        LineColor yellow
+        BackgroundColor burlywood
+        FontSize 14
+        FontStyle bold
+    }
+}
+
+skinparam Partition {
+    BorderColor<<invisible>> none
+    FontColor<<invisible>> none
+}
+
+title Activity diagram of \ngeneral form of switch statement
+
+start
+
+partition #f7f790 switch statement {
+    switch(condition) 
+        case(constant1)
+            :statement sequence;;
+        case(constant2)
+            :statement sequence;;
+        case(constant3)
+            :statement sequence;;
+        case(default)
+            :statement sequence;;
+    endswitch
+}
+
+stop
+@enduml

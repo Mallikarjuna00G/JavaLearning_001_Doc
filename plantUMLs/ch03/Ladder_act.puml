@@ -1,0 +1,39 @@
+@startuml
+<style>
+    Activity {
+        FontSize 12
+        diamond {
+            LineColor yellow
+            BackgroundColor burlywood
+            FontSize 14
+            FontStyle bold
+        }
+    }
+</style>
+!pragma useVerticalIf on
+title Activity diagram of \n<font name=monospace><color #5132be>Ladder.main()</color></font> method
+
+start
+
+:int x;;
+
+partition #9bd68d for loop {
+    :x = 0;; <<task>>
+    while(x < 6) is (<color:green>true)
+        if(x == 1) then (<color:green>true)
+            :System.out.println("x is one");; <<output>>
+        (<color:red>false) elseif(x == 2) then (<color:green>true)
+            :System.out.println("x is two");; <<output>>
+        (<color:red>false) elseif(x == 3) then (<color:green>true)
+            :System.out.println("x is three");; <<output>>
+        (<color:red>false) elseif(x == 4) then (<color:green>true)
+            :System.out.println("x is four");; <<output>>
+        else (<color:red>false)
+            :System.out.println("x is not \nbetween 1 and 4");; <<output>>
+        endif
+        backward:x++;; <<task>>
+    endwhile (<color:red>false)
+}
+
+stop
+@enduml

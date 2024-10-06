@@ -1,0 +1,145 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --header-height: 4%;
+    --header-min-height: 32px;
+    --footer-height: var(--header-height);
+    --footer-min-height: var(--header-min-height);
+    --main-height: calc(100% - var(--header-height) - var(--footer-height));
+}
+
+body {
+    height: 100vh;
+    overflow: hidden;
+    font-family: Tahoma, sans-serif;
+    font-size: medium;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    height: var(--header-height);
+    width: 100%;
+    background-color: burlywood;
+
+    display: flex;
+    justify-content: space-between;
+    vertical-align: middle;
+}
+
+#menuIcon {
+    cursor: pointer;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    height: var(--footer-height);
+    width: 100%;
+    background-color: burlywood;
+
+    display: flex;
+    justify-content: space-around;
+    vertical-align: middle;
+}
+
+main {
+    height: var(--main-height);
+    width: 98%;
+    margin: auto;
+    padding: 4px;
+    top: var(--header-min-height);
+    position: relative;
+    
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+    overflow: auto;
+}
+
+.contentList {
+    min-width: 200px;
+    padding: 4px;
+    box-shadow: 0 0 4px 2px grey;
+    position: sticky;
+    overflow: auto;
+    top: 0;
+    max-height: 88vh;
+    border-radius: 10px 40px 10px 40px;
+}
+
+.contentList > ul > li {
+    list-style: none;
+    text-wrap: wrap;
+    margin: 14px 14px 14px 0;
+    cursor: pointer;
+    overflow: auto;
+    padding: 0 4px;
+    border-radius: 4px 12px 4px 12px;
+    /* color: #28c428; */
+}
+
+.theory {
+    padding: 4px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    max-height: 88vh;
+}
+
+#theoryCoverPage > .left > * {
+    margin: 4px;
+}
+
+.lvl0, .lvl1, .lvl2, .lvl3, .lvl4, .lvl5, .lvl6 {
+    display: flex;
+    flex-direction: row;
+    gap: 14px;
+}
+
+.left {
+    box-shadow: 0 0 4px 2px gray;
+    padding: 8px;
+    min-width: 300px;
+    margin: 8px 0;
+}
+
+.right {
+    margin: 8px 0;
+    min-width: 600px;
+}
+
+.right > * {
+    margin: 8px 0;
+}
+
+.content {
+    box-shadow: 0 0 4px 2px gray;
+    padding: 8px;
+    min-width: 300px;
+    border-radius: 4px;
+    text-align: justify;
+    margin: 4px 0;
+    max-width: 1080px;
+}
+
+.content > * {
+    margin: 8px 0;
+}
+
+.content img {
+    max-width: 960px;
+}
+
+ul, ol {
+    list-style-position: outside;
+    padding-left: 12px;
+}
+
+li {
+    margin: 4px 12px;
+}

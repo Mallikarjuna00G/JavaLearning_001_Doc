@@ -1,0 +1,50 @@
+@startuml
+skinparam Activity {
+    FontSize 12
+    
+    Diamond {
+        LineColor yellow
+        BackgroundColor burlywood
+        FontSize 14
+        FontStyle bold
+    }
+}
+
+skinparam Partition {
+    BorderColor<<invisible>> none
+    FontColor<<invisible>> none
+}
+
+!pragma useVerticalSwitch on
+
+title Activity diagram of \n<font name=monospace><color #5132be>SwitchDemo.main()</color></font> method
+
+start
+
+:int i;;
+
+partition #9bd68d for loop {
+    :i = 0;; <<task>>
+    while(i < 10) is (<color:green>true)
+        partition #f7f790 switch statement {
+            switch(i) 
+                case(0)
+                    :System.out.println("i is zero");; <<output>>
+                case(1)
+                    :System.out.println("i is one");; <<output>>
+                case(2)
+                    :System.out.println("i is two");; <<output>>
+                case(3)
+                    :System.out.println("i is three");; <<output>>
+                case(4)
+                    :System.out.println("i is four");; <<output>>
+                case(default)
+                    :System.out.println("i is five or more");; <<output>>
+            endswitch
+        }
+        backward:i++;; <<task>>
+    endwhile (<color:red>false)
+}
+
+stop
+@enduml

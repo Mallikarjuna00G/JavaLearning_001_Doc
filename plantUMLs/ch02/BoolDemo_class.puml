@@ -1,0 +1,12 @@
+@startuml
+title Class diagram of \n<font name=monospace><color #5132be>BoolDemo</color></font> class
+
+class BoolDemo {
+    {method} + {static} main(String[] args): void
+}
+note bottom of BoolDemo
+    file: BooleDemo.java
+
+    Demonstrate boolean values.
+end note
+@enduml

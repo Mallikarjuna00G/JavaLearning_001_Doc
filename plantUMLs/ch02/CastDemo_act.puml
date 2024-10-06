@@ -1,0 +1,35 @@
+@startuml
+title Activity diagram of \n<font name=monospace><color #5132be>CastDemo.main()</color></font> method
+
+start
+
+:double x, y;;
+:byte b;;
+:int i;;
+:char ch;;
+
+:x = 10.0;; <<task>>
+:y = 3.0;; <<task>>
+
+:i = (int) (x / y);; <<task>>
+note : cast double too int
+:System.out.println("integer outcome of x / y: " + i);; <<output>>
+
+:i = 100;; <<task>>
+:b = (byte) i;; <<task>>
+note : No loss of info here. \nbyte can store 100.
+:System.out.println("Value of b: " + b);; <<output>>
+
+:i = 257;; <<task>>
+:b = (byte) i;; <<task>>
+note : Information loss here. \nbyte cannot hold \nthe value 257.
+:System.out.println("Value of b: " + b);; <<output>>
+
+:b = 88;; <<task>>
+note : ASCII code for x
+:ch = (char) b;; <<task>>
+note : Cast between \nincompatible types.
+:System.out.println("ch: " + ch);; <<output>>
+
+stop
+@enduml

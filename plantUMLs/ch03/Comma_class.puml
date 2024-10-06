@@ -1,0 +1,12 @@
+@startuml
+title Class diagram of \n<font name=monospace><color #5132be>Comma</color></font> class
+
+class Comma {
+    {method} + {static} main(String[] args): void
+}
+note bottom of Comma
+    file: Comma.java
+    
+    Use commas in a for statement.
+end note
+@enduml

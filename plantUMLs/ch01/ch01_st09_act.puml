@@ -1,0 +1,29 @@
+@startuml
+title Activity diagram of \nJBG_HS_Ch01_SelfTest_09.main() method
+<style>
+    Activity {
+        FontSize 12
+        diamond {
+            LineColor yellow
+            BackgroundColor burlywood
+            FontSize 14
+            FontStyle bold
+        }
+    }
+</style>
+start
+
+:double yourWeightOnEarthKgs;;
+note : variable declaration
+:double yourWeightOnMoonKgs;;
+note : variable declaration
+
+:yourWeightOnEarthKgs = 63.2;; <<task>>
+
+:yourWeightOnMoonKgs = yourWeightOnEarthKgs * 0.17;; <<task>>
+note : calculation
+
+:System.out.println("Your weight on earth which is " \n+ yourWeightOnEarthKgs + "Kgs ; is equal to " \n+ yourWeightOnMoonKgs + "Kgs on the moon."); <<output>> 
+
+stop
+@enduml

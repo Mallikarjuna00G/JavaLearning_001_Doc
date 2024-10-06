@@ -1,0 +1,16 @@
+@startuml
+title Activity diagram of \n<font name=monospace><color #5132be>DtoL.main()</color></font> method
+
+start
+
+:long L;;
+:double D;;
+
+:D = 100123285.0;; <<task>>
+:L = D;; <<task>>
+note : Illegal!!! No automatic \nconversion from double \nto long
+
+:System.out.println("L and D: " + L + " " + D);; <<output>>
+
+stop
+@enduml

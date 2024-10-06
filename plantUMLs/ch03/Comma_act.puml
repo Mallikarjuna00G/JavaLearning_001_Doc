@@ -1,0 +1,33 @@
+@startuml
+skinparam Activity {
+    FontSize 12
+    
+    Diamond {
+        LineColor yellow
+        BackgroundColor burlywood
+        FontSize 14
+        FontStyle bold
+    }
+}
+
+skinparam Partition {
+    BorderColor<<invisible>> none
+    FontColor<<invisible>> none
+}
+title Activity diagram of \n<font name=monospace><color #5132be>Comma.main()</color></font> method
+
+start
+
+:int i, j;;
+
+partition #9bd68d for loop {
+    :i = 0;; <<task>>
+    :j = 10;; <<task>>
+    while(i < j) is (<color:green>true)
+        :System.out.println("i and j: " + i + " " + j);; <<output>>
+        backward:i++;\nj--;; <<task>>
+    endwhile (<color:red>false)
+}
+
+stop
+@enduml

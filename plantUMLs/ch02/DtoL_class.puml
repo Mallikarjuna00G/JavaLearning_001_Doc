@@ -1,0 +1,14 @@
+@startuml
+title Class diagram of \n<font name=monospace><color #5132be>DtoL</color></font> class
+
+class DtoL {
+    {method} + {static} main(String[] args): void
+}
+note bottom of DtoL
+    file: DtoL.java
+    
+    Demonstrate automatic conversion from double to long.
+    
+    <i>This program will not compile.</i>
+end note
+@enduml

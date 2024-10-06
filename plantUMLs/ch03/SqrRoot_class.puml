@@ -1,0 +1,12 @@
+@startuml
+title Class diagram of \n<font name=monospace><color #5132be>SqrRoot</color></font> class
+
+class SqrRoot {
+    {method} + {static} main(String[] args): void
+}
+note bottom of SqrRoot
+    file: SqrRoot.java
+    
+    Show square roots of 1 to 99 and the rounding error.
+end note
+@enduml

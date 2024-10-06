@@ -1,0 +1,12 @@
+@startuml
+title Class diagram of \n<font name=monospace><color #5132be>KbIn</color></font> class
+
+class KbIn {
+    
+}
+note bottom of KbIn
+    file: KbIn.java
+    
+    Read a character from keyboard.
+end note
+@enduml

@@ -1,0 +1,7 @@
+@startuml
+title Class diagram of \nGalToLit class
+
+class GalToLit {
+    {method} + {static} main(String[] args): void
+}
+@enduml

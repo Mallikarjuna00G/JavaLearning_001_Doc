@@ -1,0 +1,14 @@
+@startuml
+title Class diagram of \n<font name=monospace><color #5132be>LtoD</color></font> class
+
+class LtoD {
+    {method} + {static} main(String[] args): void
+}
+note bottom of LtoD
+    file: LtoD.java
+    
+    Demonstrate automatic 
+    conversion from long 
+    to double.
+end note
+@enduml

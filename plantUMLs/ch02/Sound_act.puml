@@ -1,0 +1,12 @@
+@startuml
+title Activity diagram of \n<font name=monospace><color #5132be>Sound.main()</color></font> method
+
+start
+
+:double dist;;
+
+:dist = 7.2 * 1100;; <<task>>
+:System.out.println("The lightning is " \n+ dist + " feet away.");; <<output>>
+
+stop
+@enduml

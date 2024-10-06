@@ -1,0 +1,9 @@
+@startuml
+
+title Class digram of \n`Example` class
+
+class Example {
+    {method} + {static} main(String[] args): void
+}
+
+@enduml

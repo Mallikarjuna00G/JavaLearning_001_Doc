@@ -1,0 +1,13 @@
+@startuml
+title Class diagram of \n<font name=monospace><color #5132be>VarInitDemo</color></font> class
+
+class VarInitDemo {
+    {method} + {static} main(String[] args): void
+}
+note bottom of VarInitDemo
+    file: VarInitDemo.java
+    
+    Demonstrate lifetime 
+    of a variable.
+end note
+@enduml

@@ -1,0 +1,13 @@
+@startuml
+title Class diagram of \nInches class
+
+class Inches {
+    {method} + {static} main(String[] args): void
+}
+note bottom of Inches
+    file: Inches.java
+
+    Compute the number of 
+    inches in 1 cubic mile.
+end note
+@enduml

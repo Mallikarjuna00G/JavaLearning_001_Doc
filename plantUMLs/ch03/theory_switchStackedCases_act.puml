@@ -1,0 +1,41 @@
+@startuml
+skinparam Activity {
+    FontSize 12
+    
+    Diamond {
+        LineColor yellow
+        BackgroundColor burlywood
+        FontSize 14
+        FontStyle bold
+    }
+}
+
+skinparam Partition {
+    BorderColor<<invisible>> none
+    FontColor<<invisible>> none
+}
+title Activity diagram of \ncode snippet of stacked \ncases of switch statement
+
+start
+
+partition #f7f790 switch statement {
+    switch(i) 
+        case(1)
+            (2)
+            note : Fall through \nto case 2
+            detach
+        case(2)
+            (2)
+            (3)
+            note : Fall through \nto case 3
+            detach
+        case(3)
+            (3)
+            :System.out.println("i is 1, 2 or 3");; <<output>>
+        case(4)
+            :System.out.println("i is 4");; <<output>>
+    endswitch
+}
+
+stop
+@enduml

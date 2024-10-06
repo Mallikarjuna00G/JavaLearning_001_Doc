@@ -1,0 +1,13 @@
+@startuml
+title Class diagram of \n<font name=monospace><color #5132be>Empty3</color></font> class
+
+class Empty3 {
+    {method} + {static} main(String[] args): void
+}
+note bottom of Empty3
+    file: Empty3.java
+    
+    Body of a loop 
+    can be empty.
+end note
+@enduml

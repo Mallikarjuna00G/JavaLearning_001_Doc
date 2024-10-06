@@ -1,0 +1,59 @@
+@startuml
+<style>
+    Activity {
+        FontSize 12
+        diamond {
+            LineColor yellow
+            BackgroundColor burlywood
+            FontSize 14
+            FontStyle bold
+        }
+    }
+</style>
+title Activity diagram of \n<font name=monospace><color #5132be>SideEffects.main()</color></font> method
+
+start
+
+:int i;;
+
+:i = 0;; <<task>>
+
+-><b>(false & (++i < 100))</b>
+
+Here, i is still incremented 
+even though the if 
+statement fails.;
+
+if(true) then (<color:green>true)
+    if(++i < 100) then (<color:green>true)
+        
+    endif
+else (<color:red>false)
+    :(++i < 100); <<task>>
+    :System.out.println("this won't be displayed.");; <<output>>
+endif
+    
+:System.out.println("if statement executed: " + i); // displays 1; <<output>>
+
+-><b>(false && (++i < 100))</b>
+
+In this case, i is 
+not incremented because
+the short-circuit operator 
+skips the increment.;
+
+if(true) then (<color:green>true)
+    if(++i < 100) then (<color:green>true)
+        
+    endif
+else (<color:red>false)
+    :(++i < 100); <<task>>
+    :System.out.println("this won't be displayed.");; <<output>>
+endif
+
+
+:System.out.println("if statement executed: " + i);; <<output>>
+note : i is still 1 !!
+
+stop
+@enduml

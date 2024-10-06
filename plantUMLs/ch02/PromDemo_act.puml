@@ -1,0 +1,19 @@
+@startuml
+title Activity diagram of \n<font name=monospace><color #5132be>PromDemo.main()</color></font> method
+
+start
+
+:byte b;;
+:int i;;
+
+:b = 10;; <<task>>
+:i = b * b;; <<task>>
+note : OK, no cast needed. \nBecause result is \nalready elevated to \nint.
+
+:b = 10;; <<task>>
+:b = (byte) (b * b);; <<task>>
+note : cast needed!! \nCast is needed \nhere to assign \nan int to a \nbyte!
+:System.out.println("i and b: " + i + " " + b);; <<output>>
+
+stop
+@enduml

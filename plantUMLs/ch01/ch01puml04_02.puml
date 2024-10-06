@@ -1,0 +1,24 @@
+@startuml
+
+title Activity diagram of \n`Example2.main()` method
+
+start
+
+:int myVar1;;
+note : this declares a variable
+:int myVar2;;
+note : this declares another variable
+
+:myVar1 = 1024;; <<task>>
+note : this assigns 1024 to myVar1
+
+:System.out.println("myVar1 contains: " + myVar1);; <<output>>
+
+:myVar2 = myVar1 / 2;; <<task>>
+
+:System.out.print("myVar2 contains myVar1 / 2: ");; <<output>>
+:System.err.println(myVar2);; <<output>>
+
+stop
+
+@enduml

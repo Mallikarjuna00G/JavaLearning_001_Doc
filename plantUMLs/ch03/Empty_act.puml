@@ -1,0 +1,35 @@
+@startuml
+skinparam Activity {
+    FontSize 12
+    
+    Diamond {
+        LineColor yellow
+        BackgroundColor burlywood
+        FontSize 14
+        FontStyle bold
+    }
+}
+
+skinparam Partition {
+    BorderColor<<invisible>> none
+    FontColor<<invisible>> none
+}
+title Activity diagram of \n<font name=monospace><color #5132be>Empty.main()</color></font> method
+
+start
+
+:int i;;
+
+partition #9bd68d for loop {
+    note : iteration \nexpression \nmissing
+    :i = 0;; <<task>>
+    while(i < 10) is (<color:green>true)
+        :System.out.println("Pass #" + i);; <<output>>
+        :i++;; <<task>>
+        note : increment loop \ncontrol var
+        backward:;
+    endwhile (<color:red>false)
+}
+
+stop
+@enduml

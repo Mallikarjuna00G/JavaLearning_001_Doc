@@ -1,0 +1,13 @@
+@startuml
+title Class diagram of \n<font name=monospace><color #5132be>strDemo</color></font> class
+
+class strDemo {
+    {method} + {static} main(String[] args): void
+}
+note bottom of strDemo
+    file: strDemo.java
+
+    Demonstrate escape 
+    sequences in strings.
+end note
+@enduml

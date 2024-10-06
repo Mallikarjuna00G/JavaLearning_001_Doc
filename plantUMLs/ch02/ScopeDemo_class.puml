@@ -1,0 +1,12 @@
+@startuml
+title Class diagram of \n<font name=monospace><color #5132be>ScopeDemo</color></font> class
+
+class ScopeDemo {
+    {method} + {static} main(String[] args): void
+}
+note bottom of ScopeDemo
+    file: ScopeDemo.java
+    
+    Demonstrate block scope.
+end note
+@enduml

@@ -1,0 +1,46 @@
+@startuml
+<style>
+    Activity {
+        FontSize 12
+        diamond {
+            LineColor yellow
+            BackgroundColor burlywood
+            FontSize 14
+            FontStyle bold
+        }
+    }
+</style>
+title Activity diagram of \n<font name=monospace><color #5132be>JBG_HS_Ch02_SelfTest_10.main()</color></font> method
+
+start
+
+:int i, j;;
+
+:System.out.println("Prime numbers between 2 and 100: ");; <<output>>
+:System.out.print("2 ");; <<output>>
+
+partition #9bd68d for loop {
+    :i = 3;; <<task>>
+    while(i < 100) is (<color:green>true)
+        :int upto = (int)(Math.sqrt((double) i)) + 1;; <<task>>
+        :boolean isPrime = true;; <<task>>
+        partition #8cd06d for loop {
+            :j = 2;; <<task>>
+            while(j < upto) is (<color:green>true)
+                if(i % j == 0) then (<color:green>true)
+                    :isPrime = false;;
+                endif
+                backward:j++;; <<task>>
+            endwhile (<color:red>false)
+        }
+        if(isPrime) then (<color:green>true)
+            :System.out.print(i + " ");; <<output>>
+        endif
+        backward:i++;; <<task>>
+    endwhile (<color:red>false)
+}
+
+:System.out.println();; <<output>>
+
+stop
+@enduml

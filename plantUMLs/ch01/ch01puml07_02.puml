@@ -1,0 +1,46 @@
+@startuml
+title Activity diagram of \nIfDemo.main() method
+
+start
+:int a, b, c;;
+note : Declaration of multiple \nvariables of same type
+
+:a = 2;; <<task>>
+:b = 3;; <<task>>
+
+if(a < b) then (true) 
+    :System.out.println("a is less than b");; <<output>>
+endif
+
+if(a == b) then (true)
+    :System.out.println("you won't see this");; <<output>>
+endif
+note : this won't display anything
+
+:System.out.println();; <<output>>
+
+:c = a - b;; <<task>>
+note : c contains -1
+
+:System.out.println("c contains -1");; <<output>>
+if(c >= 0) then (true)
+    :System.out.println("c is non-negative");; <<output>>
+endif
+if(c < 0) then (true)
+    :System.out.println("c is negative");; <<output>>
+endif
+
+:System.out.println();; <<output>>
+
+:c = b - a; // c contains -1; <<task>>
+
+:System.out.println("c contains 1");; <<output>>
+if(c >= 0) then (true)
+    :System.out.println("c is non-negative");; <<output>>
+endif
+if(c < 0) then (true)
+    :System.out.println("c is negative");; <<output>>
+endif
+
+stop
+@enduml

@@ -1,0 +1,53 @@
+@startuml
+skinparam Activity {
+    FontSize 12
+    
+    Diamond {
+        LineColor yellow
+        BackgroundColor burlywood
+        FontSize 14
+        FontStyle bold
+    }
+}
+
+skinparam Partition {
+    BorderColor<<invisible>> none
+    FontColor<<invisible>> none
+}
+
+title Activity diagram of \n<font name=monospace><color #5132be>Help.main()</color></font> method
+
+start
+note : throws java.io.IOException
+
+:char choice;;
+
+:System.out.println("Help on: ");; <<output>>
+:System.out.println("  1. if");; <<output>>
+:System.out.println("  2. switch");; <<output>>
+:System.out.print("Choose one: ");; <<output>>
+
+:choice = (char) System.in.read();; <<input>>
+note : Get the user input
+
+partition #f7f790 switch statement {
+    switch(choice) 
+        case('1')
+            :System.out.println("The if:\\n");; <<output>>
+            :System.out.println("if(condition) statement;");; <<output>>
+            :System.out.println("else statement;");; <<output>>
+        case('2')
+            :System.out.println("The switch:\\n");; <<output>>
+            :System.out.println("switch(expression) {");; <<output>>
+            :System.out.println("    case constant:");; <<output>>
+            :System.out.println("        statement sequence");; <<output>>
+            :System.out.println("        break;");; <<output>>
+            :System.out.println("}");; <<output>>
+        case(default)
+            :System.out.println("Selection not found.");; <<output>>
+    endswitch
+}
+
+stop
+
+@enduml

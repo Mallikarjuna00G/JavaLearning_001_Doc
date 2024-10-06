@@ -1,0 +1,43 @@
+@startuml
+<style>
+    Activity {
+        FontSize 12
+        diamond {
+            LineColor yellow
+            BackgroundColor burlywood
+            FontSize 14
+            FontStyle bold
+        }
+    }
+</style>
+title Activity diagram of \nJBG_HS_Ch01_SelfTest_10.main() method
+
+start
+
+:double inches, meters;;
+:int counter;;
+:int inchesPerFeet = 12;;
+:int runForNFeets = 12;;
+
+:counter = 0;; <<task>>
+
+partition #9bd68d for loop {
+    :inches = 1;; <<task>>
+    while(inches <= (inchesPerFeet * runForNFeets)) is (<color:green>true)
+        :meters = inches / 39.37;; <<task>>
+        note : convert to meters
+        :System.out.println(inches + " inches is " + meters + " meters.");; <<output>>
+
+        :counter++;; <<task>>
+        if(counter == 12) then (<color:green>true)
+            :System.out.println();; <<output>>
+            :counter = 0;; <<task>>
+            note : reset the line counter
+        endif
+        note : every 10th line, \nprint a blank line
+        backward:inches++;; <<task>>
+    endwhile (<color:red>false)
+}
+
+stop
+@enduml

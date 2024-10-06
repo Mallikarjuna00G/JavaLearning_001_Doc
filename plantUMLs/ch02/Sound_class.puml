@@ -1,0 +1,16 @@
+@startuml
+title Class diagram of \n<font name=monospace><color #5132be>Sound</color></font> class
+
+class Sound {
+    {method} + {static} main(String[] args): void
+}
+note bottom of Sound
+    file: Sound.java
+
+    <b>Try This 2-1</b>
+    Compute the distance to 
+    a lightning strike
+    whose sound takes 7.2 
+    seconds to reach you.
+end note
+@enduml

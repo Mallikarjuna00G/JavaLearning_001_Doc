@@ -1,0 +1,35 @@
+@startuml
+title Activity diagram of \n<font name=monospace><color #5132be>LogicalOpTable.main()</color></font> method
+
+start
+
+:boolean p, q;; <<output>>
+
+:System.out.println("P\<U+200B>tQ\<U+200B>tAND\<U+200B>tOR\<U+200B>tXOR\<U+200B>tNOT");; <<output>>
+
+:p = true;; <<task>>
+:q = true;; <<task>>
+:System.out.print(p + "\<U+200B>t" + q + "\<U+200B>t");; <<output>>
+:System.out.print((p & q) + "\<U+200B>t" + (p | q) + "\<U+200B>t");; <<output>>
+:System.out.println((p ^ q) + "\<U+200B>t" + (!p));; <<output>>
+
+:p = true;; <<task>>
+:q = false;; <<task>>
+:System.out.print(p + "\<U+200B>t" + q + "\<U+200B>t");; <<output>>
+:System.out.print((p & q) + "\<U+200B>t" + (p | q) + "\<U+200B>t");; <<output>>
+:System.out.println((p ^ q) + "\<U+200B>t" + (!p));; <<output>>
+
+:p = false;; <<task>>
+:q = true;; <<task>>
+:System.out.print(p + "\<U+200B>t" + q + "\<U+200B>t");; <<output>>
+:System.out.print((p & q) + "\<U+200B>t" + (p | q) + "\<U+200B>t");; <<output>>
+:System.out.println((p ^ q) + "\<U+200B>t" + (!p));; <<output>>
+
+:p = false;; <<task>>
+:q = false;; <<task>>
+:System.out.print(p + "\<U+200B>t" + q + "\<U+200B>t");; <<output>>
+:System.out.print((p & q) + "\<U+200B>t" + (p | q) + "\<U+200B>t");; <<output>>
+:System.out.println((p ^ q) + "\<U+200B>t" + (!p));; <<output>>
+
+stop
+@enduml

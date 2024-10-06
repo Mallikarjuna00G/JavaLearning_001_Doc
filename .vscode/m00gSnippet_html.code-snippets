@@ -1,0 +1,360 @@
+{
+	// Place your JavaLearning_001 workspace snippets here. Each snippet is defined under a snippet name and has a scope, prefix, body and 
+	// description. Add comma separated ids of the languages where the snippet is applicable in the scope field. If scope 
+	// is left empty or omitted, the snippet gets applied to all languages. The prefix is what is 
+	// used to trigger the snippet and the body will be expanded and inserted. Possible variables are: 
+	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. 
+	// Placeholders with the same ids are connected.
+	// Example:
+	// "Print to console": {
+	// 	"scope": "javascript,typescript",
+	// 	"prefix": "log",
+	// 	"body": [
+	// 		"console.log('$1');",
+	// 		"$2"
+	// 	],
+	// 	"description": "local snippet:: Log output to console"
+	// }
+
+	"lsnip::lvl-x class div element": {
+		"scope": "html",
+		"prefix": "lvl",
+		"body": [
+			"<div class=\"lvl$1\">",
+            "    <div class=\"left\">",
+			"        <h4></h4>",
+            "        <h2></h2>",
+            "    </div>  <!-- left -->",
+            "    <div class=\"right\">",
+            "        <div class=\"content\">",
+            "            ",
+            "        </div>  <!-- content -->",
+            "    </div>  <!-- right -->",
+            "</div>  <!-- lvl$1 -->",
+		],
+		"description": "local snippet:: lvl-x class div element."
+	},
+
+	"lsnip::lvl-0 class div element": {
+		"scope": "html",
+		"prefix": "lvl0",
+		"body": [
+			"<div class=\"lvl0\" id=\"theoryCh$1\">",
+            "    <div class=\"left\">",
+			"        <h4>Chapter $1</h4>",
+            "        <h1></h1>",
+            "    </div>  <!-- left -->",
+            "    <div class=\"right\">",
+            "        <div class=\"content\">",
+            "            ",
+            "        </div>  <!-- content -->",
+            "    </div>  <!-- right -->",
+            "</div>  <!-- lvl0 -->",
+		],
+		"description": "local snippet:: lvl-0 class div element."
+	},
+
+	"lsnip::lvl-1 class div element": {
+		"scope": "html",
+		"prefix": "lvl1",
+		"body": [
+			"<div class=\"lvl1\">",
+            "    <div class=\"left\">",
+			"        <h2>$1</h2>",
+            "    </div>  <!-- left -->",
+            "    <div class=\"right\">",
+            "        <div class=\"content\">",
+            "            $2",
+            "        </div>  <!-- content -->",
+            "    </div>  <!-- right -->",
+            "</div>  <!-- lvl1 -->$3",
+		],
+		"description": "local snippet:: lvl-1 class div element."
+	},
+
+	"lsnip::lvl-2 class div element": {
+		"scope": "html",
+		"prefix": "lvl2",
+		"body": [
+			"<div class=\"lvl2\">",
+            "    <div class=\"left\">",
+			"        <h3>$1</h3>",
+            "    </div>  <!-- left -->",
+            "    <div class=\"right\">",
+            "        <div class=\"content\">",
+            "            $2",
+            "        </div>  <!-- content -->",
+            "    </div>  <!-- right -->",
+            "</div>  <!-- lvl2 -->$3",
+		],
+		"description": "local snippet:: lvl-2 class div element."
+	},
+
+	"lsnip::lvl-3 class div element": {
+		"scope": "html",
+		"prefix": "lvl3",
+		"body": [
+			"<div class=\"lvl3\">",
+            "    <div class=\"left\">",
+			"        <h4>$1</h4>",
+            "    </div>  <!-- left -->",
+            "    <div class=\"right\">",
+            "        <div class=\"content\">",
+            "            $2",
+            "        </div>  <!-- content -->",
+            "    </div>  <!-- right -->",
+            "</div>  <!-- lvl3 -->$3",
+		],
+		"description": "local snippet:: lvl-3 class div element."
+	},
+
+	"lsnip::lvl-4 class div element": {
+		"scope": "html",
+		"prefix": "lvl4",
+		"body": [
+			"<div class=\"lvl4\">",
+            "    <div class=\"left\">",
+			"        <h5>$1</h5>",
+            "    </div>  <!-- left -->",
+            "    <div class=\"right\">",
+            "        <div class=\"content\">",
+            "            $2",
+            "        </div>  <!-- content -->",
+            "    </div>  <!-- right -->",
+            "</div>  <!-- lvl4 -->$3",
+		],
+		"description": "local snippet:: lvl-4 class div element."
+	},
+
+	"lsnip::lvl-5 class div element": {
+		"scope": "html",
+		"prefix": "lvl5",
+		"body": [
+			"<div class=\"lvl5\">",
+            "    <div class=\"left\">",
+			"        <h5>$1</h5>",
+            "    </div>  <!-- left -->",
+            "    <div class=\"right\">",
+            "        <div class=\"content\">",
+            "            $2",
+            "        </div>  <!-- content -->",
+            "    </div>  <!-- right -->",
+            "</div>  <!-- lvl5 -->$3",
+		],
+		"description": "local snippet:: lvl-5 class div element."
+	},
+
+	"lsnip::askTheExpert div element": {
+		"scope": "html",
+		"prefix": "askTheExpert",
+		"body": [
+			"<div class=\"askTheExpert\">",
+            "    <h3 class=\"top\"></h3>",
+			"    <p class=\"question\">$1</p>",
+            "    <p class=\"answer\">$2</p>",
+            "</div>  <!-- askTheExpert -->$3",
+		],
+		"description": "local snippet:: askTheExpert div element."
+	},
+
+	"lsnip::table element": {
+		"scope": "html",
+		"prefix": "table",
+		"body": [
+			"<table>",
+			"    <caption><span class=\"capId\">Table $1</span> $2</caption>",
+            "    <thead>",
+			"        <tr>",
+			"            <th></th>",
+            "            <th></th>",
+            "        </tr>",
+			"    </thead>",
+			"    <tbody>",
+			"        <tr>",
+			"            <td></td>",
+            "            <td></td>",
+            "        </tr>",
+			"    </tbody>",
+			"</table>  <!-- table -->",
+		],
+		"description": "local snippet:: table element."
+	},
+
+	"lsnip::figure element": {
+		"scope": "html",
+		"prefix": "figure",
+		"body": [
+			"<figure>",
+            "    <img src=\"$1\" alt=\"$2\">",
+			"    <figcaption>$3</figcaption>",
+			"</figure>  <!-- figure -->$4",
+		],
+		"description": "local snippet:: figure element."
+	},
+
+	"lsnip::stand alone figure element": {
+		"scope": "html",
+		"prefix": "standAloneFigure",
+		"body": [
+			"<figure class=\"standAloneFigure\">",
+            "    <img src=\"$1\" alt=\"$2\">",
+			"    <figcaption>$2<br>src: <a href=\"$3\" target=\"_blank\">$3</a></figcaption>",
+			"</figure>  <!-- standAloneFigure -->$4",
+		],
+		"description": "local snippet:: stand alone figure element."
+	},
+
+	"lsnip::stand alone PUML class diagram figure element": {
+		"scope": "html",
+		"prefix": "pumlClassFigure",
+		"body": [
+			"<figure class=\"standAloneFigure\">",
+            "    <img src=\"$1\" alt=\"Class diagram of $2 class\">",
+			"    <figcaption>Class diagram of $2 class<br>src: <a href=\"$3\" target=\"_blank\">$3</a></figcaption>",
+			"</figure>  <!-- standAloneFigure -->$4",
+		],
+		"description": "local snippet:: stand alone PUML class diagram figure element."
+	},
+
+	"lsnip::stand alone PUML activity diagram figure element": {
+		"scope": "html",
+		"prefix": "pumlActivityFigure",
+		"body": [
+			"<figure class=\"standAloneFigure\">",
+            "    <img src=\"$1\" alt=\"Activity diagram of $2 method\">",
+			"    <figcaption>Activity diagram of $2 method<br>src: <a href=\"$3\" target=\"_blank\">$3</a></figcaption>",
+			"</figure>  <!-- standAloneFigure -->$4",
+		],
+		"description": "local snippet:: stand alone PUML activity diagram figure element."
+	},
+
+	"lsnip::PUML class and activity figure combo": {
+		"scope": "html",
+		"prefix": "comboFigure1",
+		"body": [
+			"<figure class=\"standAloneFigure\">",
+            "    <img src=\"./plantUMLs/ch03/$1_class.svg\" alt=\"Class diagram of $1 class\">",
+			"    <figcaption>Class diagram of $1 class<br>src: <a href=\"./plantUMLs/ch03/$1_class.puml\" target=\"_blank\">./plantUMLs/ch03/$1_class.puml</a></figcaption>",
+			"</figure>  <!-- standAloneFigure -->",
+
+			"<figure class=\"standAloneFigure\">",
+            "    <img src=\"./plantUMLs/ch03/$1_act.svg\" alt=\"Activity diagram of $1.$2() method\">",
+			"    <figcaption>Acivity diagram of $1.$2() method<br>src: <a href=\"./plantUMLs/ch03/$1_act.puml\" target=\"_blank\">./plantUMLs/ch03/$1_act.puml</a></figcaption>",
+			"</figure>  <!-- standAloneFigure -->$3",
+		],
+		"description": "local snippet:: PUML class and activity figure combo."
+	},
+
+	"lsnip::note": {
+		"scope": "html",
+		"prefix": "note",
+		"body": [
+			"<div class=\"note\">",
+            "    <h3 class=\"noteHeading\"></h3>",
+			"    <p>$1</p>",
+			"</div>  <!-- note -->$2",
+		],
+		"description": "local snippet:: note."
+	},
+
+	"lsnip::Embed java code": {
+		"scope": "html",
+		"prefix": "javaCode",
+		"body": [
+			"<pre><code class=\"language-java\">$1</code></pre>  <!-- java code -->$2",
+		],
+		"description": "local snippet:: Embed Java code."
+	},
+
+	"lsnip::Embed plaintext block": {
+		"scope": "html",
+		"prefix": "plaintextBlock",
+		"body": [
+			"<pre><code class=\"language-plaintext\">$1</code></pre>  <!-- plaintext block -->$2",
+		],
+		"description": "local snippet:: plaintext block."
+	},
+
+	"lsnip::TryThis element": {
+		"scope": "html",
+		"prefix": "tryThis",
+		"body": [
+			"<h3 class=\"tryThis\"><span class=\"hl\">TryThis $1</span> $2</h3>",
+			"<ul class=\"tryThisSrc\">",
+			"    <li><code>$3</code></li>",
+			"</ul>",
+		],
+		"description": "local snippet:: TryThis element."
+	},
+
+	"lsnip::TryThis ordered list": {
+		"scope": "html",
+		"prefix": "tryThisOl",
+		"body": [
+			"<ol class=\"tryThisOl\">",
+			"    <li>",
+			"        <div>",
+			"            <p>$1</p>",
+			"        </div>",
+			"    </li>",
+			"</ol>  <!-- tryThisOl -->$2",
+		],
+		"description": "local snippet:: TryThis ordered list."
+	},
+
+	"lsnip::Source file link": {
+		"scope": "html",
+		"prefix": "srcFile",
+		"body": [
+			"<p class=\"srcFile\"><a href=\"$1\" target=\"_blank\">$1</a></p>$2",
+		],
+		"description": "local snippet:: Source file link."
+	},
+
+	"lsnip::Self Test Item": {
+		"scope": "html",
+		"prefix": "selfTestItem",
+		"body": [
+			"<div class=\"selfTestItem\">",
+			"    <div class=\"selfTestQuestion\">",
+			"        <p class=\"question\"><span class=\"questionNumber\">$1: </span>$2</p>",
+			"    </div>  <!-- selfTestQuestion -->",
+			"    <div class=\"selfTestAnswer\">",
+			"        <p class=\"answer\">$3</p>",
+			"    </div>  <!-- selfTestAnswer -->",
+			"</div>  <!-- selfTestItem -->",
+			"<hr class=\"selfTestItemSeparator\">",
+		],
+		"description": "local snippet:: Self test item."
+	},
+
+	"lsnip::Execution logs": {
+		"scope": "html",
+		"prefix": "executionLogs",
+		"body": [
+			"<p><b>Execution Logs: </b></p>",
+		],
+		"description": "local snippet:: Execution Logs"
+	},
+
+	"lsnip::Execution": {
+		"scope": "html",
+		"prefix": "execution",
+		"body": [
+			"<p><u>Execution $1: </u></p>",
+			"<pre><code class=\"language-plaintext\">$2</code></pre>  <!-- plaintext block -->$3",
+		],
+		"description": "local snippet:: Execution"
+	},
+
+	"lsnip::gallery2": {
+		"scope": "html",
+		"prefix": "gallery2",
+		"body": [
+			"<div class=\"gallery2\">",
+			"    ",
+			"</div>  <!-- gallery2 -->",
+		],
+		"description": "local snippet:: gallery2"
+	},
+}

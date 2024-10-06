@@ -1,0 +1,13 @@
+@startuml
+title Class diagram of \n<font name=monospace><color #5132be>Guess2</color></font> class
+
+class Guess2 {
+    {method} + {static} main(String[] args): void
+}
+note bottom of Guess2
+    file: Guess2.java
+    
+    Guess the letter 
+    game. Version 2.
+end note
+@enduml

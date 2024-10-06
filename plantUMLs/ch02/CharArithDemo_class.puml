@@ -1,0 +1,13 @@
+@startuml
+title Class diagram of \n<font name=monospace><color #5132be>CharArithDemo</color></font> class
+
+class CharArithDemo {
+    {method} + {static} main(String[] args): void
+}
+note bottom of CharArithDemo
+    file: CharArithDemo.java
+
+    Character variables can 
+    be handled like integers.
+end note
+@enduml

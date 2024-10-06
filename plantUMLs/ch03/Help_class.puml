@@ -1,0 +1,13 @@
+@startuml
+title Class diagram of \n<font name=monospace><color #5132be>Help</color></font> class
+
+class Help {
+    
+}
+note bottom of Help
+    file: Help.java
+    
+    <b>Try This 3-1</b> 
+    A simple java help system.
+end note
+@enduml

@@ -1,0 +1,40 @@
+@startuml
+skinparam Activity {
+    FontSize 12
+    
+    Diamond {
+        LineColor yellow
+        BackgroundColor burlywood
+        FontSize 14
+        FontStyle bold
+    }
+}
+
+skinparam Partition {
+    BorderColor<<invisible>> none
+    FontColor<<invisible>> none
+}
+
+title Activity diagram of \n<font name=monospace><color #5132be>SqrRoot.main</color></font> method
+
+start
+
+:double num, sroot, rerr;;
+
+partition #9bd68d for loop {
+    :num = 1.0;; <<task>>
+    while(num < 100.0) is (<color:green>true)
+        :sroot = Math.sqrt(num);; <<procedure>>
+        note : <i>sqrt</i> takes double \nas input and gives \noutput as double
+        :System.out.println("Square root of " \n+ num + " is " + sroot);; <<output>>
+
+        ->// compute rounding error;
+        :rerr = num - (sroot * sroot);; <<task>>
+        :System.out.println("Rounding error is " + rerr);; <<output>>
+        :System.out.println();; <<output>>
+        backward:num++;; <<task>>
+    endwhile (<color:red>false)
+}
+
+stop
+@enduml

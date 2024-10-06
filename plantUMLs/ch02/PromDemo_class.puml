@@ -1,0 +1,12 @@
+@startuml
+title Class diagram of \n<font name=monospace><color #5132be>PromDemo</color></font> class
+
+class PromDemo {
+    
+}
+note bottom of PromDemo
+    file: PromDemo.java
+    
+    A promotion surprise!
+end note
+@enduml

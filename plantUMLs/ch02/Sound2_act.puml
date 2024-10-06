@@ -1,0 +1,34 @@
+@startuml
+<style>
+    Activity {
+        FontSize 12
+        diamond {
+            LineColor yellow
+            BackgroundColor burlywood
+            FontSize 14
+            FontStyle bold
+        }
+    }
+</style>
+title Activity diagram of \n<font name=monospace><color #5132be>Sound2.main()</color></font> method
+
+start
+
+:double dist;;
+note : in feet
+
+:double roundTripTime = 4.8;;
+note : in seconds
+
+:double timeForOneWay = roundTripTime / 2;; <<task>>
+note : in seconds
+
+:double speedOfSound = 1100.0;; <<task>>
+note : Speed of sound \nin feet per second.
+
+:dist = timeForOneWay * speedOfSound;; <<task>>
+
+:System.out.println("The object is " \n+ dist + " feet away.");; <<output>>
+
+stop
+@enduml

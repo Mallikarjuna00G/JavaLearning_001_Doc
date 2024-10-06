@@ -1,0 +1,13 @@
+@startuml
+title Class diagram of \n<font name=monospace><color #5132be>RelLogOps</color></font> class
+
+class RelLogOps {
+    {method} + {static} main(String[] args): void
+}
+note bottom of RelLogOps
+    file: RelLogOps.java
+    
+    Demonstrate the relational 
+    and logical operators.
+end note
+@enduml

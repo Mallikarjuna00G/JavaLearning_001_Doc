@@ -1,0 +1,13 @@
+@startuml
+title Class diagram of \n<font name=monospace><color #5132be>LogicalOpTable</color></font> class
+
+class LogicalOpTable {
+    {method} + {static} main(String[] args): void
+}
+note bottom of LogicalOpTable
+    file: LogicalOpTable.java
+    
+    Try This 2-2: a truth table 
+    for the logical operators.
+end note
+@enduml

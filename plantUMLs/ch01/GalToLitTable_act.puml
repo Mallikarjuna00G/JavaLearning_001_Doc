@@ -1,0 +1,39 @@
+@startuml
+<style>
+    Activity {
+        FontSize 12
+        diamond {
+            LineColor yellow
+            BackgroundColor burlywood
+            FontSize 14
+            FontStyle bold
+        }
+    }
+</style>
+title Class diagram of \nGalToLitTable.main() method
+start
+
+:double gallons, liters;;
+:int counter;;
+
+:counter = 0;; <<task>>
+partition #9bd68d for loop {
+    :gallons = 1;; <<task>>
+    while(gallons <= 100) is (<color:green>true)
+        :liters = gallons * 3.7854;; <<task>>
+        note : convert to liters
+        :System.out.println(gallons + " gallons is " + liters + " liters.");; <<output>>
+
+        :counter++;; <<task>>
+        if(counter == 10) then (<color:green>true)
+            :System.out.println();; <<output>>
+            :counter = 0;; <<task>>
+            note : reset the line counter
+        endif
+        note : every 10th line, \nprint a blank line
+        backward:gallons++;; <<task>>
+    endwhile (<color:red>false)
+}
+
+stop
+@enduml

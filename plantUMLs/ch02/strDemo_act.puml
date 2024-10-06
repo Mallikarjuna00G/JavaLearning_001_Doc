@@ -1,0 +1,25 @@
+@startuml
+<style>
+    Activity {
+        FontSize 12
+        diamond {
+            LineColor yellow
+            BackgroundColor burlywood
+            FontSize 14
+            FontStyle bold
+        }
+    }
+</style>
+title Activity diagram of \n<font name=monospace><color #5132be>strDemo.main()</color></font> method
+
+start
+
+:System.out.println("First line\\nSecond line");; <<output>>
+note : Use \\n to \ngenerate a new line.
+:System.out.println("A\<U+200B>tB\<U+200B>tC");; <<output>>
+note : Use tabs to \nalign output
+:System.out.println("D\<U+200B>tE\<U+200B>tF");; <<output>>
+note : Use tabs to \nalign output
+
+stop
+@enduml

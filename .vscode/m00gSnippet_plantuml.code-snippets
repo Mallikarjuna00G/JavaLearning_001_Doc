@@ -1,0 +1,227 @@
+{
+	// Place your JavaLearning_001 workspace snippets here. Each snippet is defined under a snippet name and has a scope, prefix, body and 
+	// description. Add comma separated ids of the languages where the snippet is applicable in the scope field. If scope 
+	// is left empty or omitted, the snippet gets applied to all languages. The prefix is what is 
+	// used to trigger the snippet and the body will be expanded and inserted. Possible variables are: 
+	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. 
+	// Placeholders with the same ids are connected.
+	// Example:
+	// "Print to console": {
+	// 	"scope": "javascript,typescript",
+	// 	"prefix": "log",
+	// 	"body": [
+	// 		"console.log('$1');",
+	// 		"$2"
+	// 	],
+	// 	"description": "local snippet:: Log output to console"
+	// }
+
+
+	// ======================= START: Activity ======================= 
+	"lsnip::styles for puml activity": {
+		"scope": ["plantuml", "puml"],
+		"prefix": "style",
+		"body": [
+			"<style>",
+			"    Activity {",
+			"        FontSize 12",
+			"        diamond {",
+			"            LineColor yellow",
+			"            BackgroundColor burlywood",
+			"            FontSize 14",
+            "            FontStyle bold",
+			"        }",
+			"    }",
+			"</style>",
+		],
+		"description": "local snippet:: Styles for plantuml Activity."
+	},
+
+	"lsnip::skinparam for puml activity diagram": {
+		"scope": ["plantuml", "puml"],
+		"prefix": "skinparamActivity",
+		"body": [
+			"skinparam Activity {",
+			"    FontSize 12",
+			"    ",
+			"    Diamond {",
+			"        LineColor yellow",
+			"        BackgroundColor burlywood",
+			"        FontSize 14",
+			"        FontStyle bold",
+			"    }",
+			"}",
+			"",
+			"skinparam Partition {",
+			"    BorderColor<<invisible>> none",
+			"    FontColor<<invisible>> none",
+			"}",
+		],
+		"description": "local snippet:: skinparam for plantuml Activity diagram."
+	},
+	
+	"lsnip::for loop": {
+		"scope": ["plantuml", "puml"],
+		"prefix": "forLoop",
+		"body": [
+			"partition #9bd68d for loop {",
+			"    :${1|counter|}; <<task>>",
+			"    while($1${2| < 10|}) is (<color:green>true)",
+			"        :${3|body|};",
+			"        backward:$1${4|++|};; <<task>>",
+			"    endwhile (<color:red>false)",
+			"}",
+		],
+		"description": "local snippet:: lvl-x class div element."
+	},
+
+	"lsnip::if condition plantuml": {
+		"scope": ["plantuml", "puml"],
+		"prefix": "ifCondition",
+		"body": [
+			"if($1) then (<color:green>true)",
+			"    :${2|body|};",
+			"endif",
+		],
+		"description": "local snippet:: if condition plantuml."
+	},
+
+	"lsnip::else condition plantuml": {
+		"scope": ["plantuml", "puml"],
+		"prefix": "elseCondition",
+		"body": [
+			"else (<color:red>false)",
+			"    :${2|body|};",
+		],
+		"description": "local snippet:: else condition plantuml."
+	},
+
+	"lsnip::elseif condition plantuml": {
+		"scope": ["plantuml", "puml"],
+		"prefix": "elseifCondition",
+		"body": [
+			"(<color:red>false) elseif($1) then (<color:green>true)",
+			"    :${2|body|};",
+		],
+		"description": "local snippet:: elseif condition plantuml."
+	},
+
+	"lsnip::vertical if plantuml": {
+		"scope": ["plantuml", "puml"],
+		"prefix": "verticalIf",
+		"body": [
+			"!pragma useVerticalIf on",
+		],
+		"description": "local snippet:: vertical if plantuml."
+	},
+
+	"lsnip::Activity start-stop": {
+		"scope": ["plantuml", "puml"],
+		"prefix": "actSS",
+		"body": [
+			"start",
+			"",
+			":${1|body|};",
+			"",
+			"stop",
+		],
+		"description": "local snippet:: Activity start-stop."
+	},
+
+	"lsnip::Activity title": {
+		"scope": ["plantuml", "puml"],
+		"prefix": "actTitle",
+		"body": [
+			"title Activity diagram of \\n<font name=monospace><color #5132be>$1</color></font> method",
+		],
+		"description": "local snippet:: Activity title."
+	},
+
+	"lsnip::Escape tab character": {
+		"scope": ["plantuml", "puml"],
+		"prefix": "escapeTab",
+		"body": [
+			"\\<U+200B>t",
+		],
+		"description": "local snippet:: Activity title."
+	},
+
+	"lsnip::for loop lvl2 color": {
+		"scope": ["plantuml", "puml"],
+		"prefix": "for2Color",
+		"body": [
+			"#8cd06d",
+		],
+		"description": "local snippet:: for loop lvl2 color."
+	},
+
+	"lsnip::Switch statement": {
+		"scope": ["plantuml", "puml"],
+		"prefix": "switchStatement",
+		"body": [
+			"partition #f7f790 switch statement {",
+			"    switch(condition) ",
+			"        case(constant1)",
+			"            :statement sequence;;",
+			"        case(constant2)",
+			"            :statement sequence;;",
+			"        case(constant3)",
+			"            :statement sequence;;",
+			"        case(default)",
+			"            :statement sequence;;",
+			"    endswitch",
+			"}",
+		],
+		"description": "local snippet:: Switch statement."
+	},
+
+	"lsnip::switch statement lvl2 color": {
+		"scope": ["plantuml", "puml"],
+		"prefix": "switch2Color",
+		"body": [
+			"#cfcc93",
+		],
+		"description": "local snippet:: for loop lvl2 color."
+	},
+
+	// ======================= END: Activity ======================= 
+	// ======================= START: Class ======================= 
+	"lsnip::Java main method": {
+		"scope": ["plantuml", "puml"],
+		"prefix": "jMain",
+		"body": [
+			"{method} + {static} main(String[] args): void",
+		],
+		"description": "local snippet:: Java main method."
+	},
+
+	"lsnip::class title": {
+		"scope": ["plantuml", "puml"],
+		"prefix": "classTitle",
+		"body": [
+			"title Class diagram of \\n<font name=monospace><color #5132be>$1</color></font> class",
+		],
+		"description": "local snippet:: class title."
+	},
+
+	"lsnip::class pack": {
+		"scope": ["plantuml", "puml"],
+		"prefix": "classPack",
+		"body": [
+			"class ${1|className|} {",
+			"    ",
+			"}",
+			"note bottom of $1",
+			"    file: $1.java",
+			"    ",
+			"    ",
+			"end note",
+		],
+		"description": "local snippet:: class pack."
+	},
+	// ======================= END: Class ======================= 
+	// ======================= START: Sequence ======================= 
+	// ======================= END: Sequence ======================= 
+	// ======================= START: WBS (Work breakdown Structure) ======================= 
+	// ======================= END: WBS (Work breakdown Structure) ======================= 
+}

@@ -1,0 +1,261 @@
+code:not(pre code) {
+    border: 1px solid lightskyblue;
+    border-radius: 4px;
+    padding: 0 2px;
+    background-color: #add8e650;
+}
+
+em {
+    background-color: #88c55250;
+}
+
+.highlight {
+    background-color: #ecec90;
+    border: 1px solid yellowgreen;
+    padding: 0 2px;
+}
+
+.man::before {
+    content: "\1F468"; /* 👨 man emoji */
+}
+
+.woman::before {
+    content: "\1F469"; /* 👩 woman emoji */
+}
+
+.building::before {
+    content: "\1F3E2"; /* 🏢 skyscrapper */
+}
+
+.man, .woman, .building {
+    border-bottom: 1px solid yellowgreen;
+}
+
+.gallery {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+}
+
+.gallery > figure > img {
+    border-radius: 5px;
+    max-width: 150px;
+    object-fit: cover;
+    aspect-ratio: 3 / 4;
+}
+
+figcaption {
+    font-style: italic;
+    border: 1px solid gray;
+    font-size: small;
+    padding: 0 2px;
+}
+
+.standAloneFigure {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.askTheExpert {
+    box-shadow: 0 0 4px 2px lightseagreen;
+    background-color: #def3f2;
+    padding: 8px;
+    min-width: 300px;
+    border-radius: 4px;
+    text-align: justify;
+}
+
+.askTheExpert > * {
+    margin: 8px 0;
+}
+
+.askTheExpert > .top::before {
+    content: "\1F393 Ask the expert \1F393";
+}
+
+.askTheExpert > .question::before {
+    content: "Question: ";
+    color: red;
+    font-style: italic;
+    font-weight: bold;
+}
+
+.askTheExpert > .question {
+    font-weight: bold;
+}
+
+.askTheExpert > .answer::before {
+    content: "Answer: ";
+    color: Blue;
+    font-style: italic;
+    font-weight: bold;
+}
+
+table {
+    margin: 0 auto;
+}
+
+th, td {
+    border: 1px solid #dddddd;
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.note {
+    box-shadow: 0 0 4px 2px #acac46;
+    background-color: #f1f1ca;
+    padding: 8px;
+    min-width: 300px;
+    border-radius: 4px;
+    text-align: justify;
+    margin: 8px auto;
+}
+
+.note > * {
+    margin: 8px 0;
+}
+
+.note > .noteHeading::before {
+    content: "\1F4DD Note \1F4DD";
+}
+
+.tryThis {
+    padding: 4px;
+    background-color: #918f8f;
+}
+
+.tryThis > .hl {
+    margin: 2px;
+    padding: 2px;
+    background-color: chocolate;
+    color: black;
+}
+
+.tryThisSrc {
+    border: 2px dotted gray;
+    border-radius: 2px;
+    list-style: none;
+    width: fit-content;
+}
+
+.tryThis > li {
+    margin: 8px 2px;
+}
+
+.tryThisOl {
+    /*  */
+}
+
+.gallery2 {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+}
+
+.gallery2 > figure > img {
+    border-radius: 5px;
+    object-fit: cover;
+}
+
+.srcFile {
+    box-shadow: 0 0 2px 2px burlywood;
+    background-color: white;
+    margin: inherit;
+    margin-top: 12px;
+    padding: 4px;
+    background-color: lightgreen;
+}
+
+.srcFile::before {
+    content: url(./images/java-svgrepo-com.svg);
+    margin-right: 8px;
+    background-color: black;
+    padding: 2px;
+    margin-bottom: 8px;
+}
+
+.srcFile::after {
+    content: "\1F517";
+    margin-left: 8px;
+    background-color: black;
+    padding: 2px;
+}
+
+.srcFile > a {
+    font-size: medium;
+    font-style: normal;
+    font-family: monospace;
+    color: black;
+}
+
+.tryThisOl .srcFile, .selfTestAnswer .srcFile {
+    margin-bottom: 8px;
+}
+
+table caption {
+    caption-side: top;
+    text-align: left;
+    font-family: monospace;
+    background-color: #e7e785;
+    padding: 4px;
+}
+
+table .capId {
+    font-weight: bold;
+}
+
+.selfTestItem > * {
+    margin: 8px 0;
+}
+
+.selfTestQuestion {
+    box-shadow: 0 0 4px 2px #ff1d1d;
+    padding: 4px;
+}
+
+.selfTestQuestion .question::before {
+    content: "Question ";
+    font-weight: bold;
+    color: red;
+}
+
+.selfTestQuestion .questionNumber {
+    font-weight: bold;
+    color: red;
+}
+
+.selfTestAnswer {
+    box-shadow: 0 0 4px 2px #1d1dff;
+    padding: 4px;
+}
+
+.selfTestAnswer .answer::before {
+    content: "Answer: ";
+    font-weight: bold;
+    color: blue;
+}
+
+.selfTestItemSeparator {
+    border: none;
+    height: 10px;
+    background-image: linear-gradient(#f1eded, #d4d4d4, #494747, #d4d4d4, #f1eded);
+    margin: 14px 0;
+}
+
+.selfTestAnswer > * {
+    margin: 4px 0;
+}

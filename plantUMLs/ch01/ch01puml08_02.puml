@@ -1,0 +1,26 @@
+@startuml
+<style>
+    Activity {
+        diamond {
+            LineColor yellow
+            BackgroundColor burlywood
+        }
+    }
+</style>
+title Activity diagram of \n"ForDemo.main()" method
+
+start
+:int count;;
+
+partition #9bd68d for loop {
+    :count = 0;; <<task>>
+    while (count < 5) is (<color:green>true)
+        :System.out.println("This is count: " + count);; <<output>>
+        backward:count++;; <<task>>
+    endwhile (<color:red>false)
+}
+
+:System.out.println("Done!");; <<output>>
+
+stop
+@enduml

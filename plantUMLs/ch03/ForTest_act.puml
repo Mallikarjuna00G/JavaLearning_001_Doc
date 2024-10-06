@@ -1,0 +1,35 @@
+@startuml
+skinparam Activity {
+    FontSize 12
+    
+    Diamond {
+        LineColor yellow
+        BackgroundColor burlywood
+        FontSize 14
+        FontStyle bold
+    }
+}
+
+skinparam Partition {
+    BorderColor<<invisible>> none
+    FontColor<<invisible>> none
+}
+title Activity diagram of \n<font name=monospace><color #5132be>ForTest.main()</color></font> method
+
+start
+note : throws java.io.IOException
+
+:int i;;
+
+:System.out.println("Press S to stop.");; <<output>>
+
+partition #9bd68d for loop {
+    :i = 0;; <<task>>
+    while((char) System.in.read() != 'S') is (<color:green>true)
+        :System.out.println("Pass #" + i);; <<output>>
+        backward:i++;; <<task>>
+    endwhile (<color:red>false)
+}
+
+stop
+@enduml

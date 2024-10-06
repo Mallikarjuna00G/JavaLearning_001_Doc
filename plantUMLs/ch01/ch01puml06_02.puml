@@ -1,0 +1,18 @@
+@startuml
+title Activity diagram of\nGalToLit.main() method
+
+start
+:double gallons;;
+note : holds the number of gallons
+:double liters;;
+note : holds conversion to liters
+
+:gallons = 10;; <<task>>
+note : start with 10 gallons
+
+:liters = gallons * 3.7854;; <<task>>
+note : convert to liters
+
+:System.out.println(gallons + " gallons is " + liters + " liters.");; <<output>>
+stop
+@enduml

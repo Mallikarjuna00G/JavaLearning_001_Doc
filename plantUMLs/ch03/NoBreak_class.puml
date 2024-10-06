@@ -1,0 +1,13 @@
+@startuml
+title Class diagram of \n<font name=monospace><color #5132be>NoBreak</color></font> class
+
+class NoBreak {
+    
+}
+note bottom of NoBreak
+    file: NoBreak.java
+    
+    Demonstrate the switch 
+    without break statements.
+end note
+@enduml

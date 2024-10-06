@@ -1,0 +1,15 @@
+@startuml
+
+concise "Language name" as A
+
+@1990
+
+@1991
+A is "Oak"
+
+@1995
+A is "Java" : renamed to
+
+@2000
+
+@enduml

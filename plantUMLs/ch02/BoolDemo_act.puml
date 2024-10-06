@@ -1,0 +1,38 @@
+@startuml
+<style>
+    Activity {
+        FontSize 12
+        diamond {
+            LineColor yellow
+            BackgroundColor burlywood
+            FontSize 14
+            FontStyle bold
+        }
+    }
+</style>
+title Activity diagram of \n<font name=monospace><color #5132be>BoolDemo.main()</color></font> method
+
+start
+
+:boolean b;;
+
+:b = false;; <<task>>
+:System.out.println("b is " + b);; <<output>>
+:b = true;; <<task>>
+:System.out.println("b is " + b);; <<output>>
+
+if(b) then (<color:green>true)
+    :System.out.println("This is executed.");; <<output>>
+endif
+note : a boolean value can \ncontrol the if statement.
+
+:b = false;; <<task>>
+if(b) then (<color:green>true)
+    :System.out.println("This is not executed.");; <<output>>
+endif
+
+:System.out.println("10 > 9 is " + (10 > 9));; <<output>>
+note : Outcome of a \nrelational operator is \na boolean value.
+
+stop
+@enduml

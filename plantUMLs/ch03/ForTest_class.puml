@@ -1,0 +1,12 @@
+@startuml
+title Class diagram of \n<font name=monospace><color #5132be>ForTest</color></font> class
+
+class ForTest {
+    {method} + {static} main(String[] args): void
+}
+note bottom of ForTest
+    file: ForTest.java
+    
+    Loop until an S is typed.
+end note
+@enduml

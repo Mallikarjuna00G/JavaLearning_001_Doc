@@ -1,0 +1,29 @@
+@startuml
+<style>
+    Activity {
+        FontSize 12
+        diamond {
+            LineColor yellow
+            BackgroundColor burlywood
+            FontSize 14
+            FontStyle bold
+        }
+    }
+</style>
+title Activity diagram of \n<font name=monospace><color #5132be>ModDemo.main()</color></font> method
+
+start
+
+:int iresult, irem;;
+:double dresult, drem;;
+
+:iresult = 10 / 3;; <<task>>
+:irem = 10 % 3;; <<task>>
+:dresult = 10.0 / 3.0;; <<task>>
+:drem = 10.0 % 3.0;; <<task>>
+
+:System.out.println("Result and remainder \nof 10 / 3 : " + iresult + " " + irem);; <<output>>
+:System.out.println("Result and remainder \nof 10.0 / 3.0 : " + dresult + " " + drem);; <<output>>
+
+stop
+@enduml

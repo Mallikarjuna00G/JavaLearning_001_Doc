@@ -1,0 +1,16 @@
+@startuml
+title Class diagram of \n<font name=monospace><color #5132be>Sound2</color></font> class
+
+class Sound2 {
+    {method} + {static} main(String[] args): void
+}
+note bottom of Sound2
+    file: Sound2.java
+
+    <b>Try This 2-1-1</b>
+    Compute the distance to 
+    a large object, such as 
+    a rock wall, by timing the echo.
+
+end note
+@enduml

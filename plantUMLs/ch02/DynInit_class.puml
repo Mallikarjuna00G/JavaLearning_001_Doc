@@ -1,0 +1,14 @@
+@startuml
+title Class diagram of \n<font name=monospace><color #5132be>DynInit</color></font> class
+
+class DynInit {
+    {method} + {static} main(String[] args): void
+}
+note bottom of DynInit
+    file: DynInit.java
+
+    Demonstrate dynamic 
+    initialization.
+end note
+
+@enduml

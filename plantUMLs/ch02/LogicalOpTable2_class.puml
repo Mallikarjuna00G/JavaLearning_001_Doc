@@ -1,0 +1,16 @@
+@startuml
+title Class diagram of \n<font name=monospace><color #5132be>LogicalOpTable2</color></font> class
+
+class LogicalOpTable2 {
+    {method} + {static} main(String[] args): void
+}
+note bottom of LogicalOpTable2
+    file: LogicalOpTable2.java
+    
+    <b>Try This 2-2:</b>
+    a truth table for the 
+    logical operators.
+    Print 1's and 0's 
+    instead of true and false.
+end note
+@enduml

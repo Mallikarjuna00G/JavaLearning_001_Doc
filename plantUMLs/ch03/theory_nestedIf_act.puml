@@ -1,0 +1,21 @@
+@startuml
+title Activity diagram of \nnested if code snippet
+
+start
+
+if(i == 10) then (<color:green>true)
+    if(i < 20) then (<color:green>true)
+        :a = b;;
+    endif
+    if(k > 100) then (<color:green>true)
+        :c = d;;
+    else (<color:red>false)
+        :a = c;;
+    endif
+else (<color:red>false)
+    :a = d;;
+endif
+
+stop
+
+@enduml

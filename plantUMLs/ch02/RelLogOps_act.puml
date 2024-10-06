@@ -1,0 +1,67 @@
+@startuml
+<style>
+    Activity {
+        FontSize 12
+        diamond {
+            LineColor yellow
+            BackgroundColor burlywood
+            FontSize 14
+            FontStyle bold
+        }
+    }
+</style>
+title Activity diagram of \n<font name=monospace><color #5132be>RelLogOps.main()</color></font> method
+
+start
+
+:int i, j;;
+:boolean b1, b2;;
+
+:i = 10;; <<task>>
+:j = 11;; <<task>>
+
+if(i < j) then (<color:green>true)
+    :System.out.println("i < j");; <<output>>
+endif
+
+if(i <= j) then (<color:green>true)
+    :System.out.println("i <= j");; <<output>>
+endif
+
+if(i != j) then (<color:green>true)
+    :System.out.println("i != j");; <<output>>
+endif
+
+if(i == j) then (<color:green>true)
+    :System.out.println("This won't execute");; <<output>>
+endif
+
+if(i >= j) then (<color:green>true)
+    :System.out.println("This won't execute");; <<output>>
+endif
+
+if(i > j) then (<color:green>true)
+    :System.out.println("This won't execute");; <<output>>
+endif
+
+:b1 = true;; <<task>>
+:b2 = false;; <<task>>
+
+if(b1 & b2) then (<color:green>true)
+    :System.out.println("This won't execute");; <<output>>
+endif
+
+if(!(b1 & b2)) then (<color:green>true)
+    :System.out.println("!(b1 & b2) is true");; <<output>>
+endif
+
+if(b1 | b2) then (<color:green>true)
+    :System.out.println("b1 | b2 is true");; <<output>>
+endif
+
+if(b1 ^ b2) then (<color:green>true)
+    :System.out.println("b1 ^ b2 is true");; <<output>>
+endif
+
+stop
+@enduml

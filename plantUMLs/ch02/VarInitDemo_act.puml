@@ -1,0 +1,32 @@
+@startuml
+<style>
+    Activity {
+        FontSize 12
+        diamond {
+            LineColor yellow
+            BackgroundColor burlywood
+            FontSize 14
+            FontStyle bold
+        }
+    }
+</style>
+title Activity diagram of \n<font name=monospace><color #5132be>VarInitDemo.main()</color></font> method
+
+start
+
+:int x;;
+
+partition #9bd68d for loop {
+    :x = 0;; <<task>>
+    while(x < 3) is (<color:green>true)
+        :int y = -1;; <<task>>
+        note : y is initialized \neach time block \nis entered.
+        :System.out.println("y is " + y);; <<output>>
+        :y = 100;; <<task>>
+        :System.out.println("y is now " + y);; <<output>>
+        backward:x++;; <<task>>
+    endwhile (<color:red>false)
+}
+
+stop
+@enduml
