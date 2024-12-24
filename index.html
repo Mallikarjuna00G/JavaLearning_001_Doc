@@ -6405,9 +6405,27 @@ class BreakErr {
 }
 </code></pre>  <!-- java code -->
                             <div class="gallery2">
-                                <!-- TODO: Continue here. svg generation pending -->
+                                <figure class="standAloneFigure">
+                                    <img src="./plantUMLs/ch03/BreakErr_class.svg" alt="Class diagram of BreakErr class">
+                                    <figcaption>Class diagram of BreakErr class<br>src: <a href="./plantUMLs/ch03/BreakErr_class.puml" target="_blank">./plantUMLs/ch03/BreakErr_class.puml</a></figcaption>
+                                </figure>  <!-- standAloneFigure -->
+                                <figure class="standAloneFigure">
+                                    <img src="./plantUMLs/ch03/BreakErr_act.svg" alt="Activity diagram of BreakErr.main() method">
+                                    <figcaption>Acivity diagram of BreakErr.main() method<br>src: <a href="./plantUMLs/ch03/BreakErr_act.puml" target="_blank">./plantUMLs/ch03/BreakErr_act.puml</a></figcaption>
+                                </figure>  <!-- standAloneFigure -->
                             </div>  <!-- gallery2 -->
+                            <p><b>Execution Logs: </b></p>
+                            <pre><code class="language-plaintext">BreakErr.java:13: error: undefined label: one
+            if(j == 10) break one;  // WRONG
+                        ^
+1 error</code></pre>  <!-- plaintext block -->
+                                <p>Since the loop labeled one does not enclose the <code>break</code> statement, it is not possible to transfer control to that block.</p>
                             </div>  <!-- content -->
+                            <div class="askTheExpert">
+                                <h3 class="top"></h3>
+                                <p class="question">You say that the <code>goto</code> is unstructured and that the <code>break</code> with a label offers a better alternative. But really, doesn't breaking to a label, which might be many lines of code and levels of nesting removed from the <code>break</code>, also destructure code?</p>
+                                <p class="answer">The short answer is yes! However, in those cases in which a jarring change in program flow is required, breaking to a label still retains some structure. A <code>goto</code> has none!</p>
+                            </div>  <!-- askTheExpert -->
                         </div>  <!-- right -->
                     </div>  <!-- lvl1 -->
                 </div>  <!-- right -->

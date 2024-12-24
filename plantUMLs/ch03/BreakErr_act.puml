@@ -1,0 +1,55 @@
+@startuml
+skinparam Activity {
+    FontSize 12
+    
+    Diamond {
+        LineColor yellow
+        BackgroundColor burlywood
+        FontSize 14
+        FontStyle bold
+    }
+}
+
+skinparam Rectangle {
+    BorderColor<<breakLabel>> Red
+    BorderStyle<<breakLabel>> dashed
+}
+
+skinparam Partition {
+    BorderColor<<invisible>> none
+    FontColor<<invisible>> none
+}
+
+title Activity diagram of \n<font name=monospace><color #5132be>BreakErr.main()</color></font> method
+
+start
+
+rectangle <i>break one</i> as (1) <<breakLabel>> {
+    partition #9bd68d for loop {
+        :i = 0; <<task>>
+        while(i < 3) is (<color:green>true)
+            :System.out.print("Pass " + i + ": ");;<<output>>
+            backward:i++;; <<task>>
+        endwhile (<color:red>false)
+    }
+}
+-><i>break one</i> will \nreach here.;
+#Brown:(1)
+
+partition #9bd68d for loop {
+    :j = 0; <<task>>
+    while(j < 100) is (<color:green>true)
+        if(j == 10) then (<color:green>true)
+            -><color:Green>true</color>\n<i>break 1</i> \njump;
+            #Brown:(1)
+            detach
+        endif
+        note: WRONG. Cannot \nbreak to any \nlabel that is not \ndefined for an \nenclosing block.
+        -><color:Red>false</color>;
+        :System.out.print(j + " ");; <<output>>
+        backward:j++;; <<task>>
+    endwhile (<color:red>false)
+}
+
+stop
+@enduml
