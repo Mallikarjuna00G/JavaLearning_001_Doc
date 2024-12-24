@@ -1,0 +1,37 @@
+@startuml
+skinparam Activity {
+    FontSize 12
+    
+    Diamond {
+        LineColor yellow
+        BackgroundColor burlywood
+        FontSize 14
+        FontStyle bold
+    }
+}
+
+skinparam Partition {
+    BorderColor<<invisible>> none
+    FontColor<<invisible>> none
+}
+title Activity diagram of \n<font name=monospace><color #5132be>Break2.main()</color></font> method
+
+start
+note : throws java.io.IOException
+
+:char ch;;
+
+partition #9bd68d for loop {
+    while() is (<color:green>true)
+        :ch = (char) System.in.read();; <<input>>
+        note : get a char
+        if(ch == 'q') then (<color:green>true)
+            break
+        endif
+    endwhile (<color:red>false)
+}
+
+:System.out.println("You pressed q!");; <<output>>
+
+stop
+@enduml

@@ -1,0 +1,12 @@
+@startuml
+title Class diagram of \n<font name=monospace><color #5132be>Break2</color></font> class
+
+class Break2 {
+    {method} + {static} main(String[] args): void
+}
+note bottom of Break2
+    file: Break2.java
+    
+    Read input until a q is received.
+end note
+@enduml

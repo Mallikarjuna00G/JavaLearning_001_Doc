@@ -1,0 +1,12 @@
+@startuml
+title Class diagram of \n<font name=monospace><color #5132be>BreakDemo</color></font> class
+
+class BreakDemo {
+    {method} + {static} main(String[] args): void
+}
+note bottom of BreakDemo
+    file: BreakDemo.java
+    
+    Using break to exit a loop.
+end note
+@enduml

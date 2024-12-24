@@ -1,0 +1,41 @@
+@startuml
+skinparam Activity {
+    FontSize 12
+    
+    Diamond {
+        LineColor yellow
+        BackgroundColor burlywood
+        FontSize 14
+        FontStyle bold
+    }
+}
+
+skinparam Partition {
+    BorderColor<<invisible>> none
+    FontColor<<invisible>> none
+}
+title Activity diagram of \n<font name=monospace><color #5132be>BreakDemo.main()</color></font> method
+
+start
+
+:int num;;
+
+:num = 100;;
+
+partition #9bd68d for loop {
+    note right : loop while \ni-squared is less \nthan num
+    :int i = 0;; <<task>>
+    while(i < num) is (<color:green>true)
+        if(i * i >= num) then (<color:green>true)
+            break
+        endif
+        note : note that arithmetic operator \ntaking precedence over \nlogical operator in the \nabsence of parentheses.
+        :System.out.print(i + " ");; <<output>>
+        backward:i++;; <<task>>
+    endwhile (<color:red>false)
+}
+
+:System.out.println("Loop complete.");; <<output>>
+
+stop
+@enduml

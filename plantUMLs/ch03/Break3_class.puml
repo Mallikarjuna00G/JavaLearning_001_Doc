@@ -1,0 +1,13 @@
+@startuml
+title Class diagram of \n<font name=monospace><color #5132be>Break3</color></font> class
+
+class Break3 {
+    {method} + {static} main(String[] args): void
+}
+note bottom of Break3
+    file: Break3.java
+    
+    Using break with 
+    nested loops.
+end note
+@enduml

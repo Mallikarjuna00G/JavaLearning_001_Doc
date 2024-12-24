@@ -1,0 +1,48 @@
+@startuml
+skinparam Activity {
+    FontSize 12
+    
+    Diamond {
+        LineColor yellow
+        BackgroundColor burlywood
+        FontSize 14
+        FontStyle bold
+    }
+}
+
+skinparam Partition {
+    BorderColor<<invisible>> none
+    FontColor<<invisible>> none
+}
+
+title Activity diagram of \n<font name=monospace><color #5132be>Break3.main()</color></font> method
+
+start
+
+partition #9bd68d for loop {
+    :int i = 0;; <<task>>
+    while(i < 3) is (<color:green>true)
+        :System.out.println("Outer loop count: " + i);; <<output>>
+        :System.out.print("    Inner loop count: ");; <<output>>
+        
+        :int t = 0;;
+
+        partition #dfa9cd while loop {
+            while(t < 100) is (<color:green>true)
+                if(t == 10) then (<color:green>true)
+                    break
+                endif
+                :System.out.print(t + " ");; <<output>>
+                :t++;; <<task>>
+            endwhile (<color:red>false)
+        }
+        
+        :System.out.println();; <<output>>
+        backward:i++;; <<task>>
+    endwhile (<color:red>false)
+}
+
+:System.out.println("Loops complete.");; <<output>>
+
+stop
+@enduml

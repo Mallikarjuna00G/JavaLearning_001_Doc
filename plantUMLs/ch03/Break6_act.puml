@@ -1,0 +1,78 @@
+@startuml
+skinparam Activity {
+    FontSize 12
+    
+    Diamond {
+        LineColor yellow
+        BackgroundColor burlywood
+        FontSize 14
+        FontStyle bold
+    }
+
+}
+
+skinparam Rectangle {
+    BorderColor<<breakLabel>> Red
+    BorderStyle<<breakLabel>> dashed
+}
+
+skinparam Partition {
+    BorderColor<<invisible>> none
+    FontColor<<invisible>> none
+}
+title Activity diagram of \n<font name=monospace><color #5132be>Break6.main()</color></font> method
+
+start
+
+:int x = 0, y = 0;;
+
+rectangle <i>break stop1</i> as (1) <<breakLabel>> {
+    partition #9bd68d for loop {
+        :x = 0;; <<task>>
+        while(x < 5) is (<color:green>true)
+            partition #8cd06d for loop {
+                :y = 0;; <<task>>
+                while(y < 5) is (<color:green>true)
+                    if(y == 2) then (<color:green>true)
+                        -><color:Green>true</color>\n<i>break stop1</i> \njump;
+                        #Brown:(1)
+                        detach
+                    endif
+                    :System.out.println("x and y: " + x + " " + y);; <<output>>
+                    backward:y++;; <<task>>
+                endwhile (<color:red>false)
+            }
+            backward:x++;; <<task>>
+        endwhile (<color:red>false)
+    }
+}
+-><i>break stop1</i> will \nreach here.;
+#Brown:(1)
+
+:System.out.println();; <<output>>
+
+partition #9bd68d for loop {
+    :x = 0;; <<task>>
+    while(x < 5) is (<color:green>true)
+        rectangle <i>break stop2</i> as (2) <<breakLabel>> {
+            partition #9bd68d for loop {
+                :y = 0;; <<task>>
+                while(y < 5) is (<color:green>true)
+                    if(y == 2) then (<color:green>true)
+                        -><color:Green>true</color>\n<i>break stop2</i> \njump;
+                        #Red:(2)
+                        detach
+                    endif
+                    :System.out.println("x and y: " + x + " " + y);; <<output>>
+                    backward:y++;; <<task>>
+                endwhile (<color:red>false)
+            }
+        }
+        -><i>break stop2</i> will \nreach here.;
+        #Red:(2)
+        backward:x++;; <<task>>
+    endwhile (<color:red>false)
+}
+
+stop
+@enduml

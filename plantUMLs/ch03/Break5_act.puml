@@ -1,0 +1,56 @@
+@startuml
+skinparam Activity {
+    FontSize 12
+    
+    Diamond {
+        LineColor yellow
+        BackgroundColor burlywood
+        FontSize 14
+        FontStyle bold
+    }
+}
+
+skinparam Partition {
+    BorderColor<<invisible>> none
+    FontColor<<invisible>> none
+}
+
+title Activity diagram of \n<font name=monospace><color #5132be>Break5.main()</color></font> method
+
+start
+
+rectangle <i>break done</i> as (1) {
+    partition #9bd68d for loop {
+        :int i = 0;; <<task>>
+        while(i < 10) is (<color:green>true)
+            partition #8cd06d for loop {
+                :int j = 0;; <<task>>
+                while(j < 10) is (<color:green>true)
+                    partition #9bd68d for loop {
+                        :int k = 0;; <<task>>
+                        while(k < 10) is (<color:green>true)
+                            :System.out.println(k + " ");; <<output>>
+                            if(k == 5) then (<color:green>true)
+                                -><color:green>true</color>\n<i>break done</i> \njump;
+                                #Brown:(1)
+                            endif
+                            backward:k++;; <<task>>
+                        endwhile (<color:red>false)
+                    }
+                    :System.out.println("After k loop");; <<output>>
+                    note : won't execute
+                    backward:j++;; <<task>>
+                endwhile (<color:red>false)
+            }
+            :System.out.println("After j loop");; <<output>>
+            note : won't execute
+            backward:i++;; <<task>>
+        endwhile (<color:red>false)
+    }
+}
+-><i>break done</i> will \nreach here.;
+#Brown:(1)
+:System.out.println("After i loop");; <<output>>
+
+stop
+@enduml

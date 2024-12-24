@@ -1,0 +1,12 @@
+@startuml
+title Class diagram of \n<font name=monospace><color #5132be>Break4</color></font> class
+
+class Break4 {
+    {method} + {static} main(String[] args): void
+}
+note bottom of Break4
+    file: Break4.java
+    
+    Using break with a label.
+end note
+@enduml

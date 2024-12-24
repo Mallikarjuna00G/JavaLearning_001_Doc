@@ -1,0 +1,57 @@
+@startuml
+skinparam Activity {
+    FontSize 12
+    
+    Diamond {
+        LineColor yellow
+        BackgroundColor burlywood
+        FontSize 14
+        FontStyle bold
+    }
+}
+
+skinparam Partition {
+    BorderColor<<invisible>> none
+    FontColor<<invisible>> none
+}
+title Activity diagram of \n<font name=monospace><color #5132be>Break4.main()</color></font> method
+
+start
+
+:int i;;
+
+partition #9bd68d for loop {
+    :i = 1;; <<task>>
+    while(i < 4) is (<color:green>true)
+        rectangle lable one{
+            rectangle label two{
+                rectangle label three {
+                    :System.out.println("\ni is " + i);; <<output>>
+                    if(i == 1) then (<color:green>true)
+                        #Red:(1)
+                    endif
+                    if(i == 2) then (<color:green>true)
+                        #Green:(2)
+                    endif
+                    if(i == 3) then (<color:green>true)
+                        #Blue:(3)
+                    endif
+                    :System.out.println("won't print");; <<output>>
+                }
+                #Blue:(3)
+                :System.out.println("After block three.");; <<output>>
+            }
+            #Green:(2)
+            :System.out.println("After block two.");; <<output>>
+        }
+        #Red:(1)
+        :System.out.println("After block one.");; <<output>>
+        backward:i++;; <<task>>
+    endwhile (<color:red>false)
+}
+
+:System.out.println("After for loop.");; <<output>>
+
+stop
+
+@enduml

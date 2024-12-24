@@ -4622,7 +4622,7 @@ i is five or more
 i is five or more
 i is five or more</code></pre>  <!-- plaintext block -->
                                 <p>As you can see, each time through the loop, the statements associated with the case constant that matches <code>i</code> are executed. All others are bypassed. When <code>i</code> is five or greater, no case statements match, so the default statement is executed.</p>
-                                <p>Technically, the <code>break</code> statement is optional, although most applications of the <code>switch</code> will use it. When encountered within the statement sequence of a case, the <code>break</code> statement causes program flow to exit from the entire <code>switch</code> statement and resume at the next statement outside the <code>switch</code>. However, if a break statement does not end the statement sequence associated with a case, then all the statements at and following the matching case will be executed until a <code>break</code> (or the end of the switch) is encountered.</p>
+                                <p>Technically, the <code>break</code> statement is optional, although most applications of the <code>switch</code> will use it. When encountered within the statement sequence of a case, the <code>break</code> statement causes program flow to exit from the entire <code>switch</code> statement and resume at the next statement outside the <code>switch</code>. However, if a <code>break</code> statement does not end the statement sequence associated with a case, then all the statements at and following the matching case will be executed until a <code>break</code> (or the end of the switch) is encountered.</p>
                                 <p>For example, study the following program carefully. Before looking at the output, can you figure out what it will display on the screen?</p>
                                 <p class="srcFile"><a href="../JBG_HS_Ch03/JBG_HS_Ch03_Exmp/NoBreak.java" target="_blank">../JBG_HS_Ch03/JBG_HS_Ch03_Exmp/NoBreak.java</a></p>
                                 <pre><code class="language-java">/**
@@ -6087,6 +6087,326 @@ for(init; condition; iteration)
                                         </div>
                                     </li>
                                 </ol>  <!-- tryThisOl -->
+                            </div>  <!-- content -->
+                        </div>  <!-- right -->
+                    </div>  <!-- lvl1 -->
+                    <div class="lvl1">
+                        <div class="left">
+                            <h2>USE BREAK TO EXIT A LOOP</h2>
+                        </div>  <!-- left -->
+                        <div class="right">
+                            <div class="content">
+                                <p>It is possible to force an immediate exit from a loop, bypassing any remaining code in the body of the loop and the loop's conditional test, by using the <code>break</code> statement. When a <code>break</code> statement is encountered inside a loop, the loop is terminated and program control resumes at the next statement following the loop. Here is a simple example:</p>
+                                <p class="srcFile"><a href="../JBG_HS_Ch03/JBG_HS_Ch03_Exmp/BreakDemo.java" target="_blank">../JBG_HS_Ch03/JBG_HS_Ch03_Exmp/BreakDemo.java</a></p>
+                                <pre><code class="language-java">/**
+ * Using break to exit a loop.
+ * 
+ * Call this file "BreakDemo.java".
+ */
+class BreakDemo {
+    public static void main(String[] args) {
+        int num;
+
+        num = 100;
+
+        // loop while i-squared is less than num
+        for(int i = 0; i < num; i++) {
+            if(i * i >= num) break;  // terminate loop if i * i  >= 100
+            System.out.print(i + " ");
+        }
+        System.out.println("Loop complete.");
+    }
+}</code></pre>  <!-- java code -->
+                                <div class="gallery2">
+                                    <figure class="standAloneFigure">
+                                        <img src="./plantUMLs/ch03/BreakDemo_class.svg" alt="Class diagram of BreakDemo class">
+                                        <figcaption>Class diagram of BreakDemo class<br>src: <a href="./plantUMLs/ch03/BreakDemo_class.puml" target="_blank">./plantUMLs/ch03/BreakDemo_class.puml</a></figcaption>
+                                    </figure>  <!-- standAloneFigure -->
+                                    <figure class="standAloneFigure">
+                                        <img src="./plantUMLs/ch03/BreakDemo_act.svg" alt="Activity diagram of BreakDemo.main() method">
+                                        <figcaption>Acivity diagram of BreakDemo.main() method<br>src: <a href="./plantUMLs/ch03/BreakDemo_act.puml" target="_blank">./plantUMLs/ch03/BreakDemo_act.puml</a></figcaption>
+                                    </figure>  <!-- standAloneFigure -->
+                                </div>  <!-- gallery2 -->
+                                <p><b>Execution Logs: </b></p>
+                                <pre><code class="language-plaintext">0 1 2 3 4 5 6 7 8 9 Loop complete.</code></pre>  <!-- plaintext block -->
+                                <p>As you can see, although the <code>for</code> loop is designed to run from 0 to <code>num</code> (which in this case is 100), the <code>break</code> statement causes it to terminate early, when <code>i</code> squared is greater than or equal to num.</p>
+                                <p>The <code>break</code> statement can be used with any of Java's loops, including intentionally infinite loops. For example, the following program simply reads input until the user types the letter <code>q</code>:</p>
+                                <p class="srcFile"><a href="../JBG_HS_Ch03/JBG_HS_Ch03_Exmp/Break2.java" target="_blank">../JBG_HS_Ch03/JBG_HS_Ch03_Exmp/Break2.java</a></p>
+                                <pre><code class="language-java">/**
+ * Read input until a q is received.
+ * 
+ * Call this file "Break2.java".
+ */
+class Break2 {
+    public static void main(String[] args)
+        throws java.io.IOException {
+        char ch;
+
+        for(;;) {
+            ch = (char) System.in.read();  // get a char
+            if(ch == 'q') break;
+        }
+        System.out.println("You pressed q!");
+    }
+}</code></pre>  <!-- java code -->
+                                <div class="gallery2">
+                                    <figure class="standAloneFigure">
+                                        <img src="./plantUMLs/ch03/Break2_class.svg" alt="Class diagram of Break2 class">
+                                        <figcaption>Class diagram of Break2 class<br>src: <a href="./plantUMLs/ch03/Break2_class.puml" target="_blank">./plantUMLs/ch03/Break2_class.puml</a></figcaption>
+                                    </figure>  <!-- standAloneFigure -->
+                                    <figure class="standAloneFigure">
+                                        <img src="./plantUMLs/ch03/Break2_act.svg" alt="Activity diagram of Break2.main() method">
+                                        <figcaption>Acivity diagram of Break2.main() method<br>src: <a href="./plantUMLs/ch03/Break2_act.puml" target="_blank">./plantUMLs/ch03/Break2_act.puml</a></figcaption>
+                                    </figure>  <!-- standAloneFigure -->
+                                </div>  <!-- gallery2 -->
+                                <p><b>Execution Logs: </b></p>
+                                <pre><code class="language-plaintext">a
+b
+qsaas
+You pressed q!</code></pre>  <!-- plaintext block -->
+                                <p>When used inside a set of nested loops, the <code>break</code> statement will break out of only the innermost loop. For example:</p>
+                                <p class="srcFile"><a href="../JBG_HS_Ch03/JBG_HS_Ch03_Exmp/Break3.java" target="_blank">../JBG_HS_Ch03/JBG_HS_Ch03_Exmp/Break3.java</a></p>
+                                <pre><code class="language-java">/**
+ * Using break with nested loops.
+ * 
+ * Call this file "Break3.java".
+ */
+class Break3 {
+    public static void main(String[] args) {
+        for(int i = 0; i < 3; i++) {
+            System.out.println("Outer loop count: " + i);
+            System.out.print("    Inner loop count: ");
+
+            int t = 0;
+            while(t < 100) {
+                if(t == 10) break;  // terminate loop if t is 10
+                System.out.print(t + " ");
+                t++;
+            }
+            System.out.println();
+        }
+        System.out.println("Loops complete.");
+    }
+}</code></pre>  <!-- java code -->
+                                <div class="gallery2">
+                                    <figure class="standAloneFigure">
+                                        <img src="./plantUMLs/ch03/Break3_class.svg" alt="Class diagram of Break3 class">
+                                        <figcaption>Class diagram of Break3 class<br>src: <a href="./plantUMLs/ch03/Break3_class.puml" target="_blank">./plantUMLs/ch03/Break3_class.puml</a></figcaption>
+                                    </figure>  <!-- standAloneFigure -->
+                                    <figure class="standAloneFigure">
+                                        <img src="./plantUMLs/ch03/Break3_act.svg" alt="Activity diagram of Break3.main() method">
+                                        <figcaption>Acivity diagram of Break3.main() method<br>src: <a href="./plantUMLs/ch03/Break3_act.puml" target="_blank">./plantUMLs/ch03/Break3_act.puml</a></figcaption>
+                                    </figure>  <!-- standAloneFigure -->
+                                </div>  <!-- gallery2 -->
+                                <p><b>Execution Logs: </b></p>
+                                <pre><code class="language-plaintext">Outer loop count: 0
+    Inner loop count: 0 1 2 3 4 5 6 7 8 9 
+Outer loop count: 1
+    Inner loop count: 0 1 2 3 4 5 6 7 8 9 
+Outer loop count: 2
+    Inner loop count: 0 1 2 3 4 5 6 7 8 9 
+Loops complete.</code></pre>  <!-- plaintext block -->
+                                <p>As you can see, the <code>break</code> statement in the inner loop causes the termination of only that loop. The outer loop is unaffected.</p>
+                                <p>Here are two other points to remember about <code>break</code>.</p>
+                                <ul>
+                                    <li>First, more than one <code>break</code> statement may appear in a loop. However, be careful. Too many <code>break</code> statements have the tendency to destructure your code.</li>
+                                    <li>Second, the <code>break</code> that terminates a <code>switch</code> statement affects only that <code>switch</code> statement and not any enclosing loops.</li>
+                                </ul>
+                            </div>  <!-- content -->
+                        </div>  <!-- right -->
+                    </div>  <!-- lvl1 -->
+                    <div class="lvl1">
+                        <div class="left">
+                            <h2>USE BREAK AS A FORM OF GOTO</h2>
+                        </div>  <!-- left -->
+                        <div class="right">
+                            <div class="content">
+                                <p>In addition to its uses with the <code>switch</code> statement and loops, the <code>break</code> statement can be employed by itself to provide a <span class="highlight">"civilized" form of the <code>goto</code> statement. Java does not have a <code>goto</code> statement, because it provides an unstructured way to alter the flow of program execution.</span> Programs that make extensive use of the <code>goto</code> are usually hard to understand and hard to maintain. There are, however, a few places where the <code>goto</code> is a useful and legitimate device. For example, the <code>goto</code> can be helpful when exiting from a deeply nested set of loops. To handle such situations, Java defines an expanded form of the <code>break</code> statement. By using this form of <code>break</code>, you can, for example, break out of one or more blocks of code. These blocks need not be part of a loop or a switch. They can be any block. Further, you can specify precisely where execution will resume, because this form of <code>break</code> works with a <em>label</em>. As you will see, <code>break</code> gives you the benefits of a <code>goto</code> without its problems.</p>
+                                <p>The general form of the labeled <code>break</code> statement is shown here:</p>
+                                <pre><code class="language-plaintext">break label;</code></pre>  <!-- plaintext block -->
+                                <p><span class="highlight">Typically, <em><code>label</code> is the name of a label that identifies a block of code</em>. When this form of <code>break</code> executes, control is transferred out of the named block of code. The labeled block of code must enclose the <code>break</code> statement, but it does not need to be the immediately enclosing block. This means that you can use a labeled <code>break</code> statement to exit from a set of nested blocks. But you cannot use <code>break</code> to transfer control to a block of code that does not enclose the <code>break</code> statement.</span></p>
+                                <p>To name a block, put a label at the start of it. The block being labeled can be a stand-alone block, or a statement that has a block as its target. A label is any valid Java identifier followed by a colon. Once you have labeled a block, you can then use this label as the target of a <code>break</code> statement. Doing so <span class="highlight">causes execution to resume at the end of the labeled block</span>. For example, the following program shows three nested blocks:</p>
+                                <p class="srcFile"><a href="../JBG_HS_Ch03/JBG_HS_Ch03_Exmp/Break4.java" target="_blank">../JBG_HS_Ch03/JBG_HS_Ch03_Exmp/Break4.java</a></p>
+                                <pre><code class="language-java">/**
+ * Using break with a label.
+ * 
+ * Call this file "Break4.java".
+ */
+class Break4 {
+    public static void main(String[] args) {
+        int i;
+
+        for(i = 1; i < 4; i++) {
+            one: {
+                two: {
+                    three: {
+                        System.out.println("\ni is " + i);
+                        if(i == 1) break one;
+                        if(i == 2) break two;
+                        if(i == 3) break three;
+
+                        System.out.println("won't print");
+                    }  // label three: control reaches here when `break three` is detected.
+                    System.out.println("After block three.");
+                }  // label two: control reaches here when `break two` is detected.
+                System.out.println("After block two.");
+            }  // label one: control reaches here when `break one` is detected.
+            System.out.println("After block one.");
+        }
+        System.out.println("After for loop.");
+    }
+}</code></pre>  <!-- java code -->
+                                <div class="gallery2">
+                                    <figure class="standAloneFigure">
+                                        <img src="./plantUMLs/ch03/Break4_class.svg" alt="Class diagram of Break4 class">
+                                        <figcaption>Class diagram of Break4 class<br>src: <a href="./plantUMLs/ch03/Break4_class.puml" target="_blank">./plantUMLs/ch03/Break4_class.puml</a></figcaption>
+                                    </figure>  <!-- standAloneFigure -->
+                                    <figure class="standAloneFigure">
+                                        <img src="./plantUMLs/ch03/Break4_act.svg" alt="Activity diagram of Break4.main() method">
+                                        <figcaption>Acivity diagram of Break4.main() method<br>src: <a href="./plantUMLs/ch03/Break4_act.puml" target="_blank">./plantUMLs/ch03/Break4_act.puml</a></figcaption>
+                                    </figure>  <!-- standAloneFigure -->
+                                </div>  <!-- gallery2 -->
+                                <p><b>Execution Logs: </b></p>
+                                <pre><code class="language-plaintext">
+i is 1
+After block one.
+
+i is 2
+After block two.
+After block one.
+
+i is 3
+After block three.
+After block two.
+After block one.
+After for loop.</code></pre>  <!-- plaintext block -->
+                                <p>Let's look closely at the program to understand precisely why this output is produced.</p>
+                                <ul>
+                                    <li>When <code>i</code> is 1, the first <code>if</code> statement succeeds, causing a <code>break</code> to the end of the block of code defined by label <code>one</code>. This causes <code>After block one.</code> to print.</li>
+                                    <li>When <code>i</code> is 2, the second <code>if</code> succeeds, causing control to be transferred to the end of the block labeled by <code>two</code>. This causes the messages <code>After block two.</code> and <code>After block one.</code> to be printed, in that order.</li>
+                                    <li>When <code>i</code> is 3, the third <code>if</code> succeeds, and control is transferred to the end of the block labeled by <code>three</code>. Now, all three messages are displayed.</li>
+                                </ul>
+                                <p>Here is another example. This time, <code>break</code> is being used to jump outside of a series of nested <code>for</code> loops. When the <code>break</code> statement in the inner loop is executed, program control jumps to the end of the block defined by the outer <code>for</code> loop, which is labeled by <code>done</code>. This causes the remainder of all three loops to be bypassed.</p>
+                                <p class="srcFile"><a href="../JBG_HS_Ch03/JBG_HS_Ch03_Exmp/Break5.java" target="_blank">../JBG_HS_Ch03/JBG_HS_Ch03_Exmp/Break5.java</a></p>
+                                <pre><code class="language-java">/**
+ * Another example of using break with a label.
+ * 
+ * Call this file "Break5.java".
+ */
+class Break5 {
+    public static void main(String[] args) {
+        done: 
+        for(int i = 0; i < 10; i++) {
+            for(int j = 0; j < 10; j++) {
+                for(int k = 0; k < 10; k++) {
+                    System.out.println(k + " ");
+                    if(k == 5) break done;
+                }
+                System.out.println("After k loop");  // won't execute
+            }
+            System.out.println("After j loop");  // won't execute
+        }
+        // `break done` will reach here.
+        System.out.println("After i loop");
+    }
+}</code></pre>  <!-- java code -->
+                                <div class="gallery2">
+                                    <figure class="standAloneFigure">
+                                        <img src="./plantUMLs/ch03/Break5_class.svg" alt="Class diagram of Break5 class">
+                                        <figcaption>Class diagram of Break5 class<br>src: <a href="./plantUMLs/ch03/Break5_class.puml" target="_blank">./plantUMLs/ch03/Break5_class.puml</a></figcaption>
+                                    </figure>  <!-- standAloneFigure -->
+                                    <figure class="standAloneFigure">
+                                        <img src="./plantUMLs/ch03/Break5_act.svg" alt="Activity diagram of Break5.main() method">
+                                        <figcaption>Acivity diagram of Break5.main() method<br>src: <a href="./plantUMLs/ch03/Break5_act.puml" target="_blank">./plantUMLs/ch03/Break5_act.puml</a></figcaption>
+                                    </figure>  <!-- standAloneFigure -->
+                                </div>  <!-- gallery2 -->
+                                <p><b>Execution Logs: </b></p>
+                                <pre><code class="language-plaintext">0 
+1 
+2 
+3 
+4 
+5 
+After i loop</code></pre>  <!-- plaintext block -->
+                                <p><span class="highlight">Precisely where you put a label is very important—especially when working with loops.</span> For example, consider the following program:</p>
+                                <p class="srcFile"><a href="../JBG_HS_Ch03/JBG_HS_Ch03_Exmp/Break6.java" target="_blank">../JBG_HS_Ch03/JBG_HS_Ch03_Exmp/Break6.java</a></p>
+                                <pre><code class="language-java">/**
+ * Where you put a label is important.
+ * 
+ * Call this file "Break6.java".
+ */
+class Break6 {
+    public static void main(String[] args) {
+        int x = 0, y = 0;
+
+        // here, put label before for statement.
+        stop1: for(x = 0; x < 5; x++) {
+            for(y = 0; y < 5; y++) {
+                if(y == 2) break stop1;
+                System.out.println("x and y: " + x + " " + y);
+            }
+        }
+        System.out.println();
+
+        // now, put label immediately before {
+        for(x = 0; x < 5; x++)
+        stop2: {
+            for(y = 0; y < 5; y++) {
+                if(y == 2) break stop2;
+                System.out.println("x and y: " + x + " " + y);
+            }
+        }
+    }
+}</code></pre>  <!-- java code -->
+                                <div class="gallery2">
+                                    <figure class="standAloneFigure">
+                                        <img src="./plantUMLs/ch03/Break6_class.svg" alt="Class diagram of Break6 class">
+                                        <figcaption>Class diagram of Break6 class<br>src: <a href="./plantUMLs/ch03/Break6_class.puml" target="_blank">./plantUMLs/ch03/Break6_class.puml</a></figcaption>
+                                    </figure>  <!-- standAloneFigure -->
+                                    <figure class="standAloneFigure">
+                                        <img src="./plantUMLs/ch03/Break6_act.svg" alt="Activity diagram of Break6.main() method">
+                                        <figcaption>Acivity diagram of Break6.main() method<br>src: <a href="./plantUMLs/ch03/Break6_act.puml" target="_blank">./plantUMLs/ch03/Break6_act.puml</a></figcaption>
+                                    </figure>  <!-- standAloneFigure -->
+                                </div>  <!-- gallery2 -->
+                                <p><b>Execution Logs: </b></p>
+                                <pre><code class="language-plaintext">x and y: 0 0
+x and y: 0 1
+
+x and y: 0 0
+x and y: 0 1
+x and y: 1 0
+x and y: 1 1
+x and y: 2 0
+x and y: 2 1
+x and y: 3 0
+x and y: 3 1
+x and y: 4 0
+x and y: 4 1
+</code></pre>  <!-- plaintext block -->
+                                <p>In the program, both sets of nested loops are the same except for one point. In the first set, the label precedes the outer <code>for</code> loop. In this case, when the <code>break</code> executes, it transfers control to the end of the entire <code>for</code> block, skipping the rest of the outer loop's iterations. In the second set, the label precedes the outer <code>for</code>'s opening curly brace. Thus, when <code>break stop2</code> executes, control is transferred to the end of the outer <code>for</code>'s block, causing the next iteration to occur.</p>
+                                <p>Keep in mind that you cannot break to any label that is not defined for an enclosing block. For example, the following program is invalid and will not compile:</p>
+                                <p class="srcFile"><a href="../JBG_HS_Ch03/JBG_HS_Ch03_Exmp/BreakErr.java" target="_blank">../JBG_HS_Ch03/JBG_HS_Ch03_Exmp/BreakErr.java</a></p>
+                                <pre><code class="language-java">/**
+ * This program contains an error.
+ * 
+ * Call this file "BreakErr.java".
+ */
+class BreakErr {
+    public static void main(String[] args) {
+        one: for(int i = 0; i < 3; i++) {
+            System.out.print("Pass " + i + ": ");
+        }
+
+        for(int j = 0; j < 100; j++) {
+            if(j == 10) break one;  // WRONG
+            System.out.print(j + " ");
+        }
+    }
+}
+</code></pre>  <!-- java code -->
+                            <div class="gallery2">
+                                <!-- TODO: Continue here. svg generation pending -->
+                            </div>  <!-- gallery2 -->
                             </div>  <!-- content -->
                         </div>  <!-- right -->
                     </div>  <!-- lvl1 -->

@@ -52,6 +52,11 @@
 			"    }",
 			"}",
 			"",
+			"skinparam Rectangle {",
+			"    BorderColor<<breakLabel>> Red",
+			"    BorderStyle<<breakLabel>> dashed",
+			"}",
+			"",
 			"skinparam Partition {",
 			"    BorderColor<<invisible>> none",
 			"    FontColor<<invisible>> none",
@@ -228,6 +233,136 @@
 		"description": "local snippet:: for loop lvl2 color."
 	},
 
+	"lsnip::connector01 plantuml": {
+		"scope": ["plantuml", "puml"],
+		"prefix": "connector01",
+		"body": [
+			"#Brown:(1)",
+		],
+		"description": "local snippet:: Connector 01 plantuml"
+	},
+
+	"lsnip::connector02 plantuml": {
+		"scope": ["plantuml", "puml"],
+		"prefix": "connector02",
+		"body": [
+			"#Red:(2)",
+		],
+		"description": "local snippet:: Connector 02 plantuml"
+	},
+
+	"lsnip::connector03 plantuml": {
+		"scope": ["plantuml", "puml"],
+		"prefix": "connector03",
+		"body": [
+			"#Orange:(3)",
+		],
+		"description": "local snippet:: Connector 03 plantuml"
+	},
+
+	"lsnip::connector04 plantuml": {
+		"scope": ["plantuml", "puml"],
+		"prefix": "connector04",
+		"body": [
+			"#Yellow:(4)",
+		],
+		"description": "local snippet:: Connector 04 plantuml"
+	},
+
+	"lsnip::connector05 plantuml": {
+		"scope": ["plantuml", "puml"],
+		"prefix": "connector05",
+		"body": [
+			"#Gray:(5)",
+		],
+		"description": "local snippet:: Connector 05 plantuml"
+	},
+
+	"lsnip::connector06 plantuml": {
+		"scope": ["plantuml", "puml"],
+		"prefix": "connector06",
+		"body": [
+			"#Blue:(6)",
+		],
+		"description": "local snippet:: Connector 06 plantuml"
+	},
+
+	"lsnip::connector07 plantuml": {
+		"scope": ["plantuml", "puml"],
+		"prefix": "connector07",
+		"body": [
+			"#Violet:(7)",
+		],
+		"description": "local snippet:: Connector 07 plantuml"
+	},
+	
+	"lsnip::connector08 plantuml": {
+		"scope": ["plantuml", "puml"],
+		"prefix": "connector08",
+		"body": [
+			"#Green:(8)",
+		],
+		"description": "local snippet:: Connector 08 plantuml"
+	},
+	
+	"lsnip::connector09 plantuml": {
+		"scope": ["plantuml", "puml"],
+		"prefix": "connector09",
+		"body": [
+			"#Indigo:(9)",
+		],
+		"description": "local snippet:: Connector 09 plantuml"
+	},
+
+	"lsnip::connector10 plantuml": {
+		"scope": ["plantuml", "puml"],
+		"prefix": "connector10",
+		"body": [
+			"#Cyan:(10)",
+		],
+		"description": "local snippet:: Connector 10 plantuml"
+	},
+
+	"lsnip::plantuml Java break label rectangle": {
+		"scope": ["plantuml", "puml"],
+		"prefix": "jblrectangle",
+		"body": [
+			"rectangle <i>break $1</i> as ($2) <<breakLabel>> {",
+			"    $3",
+			"}",
+			"-><i>break $1</i> will \\nreach here.;",
+			"($2)",
+		],
+		"description": "local snippet:: plantuml Java break label rectangle"
+	},
+	
+	"lsnip::plantuml Java break label jumpto": {
+		"scope": ["plantuml", "puml"],
+		"prefix": "jblJumpTo",
+		"body": [
+			"-><i>break $1</i> \\njump;",
+			"($2)",
+			"detach",
+		],
+		"description": "local snippet:: plantuml Java break label jumpto"
+	},
+	
+	"lsnip::plantuml true color": {
+		"scope": ["plantuml", "puml"],
+		"prefix": "trueColor",
+		"body": [
+			"<color:Green>true</color>",
+		],
+		"description": "local snippet:: true color"
+	},
+	"lsnip::plantuml false color": {
+		"scope": ["plantuml", "puml"],
+		"prefix": "falseColor",
+		"body": [
+			"<color:Red>false</color>",
+		],
+		"description": "local snippet:: false color"
+	},
 	// ======================= END: Activity ======================= 
 	// ======================= START: Class ======================= 
 	"lsnip::Java main method": {
