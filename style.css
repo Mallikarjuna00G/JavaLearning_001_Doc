@@ -83,6 +83,12 @@ main {
     /* color: #28c428; */
 }
 
+.contentList > ul > li:hover {
+    border-radius: 4px 12px 4px 12px;
+    border: 2px solid grey;
+    font-style: italic;
+}
+
 .theory {
     padding: 4px;
     display: flex;
