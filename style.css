@@ -28,7 +28,7 @@ header {
 
     display: flex;
     justify-content: space-between;
-    vertical-align: middle;
+    vertical-align: center;
 }
 
 #menuIcon {
