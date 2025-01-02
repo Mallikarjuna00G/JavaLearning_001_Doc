@@ -16,11 +16,13 @@ menuIcon.addEventListener('click', () => {
 // ---------- Get all the necessary elements as units ---------------
 
 function CreateUnit(name) {
+    this.unit = name;
     this.listItem = document.getElementById(name);
     this.theoryPart = document.getElementById('theory' + name);
+    this.fetched = false;
     
     this.listItem.addEventListener('click', function () {
-        activateContent(this.listItem, this.theoryPart)
+        activateContent(this.unit);
     }.bind(this));
 }
 
@@ -47,10 +49,6 @@ const units = [
 
 const unitChapters = [];
 
-units.forEach(unit => {
-    unitChapters.push(new CreateUnit(unit));
-})
-
 // ---------- Switch content ----------------
 
 function displayNoContent() {
@@ -65,19 +63,41 @@ function displayNoStyleContentID() {
     })
 }
 
-function activateContent(listItem, theoryPart) {
+function activateContent(unit) {
     displayNoContent();
-    theoryPart.style.display = 'flex';
+    if(unitChapters[units.indexOf(unit)].fetched !== true) {
+        getUnit(unit);
+    }
+    unitChapters[units.indexOf(unit)].theoryPart.style.display = 'flex';
     displayNoStyleContentID();
-    listItem.style.boxShadow = '0 -5px 4px #28c428, 0 5px 4px #28c428';
+    unitChapters[units.indexOf(unit)].listItem.style.boxShadow = '0 -5px 4px #28c428, 0 5px 4px #28c428';
+}
+
+async function getUnit(unit) {
+    try {
+        const fileName = unit.substring(0, 1).toLowerCase() + unit.substring(1);
+        const response = await fetch('./pages/' + fileName + '.html');
+        const content = await response.text();
+        
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(content, 'text/html');
+
+        let tree = doc.getElementById('theory' + unit).innerHTML;
+        unitChapters[units.indexOf(unit)].theoryPart.innerHTML = tree;
+        unitChapters[units.indexOf(unit)].fetched = true;
+    } catch(err) {
+        console.log(err);
+    }
 }
 
 // ------------ Keep this at the last. ------------------
 document.addEventListener('DOMContentLoaded', () => {
+    units.forEach(unit => {
+        unitChapters.push(new CreateUnit(unit));
+    });    
     contentList.style.display = 'none';
     menuIcon.src = "./images/menuClosed.svg";
     activateContent(
-        unitChapters[0].listItem, 
-        unitChapters[0].theoryPart
+        units[0]
     );
 })

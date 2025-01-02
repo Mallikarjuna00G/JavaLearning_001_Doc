@@ -1,0 +1,2214 @@
+<div class="lvl0" id="theoryCh03">
+    <div class="left">
+        <h4>Chapter 03</h4>
+        <h1>Program Control Statements</h1>
+    </div>  <!-- left -->
+    <div class="right">
+        <div class="lvl1">
+            <div class="left">
+                <h2>Key Skills & Concepts</h2>
+            </div>  <!-- left -->
+            <div class="right">
+                <div class="content">
+                    <h3>Key Skills & Concepts</h3>
+                    <ul>
+                        <li>Input characters from the keyboard</li>
+                        <li>Know the complete form of the <code>if</code> statement</li>
+                        <li>Use the <code>switch</code> statement</li>
+                        <li>Know the complete form of the <code>for</code> loop</li>
+                        <li>Use the <code>while</code> loop</li>
+                        <li>Use the <code>do</code>-<code>while</code> loop</li>
+                        <li>Use <code>break</code> to exit a loop</li>
+                        <li>Use <code>break</code> as a form of goto</li>
+                        <li>Apply <code>continue</code></li>
+                        <li>Nest loops</li>
+                    </ul>
+                </div>  <!-- content -->
+            </div>  <!-- right -->
+        </div>  <!-- lvl1 -->
+        <div class="content">
+            <p>In this chapter, you will learn about the statements that control a program's flow of execution. There are three categories of program control statements: </p>
+            <ol>
+                <li><em>selection statements</em>, which include the <code>if</code> and the <code>switch</code>;</li>
+                <li><em>iteration statements</em>, which include the <code>for</code>, <code>while</code>, and <code>do</code>-<code>while</code> loops;</li>
+                <li><em>jump statements</em>, which include <code>break</code>, <code>continue</code>, and <code>return</code></li>
+            </ol>
+            <p>Except for return, which is discussed later in this book, the remaining control statements, including the <code>if</code> and <code>for</code> statements to which you have already had a brief introduction, are examined in detail here. The chapter begins by explaining how to perform some simple keyboard input.</p>
+        </div>  <!-- content -->
+        <div class="lvl1">
+            <div class="left">
+                <h2>INPUT CHARACTERS FROM THE KEYBOARD</h2>
+            </div>  <!-- left -->
+            <div class="right">
+                <div class="content">
+                    <p>Before examining Java's control statements, we will make a short digression that will allow you to begin writing interactive programs. Up to this point, the sample programs in this book have displayed information to the user, but they have not received information from the user. Thus, you have been using console output, but not console (keyboard) input. The main reason for this is that Java's input capabilities rely on or make use of features not discussed until later in this book. Also, <em>most real-world Java applications will be graphical and window based, not console based</em>. For these reasons, not much use of console input is found in this book. However, there is one type of console input that is relatively easy to use: reading a character from the keyboard. Since several of the examples in this chapter will make use of this feature, it is discussed here.</p>
+                    <p>To read a character from the keyboard, we will use <code>System.in.read()</code>. <code>System.in</code> is the complement to <code>System.out</code>. <span class="highlight">It is the input object attached to the keyboard</span>. The <code>read()</code> method waits until the user presses a key and then returns the result. The character is returned as an integer, so it <span class="highlight">must be cast into a char to assign it to a char variable</span>. <span class="highlight">By default, console input is line buffered. Here, the term buffer refers to a small portion of memory that is used to hold the characters before they are read by your program.</span> In this case, the buffer holds a complete line of text. As a result, you must press <i>ENTER</i> before any character that you type will be sent to your program. Here is a program that reads a character from the keyboard:</p>
+                    <p class="srcFile"><a href="../JBG_HS_Ch03/JBG_HS_Ch03_Exmp/KbIn.java" target="_blank">../JBG_HS_Ch03/JBG_HS_Ch03_Exmp/KbIn.java</a></p>
+                    <pre><code class="language-java">/**
+* Read a character from keyboard.
+* 
+* Call this file "KbIn.java".
+*/
+class KbIn {
+public static void main(String[] args) 
+throws java.io.IOException {
+char ch;
+
+System.out.print("Press a key followed by ENTER: ");
+ch = (char) System.in.read(); // get a char
+
+System.out.println("Your key is: " + ch);
+}
+}</code></pre>  <!-- java code -->
+                    <div class="gallery2">
+                        <figure class="standAloneFigure">
+                            <img src="./plantUMLs/ch03/KbIn_class.svg" alt="Class diagram of KbIn class">
+                            <figcaption>Class diagram of KbIn class<br>src: <a href="./plantUMLs/ch03/KbIn_class.puml" target="_blank">./plantUMLs/ch03/KbIn_class.puml</a></figcaption>
+                        </figure>  <!-- standAloneFigure -->
+                        <figure class="standAloneFigure">
+                            <img src="./plantUMLs/ch03/KbIn_act.svg" alt="Activity diagram of KbIn.main() method">
+                            <figcaption>Activity diagram of KbIn.main() method<br>src: <a href="./plantUMLs/ch03/KbIn_act.puml" target="_blank">./plantUMLs/ch03/KbIn_act.puml</a></figcaption>
+                        </figure>  <!-- standAloneFigure -->
+                    </div>  <!-- gallery2 -->
+                    <p>Here is a sample run:</p>
+                    <pre><code class="language-plaintext">Press a key followed by ENTER: m
+Your key is: m</code></pre>  <!-- plaintext block -->
+                    <p>In the program, notice that <code>main()</code> begins like this:</p>
+                    <pre><code class="language-java">public static void main(String[] args) 
+throws java.io.IOException {</code></pre>  <!-- java code -->
+                    <p>Because <code>System.in.read()</code> is being used, the program must specify the <code>throws java.io.IOException</code> clause. This line is necessary to handle input errors. It is part of Java's exception handling mechanism, which is discussed in Chapter 9. For now, don't worry about its precise meaning.</p>
+                    <p><span class="highlight">The fact that <code>System.in</code> is line buffered is a source of annoyance at times. When you press <code>ENTER</code>, a carriage return, line feed sequence is entered into the input stream. Furthermore, these characters are left pending in the input buffer until you read them. Thus, for some applications, you may need to remove them (by reading them) before the next input operation.</span> You will see an example of this later in this chapter.</p>
+                </div>  <!-- content -->
+            </div>  <!-- right -->
+        </div>  <!-- lvl1 -->
+        <div class="lvl1">
+            <div class="left">
+                <h2>THE IF STATEMENT</h2>
+            </div>  <!-- left -->
+            <div class="right">
+                <div class="content">
+                    <p>Chapter 1 introduced the <code>if</code> statement. It is examined in detail here. The complete form of the <code>if</code> statement is</p>
+                    <pre><code class="language-plaintext">if(condition) statement;
+else statement;</code></pre>  <!-- plaintext block -->
+                    <p>where the targets of the <code>if</code> and <code>else</code> are single statements. The <code>else</code> clause is optional. The targets of both the <code>if</code> and <code>else</code> can be blocks of statements. The general form of the <code>if</code>, using blocks of statements, is</p>
+                    <pre><code class="language-plaintext">if(condition)
+{
+statement sequence
+}
+else
+{
+statement sequence
+}</code></pre>  <!-- plaintext block -->
+                    <p>If the conditional expression is <code>true</code>, the target of the <code>if</code> will be executed; otherwise, if it exists, the target of the <code>else</code> will be executed. At no time will both of them be executed. The conditional expression controlling the <code>if</code> must produce a <code>boolean</code> result.</p>
+                    <p>To demonstrate the <code>if</code> (and several other control statements), we will create and develop a simple computerized guessing game that would be suitable for young children. In the first version of the game, the program asks the player for a letter between A and Z. If the player presses the correct letter on the keyboard, the program responds by printing the message <code>** Right **</code>. The program is shown here:</p>
+                    <p class="srcFile"><a href="../JBG_HS_Ch03/JBG_HS_Ch03_Exmp/Guess.java" target="_blank">../JBG_HS_Ch03/JBG_HS_Ch03_Exmp/Guess.java</a></p>
+                    <pre><code class="language-java">/**
+* Guess the letter game.
+* 
+* Call this file "Guess.java".
+*/
+class Guess {
+public static void main(String[] args) 
+throws java.io.IOException {
+char ch, answer = 'K';
+
+System.out.println("I am thinking of a letter between A and Z.");
+System.out.print("Can you guess it?: ");
+
+ch = (char) System.in.read();  // read a character from the keyboard
+
+if(ch == answer) System.out.println("** Right **");
+}
+}</code></pre>  <!-- java code -->
+                    <div class="gallery2">
+                        <figure class="standAloneFigure">
+                            <img src="./plantUMLs/ch03/Guess_class.svg" alt="Class diagram of Guess class">
+                            <figcaption>Class diagram of Guess class<br>src: <a href="./plantUMLs/ch03/Guess_class.puml" target="_blank">./plantUMLs/ch03/Guess_class.puml</a></figcaption>
+                        </figure>  <!-- standAloneFigure -->
+                        <figure class="standAloneFigure">
+                            <img src="./plantUMLs/ch03/Guess_act.svg" alt="Activity diagram of Guess.main() method">
+                            <figcaption>Activity diagram of Guess.main() method<br>src: <a href="./plantUMLs/ch03/Guess_act.puml" target="_blank">./plantUMLs/ch03/Guess_act.puml</a></figcaption>
+                        </figure>  <!-- standAloneFigure -->
+                    </div>  <!-- gallery2 -->
+                    <p><b>Execution Logs: </b></p>
+                    <p><u>Execution 1: </u></p>
+                    <pre><code class="language-plaintext">I am thinking of a letter between A and Z.
+Can you guess it?: A</code></pre>  <!-- plaintext block -->
+                    <p><u>Execution 2: </u></p>
+                    <pre><code class="language-plaintext">I am thinking of a letter between A and Z.
+Can you guess it?: K 
+** Right **</code></pre>  <!-- plaintext block -->
+                    <p>This program prompts the player and then reads a character from the keyboard. Using an <code>if</code> statement, it then checks that character against the answer, which is <code>K</code> in this case. If <code>K</code> was entered, the message is displayed. When you try this program, remember that the <code>K</code> must be entered in uppercase.</p>
+                    <p>Taking the guessing game further, the next version uses the else to print a message when the wrong letter is picked.</p>
+                    <p class="srcFile"><a href="../JBG_HS_Ch03/JBG_HS_Ch03_Exmp/Guess2.java" target="_blank">../JBG_HS_Ch03/JBG_HS_Ch03_Exmp/Guess2.java</a></p>
+                    <pre><code class="language-java">/**
+* Guess the letter game. Version 2.
+* 
+* Call this file "Guess2.java".
+*/
+class Guess2 {
+public static void main(String[] args) 
+throws java.io.IOException {
+char ch, answer = 'K';
+
+System.out.println("I am thinking of a letter between A and Z.");
+System.out.print("Can you guess it?: ");
+
+ch = (char) System.in.read();  // read a character from the keyboard
+
+if(ch == answer) System.out.println("** Right **");
+else System.out.println("...Sorry, you're wrong.");
+}
+}</code></pre>  <!-- java code -->
+                    <div class="gallery2">
+                        <figure class="standAloneFigure">
+                            <img src="./plantUMLs/ch03/Guess2_class.svg" alt="Class diagram of Guess2 class">
+                            <figcaption>Class diagram of Guess2 class<br>src: <a href="./plantUMLs/ch03/Guess2_class.puml" target="_blank">./plantUMLs/ch03/Guess2_class.puml</a></figcaption>
+                        </figure>  <!-- standAloneFigure -->
+                        <figure class="standAloneFigure">
+                            <img src="./plantUMLs/ch03/Guess2_act.svg" alt="Activity diagram of Guess2.main() method">
+                            <figcaption>Activity diagram of Guess2.main() method<br>src: <a href="./plantUMLs/ch03/Guess2_act.puml" target="_blank">./plantUMLs/ch03/Guess2_act.puml</a></figcaption>
+                        </figure>  <!-- standAloneFigure -->
+                    </div>  <!-- gallery2 -->
+                    <p><b>Execution Logs: </b></p>
+                    <p><u>Execution 1: </u></p>
+                    <pre><code class="language-plaintext">I am thinking of a letter between A and Z.
+Can you guess it?: k 
+...Sorry, you're wrong.</code></pre>  <!-- plaintext block -->
+                    <p><u>Execution 2: </u></p>
+                    <pre><code class="language-plaintext">I am thinking of a letter between A and Z.
+Can you guess it?: K
+** Right **</code></pre>  <!-- plaintext block -->
+                </div>  <!-- content -->
+            </div>  <!-- right -->
+        </div>  <!-- lvl1 -->
+        <div class="lvl1">
+            <div class="left">
+                <h2>NESTED IFS</h2>
+            </div>  <!-- left -->
+            <div class="right">
+                <div class="content">
+                    <p>A nested <code>if</code> is an <code>if</code> statement that is the target of another <code>if</code> or <code>else</code>. Nested <code>if</code>s are very common in programming. The main thing to remember about nested <code>if</code>s in Java is that an <code>else</code> statement always refers to the nearest <code>if</code> statement that is within the same block as the <code>else</code> and not already associated with an <code>else</code>. Here is an example:</p>
+                    <pre><code class="language-java">if(i == 10) {
+if(i < 20) a = b;
+if(k > 100) c = d;
+else a = c;  // this else refers to if(k > 100)
+}
+else a = d;  // this else refers to if(i == 10)</code></pre>  <!-- java code -->
+                    <figure class="standAloneFigure">
+                        <img src="./plantUMLs/ch03/theory_nestedIf_act.svg" alt="Activity diagram of code snippet of nested if">
+                        <figcaption>Activity diagram of code snippet of nested if<br>src: <a href="./plantUMLs/ch03/theory_nestedIf_act.puml" target="_blank">./plantUMLs/ch03/theory_nestedIf_act.puml</a></figcaption>
+                    </figure>  <!-- standAloneFigure -->
+                    <p>As the comments indicate, the final <code>else</code> is not associated with <code>if(j < 20)</code>, because it is not in the same block (even though it is the nearest <code>if</code> without an <code>else</code>). Rather, the final <code>else</code> is associated with <code>if(i == 10)</code>. The inner <code>else</code> refers to <code>if(k > 100)</code>, because it is the closest <code>if</code> within the same block.</p>
+                    <p>You can use a nested <code>if</code> to add a further improvement to the guessing game. This addition provides the player with feedback about a wrong guess.</p>
+                    <p class="srcFile"><a href="../JBG_HS_Ch03/JBG_HS_Ch03_Exmp/Guess3.java" target="_blank">../JBG_HS_Ch03/JBG_HS_Ch03_Exmp/Guess3.java</a></p>
+                    <pre><code class="language-java">/**
+* Guess the letter game. Version 3.
+* 
+* Call this file "Guess3.java".
+*/
+class Guess3 {
+public static void main(String[] args) 
+throws java.io.IOException {
+char ch, answer = 'K';
+
+System.out.println("I am thinking of a letter between A and Z.");
+System.out.print("Can you guess it?: ");
+
+ch = (char) System.in.read();  // read a character from the keyboard
+
+if(ch == answer) System.out.println("** Right **");
+else {
+System.out.print("...Sorry, you're ");
+// a nested if
+if(ch < answer) System.out.println("too low");
+else System.out.println("too high");
+}
+}
+}</code></pre>  <!-- java code -->
+                    <div class="gallery2">
+                        <figure class="standAloneFigure">
+                            <img src="./plantUMLs/ch03/Guess3_class.svg" alt="Class diagram of Guess3 class">
+                            <figcaption>Class diagram of Guess3 class<br>src: <a href="./plantUMLs/ch03/Guess3_class.puml" target="_blank">./plantUMLs/ch03/Guess3_class.puml</a></figcaption>
+                        </figure>  <!-- standAloneFigure -->
+                        <figure class="standAloneFigure">
+                            <img src="./plantUMLs/ch03/Guess3_act.svg" alt="Activity diagram of Guess3.main() method">
+                            <figcaption>Acivity diagram of Guess3.main() method<br>src: <a href="./plantUMLs/ch03/Guess3_act.puml" target="_blank">./plantUMLs/ch03/Guess3_act.puml</a></figcaption>
+                        </figure>  <!-- standAloneFigure -->
+                    </div>  <!-- gallery2 -->
+                    <p>A sample run is shown here:</p>
+                    <p><u>Execution 1: </u></p>
+                    <pre><code class="language-plaintext">I am thinking of a letter between A and Z.
+Can you guess it?: B
+...Sorry, you're too low</code></pre>  <!-- plaintext block -->
+                    <p><u>Execution 2: </u></p>
+                    <pre><code class="language-plaintext">I am thinking of a letter between A and Z.
+Can you guess it?: M
+...Sorry, you're too high</code></pre>  <!-- plaintext block -->
+                    <p><u>Execution 3: </u></p>
+                    <pre><code class="language-plaintext">I am thinking of a letter between A and Z.
+Can you guess it?: K
+** Right **</code></pre>  <!-- plaintext block -->
+                </div>  <!-- content -->
+            </div>  <!-- right -->
+        </div>  <!-- lvl1 -->
+        <div class="lvl1">
+            <div class="left">
+                <h2>THE IF-ELSE-IF LADDER</h2>
+            </div>  <!-- left -->
+            <div class="right">
+                <div class="content">
+                    <p>A common programming construct that is based upon the nested <code>if</code> is the if-else-if ladder. It looks like this:</p>
+                    <pre><code class="language-plaintext">if(condition)
+statement;
+else if(condition)
+statement;
+else if(condition)
+statement;
+.
+.
+.
+else
+statement;</code></pre>  <!-- plaintext block -->
+                    <p>The conditional expressions are evaluated from the top downward. As soon as a <code>true</code> condition is found, the statement associated with it is executed, and the rest of the ladder is bypassed. If none of the conditions are <code>true</code>, the final <code>else</code> statement will be executed. The final <code>else</code> often acts as a default condition; that is, if all other conditional tests fail, the last <code>else</code> statement is performed. If there is no final <code>else</code> and all other conditions are <code>false</code>, no action will take place.</p>
+                    <p>The following program demonstrates the if-else-if ladder:</p>
+                    <p class="srcFile"><a href="../JBG_HS_Ch03/JBG_HS_Ch03_Exmp/Ladder.java" target="_blank">../JBG_HS_Ch03/JBG_HS_Ch03_Exmp/Ladder.java</a></p>
+                    <pre><code class="language-java">/**
+* Demonstrate and if-else-if ladder.
+* 
+* Call this file "Ladder.java".
+*/
+class Ladder {
+public static void main(String[] args) {
+int x;
+
+for(x = 0; x < 6; x++) {
+if(x == 1)
+    System.out.println("x is one");
+else if(x == 2)
+    System.out.println("x is two");
+else if(x == 3)
+    System.out.println("x is three");
+else if(x == 4)
+    System.out.println("x is four");
+else
+    System.out.println("x is not between 1 and 4");
+}
+}
+}</code></pre>  <!-- java code -->
+                    <div class="gallery2">
+                        <figure class="standAloneFigure">
+                            <img src="./plantUMLs/ch03/Ladder_class.svg" alt="Class diagram of Ladder class">
+                            <figcaption>Class diagram of Ladder class<br>src: <a href="./plantUMLs/ch03/Ladder_class.puml" target="_blank">./plantUMLs/ch03/Ladder_class.puml</a></figcaption>
+                        </figure>  <!-- standAloneFigure -->
+                        <figure class="standAloneFigure">
+                            <img src="./plantUMLs/ch03/Ladder_act.svg" alt="Activity diagram of Ladder.main() method">
+                            <figcaption>Acivity diagram of Ladder.main() method<br>src: <a href="./plantUMLs/ch03/Ladder_act.puml" target="_blank">./plantUMLs/ch03/Ladder_act.puml</a></figcaption>
+                        </figure>  <!-- standAloneFigure -->
+                    </div>  <!-- gallery2 -->
+                    <p>The program produces the following output:</p>
+                    <pre><code class="language-plaintext">x is not between 1 and 4
+x is one
+x is two
+x is three
+x is four
+x is not between 1 and 4</code></pre>  <!-- plaintext block -->
+                    <p>As you can see, the default <code>else</code> is executed only if none of the preceding <code>if</code> statements succeeds.</p>
+                </div>  <!-- content -->
+            </div>  <!-- right -->
+        </div>  <!-- lvl1 -->
+        <div class="lvl1">
+            <div class="left">
+                <h2>THE SWITCH STATEMENT</h2>
+            </div>  <!-- left -->
+            <div class="right">
+                <div class="content">
+                    <p>The second of Java's selection statements is the <code>switch</code>. The <code>switch</code> provides for a multiway branch. Thus, it enables a program to select among several alternatives. Although a series of nested <code>if</code> statements can perform multiway tests, for many situations the <code>switch</code> is a more efficient approach. It works like this: the value of anexpression is successively tested against a list of constants. When a match is found, the statement sequence associated with that match is executed. The general form of the <code>switch</code> statement is</p>
+                    <pre><code class="language-plaintext">switch(condition) {
+case constant1:
+statement sequence;
+break;
+case constant2:
+statement sequence;
+break;
+case constant3:
+statement sequence;
+break;
+.
+.
+.
+default:
+statement sequence;
+}</code></pre>  <!-- plaintext block -->
+                    <figure class="standAloneFigure">
+                        <img src="./plantUMLs/ch03/theory_switch_act.svg" alt="Activity diagram of general form of switch">
+                        <figcaption>Activity diagram of general form of switch statement<br>src: <a href="./plantUMLs/ch03/theory_switch_act.puml" target="_blank">./plantUMLs/ch03/theory_switch_act.puml</a></figcaption>
+                    </figure>  <!-- standAloneFigure -->
+                    <p><span class="highlight">For versions of Java prior to JDK 7, the expression controlling the switch must resolve to type <code>byte</code>, <code>short</code>, <code>int</code>, <code>char</code>, or an <em>enumeration</em>. (Enumerations are described in Chapter 12.) However, beginning with JDK 7, expression can also be of type <code>String</code>.</span> This means that modern versions of Java can use a string to control a <code>switch</code>. (This technique is demonstrated in Chapter 5, when <code>String</code> is described.) Frequently, the expression controlling a <code>switch</code> is simply a variable rather than a larger expression.</p>
+                    <p><span class="highlight">Each value specified in the case statements must be a unique constant expression (such as a literal value). Duplicate case values are not allowed. The type of each value must be compatible with the type of expression.</span></p>
+                    <p>The <code>default</code> statement sequence is executed if no case constant matches the expression. The <code>default</code> is optional; if it is not present, no action takes place if all matches fail. When a match is found, the statements associated with that case are executed until the <code>break</code> is encountered or, in the case of <code>default</code> or the last case, until the end of the <code>switch</code> is reached.</p>
+                    <p>The following program demonstrates the <code>switch</code>:</p>
+                    <p class="srcFile"><a href="../JBG_HS_Ch03/JBG_HS_Ch03_Exmp/SwitchDemo.java" target="_blank">../JBG_HS_Ch03/JBG_HS_Ch03_Exmp/SwitchDemo.java</a></p>
+                    <pre><code class="language-java">/**
+* Demonstrate the switch.
+* 
+* Call this file "SwitchDemo.java".
+*/
+class SwitchDemo {
+public static void main(String[] args) {
+int i;
+
+for(i = 0; i < 10; i++) {
+switch(i) {
+    case 0:
+        System.out.println("i is zero");
+        break;
+    case 1:
+        System.out.println("i is one");
+        break;
+    case 2:
+        System.out.println("i is two");
+        break;
+    case 3:
+        System.out.println("i is three");
+        break;
+    case 4:
+        System.out.println("i is four");
+        break;
+    default:
+        System.out.println("i is five or more");
+        break;
+}
+}
+}
+}</code></pre>  <!-- java code -->
+                    <div class="gallery2">
+                        <figure class="standAloneFigure">
+                            <img src="./plantUMLs/ch03/SwitchDemo_class.svg" alt="Class diagram of SwitchDemo class">
+                            <figcaption>Class diagram of SwitchDemo class<br>src: <a href="./plantUMLs/ch03/SwitchDemo_class.puml" target="_blank">./plantUMLs/ch03/SwitchDemo_class.puml</a></figcaption>
+                        </figure>  <!-- standAloneFigure -->
+                        <figure class="standAloneFigure">
+                            <img src="./plantUMLs/ch03/SwitchDemo_act.svg" alt="Activity diagram of SwitchDemo.() method">
+                            <figcaption>Acivity diagram of SwitchDemo.main() method<br>src: <a href="./plantUMLs/ch03/SwitchDemo_act.puml" target="_blank">./plantUMLs/ch03/SwitchDemo_act.puml</a></figcaption>
+                        </figure>  <!-- standAloneFigure -->
+                    </div>  <!-- gallery2 -->
+                    <p>The output produced by this program is shown here:</p>
+                    <pre><code class="language-plaintext">i is zero
+i is one
+i is two
+i is three
+i is four
+i is five or more
+i is five or more
+i is five or more
+i is five or more
+i is five or more</code></pre>  <!-- plaintext block -->
+                    <p>As you can see, each time through the loop, the statements associated with the case constant that matches <code>i</code> are executed. All others are bypassed. When <code>i</code> is five or greater, no case statements match, so the default statement is executed.</p>
+                    <p>Technically, the <code>break</code> statement is optional, although most applications of the <code>switch</code> will use it. When encountered within the statement sequence of a case, the <code>break</code> statement causes program flow to exit from the entire <code>switch</code> statement and resume at the next statement outside the <code>switch</code>. However, if a <code>break</code> statement does not end the statement sequence associated with a case, then all the statements at and following the matching case will be executed until a <code>break</code> (or the end of the switch) is encountered.</p>
+                    <p>For example, study the following program carefully. Before looking at the output, can you figure out what it will display on the screen?</p>
+                    <p class="srcFile"><a href="../JBG_HS_Ch03/JBG_HS_Ch03_Exmp/NoBreak.java" target="_blank">../JBG_HS_Ch03/JBG_HS_Ch03_Exmp/NoBreak.java</a></p>
+                    <pre><code class="language-java">/**
+* Demonstrate the switch without break statements.
+* 
+* Call this file "NoBreak.java". 
+*/
+class NoBreak {
+public static void main(String[] args) {
+int i;
+
+for(i = 0; i <= 5; i++) {
+switch(i) {
+    case 0:
+        System.out.println("i is less than one.");
+    case 1:
+        System.out.println("i is less than two.");
+    case 2:
+        System.out.println("i is less than three.");
+    case 3:
+        System.out.println("i is less than four.");
+    case 4:
+        System.out.println("i is less than five.");
+}
+System.out.println();
+}
+}
+}</code></pre>  <!-- java code -->
+                    <div class="gallery2">
+                        <figure class="standAloneFigure">
+                            <img src="./plantUMLs/ch03/NoBreak_class.svg" alt="Class diagram of NoBreak class">
+                            <figcaption>Class diagram of NoBreak class<br>src: <a href="./plantUMLs/ch03/NoBreak_class.puml" target="_blank">./plantUMLs/ch03/NoBreak_class.puml</a></figcaption>
+                        </figure>  <!-- standAloneFigure -->
+                        <figure class="standAloneFigure">
+                            <img src="./plantUMLs/ch03/NoBreak_act.svg" alt="Activity diagram of NoBreak.main() method">
+                            <figcaption>Acivity diagram of NoBreak.main() method<br>src: <a href="./plantUMLs/ch03/NoBreak_act.puml" target="_blank">./plantUMLs/ch03/NoBreak_act.puml</a></figcaption>
+                        </figure>  <!-- standAloneFigure -->
+                    </div>  <!-- gallery2 -->
+                    <p>This program displays the following output:</p>
+                    <pre><code class="language-plaintext">i is less than one.
+i is less than two.
+i is less than three.
+i is less than four.
+i is less than five.
+
+i is less than two.
+i is less than three.
+i is less than four.
+i is less than five.
+
+i is less than three.
+i is less than four.
+i is less than five.
+
+i is less than four.
+i is less than five.
+
+i is less than five.
+
+</code></pre>  <!-- plaintext block -->
+                    <p>As this program illustrates, execution will continue into the next <code>case</code> if no <code>break</code>statement is present.</p>
+                    <p>You can have empty <code>case</code>s, as shown in this example:</p>
+                    <pre><code class="language-java">switch(i) {
+case 1:
+case 2:
+case 3: 
+System.out.println("i is 1, 2 or 3");
+break;
+case 4:
+System.out.println("i is 4");
+break;
+}</code></pre>  <!-- java code -->
+                    <div class="gallery2">
+                        <figure class="standAloneFigure">
+                            <img src="./plantUMLs/ch03/theory_switchStackedCases_act.svg" alt="Activity diagram of code snippet of stacked cases of switch statement">
+                            <figcaption>Activity diagram of code snippet of stacked cases of switch statement<br>src: <a href="./plantUMLs/ch03/theory_switchStackedCases_act.puml" target="_blank">./plantUMLs/ch03/theory_switchStackedCases_act.puml</a></figcaption>
+                        </figure>  <!-- standAloneFigure -->
+                    </div>  <!-- gallery2 -->
+                    <p>In this fragment, if <code>i</code> has the value 1, 2, or 3, the first <code>println()</code> statement executes. If it is 4, the second <code>println()</code> statement executes. The "stacking" of <code>case</code>s, as shown in this example, is common when several cases share common code.</p>
+                </div>  <!-- content -->
+            </div>  <!-- right -->
+        </div>  <!-- lvl1 -->
+        <div class="lvl1">
+            <div class="left">
+                <h2>NESTED SWITCH STATEMENTS</h2>
+            </div>  <!-- left -->
+            <div class="right">
+                <div class="content">
+                    <p>It is possible to have a <code>switch</code> as part of the statement sequence of an outer <code>switch</code>. This is called a <em>nested <code>switch</code></em>. Even if the <code>case</code> constants of the inner and outer <code>switch</code> contain common values, no conflicts will arise. For example, the following code fragment is perfectly acceptable:</p>
+                    <pre><code class="language-java">switch(ch1) {
+case 'A': 
+System.out.println("This A is part of outer switch.");
+switch(ch2) {
+case 'A': 
+    System.out.println("This A is part of inner switch.");
+    break;
+case 'B':
+    // ...
+}  // end of inner switch
+break;
+case 'B':
+// ...</code></pre>  <!-- java code -->
+                </div>  <!-- content -->
+            </div>  <!-- right -->
+        </div>  <!-- lvl1 -->
+        <div class="lvl1">
+            <div class="left">
+                <h2>Ask the Expert</h2>
+            </div>  <!-- left -->
+            <div class="right">
+                <div class="askTheExpert">
+                    <h3 class="top"></h3>
+                    <p class="question">Under what conditions should I use an <code>if</code>-<code>else</code>-<code>if</code> ladder rather than a <code>switch</code> when coding a multiway branch?</p>
+                    <p class="answer">In general, use an <code>if</code>-<code>else</code>-<code>if</code> ladder when the conditions controlling the selection process do not rely upon a single value. For example, consider the following <code>if</code>-<code>else</code>-<code>if</code> sequence:</p>
+                    <p><b>Note:</b> code snippet not available</p>
+                    <p>This sequence cannot be recoded into a <code>switch</code> because all three conditions involve different variables—and differing types. What variable would control the <code>switch</code>? Also, you will need to use an <code>if</code>-<code>else</code>-<code>if</code> ladder when testing floating-point values or other objects that are not of types valid for use in a <code>switch</code> expression.</p>
+                </div>  <!-- askTheExpert -->
+            </div>  <!-- right -->
+        </div>  <!-- lvl1 -->
+        <div class="lvl1">
+            <div class="left">
+                <h2>Try This 3-1</h2>
+            </div>  <!-- left -->
+            <div class="right">
+                <div class="content">
+                    <h3 class="tryThis"><span class="hl">TryThis 3-1</span> Start Building a Java Help System</h3>
+                    <ul class="tryThisSrc">
+                        <li><code>Help.java</code></li>
+                    </ul>
+                    <p>This project builds a simple help system that displays the syntax for the Java control statements. The program displays a menu containing the control statements and then waits for you to choose one. After one is chosen, the syntax of the statement is displayed. In this first version of the program, help is available for only the <code>if</code> and <code>switch</code> statements. The other control statements are added in subsequent projects.</p>
+                    <ol class="tryThisOl">
+                        <li>Create a file called <code>Help.java</code>.</li>
+                        <li>
+                            <div>
+                                <p>The program begins by displaying the following menu:</p>
+                                <pre><code class="language-plaintext">Help on: 
+1. if
+2. switch
+Choose one: </code></pre>  <!-- plaintext block -->
+                                <p>To accomplish this, you will use the statement sequence shown here:</p>
+                                <pre><code class="language-java">System.out.println("Help on: ");
+System.out.println("  1. if");
+System.out.println("  2. switch");
+System.out.print("Choose one: ");</code></pre>  <!-- java code -->
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                <p>Next, the program obtains the user's selection by calling <code>System.in.read()</code>, as shown here:</p>
+                                <pre><code class="language-java">choice = (char) System.in.read();  // Get the user input</code></pre>  <!-- java code -->
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                <p>Once the selection has been obtained, the program uses the <code>switch</code> statement shown here to display the syntax for the selected statement.</p>
+                                <pre><code class="language-java">switch(choice) {
+case '1':  // if
+System.out.println("The if:\n");
+System.out.println("if(condition) statement;");
+System.out.println("else statement;");
+break;
+case '2':  // switch
+System.out.println("The switch:\n");
+System.out.println("switch(expression) {");
+System.out.println("    case constant:");
+System.out.println("        statement sequence");
+System.out.println("        break;");
+System.out.println("}");
+break;
+default:
+System.out.println("Selection not found.");
+}</code></pre>  <!-- java code -->
+                                <p>Notice how the <code>default</code> clause catches invalid choices. For example, if the user enters 3, no <code>case</code> constants will match, causing the <code>default</code> sequence to execute.</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                <p>Here is the entire <code>Help.java</code> program listing:</p>
+                                <p class="srcFile"><a href="../JBG_HS_Ch03/JBG_HS_Ch03_Exmp/Help.java" target="_blank">../JBG_HS_Ch03/JBG_HS_Ch03_Exmp/Help.java</a></p>
+                                <pre><code class="language-java">/**
+* Try This 3-1 A simple java help system.
+* 
+* Call this file Help.java
+*/
+class Help {
+public static void main(String[] args) 
+throws java.io.IOException {
+char choice;
+
+System.out.println("Help on: ");
+System.out.println("  1. if");
+System.out.println("  2. switch");
+System.out.print("Choose one: ");
+
+choice = (char) System.in.read();  // Get the user input
+
+switch(choice) {
+case '1':  // if
+    System.out.println("The if:\n");
+    System.out.println("if(condition) statement;");
+    System.out.println("else statement;");
+    break;
+case '2':  // switch
+    System.out.println("The switch:\n");
+    System.out.println("switch(expression) {");
+    System.out.println("    case constant:");
+    System.out.println("        statement sequence");
+    System.out.println("        break;");
+    System.out.println("}");
+    break;
+default:
+    System.out.println("Selection not found.");
+}
+}
+}</code></pre>  <!-- java code -->
+                                <div class="gallery2">
+                                    <figure class="standAloneFigure">
+                                        <img src="./plantUMLs/ch03/Help_class.svg" alt="Class diagram of Help class">
+                                        <figcaption>Class diagram of Help class<br>src: <a href="./plantUMLs/ch03/Help_class.puml" target="_blank">./plantUMLs/ch03/Help_class.puml</a></figcaption>
+                                    </figure>  <!-- standAloneFigure -->
+                                    <figure class="standAloneFigure">
+                                        <img src="./plantUMLs/ch03/Help_act.svg" alt="Activity diagram of Help.main() method">
+                                        <figcaption>Acivity diagram of Help.main() method<br>src: <a href="./plantUMLs/ch03/Help_act.puml" target="_blank">./plantUMLs/ch03/Help_act.puml</a></figcaption>
+                                    </figure>  <!-- standAloneFigure -->
+                                </div>  <!-- gallery2 -->
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                <p>Here is are some sample runs.</p>
+                                <p><u>Execution 1: </u></p>
+                                <pre><code class="language-plaintext">Help on: 
+1. if
+2. switch
+Choose one: 1
+The if:
+
+if(condition) statement;
+else statement;</code></pre>  <!-- plaintext block -->
+                                <p><u>Execution 2: </u></p>
+                                <pre><code class="language-plaintext">Help on: 
+1. if
+2. switch
+Choose one: 2
+The switch:
+
+switch(expression) {
+case constant:
+statement sequence
+break;
+}</code></pre>  <!-- plaintext block -->
+                                <p><u>Execution 3: </u></p>
+                                <pre><code class="language-plaintext">Help on: 
+1. if
+2. switch
+Choose one: 3
+Selection not found.</code></pre>  <!-- plaintext block -->
+                            </div>
+                        </li>
+                    </ol>  <!-- tryThisOl -->
+                </div>  <!-- content -->
+            </div>  <!-- right -->
+        </div>  <!-- lvl1 -->
+        <div class="lvl1">
+            <div class="left">
+                <h2>THE FOR LOOP</h2>
+            </div>  <!-- left -->
+            <div class="right">
+                <div class="content">
+                    <p>You have been using a simple form of the <code>for</code> loop since Chapter 1. You might be surprised at just how powerful and flexible the <code>for</code> loop is. Let's begin by reviewing the basics, starting with the most traditional forms of the <code>for</code>.</p>
+                    <p>The general form of the <code>for</code> loop for repeating a single statement is</p>
+                    <pre><code class="language-plaintext">for(initialization; condition; iteration) statement;</code></pre>  <!-- plaintext block -->
+                    <p>For repeating a block, the general form is</p>
+                    <pre><code class="language-plaintext">for(initialization; condition; iteration)
+{
+statement sequence
+}</code></pre>  <!-- plaintext block -->
+                    <ul>
+                        <li>The <i>initialization</i> is usually an assignment statement that sets the initial value of the <i>loop control variable</i>, which acts as the counter that controls the loop.</li>
+                        <li>The <i>condition</i> is a Boolean expression that determines whether or not the loop will repeat.</li>
+                        <li>The <i>iteration</i> expression defines the amount by which the loop control variable will change each time the loop is repeated.</li>
+                    </ul>
+                    <p>Notice that these three major sections of the loop must be separated by semicolons. The <code>for</code> loop will continue to execute as long as the condition tests true. Once the condition becomes false, the loop will exit, and program execution will resume on the statement following the <code>for</code>.</p>
+                    <p>The following program uses a <code>for</code> loop to print the square roots of the numbers between 1 and 99. It also displays the rounding error present for each square root.</p>
+                    <p class="srcFile"><a href="../JBG_HS_Ch03/JBG_HS_Ch03_Exmp/SqrRoot.java" target="_blank">../JBG_HS_Ch03/JBG_HS_Ch03_Exmp/SqrRoot.java</a></p>
+                    <pre><code class="language-java">/**
+* Show square roots of 1 to 99 and the rounding error.
+* 
+* Call this file "SqrRoot.java".
+*/
+class SqrRoot {
+public static void main(String[] args) {
+double num, sroot, rerr;
+
+for(num = 1.0; num < 100.0; num++) {
+sroot = Math.sqrt(num);
+System.out.println("Square root of " + num + " is " + sroot);
+
+// compute rounding error
+rerr = num - (sroot * sroot);
+System.out.println("Rounding error is " + rerr);
+System.out.println();
+}
+}
+}</code></pre>  <!-- java code -->
+                    <div class="gallery2">
+                        <figure class="standAloneFigure">
+                            <img src="./plantUMLs/ch03/SqrRoot_class.svg" alt="Class diagram of SqrRoot class">
+                            <figcaption>Class diagram of SqrRoot class<br>src: <a href="./plantUMLs/ch03/SqrRoot_class.puml" target="_blank">./plantUMLs/ch03/SqrRoot_class.puml</a></figcaption>
+                        </figure>  <!-- standAloneFigure -->
+                        <figure class="standAloneFigure">
+                            <img src="./plantUMLs/ch03/SqrRoot_act.svg" alt="Activity diagram of SqrRoot.main() method">
+                            <figcaption>Acivity diagram of SqrRoot.main() method<br>src: <a href="./plantUMLs/ch03/SqrRoot_act.puml" target="_blank">./plantUMLs/ch03/SqrRoot_act.puml</a></figcaption>
+                        </figure>  <!-- standAloneFigure -->
+                    </div>  <!-- gallery2 -->
+                    <p><b>Execution Logs: </b></p>
+                    <pre><code class="language-plaintext">Square root of 1.0 is 1.0
+Rounding error is 0.0
+
+Square root of 2.0 is 1.4142135623730951
+Rounding error is -4.440892098500626E-16
+
+Square root of 3.0 is 1.7320508075688772
+Rounding error is 4.440892098500626E-16
+
+Square root of 4.0 is 2.0
+Rounding error is 0.0
+
+Square root of 5.0 is 2.23606797749979
+Rounding error is -8.881784197001252E-16
+
+Square root of 6.0 is 2.449489742783178
+Rounding error is 8.881784197001252E-16
+
+Square root of 7.0 is 2.6457513110645907
+Rounding error is -8.881784197001252E-16
+
+Square root of 8.0 is 2.8284271247461903
+Rounding error is -1.7763568394002505E-15
+
+Square root of 9.0 is 3.0
+Rounding error is 0.0
+
+Square root of 10.0 is 3.1622776601683795
+Rounding error is -1.7763568394002505E-15
+
+Square root of 11.0 is 3.3166247903554
+Rounding error is 0.0
+
+Square root of 12.0 is 3.4641016151377544
+Rounding error is 1.7763568394002505E-15
+
+Square root of 13.0 is 3.605551275463989
+Rounding error is 1.7763568394002505E-15
+
+Square root of 14.0 is 3.7416573867739413
+Rounding error is 0.0
+
+Square root of 15.0 is 3.872983346207417
+Rounding error is -1.7763568394002505E-15
+
+Square root of 16.0 is 4.0
+Rounding error is 0.0
+
+Square root of 17.0 is 4.123105625617661
+Rounding error is 0.0
+
+Square root of 18.0 is 4.242640687119285
+Rounding error is 3.552713678800501E-15
+
+Square root of 19.0 is 4.358898943540674
+Rounding error is -3.552713678800501E-15
+
+Square root of 20.0 is 4.47213595499958
+Rounding error is -3.552713678800501E-15
+
+Square root of 21.0 is 4.58257569495584
+Rounding error is 0.0
+
+Square root of 22.0 is 4.69041575982343
+Rounding error is 0.0
+
+Square root of 23.0 is 4.795831523312719
+Rounding error is 3.552713678800501E-15
+
+Square root of 24.0 is 4.898979485566356
+Rounding error is 3.552713678800501E-15
+
+Square root of 25.0 is 5.0
+Rounding error is 0.0
+
+Square root of 26.0 is 5.0990195135927845
+Rounding error is 3.552713678800501E-15
+
+Square root of 27.0 is 5.196152422706632
+Rounding error is 0.0
+
+Square root of 28.0 is 5.291502622129181
+Rounding error is -3.552713678800501E-15
+
+Square root of 29.0 is 5.385164807134504
+Rounding error is 3.552713678800501E-15
+
+Square root of 30.0 is 5.477225575051661
+Rounding error is 0.0
+
+Square root of 31.0 is 5.5677643628300215
+Rounding error is 3.552713678800501E-15
+
+Square root of 32.0 is 5.656854249492381
+Rounding error is -7.105427357601002E-15
+
+Square root of 33.0 is 5.744562646538029
+Rounding error is 0.0
+
+Square root of 34.0 is 5.830951894845301
+Rounding error is 0.0
+
+Square root of 35.0 is 5.916079783099616
+Rounding error is 0.0
+
+Square root of 36.0 is 6.0
+Rounding error is 0.0
+
+Square root of 37.0 is 6.082762530298219
+Rounding error is 7.105427357601002E-15
+
+Square root of 38.0 is 6.164414002968976
+Rounding error is 7.105427357601002E-15
+
+Square root of 39.0 is 6.244997998398398
+Rounding error is 0.0
+
+Square root of 40.0 is 6.324555320336759
+Rounding error is -7.105427357601002E-15
+
+Square root of 41.0 is 6.4031242374328485
+Rounding error is 0.0
+
+Square root of 42.0 is 6.48074069840786
+Rounding error is 0.0
+
+Square root of 43.0 is 6.557438524302
+Rounding error is 7.105427357601002E-15
+
+Square root of 44.0 is 6.6332495807108
+Rounding error is 0.0
+
+Square root of 45.0 is 6.708203932499369
+Rounding error is -7.105427357601002E-15
+
+Square root of 46.0 is 6.782329983125268
+Rounding error is 0.0
+
+Square root of 47.0 is 6.855654600401044
+Rounding error is 0.0
+
+Square root of 48.0 is 6.928203230275509
+Rounding error is 7.105427357601002E-15
+
+Square root of 49.0 is 7.0
+Rounding error is 0.0
+
+Square root of 50.0 is 7.0710678118654755
+Rounding error is -7.105427357601002E-15
+
+Square root of 51.0 is 7.14142842854285
+Rounding error is -7.105427357601002E-15
+
+Square root of 52.0 is 7.211102550927978
+Rounding error is 7.105427357601002E-15
+
+Square root of 53.0 is 7.280109889280518
+Rounding error is 0.0
+
+Square root of 54.0 is 7.3484692283495345
+Rounding error is 0.0
+
+Square root of 55.0 is 7.416198487095663
+Rounding error is 0.0
+
+Square root of 56.0 is 7.483314773547883
+Rounding error is 0.0
+
+Square root of 57.0 is 7.54983443527075
+Rounding error is 0.0
+
+Square root of 58.0 is 7.615773105863909
+Rounding error is -7.105427357601002E-15
+
+Square root of 59.0 is 7.681145747868608
+Rounding error is 7.105427357601002E-15
+
+Square root of 60.0 is 7.745966692414834
+Rounding error is -7.105427357601002E-15
+
+Square root of 61.0 is 7.810249675906654
+Rounding error is 7.105427357601002E-15
+
+Square root of 62.0 is 7.874007874011811
+Rounding error is 0.0
+
+Square root of 63.0 is 7.937253933193772
+Rounding error is -7.105427357601002E-15
+
+Square root of 64.0 is 8.0
+Rounding error is 0.0
+
+Square root of 65.0 is 8.06225774829855
+Rounding error is 1.4210854715202004E-14
+
+Square root of 66.0 is 8.12403840463596
+Rounding error is -1.4210854715202004E-14
+
+Square root of 67.0 is 8.18535277187245
+Rounding error is 0.0
+
+Square root of 68.0 is 8.246211251235321
+Rounding error is 0.0
+
+Square root of 69.0 is 8.306623862918075
+Rounding error is 0.0
+
+Square root of 70.0 is 8.366600265340756
+Rounding error is 0.0
+
+Square root of 71.0 is 8.426149773176359
+Rounding error is 0.0
+
+Square root of 72.0 is 8.48528137423857
+Rounding error is 1.4210854715202004E-14
+
+Square root of 73.0 is 8.54400374531753
+Rounding error is 1.4210854715202004E-14
+
+Square root of 74.0 is 8.602325267042627
+Rounding error is 0.0
+
+Square root of 75.0 is 8.660254037844387
+Rounding error is -1.4210854715202004E-14
+
+Square root of 76.0 is 8.717797887081348
+Rounding error is -1.4210854715202004E-14
+
+Square root of 77.0 is 8.774964387392123
+Rounding error is -1.4210854715202004E-14
+
+Square root of 78.0 is 8.831760866327848
+Rounding error is -1.4210854715202004E-14
+
+Square root of 79.0 is 8.888194417315589
+Rounding error is 0.0
+
+Square root of 80.0 is 8.94427190999916
+Rounding error is -1.4210854715202004E-14
+
+Square root of 81.0 is 9.0
+Rounding error is 0.0
+
+Square root of 82.0 is 9.055385138137417
+Rounding error is -1.4210854715202004E-14
+
+Square root of 83.0 is 9.1104335791443
+Rounding error is 0.0
+
+Square root of 84.0 is 9.16515138991168
+Rounding error is 0.0
+
+Square root of 85.0 is 9.219544457292887
+Rounding error is 0.0
+
+Square root of 86.0 is 9.273618495495704
+Rounding error is 0.0
+
+Square root of 87.0 is 9.327379053088816
+Rounding error is -1.4210854715202004E-14
+
+Square root of 88.0 is 9.38083151964686
+Rounding error is 0.0
+
+Square root of 89.0 is 9.433981132056603
+Rounding error is 1.4210854715202004E-14
+
+Square root of 90.0 is 9.486832980505138
+Rounding error is 0.0
+
+Square root of 91.0 is 9.539392014169456
+Rounding error is 0.0
+
+Square root of 92.0 is 9.591663046625438
+Rounding error is 1.4210854715202004E-14
+
+Square root of 93.0 is 9.643650760992955
+Rounding error is 0.0
+
+Square root of 94.0 is 9.695359714832659
+Rounding error is -1.4210854715202004E-14
+
+Square root of 95.0 is 9.746794344808963
+Rounding error is 1.4210854715202004E-14
+
+Square root of 96.0 is 9.797958971132712
+Rounding error is 1.4210854715202004E-14
+
+Square root of 97.0 is 9.848857801796104
+Rounding error is 1.4210854715202004E-14
+
+Square root of 98.0 is 9.899494936611665
+Rounding error is 0.0
+
+Square root of 99.0 is 9.9498743710662
+Rounding error is 0.0
+</code></pre>  <!-- plaintext block -->
+                    <p>Notice that the rounding error is computed by squaring the square root of each number. This result is then subtracted from the original number, thus yielding the rounding error.</p>
+                    <p>The <code>for</code> loop can proceed in a positive or negative fashion, and it can change the loop control variable by any amount. For example, the following program prints the numbers 100 to -95, in decrements of 5:</p>
+                    <p class="srcFile"><a href="../JBG_HS_Ch03/JBG_HS_Ch03_Exmp/DecrFor.java" target="_blank">../JBG_HS_Ch03/JBG_HS_Ch03_Exmp/DecrFor.java</a></p>
+                    <pre><code class="language-java">/**
+* A negatively running for loop.
+* 
+* Call this file "DecrFor.java".
+*/
+class DecrFor {
+public static void main(String[] args) {
+int x;
+
+for(x = 100; x > -100; x -= 5) {
+System.out.println(x);
+}
+}
+}</code></pre>  <!-- java code -->
+                    <div class="gallery2">
+                        <figure class="standAloneFigure">
+                            <img src="./plantUMLs/ch03/DecrFor_class.svg" alt="Class diagram of DecrFor class">
+                            <figcaption>Class diagram of DecrFor class<br>src: <a href="./plantUMLs/ch03/DecrFor_class.puml" target="_blank">./plantUMLs/ch03/DecrFor_class.puml</a></figcaption>
+                        </figure>  <!-- standAloneFigure -->
+                        <figure class="standAloneFigure">
+                            <img src="./plantUMLs/ch03/DecrFor_act.svg" alt="Activity diagram of DecrFor.main() method">
+                            <figcaption>Acivity diagram of DecrFor.main() method<br>src: <a href="./plantUMLs/ch03/DecrFor_act.puml" target="_blank">./plantUMLs/ch03/DecrFor_act.puml</a></figcaption>
+                        </figure>  <!-- standAloneFigure -->
+                    </div>  <!-- gallery2 -->
+                    <p><b>Execution Logs: </b></p>
+                    <pre><code class="language-plaintext">100
+95
+90
+85
+80
+75
+70
+65
+60
+55
+50
+45
+40
+35
+30
+25
+20
+15
+10
+5
+0
+-5
+-10
+-15
+-20
+-25
+-30
+-35
+-40
+-45
+-50
+-55
+-60
+-65
+-70
+-75
+-80
+-85
+-90
+-95</code></pre>  <!-- plaintext block -->
+                    <p>An important point about <code>for</code> loops is that the conditional expression is always tested at the top of the loop. This means that the code inside the loop may not be executed at all if the condition is false to begin with. Here is an example:</p>
+                    <pre><code class="language-java">for(count = 10; count < 5; count++)
+x += count;  // This statement will not execute</code></pre>  <!-- java code -->
+                        <p>This loop will never execute because its control variable, <code>count</code>, is greater than 5 when the loop is first entered. This makes the conditional expression, <code>count < 5</code>, false from the outset; thus, not even one iteration of the loop will occur.</p>
+                </div>  <!-- content -->
+            </div>  <!-- right -->
+        </div>  <!-- lvl1 -->
+        <div class="lvl1">
+            <div class="left">
+                <h2>SOME VARIATIONS ON THE FOR LOOP</h2>
+            </div>  <!-- left -->
+            <div class="right">
+                <div class="content">
+                    <p>The <code>for</code> is one of the most versatile statements in the Java language because it allows a wide range of variations. For example, multiple loop control variables can be used. Consider the following program:</p>
+                    <p class="srcFile"><a href="../JBG_HS_Ch03/JBG_HS_Ch03_Exmp/Comma.java" target="_blank">../JBG_HS_Ch03/JBG_HS_Ch03_Exmp/Comma.java</a></p>
+                    <pre><code class="language-java">/**
+* Use commas in a for statement.
+* 
+* Call this file "Comma.java".
+*/
+class Comma {
+public static void main(String[] args) {
+int i, j;
+
+for(i = 0, j = 10; i < j; i++, j--) {
+System.out.println("i and j: " + i + " " + j);
+}
+}
+}</code></pre>  <!-- java code -->
+                    <div class="gallery2">
+                        <figure class="standAloneFigure">
+                            <img src="./plantUMLs/ch03/Comma_class.svg" alt="Class diagram of Comma class">
+                            <figcaption>Class diagram of Comma class<br>src: <a href="./plantUMLs/ch03/Comma_class.puml" target="_blank">./plantUMLs/ch03/Comma_class.puml</a></figcaption>
+                        </figure>  <!-- standAloneFigure -->
+                        <figure class="standAloneFigure">
+                            <img src="./plantUMLs/ch03/Comma_act.svg" alt="Activity diagram of Comma.main() method">
+                            <figcaption>Acivity diagram of Comma.main() method<br>src: <a href="./plantUMLs/ch03/Comma_act.puml" target="_blank">./plantUMLs/ch03/Comma_act.puml</a></figcaption>
+                        </figure>  <!-- standAloneFigure -->
+                    </div>  <!-- gallery2 -->
+                    <p>The output from the program is shown here:</p>
+                    <pre><code class="language-plaintext">i and j: 0 10
+i and j: 1 9
+i and j: 2 8
+i and j: 3 7
+i and j: 4 6</code></pre>  <!-- plaintext block -->
+                    <p>Here, commas separate the two initialization statements and the two iteration expressions. When the loop begins, both <code>i</code> and <code>j</code> are initialized. Each time the loop repeats, <code>i</code> is incremented and <code>j</code> is decremented. Multiple loop control variables are often convenient and can simplify certain algorithms. You can have any number of initialization and iteration statements, but in practice, more than two or three make the <code>for</code> loop unwieldy.</p>
+                    <p>The condition controlling the loop can be any valid Boolean expression. It does not need to involve the loop control variable. In the next example, the loop continues to execute until the user types the letter <code>S</code> at the keyboard:</p>
+                    <p class="srcFile"><a href="../JBG_HS_Ch03/JBG_HS_Ch03_Exmp/ForTest.java" target="_blank">../JBG_HS_Ch03/JBG_HS_Ch03_Exmp/ForTest.java</a></p>
+                    <pre><code class="language-java">/**
+* Loop until an S is typed.
+* 
+* Call this file "ForTest.java".
+*/
+class ForTest {
+public static void main(String[] args) 
+throws java.io.IOException {
+int i;
+
+System.out.println("Press S to stop.");
+
+for(i = 0; (char) System.in.read() != 'S'; i++) {
+System.out.println("Pass #" + i);
+}
+}
+}</code></pre>  <!-- java code -->
+                    <div class="gallery2">
+                        <figure class="standAloneFigure">
+                            <img src="./plantUMLs/ch03/ForTest_class.svg" alt="Class diagram of ForTest class">
+                            <figcaption>Class diagram of ForTest class<br>src: <a href="./plantUMLs/ch03/ForTest_class.puml" target="_blank">./plantUMLs/ch03/ForTest_class.puml</a></figcaption>
+                        </figure>  <!-- standAloneFigure -->
+                        <figure class="standAloneFigure">
+                            <img src="./plantUMLs/ch03/ForTest_act.svg" alt="Activity diagram of ForTest.main() method">
+                            <figcaption>Acivity diagram of ForTest.main() method<br>src: <a href="./plantUMLs/ch03/ForTest_act.puml" target="_blank">./plantUMLs/ch03/ForTest_act.puml</a></figcaption>
+                        </figure>  <!-- standAloneFigure -->
+                    </div>  <!-- gallery2 -->
+                    <p><b>Execution Logs: </b></p>
+                    <p><u>Execution 1: </u></p>
+                    <pre><code class="language-plaintext">Press S to stop.
+sqweS
+Pass #0
+Pass #1
+Pass #2
+Pass #3</code></pre>  <!-- plaintext block -->
+                    <p><u>Execution 2: </u></p>
+                    <pre><code class="language-plaintext">Press S to stop.
+sqweSabc
+Pass #0
+Pass #1
+Pass #2
+Pass #3</code></pre>  <!-- plaintext block -->
+                    <p><u>Execution 3: </u></p>
+                    <pre><code class="language-plaintext">Press S to stop.
+S</code></pre>  <!-- plaintext block -->
+                </div>  <!-- content -->
+            </div>  <!-- right -->
+        </div>  <!-- lvl1 -->
+        <div class="lvl1">
+            <div class="left">
+                <h2>MISSING PIECES</h2>
+            </div>  <!-- left -->
+            <div class="right">
+                <div class="content">
+                    <p>Some interesting <code>for</code> loop variations are created by leaving pieces of the loop definition empty. In Java, it is possible for any or all of the initialization, condition, or iteration portions of the for loop to be blank. For example, consider the following program:</p>
+                    <p class="srcFile"><a href="../JBG_HS_Ch03/JBG_HS_Ch03_Exmp/Empty.java" target="_blank">../JBG_HS_Ch03/JBG_HS_Ch03_Exmp/Empty.java</a></p>
+                    <pre><code class="language-java">/**
+* Parts of the for can be empty.
+* 
+* Call this file "Empty.java".
+*/
+class Empty {
+public static void main(String[] args) {
+int i;
+
+for(i = 0; i < 10; ) {
+System.out.println("Pass #" + i);
+i++;  // increment loop control var
+}
+}
+}</code></pre>  <!-- java code -->
+                    <div class="gallery2">
+                        <figure class="standAloneFigure">
+                            <img src="./plantUMLs/ch03/Empty_class.svg" alt="Class diagram of Empty class">
+                            <figcaption>Class diagram of Empty class<br>src: <a href="./plantUMLs/ch03/Empty_class.puml" target="_blank">./plantUMLs/ch03/Empty_class.puml</a></figcaption>
+                        </figure>  <!-- standAloneFigure -->
+                        <figure class="standAloneFigure">
+                            <img src="./plantUMLs/ch03/Empty_act.svg" alt="Activity diagram of Empty.main() method">
+                            <figcaption>Acivity diagram of Empty.main() method<br>src: <a href="./plantUMLs/ch03/Empty_act.puml" target="_blank">./plantUMLs/ch03/Empty_act.puml</a></figcaption>
+                        </figure>  <!-- standAloneFigure -->
+                    </div>  <!-- gallery2 -->
+                    <p>Here, the iteration expression of the <code>for</code> is empty. Instead, the loop control variable <code>i</code> is incremented inside the body of the loop. This means that each time the loop repeats, <code>i</code> is tested to see whether it equals 10, but no further action takes place. Of course, since <code>i</code> is still incremented within the body of the loop, the loop runs normally, displaying the following output:</p>
+                    <pre><code class="language-plaintext">Pass #0
+Pass #1
+Pass #2
+Pass #3
+Pass #4
+Pass #5
+Pass #6
+Pass #7
+Pass #8
+Pass #9</code></pre>  <!-- plaintext block -->
+                    <p>In the next example, the initialization portion is also moved out of the <code>for</code>:</p>
+                    <p class="srcFile"><a href="../JBG_HS_Ch03/JBG_HS_Ch03_Exmp/Empty2.java" target="_blank">../JBG_HS_Ch03/JBG_HS_Ch03_Exmp/Empty2.java</a></p>
+                    <pre><code class="language-java">/**
+* Parts of the for can be empty (initialization).
+* 
+* Call this file "Empty2.java".
+*/
+class Empty2 {
+public static void main(String[] args) {
+int i;
+
+i = 0;  // Move initialization out of the loop
+for(; i < 10; ) {
+System.out.println("Pass #" + i);
+i++;  // increment loop control var
+}
+}
+}</code></pre>  <!-- java code -->
+                    <div class="gallery2">
+                        <figure class="standAloneFigure">
+                            <img src="./plantUMLs/ch03/Empty2_class.svg" alt="Class diagram of Empty2 class">
+                            <figcaption>Class diagram of Empty2 class<br>src: <a href="./plantUMLs/ch03/Empty2_class.puml" target="_blank">./plantUMLs/ch03/Empty2_class.puml</a></figcaption>
+                        </figure>  <!-- standAloneFigure -->
+                        <figure class="standAloneFigure">
+                            <img src="./plantUMLs/ch03/Empty2_act.svg" alt="Activity diagram of Empty2.main() method">
+                            <figcaption>Acivity diagram of Empty2.main() method<br>src: <a href="./plantUMLs/ch03/Empty2_act.puml" target="_blank">./plantUMLs/ch03/Empty2_act.puml</a></figcaption>
+                        </figure>  <!-- standAloneFigure -->
+                    </div>  <!-- gallery2 -->
+                    <p><b>Execution Logs: </b></p>
+                    <pre><code class="language-plaintext">Pass #0
+Pass #1
+Pass #2
+Pass #3
+Pass #4
+Pass #5
+Pass #6
+Pass #7
+Pass #8
+Pass #9</code></pre>  <!-- plaintext block -->
+                    <p>In this version, <code>i</code> is initialized before the loop begins, rather than as part of the <code>for</code>. Normally, you will want to initialize the loop control variable inside the <code>for</code>. Placing the initialization outside of the loop is generally done only when the initial value is derived through a complex process that does not lend itself to containment inside the <code>for</code> statement.</p>
+                </div>  <!-- content -->
+                <div class="lvl2">
+                    <div class="left">
+                        <h3>The Infinite Loop</h3>
+                    </div>  <!-- left -->
+                    <div class="right">
+                        <div class="content">
+                            <p>You can create an infinite loop (a loop that never terminates) using the <code>for</code> by leaving the conditional expression empty. For example, the following fragment shows the way many Java programmers create an infinite loop:</p>
+                            <pre><code class="language-java">for(;;)  //intentionally infinite loop
+{
+// ...
+}</code></pre>  <!-- java code -->
+                            <p>This loop will run forever. Although there are some programming tasks, such as operating system command processors, that require an infinite loop, most "infinite loops" are really just loops with special termination requirements. Near the end of this chapter, you will see how to halt a loop of this type. (Hint: It's done using the <code>break</code> statement.)</p>
+                        </div>  <!-- content -->
+                    </div>  <!-- right -->
+                </div>  <!-- lvl2 -->
+            </div>  <!-- right -->
+        </div>  <!-- lvl1 -->
+        <div class="lvl1">
+            <div class="left">
+                <h2>LOOPS WITH NO BODY</h2>
+            </div>  <!-- left -->
+            <div class="right">
+                <div class="content">
+                    <p>In Java, the body associated with a <code>for</code> loop (or any other loop) can be empty. This is because a <em>null</em> statement is syntactically valid. Body-less loops are often useful. For example, the following program uses one to sum the numbers 1 through 5:</p>
+                    <p class="srcFile"><a href="../JBG_HS_Ch03/JBG_HS_Ch03_Exmp/Empty3.java" target="_blank">../JBG_HS_Ch03/JBG_HS_Ch03_Exmp/Empty3.java</a></p>
+                    <pre><code class="language-java">/**
+* Body of a loop can be empty.
+* 
+* Call this file "Empty3.java".
+*/
+class Empty3 {
+public static void main(String[] args) {
+int i, sum = 0;
+
+for(i = 1; i <= 5; sum += i++);  // No body in this loop
+System.out.println("Sum is " + sum);
+}
+}</code></pre>  <!-- java code -->
+                    <div class="gallery2">
+                        <figure class="standAloneFigure">
+                            <img src="./plantUMLs/ch03/Empty3_class.svg" alt="Class diagram of Empty3 class">
+                            <figcaption>Class diagram of Empty3 class<br>src: <a href="./plantUMLs/ch03/Empty3_class.puml" target="_blank">./plantUMLs/ch03/Empty3_class.puml</a></figcaption>
+                        </figure>  <!-- standAloneFigure -->
+                        <figure class="standAloneFigure">
+                            <img src="./plantUMLs/ch03/Empty3_act.svg" alt="Activity diagram of Empty3.main() method">
+                            <figcaption>Acivity diagram of Empty3.main() method<br>src: <a href="./plantUMLs/ch03/Empty3_act.puml" target="_blank">./plantUMLs/ch03/Empty3_act.puml</a></figcaption>
+                        </figure>  <!-- standAloneFigure -->
+                    </div>  <!-- gallery2 -->
+                    <p>The output from the program is shown here:</p>
+                    <pre><code class="language-plaintext">Sum is 15</code></pre>  <!-- plaintext block -->
+                    <p>Notice that the summation process is handled entirely within the <code>for</code> statement, and no body is needed. Pay special attention to the iteration expression:</p>
+                    <pre><code class="language-java">sum += i++</code></pre>  <!-- java code -->
+                    <p>Don't be intimidated by statements like this. They are common in professionally written Java programs and are easy to understand if you break them down into their parts. In other words, this statement says, "Add to <code>sum</code> the value of <code>sum</code> plus <code>i</code>, then increment <code>i</code>." Thus, it is the same as this sequence of statements:</p>
+                    <pre><code class="language-java">sum = sum + i;
+i++;</code></pre>  <!-- java code -->
+                </div>  <!-- content -->
+            </div>  <!-- right -->
+        </div>  <!-- lvl1 -->
+        <div class="lvl1">
+            <div class="left">
+                <h2>DECLARING LOOP CONTROL VARIABLES INSIDE THE FOR LOOP</h2>
+            </div>  <!-- left -->
+            <div class="right">
+                <div class="content">
+                    <p>Often the variable that controls a <code>for</code> loop is needed only for the purposes of the loop and is not used elsewhere. When this is the case, it is possible to declare the variable inside the initialization portion of the <code>for</code>. For example, the following program computes both the summation and the factorial of the numbers 1 through 5. It declares its loop control variable <code>i</code> inside the <code>for</code>.</p>
+                    <p class="srcFile"><a href="../JBG_HS_Ch03/JBG_HS_Ch03_Exmp/ForVar.java" target="_blank">../JBG_HS_Ch03/JBG_HS_Ch03_Exmp/ForVar.java</a></p>
+                    <pre><code class="language-java">/**
+* Declare loop control variable inside the for.
+* 
+* Call this file "ForVar.java".
+*/
+class ForVar {
+public static void main(String[] args) {
+int sum = 0;
+int fact = 1;
+
+// Compute the factorial of the numbers through 5
+for(int i = 1; i <= 5; i++) {  // i is declared inside the for statement
+sum += i;  // i is known throughout the loop
+fact *= i;
+}
+
+// but i is not known here.
+
+System.out.println("Sum is " + sum);
+System.out.println("Factorial is " + fact);
+}
+}</code></pre>  <!-- java code -->
+                    <div class="gallery2">
+                        <figure class="standAloneFigure">
+                            <img src="./plantUMLs/ch03/ForVar_class.svg" alt="Class diagram of ForVar class">
+                            <figcaption>Class diagram of ForVar class<br>src: <a href="./plantUMLs/ch03/ForVar_class.puml" target="_blank">./plantUMLs/ch03/ForVar_class.puml</a></figcaption>
+                        </figure>  <!-- standAloneFigure -->
+                        <figure class="standAloneFigure">
+                            <img src="./plantUMLs/ch03/ForVar_act.svg" alt="Activity diagram of ForVar.main() method">
+                            <figcaption>Acivity diagram of ForVar.main() method<br>src: <a href="./plantUMLs/ch03/ForVar_act.puml" target="_blank">./plantUMLs/ch03/ForVar_act.puml</a></figcaption>
+                        </figure>  <!-- standAloneFigure -->
+                    </div>  <!-- gallery2 -->
+                    <p><b>Execution Logs: </b></p>
+                    <pre><code class="language-plaintext">Sum is 15
+Factorial is 120</code></pre>  <!-- plaintext block -->
+                    <p>When you declare a variable inside a <code>for</code> loop, there is one important point to remember: the scope of that variable ends when the <code>for</code> statement does. (That is, the scope of the variable is limited to the <code>for</code> loop.) Outside the <code>for</code> loop, the variable will cease to exist. Thus, in the preceding example, <code>i</code> is not accessible outside the <code>for</code> loop. If you need to use the loop control variable elsewhere in your program, you will not be able to declare it inside the <code>for</code> loop.</p>
+                    <p>Before moving on, you might want to experiment with your own variations on the <code>for</code> loop. As you will find, it is a fascinating loop.</p>
+                </div>  <!-- content -->
+            </div>  <!-- right -->
+        </div>  <!-- lvl1 -->
+        <div class="lvl1">
+            <div class="left">
+                <h2>THE ENHANCED FOR LOOP</h2>
+            </div>  <!-- left -->
+            <div class="right">
+                <div class="content">
+                    <p>There is another form of the <code>for</code> loop, called the <em>enhanced <code>for</code></em>. The enhanced <code>for</code> provides a streamlined way to cycle through the contents of a collection of objects, such as an array. The enhanced <code>for</code> loop is discussed in Chapter 5, after arrays have been introduced.</p>
+                </div>  <!-- content -->
+            </div>  <!-- right -->
+        </div>  <!-- lvl1 -->
+        <div class="lvl1">
+            <div class="left">
+                <h2>THE WHILE LOOP</h2>
+            </div>  <!-- left -->
+            <div class="right">
+                <div class="content">
+                    <p>Another of Java's loops is the <code>while</code>. The general form of the <code>while</code> loop is</p>
+                    <pre><code class="language-plaintext">while(condition) statement;</code></pre>  <!-- plaintext block -->
+                    <p>where statement may be a single statement or a block of statements, and condition defines the condition that controls the loop. The condition may be any valid Boolean expression. The loop repeats while the condition is true. When the condition becomes false, program control passes to the line immediately following the loop.</p>
+                    <p>Here is a simple example in which a <code>while</code> is used to print the alphabet:</p>
+                    <p class="srcFile"><a href="../JBG_HS_Ch03/JBG_HS_Ch03_Exmp/WhileDemo.java" target="_blank">../JBG_HS_Ch03/JBG_HS_Ch03_Exmp/WhileDemo.java</a></p>
+                    <pre><code class="language-java">/**
+* Demonstrate the while loop.
+* 
+* Call this file "WhileDemo.java".
+*/
+class WhileDemo {
+public static void main(String[] args) {
+char ch;
+
+// print the alphabet using a while loop.
+ch = 'a';
+while(ch <= 'z') {
+System.out.println(ch);
+ch++;
+}
+}
+}</code></pre>  <!-- java code -->
+                    <div class="gallery2">
+                        <figure class="standAloneFigure">
+                            <img src="./plantUMLs/ch03/WhileDemo_class.svg" alt="Class diagram of WhileDemo class">
+                            <figcaption>Class diagram of WhileDemo class<br>src: <a href="./plantUMLs/ch03/WhileDemo_class.puml" target="_blank">./plantUMLs/ch03/WhileDemo_class.puml</a></figcaption>
+                        </figure>  <!-- standAloneFigure -->
+                        <figure class="standAloneFigure">
+                            <img src="./plantUMLs/ch03/WhileDemo_act.svg" alt="Activity diagram of WhileDemo.main() method">
+                            <figcaption>Acivity diagram of WhileDemo.main() method<br>src: <a href="./plantUMLs/ch03/WhileDemo_act.puml" target="_blank">./plantUMLs/ch03/WhileDemo_act.puml</a></figcaption>
+                        </figure>  <!-- standAloneFigure -->
+                    </div>  <!-- gallery2 -->
+                    <p><b>Execution Logs: </b></p>
+                    <pre><code class="language-plaintext">a
+b
+c
+d
+e
+f
+g
+h
+i
+j
+k
+l
+m
+n
+o
+p
+q
+r
+s
+t
+u
+v
+w
+x
+y
+z</code></pre>  <!-- plaintext block -->
+                    <p>Here, <code>ch</code> is initialized to the letter <code>a</code>. Each time through the loop, <code>ch</code> is output and then incremented. This process continues until <code>ch</code> is greater than <code>z</code>.</p>
+                    <p>As with the <code>for</code> loop, the <code>while</code> checks the conditional expression at the top of the loop, which means that the loop code may not execute at all. This eliminates the need for performing a separate test before the loop. The following program illustrates this characteristic of the <code>while</code> loop. It computes the integer powers of 2, from 0 to 9.</p>
+                    <p class="srcFile"><a href="../JBG_HS_Ch03/JBG_HS_Ch03_Exmp/Power.java" target="_blank">../JBG_HS_Ch03/JBG_HS_Ch03_Exmp/Power.java</a></p>
+                    <pre><code class="language-java">/**
+* Compute integer powers of 2.
+* 
+* Call this file "Power.java".
+*/
+class Power {
+public static void main(String[] args) {
+int e, result;
+
+for(int i = 0; i < 10; i++) {
+result = 1;
+e = i;
+while(e > 0) {
+    result *= 2;
+    e--;
+}
+System.out.println("2 to the " + i + " power is " + result);
+}
+}
+}</code></pre>  <!-- java code -->
+                    <div class="gallery2">
+                        <figure class="standAloneFigure">
+                            <img src="./plantUMLs/ch03/Power_class.svg" alt="Class diagram of Power class">
+                            <figcaption>Class diagram of Power class<br>src: <a href="./plantUMLs/ch03/Power_class.puml" target="_blank">./plantUMLs/ch03/Power_class.puml</a></figcaption>
+                        </figure>  <!-- standAloneFigure -->
+                        <figure class="standAloneFigure">
+                            <img src="./plantUMLs/ch03/Power_act.svg" alt="Activity diagram of Power.main() method">
+                            <figcaption>Acivity diagram of Power.main() method<br>src: <a href="./plantUMLs/ch03/Power_act.puml" target="_blank">./plantUMLs/ch03/Power_act.puml</a></figcaption>
+                        </figure>  <!-- standAloneFigure -->
+                    </div>  <!-- gallery2 -->
+                    <p><b>Execution Logs: </b></p>
+                    <pre><code class="language-plaintext">2 to the 0 power is 1
+2 to the 1 power is 2
+2 to the 2 power is 4
+2 to the 3 power is 8
+2 to the 4 power is 16
+2 to the 5 power is 32
+2 to the 6 power is 64
+2 to the 7 power is 128
+2 to the 8 power is 256
+2 to the 9 power is 512</code></pre>  <!-- plaintext block -->
+                    <p>Notice that the <code>while</code> loop executes only when <code>e</code> is greater than 0. Thus, when <code>e</code> is zero, as it is in the first iteration of the <code>for</code> loop, the while loop is skipped.</p>
+                </div>  <!-- content -->
+            </div>  <!-- right -->
+        </div>  <!-- lvl1 -->
+        <div class="lvl1">
+            <div class="left">
+                <h2>THE DO-WHILE LOOP</h2>
+            </div>  <!-- left -->
+            <div class="right">
+                <div class="content">
+                    <p>The last of Java's loops is the <code>do</code>-<code>while</code>. Unlike the <code>for</code> and the <code>while</code> loops, in which the condition is tested at the top of the loop, the <code>do</code>-<code>while</code> loop checks its condition at the bottom of the loop. This means that a <code>do</code>-<code>while</code> loop will always execute at least once. The general form of the <code>do</code>-<code>while</code> loop is</p>
+                    <pre><code class="language-plaintext">do {
+statements;
+} while(condition);</code></pre>  <!-- plaintext block -->
+                    <p>Although the braces are not necessary when only one statement is present, they are often used to improve readability of the <code>do</code>-<code>while</code> construct, thus preventing confusion with the <code>while</code>. The <code>do</code>-<code>while</code> loop executes as long as the conditional expression is true.</p>
+                    <p>The following program loops until the user enters the letter <code>q</code>:</p>
+                    <p class="srcFile"><a href="../JBG_HS_Ch03/JBG_HS_Ch03_Exmp/DWDemo.java" target="_blank">../JBG_HS_Ch03/JBG_HS_Ch03_Exmp/DWDemo.java</a></p>
+                    <pre><code class="language-java">/**
+* Demonstrate the do-while loop.
+* 
+* Call this file "DWDemo.java".
+*/
+class DWDemo {
+public static void main(String[] args) 
+throws java.io.IOException{
+char ch;
+
+do {
+System.out.print("Press a key followed by ENTER: ");
+ch = (char) System.in.read();  // get a char
+} while(ch != 'q');
+}
+}</code></pre>  <!-- java code -->
+                    <div class="gallery2">
+                        <figure class="standAloneFigure">
+                            <img src="./plantUMLs/ch03/DWDemo_class.svg" alt="Class diagram of DWDemo class">
+                            <figcaption>Class diagram of DWDemo class<br>src: <a href="./plantUMLs/ch03/DWDemo_class.puml" target="_blank">./plantUMLs/ch03/DWDemo_class.puml</a></figcaption>
+                        </figure>  <!-- standAloneFigure -->
+                        <figure class="standAloneFigure">
+                            <img src="./plantUMLs/ch03/DWDemo_act.svg" alt="Activity diagram of DWDemo.main() method">
+                            <figcaption>Acivity diagram of DWDemo.main() method<br>src: <a href="./plantUMLs/ch03/DWDemo_act.puml" target="_blank">./plantUMLs/ch03/DWDemo_act.puml</a></figcaption>
+                        </figure>  <!-- standAloneFigure -->
+                    </div>  <!-- gallery2 -->
+                    <p><b>Execution Logs: </b></p>
+                    <pre><code class="language-plaintext">Press a key followed by ENTER: a
+Press a key followed by ENTER: Press a key followed by ENTER: b
+Press a key followed by ENTER: Press a key followed by ENTER: c
+Press a key followed by ENTER: Press a key followed by ENTER: w
+Press a key followed by ENTER: Press a key followed by ENTER: q</code></pre>  <!-- plaintext block -->
+                    <b>Inference:</b> The statement <code>Press a key followed by ENTER:</code> getting printed twice after the first input during for each iteration. Because, <code>ENTER</code> is available in the buffer which is getting read by <code>read()</code> statement.
+                    <p>Using a <code>do</code>-<code>while</code> loop, we can further improve the guessing game program from earlier in this chapter. This time, the program loops until you guess the letter.</p>
+                    <p class="srcFile"><a href="../JBG_HS_Ch03/JBG_HS_Ch03_Exmp/Guess4.java" target="_blank">../JBG_HS_Ch03/JBG_HS_Ch03_Exmp/Guess4.java</a></p>
+                    <pre><code class="language-java">/**
+* Guess the letter game. Version 4.
+* 
+* Call this file "Guess4.java".
+*/
+class Guess4 {
+public static void main(String[] args) 
+throws java.io.IOException {
+char ch, ignore, answer = 'K';
+
+do {
+System.out.println("I am thinking of a letter between A and Z.");
+System.out.print("Can you guess it?: ");
+
+ch = (char) System.in.read();  // read a character from the keyboard
+
+// discard any other characters in the input buffer
+do {
+    ignore = (char) System.in.read();
+} while(ignore != '\n');
+
+if(ch == answer) System.out.println("** Right **");
+else {
+    System.out.print("...Sorry, you're ");
+    // a nested if
+    if(ch < answer) System.out.println("too low");
+    else System.out.println("too high");
+    System.out.println("Try again!\n");
+}
+}while(answer != ch);
+}
+}</code></pre>  <!-- java code -->
+                    <div class="gallery2">
+                        <figure class="standAloneFigure">
+                            <img src="./plantUMLs/ch03/Guess4_class.svg" alt="Class diagram of Guess4 class">
+                            <figcaption>Class diagram of Guess4 class<br>src: <a href="./plantUMLs/ch03/Guess4_class.puml" target="_blank">./plantUMLs/ch03/Guess4_class.puml</a></figcaption>
+                        </figure>  <!-- standAloneFigure -->
+                        <figure class="standAloneFigure">
+                            <img src="./plantUMLs/ch03/Guess4_act.svg" alt="Activity diagram of Guess4.main() method">
+                            <figcaption>Acivity diagram of Guess4.main() method<br>src: <a href="./plantUMLs/ch03/Guess4_act.puml" target="_blank">./plantUMLs/ch03/Guess4_act.puml</a></figcaption>
+                        </figure>  <!-- standAloneFigure -->
+                    </div>  <!-- gallery2 -->
+                    <p><b>Execution Logs: </b></p>
+                    <pre><code class="language-plaintext">I am thinking of a letter between A and Z.
+Can you guess it?: A
+...Sorry, you're too low
+Try again!
+
+I am thinking of a letter between A and Z.
+Can you guess it?: BCDK
+...Sorry, you're too low
+Try again!
+
+I am thinking of a letter between A and Z.
+Can you guess it?: M
+...Sorry, you're too high
+Try again!
+
+I am thinking of a letter between A and Z.
+Can you guess it?: K
+** Right **</code></pre>  <!-- plaintext block -->
+                    <p>Notice one other thing of interest in this program. There are two <code>do</code>-<code>while</code> loops in the program. The first loops until the user guesses the letter. Its operation and meaning should be clear. The second <code>do</code>-<code>while</code> loop, shown again here, warrants some explanation:</p>
+                    <pre><code class="language-java">// discard any other characters in the input buffer
+do {
+ignore = (char) System.in.read();
+} while(ignore != '\n');</code></pre>  <!-- java code -->
+                    <p>As explained earlier, <span class="highlight">console input is line buffered—you have to press <code>ENTER</code> before characters are sent. Pressing <code>ENTER</code> causes a carriage return and a line feed (newline) sequence to be generated. These characters are left pending in the input buffer. Also, if you typed more than one key before pressing ENTER, they too would still be in the input buffer.</span> This loop discards those characters by continuing to read input until the end of the line is reached. If they were not discarded, then those characters would also be sent to the program as guesses, which is not what is wanted. (To see the effect of this, you might try removing the inner <code>do</code>-<code>while</code> loop.) In Chapter 10, after you have learned more about Java, some other, higher-level ways of handling console input are described. However, the use of <code>read()</code> here gives you insight into how the foundation of Java's I/O system operates. It also shows another example of Java's loops in action.</p>
+                </div>  <!-- content -->
+            </div>  <!-- right -->
+        </div>  <!-- lvl1 -->
+        <div class="lvl1">
+            <div class="left">
+                <h2>Ask the Expert</h2>
+            </div>  <!-- left -->
+            <div class="right">
+                <div class="askTheExpert">
+                    <h3 class="top"></h3>
+                    <p class="question">Given the flexibility inherent in all of Java's loops, what criteria should I use when selecting a loop? That is, how do I choose the right loop for a specific job?</p>
+                    <p class="answer">Use a <code>for</code> loop when performing a known number of iterations based on the value of a loop control variable. Use the <code>do</code>-<code>while</code> when you need a loop that will always perform at least one iteration. The <code>while</code> is best used when the loop will repeat until some condition becomes false.</p>
+                </div>  <!-- askTheExpert -->
+            </div>  <!-- right -->
+        </div>  <!-- lvl1 -->
+        <div class="lvl1">
+            <div class="left">
+                <h2>Try This 3-2</h2>
+            </div>  <!-- left -->
+            <div class="right">
+                <div class="content">
+                    <h3 class="tryThis"><span class="hl">TryThis 3-2</span> Improve the Java Help System</h3>
+                    <ul class="tryThisSrc">
+                        <li><code>Help2.java</code></li>
+                    </ul>
+                    <p>This project expands on the Java help system that was created in Try This 3-1. This version adds the syntax for the <code>for</code>, <code>while</code>, and <code>do</code>-<code>while</code> loops. It also checks the user's menu selection, looping until a valid response is entered.</p>
+                    <ol class="tryThisOl">
+                        <li>Copy <code>Help.java</code> to a new file called <code>Help2.java</code>.</li>
+                        <li>
+                            <div>
+                                <p>Change the first part of <code>main()</code> so that it uses a loop to display the choices, as shown here:</p>
+                                <pre><code class="language-java">public static void main(String[] args) 
+throws java.io.IOException {
+char choice, ignore;
+
+do {
+System.out.println("Help on: ");
+System.out.println("  1. if");
+System.out.println("  2. switch");
+System.out.println("  3. for");
+System.out.println("  4. while");
+System.out.println("  5. do-while");
+System.out.print("Choose one: ");
+
+choice = (char) System.in.read();  // Get the user input
+
+do {
+ignore = (char) System.in.read();
+} while(ignore != '\n');
+} while(choice < '1' | choice > '5');</code></pre>  <!-- java code -->
+                                <p>Notice that a nested <code>do</code>-<code>while</code> loop is used to discard any unwanted characters remaining in the input buffer. After making this change, the program will loop, displaying the menu until the user enters a response that is between 1 and 5.</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                <p>Expand the <code>switch</code> statement to include the <code>for</code>, <code>while</code>, and <code>do</code>-<code>while</code> loops, as shown here:</p>
+                                <pre><code class="language-java">switch(choice) {
+case '1':  // if
+System.out.println("The if:\n");
+System.out.println("if(condition) statement;");
+System.out.println("else statement;");
+break;
+case '2':  // switch
+System.out.println("The switch:\n");
+System.out.println("switch(expression) {");
+System.out.println("    case constant:");
+System.out.println("        statement sequence");
+System.out.println("        break;");
+System.out.println("}");
+break;
+case '3': // for
+System.out.println("The for:\n");
+System.out.println("for(init; condition; iteration)");
+System.out.println("    statement;");
+break;
+case '4': // while
+System.out.println("The while:\n");
+System.out.println("while(condition) statement;");
+break;
+case '5':  // do-while
+System.out.println("The do-while:\n");
+System.out.println("do {");
+System.out.println("    statement;");
+System.out.println("} while(condition);");
+break;
+}</code></pre>  <!-- java code -->
+                                <p>Notice that no <code>default</code> statement is present in this version of the <code>switch</code>. Since the menu loop ensures that a valid response will be entered, it is no longer necessary to include a <code>default</code> statement to handle an invalid choice.</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                <p>Here is the entire <code>Help2.java</code> program listing:</p>
+                                <p class="srcFile"><a href="../JBG_HS_Ch03/JBG_HS_Ch03_Exmp/Help2.java" target="_blank">../JBG_HS_Ch03/JBG_HS_Ch03_Exmp/Help2.java</a></p>
+                                <pre><code class="language-java">/**
+* Try This 3-2 An improved help system that uses a 
+* do-while to process a menu selection.
+* 
+* Call this file Help2.java
+*/
+class Help2 {
+public static void main(String[] args) 
+throws java.io.IOException {
+char choice, ignore;
+
+do {
+System.out.println("Help on: ");
+System.out.println("  1. if");
+System.out.println("  2. switch");
+System.out.println("  3. for");
+System.out.println("  4. while");
+System.out.println("  5. do-while");
+System.out.print("Choose one: ");
+
+choice = (char) System.in.read();  // Get the user input
+
+do {
+    ignore = (char) System.in.read();
+} while(ignore != '\n');
+} while(choice < '1' | choice > '5');
+
+System.out.println();
+
+switch(choice) {
+case '1':  // if
+    System.out.println("The if:\n");
+    System.out.println("if(condition) statement;");
+    System.out.println("else statement;");
+    break;
+case '2':  // switch
+    System.out.println("The switch:\n");
+    System.out.println("switch(expression) {");
+    System.out.println("    case constant:");
+    System.out.println("        statement sequence");
+    System.out.println("        break;");
+    System.out.println("}");
+    break;
+case '3': // for
+    System.out.println("The for:\n");
+    System.out.println("for(init; condition; iteration)");
+    System.out.println("    statement;");
+    break;
+case '4': // while
+    System.out.println("The while:\n");
+    System.out.println("while(condition) statement;");
+    break;
+case '5':  // do-while
+    System.out.println("The do-while:\n");
+    System.out.println("do {");
+    System.out.println("    statement;");
+    System.out.println("} while(condition);");
+    break;
+}
+}
+}</code></pre>  <!-- java code -->
+
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                <p><b>Execution Logs: </b></p>
+                                <p><u>Execution 1: </u></p>
+                                <pre><code class="language-plaintext">Help on: 
+1. if
+2. switch
+3. for
+4. while
+5. do-while
+Choose one: 1
+
+The if:
+
+if(condition) statement;
+else statement;</code></pre>  <!-- plaintext block -->
+                                <p><u>Execution 2: </u></p>
+                                <pre><code class="language-plaintext">Help on: 
+1. if
+2. switch
+3. for
+4. while
+5. do-while
+Choose one: 2
+
+The switch:
+
+switch(expression) {
+case constant:
+statement sequence
+break;
+}</code></pre>  <!-- plaintext block -->
+                                <p><u>Execution 3: </u></p>
+                                <pre><code class="language-plaintext">Help on: 
+1. if
+2. switch
+3. for
+4. while
+5. do-while
+Choose one: 3
+
+The for:
+
+for(init; condition; iteration)
+statement;</code></pre>  <!-- plaintext block -->
+                                <p><u>Execution 4: </u></p>
+                                <pre><code class="language-plaintext">Help on: 
+1. if
+2. switch
+3. for
+4. while
+5. do-while
+Choose one: 4
+
+The while:
+
+while(condition) statement;</code></pre>  <!-- plaintext block -->
+                                <p><u>Execution 5: </u></p>
+                                <pre><code class="language-plaintext">Help on: 
+1. if
+2. switch
+3. for
+4. while
+5. do-while
+Choose one: 5
+
+The do-while:
+
+do {
+statement;
+} while(condition);</code></pre>  <!-- plaintext block -->
+                                <p><u>Execution 6: </u></p>
+                                <pre><code class="language-plaintext">Help on: 
+1. if
+2. switch
+3. for
+4. while
+5. do-while
+Choose one: 7
+Help on: 
+1. if
+2. switch
+3. for
+4. while
+5. do-while
+Choose one: 0
+Help on: 
+1. if
+2. switch
+3. for
+4. while
+5. do-while
+Choose one: 3sdfs
+
+The for:
+
+for(init; condition; iteration)
+statement;</code></pre>  <!-- plaintext block -->
+                            </div>
+                        </li>
+                    </ol>  <!-- tryThisOl -->
+                </div>  <!-- content -->
+            </div>  <!-- right -->
+        </div>  <!-- lvl1 -->
+        <div class="lvl1">
+            <div class="left">
+                <h2>USE BREAK TO EXIT A LOOP</h2>
+            </div>  <!-- left -->
+            <div class="right">
+                <div class="content">
+                    <p>It is possible to force an immediate exit from a loop, bypassing any remaining code in the body of the loop and the loop's conditional test, by using the <code>break</code> statement. When a <code>break</code> statement is encountered inside a loop, the loop is terminated and program control resumes at the next statement following the loop. Here is a simple example:</p>
+                    <p class="srcFile"><a href="../JBG_HS_Ch03/JBG_HS_Ch03_Exmp/BreakDemo.java" target="_blank">../JBG_HS_Ch03/JBG_HS_Ch03_Exmp/BreakDemo.java</a></p>
+                    <pre><code class="language-java">/**
+* Using break to exit a loop.
+* 
+* Call this file "BreakDemo.java".
+*/
+class BreakDemo {
+public static void main(String[] args) {
+int num;
+
+num = 100;
+
+// loop while i-squared is less than num
+for(int i = 0; i < num; i++) {
+if(i * i >= num) break;  // terminate loop if i * i  >= 100
+System.out.print(i + " ");
+}
+System.out.println("Loop complete.");
+}
+}</code></pre>  <!-- java code -->
+                    <div class="gallery2">
+                        <figure class="standAloneFigure">
+                            <img src="./plantUMLs/ch03/BreakDemo_class.svg" alt="Class diagram of BreakDemo class">
+                            <figcaption>Class diagram of BreakDemo class<br>src: <a href="./plantUMLs/ch03/BreakDemo_class.puml" target="_blank">./plantUMLs/ch03/BreakDemo_class.puml</a></figcaption>
+                        </figure>  <!-- standAloneFigure -->
+                        <figure class="standAloneFigure">
+                            <img src="./plantUMLs/ch03/BreakDemo_act.svg" alt="Activity diagram of BreakDemo.main() method">
+                            <figcaption>Acivity diagram of BreakDemo.main() method<br>src: <a href="./plantUMLs/ch03/BreakDemo_act.puml" target="_blank">./plantUMLs/ch03/BreakDemo_act.puml</a></figcaption>
+                        </figure>  <!-- standAloneFigure -->
+                    </div>  <!-- gallery2 -->
+                    <p><b>Execution Logs: </b></p>
+                    <pre><code class="language-plaintext">0 1 2 3 4 5 6 7 8 9 Loop complete.</code></pre>  <!-- plaintext block -->
+                    <p>As you can see, although the <code>for</code> loop is designed to run from 0 to <code>num</code> (which in this case is 100), the <code>break</code> statement causes it to terminate early, when <code>i</code> squared is greater than or equal to num.</p>
+                    <p>The <code>break</code> statement can be used with any of Java's loops, including intentionally infinite loops. For example, the following program simply reads input until the user types the letter <code>q</code>:</p>
+                    <p class="srcFile"><a href="../JBG_HS_Ch03/JBG_HS_Ch03_Exmp/Break2.java" target="_blank">../JBG_HS_Ch03/JBG_HS_Ch03_Exmp/Break2.java</a></p>
+                    <pre><code class="language-java">/**
+* Read input until a q is received.
+* 
+* Call this file "Break2.java".
+*/
+class Break2 {
+public static void main(String[] args)
+throws java.io.IOException {
+char ch;
+
+for(;;) {
+ch = (char) System.in.read();  // get a char
+if(ch == 'q') break;
+}
+System.out.println("You pressed q!");
+}
+}</code></pre>  <!-- java code -->
+                    <div class="gallery2">
+                        <figure class="standAloneFigure">
+                            <img src="./plantUMLs/ch03/Break2_class.svg" alt="Class diagram of Break2 class">
+                            <figcaption>Class diagram of Break2 class<br>src: <a href="./plantUMLs/ch03/Break2_class.puml" target="_blank">./plantUMLs/ch03/Break2_class.puml</a></figcaption>
+                        </figure>  <!-- standAloneFigure -->
+                        <figure class="standAloneFigure">
+                            <img src="./plantUMLs/ch03/Break2_act.svg" alt="Activity diagram of Break2.main() method">
+                            <figcaption>Acivity diagram of Break2.main() method<br>src: <a href="./plantUMLs/ch03/Break2_act.puml" target="_blank">./plantUMLs/ch03/Break2_act.puml</a></figcaption>
+                        </figure>  <!-- standAloneFigure -->
+                    </div>  <!-- gallery2 -->
+                    <p><b>Execution Logs: </b></p>
+                    <pre><code class="language-plaintext">a
+b
+qsaas
+You pressed q!</code></pre>  <!-- plaintext block -->
+                    <p>When used inside a set of nested loops, the <code>break</code> statement will break out of only the innermost loop. For example:</p>
+                    <p class="srcFile"><a href="../JBG_HS_Ch03/JBG_HS_Ch03_Exmp/Break3.java" target="_blank">../JBG_HS_Ch03/JBG_HS_Ch03_Exmp/Break3.java</a></p>
+                    <pre><code class="language-java">/**
+* Using break with nested loops.
+* 
+* Call this file "Break3.java".
+*/
+class Break3 {
+public static void main(String[] args) {
+for(int i = 0; i < 3; i++) {
+System.out.println("Outer loop count: " + i);
+System.out.print("    Inner loop count: ");
+
+int t = 0;
+while(t < 100) {
+    if(t == 10) break;  // terminate loop if t is 10
+    System.out.print(t + " ");
+    t++;
+}
+System.out.println();
+}
+System.out.println("Loops complete.");
+}
+}</code></pre>  <!-- java code -->
+                    <div class="gallery2">
+                        <figure class="standAloneFigure">
+                            <img src="./plantUMLs/ch03/Break3_class.svg" alt="Class diagram of Break3 class">
+                            <figcaption>Class diagram of Break3 class<br>src: <a href="./plantUMLs/ch03/Break3_class.puml" target="_blank">./plantUMLs/ch03/Break3_class.puml</a></figcaption>
+                        </figure>  <!-- standAloneFigure -->
+                        <figure class="standAloneFigure">
+                            <img src="./plantUMLs/ch03/Break3_act.svg" alt="Activity diagram of Break3.main() method">
+                            <figcaption>Acivity diagram of Break3.main() method<br>src: <a href="./plantUMLs/ch03/Break3_act.puml" target="_blank">./plantUMLs/ch03/Break3_act.puml</a></figcaption>
+                        </figure>  <!-- standAloneFigure -->
+                    </div>  <!-- gallery2 -->
+                    <p><b>Execution Logs: </b></p>
+                    <pre><code class="language-plaintext">Outer loop count: 0
+Inner loop count: 0 1 2 3 4 5 6 7 8 9 
+Outer loop count: 1
+Inner loop count: 0 1 2 3 4 5 6 7 8 9 
+Outer loop count: 2
+Inner loop count: 0 1 2 3 4 5 6 7 8 9 
+Loops complete.</code></pre>  <!-- plaintext block -->
+                    <p>As you can see, the <code>break</code> statement in the inner loop causes the termination of only that loop. The outer loop is unaffected.</p>
+                    <p>Here are two other points to remember about <code>break</code>.</p>
+                    <ul>
+                        <li>First, more than one <code>break</code> statement may appear in a loop. However, be careful. Too many <code>break</code> statements have the tendency to destructure your code.</li>
+                        <li>Second, the <code>break</code> that terminates a <code>switch</code> statement affects only that <code>switch</code> statement and not any enclosing loops.</li>
+                    </ul>
+                </div>  <!-- content -->
+            </div>  <!-- right -->
+        </div>  <!-- lvl1 -->
+        <div class="lvl1">
+            <div class="left">
+                <h2>USE BREAK AS A FORM OF GOTO</h2>
+            </div>  <!-- left -->
+            <div class="right">
+                <div class="content">
+                    <p>In addition to its uses with the <code>switch</code> statement and loops, the <code>break</code> statement can be employed by itself to provide a <span class="highlight">"civilized" form of the <code>goto</code> statement. Java does not have a <code>goto</code> statement, because it provides an unstructured way to alter the flow of program execution.</span> Programs that make extensive use of the <code>goto</code> are usually hard to understand and hard to maintain. There are, however, a few places where the <code>goto</code> is a useful and legitimate device. For example, the <code>goto</code> can be helpful when exiting from a deeply nested set of loops. To handle such situations, Java defines an expanded form of the <code>break</code> statement. By using this form of <code>break</code>, you can, for example, break out of one or more blocks of code. These blocks need not be part of a loop or a switch. They can be any block. Further, you can specify precisely where execution will resume, because this form of <code>break</code> works with a <em>label</em>. As you will see, <code>break</code> gives you the benefits of a <code>goto</code> without its problems.</p>
+                    <p>The general form of the labeled <code>break</code> statement is shown here:</p>
+                    <pre><code class="language-plaintext">break label;</code></pre>  <!-- plaintext block -->
+                    <p><span class="highlight">Typically, <em><code>label</code> is the name of a label that identifies a block of code</em>. When this form of <code>break</code> executes, control is transferred out of the named block of code. The labeled block of code must enclose the <code>break</code> statement, but it does not need to be the immediately enclosing block. This means that you can use a labeled <code>break</code> statement to exit from a set of nested blocks. But you cannot use <code>break</code> to transfer control to a block of code that does not enclose the <code>break</code> statement.</span></p>
+                    <p>To name a block, put a label at the start of it. The block being labeled can be a stand-alone block, or a statement that has a block as its target. A label is any valid Java identifier followed by a colon. Once you have labeled a block, you can then use this label as the target of a <code>break</code> statement. Doing so <span class="highlight">causes execution to resume at the end of the labeled block</span>. For example, the following program shows three nested blocks:</p>
+                    <p class="srcFile"><a href="../JBG_HS_Ch03/JBG_HS_Ch03_Exmp/Break4.java" target="_blank">../JBG_HS_Ch03/JBG_HS_Ch03_Exmp/Break4.java</a></p>
+                    <pre><code class="language-java">/**
+* Using break with a label.
+* 
+* Call this file "Break4.java".
+*/
+class Break4 {
+public static void main(String[] args) {
+int i;
+
+for(i = 1; i < 4; i++) {
+one: {
+    two: {
+        three: {
+            System.out.println("\ni is " + i);
+            if(i == 1) break one;
+            if(i == 2) break two;
+            if(i == 3) break three;
+
+            System.out.println("won't print");
+        }  // label three: control reaches here when `break three` is detected.
+        System.out.println("After block three.");
+    }  // label two: control reaches here when `break two` is detected.
+    System.out.println("After block two.");
+}  // label one: control reaches here when `break one` is detected.
+System.out.println("After block one.");
+}
+System.out.println("After for loop.");
+}
+}</code></pre>  <!-- java code -->
+                    <div class="gallery2">
+                        <figure class="standAloneFigure">
+                            <img src="./plantUMLs/ch03/Break4_class.svg" alt="Class diagram of Break4 class">
+                            <figcaption>Class diagram of Break4 class<br>src: <a href="./plantUMLs/ch03/Break4_class.puml" target="_blank">./plantUMLs/ch03/Break4_class.puml</a></figcaption>
+                        </figure>  <!-- standAloneFigure -->
+                        <figure class="standAloneFigure">
+                            <img src="./plantUMLs/ch03/Break4_act.svg" alt="Activity diagram of Break4.main() method">
+                            <figcaption>Acivity diagram of Break4.main() method<br>src: <a href="./plantUMLs/ch03/Break4_act.puml" target="_blank">./plantUMLs/ch03/Break4_act.puml</a></figcaption>
+                        </figure>  <!-- standAloneFigure -->
+                    </div>  <!-- gallery2 -->
+                    <p><b>Execution Logs: </b></p>
+                    <pre><code class="language-plaintext">
+i is 1
+After block one.
+
+i is 2
+After block two.
+After block one.
+
+i is 3
+After block three.
+After block two.
+After block one.
+After for loop.</code></pre>  <!-- plaintext block -->
+                    <p>Let's look closely at the program to understand precisely why this output is produced.</p>
+                    <ul>
+                        <li>When <code>i</code> is 1, the first <code>if</code> statement succeeds, causing a <code>break</code> to the end of the block of code defined by label <code>one</code>. This causes <code>After block one.</code> to print.</li>
+                        <li>When <code>i</code> is 2, the second <code>if</code> succeeds, causing control to be transferred to the end of the block labeled by <code>two</code>. This causes the messages <code>After block two.</code> and <code>After block one.</code> to be printed, in that order.</li>
+                        <li>When <code>i</code> is 3, the third <code>if</code> succeeds, and control is transferred to the end of the block labeled by <code>three</code>. Now, all three messages are displayed.</li>
+                    </ul>
+                    <p>Here is another example. This time, <code>break</code> is being used to jump outside of a series of nested <code>for</code> loops. When the <code>break</code> statement in the inner loop is executed, program control jumps to the end of the block defined by the outer <code>for</code> loop, which is labeled by <code>done</code>. This causes the remainder of all three loops to be bypassed.</p>
+                    <p class="srcFile"><a href="../JBG_HS_Ch03/JBG_HS_Ch03_Exmp/Break5.java" target="_blank">../JBG_HS_Ch03/JBG_HS_Ch03_Exmp/Break5.java</a></p>
+                    <pre><code class="language-java">/**
+* Another example of using break with a label.
+* 
+* Call this file "Break5.java".
+*/
+class Break5 {
+public static void main(String[] args) {
+done: 
+for(int i = 0; i < 10; i++) {
+for(int j = 0; j < 10; j++) {
+    for(int k = 0; k < 10; k++) {
+        System.out.println(k + " ");
+        if(k == 5) break done;
+    }
+    System.out.println("After k loop");  // won't execute
+}
+System.out.println("After j loop");  // won't execute
+}
+// `break done` will reach here.
+System.out.println("After i loop");
+}
+}</code></pre>  <!-- java code -->
+                    <div class="gallery2">
+                        <figure class="standAloneFigure">
+                            <img src="./plantUMLs/ch03/Break5_class.svg" alt="Class diagram of Break5 class">
+                            <figcaption>Class diagram of Break5 class<br>src: <a href="./plantUMLs/ch03/Break5_class.puml" target="_blank">./plantUMLs/ch03/Break5_class.puml</a></figcaption>
+                        </figure>  <!-- standAloneFigure -->
+                        <figure class="standAloneFigure">
+                            <img src="./plantUMLs/ch03/Break5_act.svg" alt="Activity diagram of Break5.main() method">
+                            <figcaption>Acivity diagram of Break5.main() method<br>src: <a href="./plantUMLs/ch03/Break5_act.puml" target="_blank">./plantUMLs/ch03/Break5_act.puml</a></figcaption>
+                        </figure>  <!-- standAloneFigure -->
+                    </div>  <!-- gallery2 -->
+                    <p><b>Execution Logs: </b></p>
+                    <pre><code class="language-plaintext">0 
+1 
+2 
+3 
+4 
+5 
+After i loop</code></pre>  <!-- plaintext block -->
+                    <p><span class="highlight">Precisely where you put a label is very important—especially when working with loops.</span> For example, consider the following program:</p>
+                    <p class="srcFile"><a href="../JBG_HS_Ch03/JBG_HS_Ch03_Exmp/Break6.java" target="_blank">../JBG_HS_Ch03/JBG_HS_Ch03_Exmp/Break6.java</a></p>
+                    <pre><code class="language-java">/**
+* Where you put a label is important.
+* 
+* Call this file "Break6.java".
+*/
+class Break6 {
+public static void main(String[] args) {
+int x = 0, y = 0;
+
+// here, put label before for statement.
+stop1: for(x = 0; x < 5; x++) {
+for(y = 0; y < 5; y++) {
+    if(y == 2) break stop1;
+    System.out.println("x and y: " + x + " " + y);
+}
+}
+System.out.println();
+
+// now, put label immediately before {
+for(x = 0; x < 5; x++)
+stop2: {
+for(y = 0; y < 5; y++) {
+    if(y == 2) break stop2;
+    System.out.println("x and y: " + x + " " + y);
+}
+}
+}
+}</code></pre>  <!-- java code -->
+                    <div class="gallery2">
+                        <figure class="standAloneFigure">
+                            <img src="./plantUMLs/ch03/Break6_class.svg" alt="Class diagram of Break6 class">
+                            <figcaption>Class diagram of Break6 class<br>src: <a href="./plantUMLs/ch03/Break6_class.puml" target="_blank">./plantUMLs/ch03/Break6_class.puml</a></figcaption>
+                        </figure>  <!-- standAloneFigure -->
+                        <figure class="standAloneFigure">
+                            <img src="./plantUMLs/ch03/Break6_act.svg" alt="Activity diagram of Break6.main() method">
+                            <figcaption>Acivity diagram of Break6.main() method<br>src: <a href="./plantUMLs/ch03/Break6_act.puml" target="_blank">./plantUMLs/ch03/Break6_act.puml</a></figcaption>
+                        </figure>  <!-- standAloneFigure -->
+                    </div>  <!-- gallery2 -->
+                    <p><b>Execution Logs: </b></p>
+                    <pre><code class="language-plaintext">x and y: 0 0
+x and y: 0 1
+
+x and y: 0 0
+x and y: 0 1
+x and y: 1 0
+x and y: 1 1
+x and y: 2 0
+x and y: 2 1
+x and y: 3 0
+x and y: 3 1
+x and y: 4 0
+x and y: 4 1
+</code></pre>  <!-- plaintext block -->
+                    <p>In the program, both sets of nested loops are the same except for one point. In the first set, the label precedes the outer <code>for</code> loop. In this case, when the <code>break</code> executes, it transfers control to the end of the entire <code>for</code> block, skipping the rest of the outer loop's iterations. In the second set, the label precedes the outer <code>for</code>'s opening curly brace. Thus, when <code>break stop2</code> executes, control is transferred to the end of the outer <code>for</code>'s block, causing the next iteration to occur.</p>
+                    <p>Keep in mind that you cannot break to any label that is not defined for an enclosing block. For example, the following program is invalid and will not compile:</p>
+                    <p class="srcFile"><a href="../JBG_HS_Ch03/JBG_HS_Ch03_Exmp/BreakErr.java" target="_blank">../JBG_HS_Ch03/JBG_HS_Ch03_Exmp/BreakErr.java</a></p>
+                    <pre><code class="language-java">/**
+* This program contains an error.
+* 
+* Call this file "BreakErr.java".
+*/
+class BreakErr {
+public static void main(String[] args) {
+one: for(int i = 0; i < 3; i++) {
+System.out.print("Pass " + i + ": ");
+}
+
+for(int j = 0; j < 100; j++) {
+if(j == 10) break one;  // WRONG
+System.out.print(j + " ");
+}
+}
+}
+</code></pre>  <!-- java code -->
+                <div class="gallery2">
+                    <figure class="standAloneFigure">
+                        <img src="./plantUMLs/ch03/BreakErr_class.svg" alt="Class diagram of BreakErr class">
+                        <figcaption>Class diagram of BreakErr class<br>src: <a href="./plantUMLs/ch03/BreakErr_class.puml" target="_blank">./plantUMLs/ch03/BreakErr_class.puml</a></figcaption>
+                    </figure>  <!-- standAloneFigure -->
+                    <figure class="standAloneFigure">
+                        <img src="./plantUMLs/ch03/BreakErr_act.svg" alt="Activity diagram of BreakErr.main() method">
+                        <figcaption>Acivity diagram of BreakErr.main() method<br>src: <a href="./plantUMLs/ch03/BreakErr_act.puml" target="_blank">./plantUMLs/ch03/BreakErr_act.puml</a></figcaption>
+                    </figure>  <!-- standAloneFigure -->
+                </div>  <!-- gallery2 -->
+                <p><b>Execution Logs: </b></p>
+                <pre><code class="language-plaintext">BreakErr.java:13: error: undefined label: one
+if(j == 10) break one;  // WRONG
+            ^
+1 error</code></pre>  <!-- plaintext block -->
+                    <p>Since the loop labeled one does not enclose the <code>break</code> statement, it is not possible to transfer control to that block.</p>
+                </div>  <!-- content -->
+                <div class="askTheExpert">
+                    <h3 class="top"></h3>
+                    <p class="question">You say that the <code>goto</code> is unstructured and that the <code>break</code> with a label offers a better alternative. But really, doesn't breaking to a label, which might be many lines of code and levels of nesting removed from the <code>break</code>, also destructure code?</p>
+                    <p class="answer">The short answer is yes! However, in those cases in which a jarring change in program flow is required, breaking to a label still retains some structure. A <code>goto</code> has none!</p>
+                </div>  <!-- askTheExpert -->
+            </div>  <!-- right -->
+        </div>  <!-- lvl1 -->
+    </div>  <!-- right -->
+</div>  <!-- lvl0 -->

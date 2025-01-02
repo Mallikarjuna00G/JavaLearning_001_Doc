@@ -1,0 +1,2251 @@
+<div class="lvl0" id="theoryCh02">
+    <div class="left">
+        <h4>Chapter 02</h4>
+        <h1>Introducing Data Types and Operators</h1>
+    </div>  <!-- left -->
+    <div class="right">
+        <div class="lvl1">
+            <div class="left">
+                <h2>Key Skills & Concepts</h2>
+            </div>  <!-- left -->
+            <div class="right">
+                <div class="content">
+                    <ul>
+                        <li>Know Java's primitive types</li>
+                        <li>Use literals</li>
+                        <li>Initialize variables</li>
+                        <li>Know the scope rules of variables within a method</li>
+                        <li>Use the arithmetic operators</li>
+                        <li>Use the relational and logical operators</li>
+                        <li>Understand the assignment operators</li>
+                        <li>Use shorthand assignments</li>
+                        <li>Understand type conversion in assignments</li>
+                        <li>Cast incompatible types</li>
+                        <li>Understand type conversion in expressions</li>
+                    </ul>
+                </div>  <!-- content -->
+            </div>  <!-- right -->
+        </div>  <!-- lvl1 -->
+        <div class="content">
+            <p>At the foundation of any programming language are its data types and operators, and Java is no exception. These elements define the limits of a language and determine the kind of tasks to which it can be applied. Fortunately, Java supports a rich assortment of both data types and operators, making it suitable for any type of programming.</p>
+            <p><em>Data types</em> and <em>operators</em> are a large subject. We will begin here with an examination of Java's foundational data types and its most commonly used operators. We will also take a closer look at variables and examine the expression.</p>
+        </div>  <!-- content -->
+        <div class="lvl1">
+            <div class="left">
+                <h2>WHY DATA TYPES ARE IMPORTANT</h2>
+            </div>  <!-- left -->
+            <div class="right">
+                <div class="content">
+                    <p>Data types are especially important in Java because it is a strongly typed language. This means that <em>all operations are type-checked by the compiler for type compatibility</em>. Illegal operations will not be compiled. Thus, strong type checking helps prevent errors and enhances reliability. To enable strong type checking, all variables, expressions, and values have a type. There is no concept of a “type-less” variable, for example. Furthermore, the type of a value determines what operations are allowed on it. An operation allowed on one type might not be allowed on another.</p>
+                </div>  <!-- content -->
+            </div>  <!-- right -->
+        </div>  <!-- lvl1 -->
+        <div class="lvl1">
+            <div class="left">
+                <h2>JAVA'S PRIMITIVE TYPES</h2>
+            </div>  <!-- left -->
+            <div class="right">
+                <div class="content">
+                    <p>Java contains two general categories of built-in data types: </p>
+                    <ol>
+                        <li>object-oriented. Java's object-oriented types are defined by classes, and a discussion of
+                            classes is deferred until later.</li>
+                        <li>non-object-oriented.</li>
+                    </ol>
+                    <p>However, at the core of Java are eight primitive (also called <em>elemental</em> or <em>simple</em>) types of data, which are shown in <a href="#Table2-1">Table 2-1</a>. The term <i>primitive</i> is used here to indicate that these types are not objects in an object-oriented sense, but rather, normal binary values. <span class="highlight">These primitive types are not objects because of efficiency concerns</span>. All of Java's other data types are constructed from these primitive types.</p>
+                    <table id="Table2-1">
+                        <caption><span class="capId">Table 2-1</span> Java's Built-in Primitive Data Types</caption>
+                        <thead>
+                            <tr>
+                                <th>Type</th>
+                                <th>Meaning</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>boolean</code></td>
+                                <td>Represents true/false value</td>
+                            </tr>
+                            <tr>
+                                <td><code>byte</code></td>
+                                <td>8-bit integer</td>
+                            </tr>
+                            <tr>
+                                <td><code>char</code></td>
+                                <td>Character</td>
+                            </tr>
+                            <tr>
+                                <td><code>double</code></td>
+                                <td>Double-precision floating point</td>
+                            </tr>
+                            <tr>
+                                <td><code>float</code></td>
+                                <td>Single-precision floating point</td>
+                            </tr>
+                            <tr>
+                                <td><code>int</code></td>
+                                <td>Integer</td>
+                            </tr>
+                            <tr>
+                                <td><code>long</code></td>
+                                <td>Long integer</td>
+                            </tr>
+                            <tr>
+                                <td><code>short</code></td>
+                                <td>Short ineger</td>
+                            </tr>
+                        </tbody>
+                    </table>  <!-- table -->
+                    <p><span class="highlight">Java strictly specifies a range and behavior for each primitive type, which all implementations of the Java Virtual Machine must support. Because of Java's portability requirement, Java is uncompromising on this account. For example, an <code>int</code> is the same in all execution environments. This allows programs to be fully portable. There is no need to rewrite code to fit a specific platform. Although strictly specifying the range of the primitive types may cause a small loss of performance in some environments, it is necessary in order to achieve portability.</span></p>
+                </div>  <!-- content -->
+                <div class="lvl2">
+                    <div class="left">
+                        <h3>Integers</h3>
+                    </div>  <!-- left -->
+                    <div class="right">
+                        <div class="content">
+                            <p>Java defines four integer types: <code>byte</code>, <code>short</code>, <code>int</code>, and <code>long</code>, which are shown here:</p>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Type</th>
+                                        <th>Width in Bits</th>
+                                        <th>Range</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><code>byte</code></td>
+                                        <td>8</td>
+                                        <td>-128 to 127</td>
+                                    </tr>
+                                    <tr>
+                                        <td><code>short</code></td>
+                                        <td>16</td>
+                                        <td>-32,768 to 32,767</td>
+                                    </tr>
+                                    <tr>
+                                        <td><code>int</code></td>
+                                        <td>32</td>
+                                        <td>-2,147,483,648 to 2,147,483,647</td>
+                                    </tr>
+                                    <tr>
+                                        <td><code>long</code></td>
+                                        <td>64</td>
+                                        <td>-9,223,372,036,854,775,808 to 9,223,372,036,854,775,807</td>
+                                    </tr>
+                                </tbody>
+                            </table>  <!-- table -->
+                            <p><span class="highlight">As the table shows, all of the integer types are signed positive and negative values. Java does not support unsigned (positive-only) integers</span>. Many other computer languages support both signed and unsigned integers. However, Java's designers felt that unsigned integers were unnecessary.</p>
+                        </div>  <!-- content -->
+                        <div class="lvl3">
+                            <div class="left">
+                                <h4>Note</h4>
+                            </div>  <!-- left -->
+                            <div class="right">
+                                <div class="note">
+                                    <h3 class="noteHeading"></h3>
+                                    <p>Technically, the Java run-time system can use any size it wants to store a primitive type. However, in all cases, types must act as specifie</p>
+                                </div>  <!-- note -->
+                            </div>  <!-- right -->
+                        </div>  <!-- lvl3 -->
+                        <div class="lvl3">
+                            <div class="left">
+                                <h4>Ask The Expert</h4>
+                            </div>  <!-- left -->
+                            <div class="right">
+                                <div class="askTheExpert">
+                                        <h3 class="top"></h3>
+                                        <p class="question">You say that there are four integer types: <code>int</code>, <code>short</code>, <code>long</code>, and <code>byte</code>. However, I have heard that <code>char</code> can also be categorized as an integer type in Java. Can you explain?</p>
+                                        <p class="answer">The formal specification for Java defines a type category called integral types, which includes <code>byte</code>, <code>short</code>, <code>int</code>, <code>long</code>, and <code>char</code>. They are called integral types because they all hold whole-number, binary values. However, the purpose of the first four is to represent numeric integer quantities. The purpose of <code>char</code> is to represent characters. Therefore, the principal uses of <code>char</code> and the principal uses of the other integral types are fundamentally different. Because of the differences, the <code>char</code> type is treated separately in this book.</p>
+                                    </div>  <!-- askTheExpert -->
+                            </div>  <!-- right -->
+                        </div>  <!-- lvl3 -->
+                        <div class="content">
+                            <p>The most commonly used integer type is <code>int</code>. Variables of type <code>int</code> are often employed to control loops, to index arrays, and to perform general-purpose integer math.</p>
+                            <p>When you need an integer that has a range greater than <code>int</code>, use <code>long</code>. For example, here is a program that computes the number of cubic inches contained in a cube that is one mile by one mile, by one mile:</p>
+                            <p class="srcFile"><a href="../JBG_HS_Ch02/JBG_HS_Ch02_Exmp/Inches.java" target="_blank">../JBG_HS_Ch02/JBG_HS_Ch02_Exmp/Inches.java</a></p>
+                            <pre><code class="language-java">/**
+* Compute the number of inches in 1 cubic mile.
+* 
+* Call this file "Inches.java".
+*/
+class Inches {
+public static void main(String[] args) {
+long ci;
+long im;
+
+im = 5280 * 12;
+ci = im * im * im;
+
+System.out.println("There are " + ci + " cubic inches in a cubic mile.");
+}
+}</code></pre>  <!-- java code -->
+                            <div class="gallery2">
+                                <figure class="standAloneFigure">
+                                    <img src="./plantUMLs/ch02/Inches_class.svg" alt="Class diagram of Inches class">
+                                    <figcaption>Class diagram of Inches class<br>src: <a href="./plantUMLs/ch02/Inches_class.puml" target="_blank">./plantUMLs/ch02/Inches_class.puml</a></figcaption>
+                                </figure>  <!-- standAloneFigure -->
+                                <figure class="standAloneFigure">
+                                    <img src="./plantUMLs/ch02/Inches_act.svg" alt="Activity diagram of Inches.main() method">
+                                    <figcaption>Activity diagram of Inches.main() method<br>src: <a href="./plantUMLs/ch02/Inches_act.puml" target="_blank">./plantUMLs/ch02/Inches_act.puml</a></figcaption>
+                                </figure>  <!-- standAloneFigure -->
+                            </div>  <!-- gallery2 -->
+                            <p>Here is the output from the program:</p>
+                            <pre><code class="language-plaintext">There are 254358061056000 cubic inches in a cubic mile.</code></pre>  <!-- plaintext block -->
+                            <p>Clearly, the result could not have been held in an <code>int</code> variable.</p>
+                            <p>The smallest integer type is <code>byte</code>. Variables of type <code>byte</code> are especially useful when working with raw binary data that may not be directly compatible with Java's other built-in types. The <code>short</code> type creates a short integer. Variables of type <code>short</code> are appropriate when you don't need the larger range offered by <code>int</code>.</p>
+                        </div>  <!-- content -->
+                    </div>  <!-- right -->
+                </div>  <!-- lvl2 -->
+                <div class="lvl2">
+                    <div class="left">
+                        <h3>Floating-Point Types</h3>
+                    </div>  <!-- left -->
+                    <div class="right">
+                        <div class="content">
+                            <p>As explained in Chapter 1, the floating-point types can represent numbers that have fractional components.
+                            <p>There are two kinds of floating-point types: </p>
+                            <ul>
+                                <li>
+                                    <div>
+                                        <p><code>float</code></p>
+                                        <ul>
+                                            <li>represent single-precision numbers</li>
+                                            <li>32 bits wide</li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div>
+                                        <p><code>douple</code></p>
+                                        <ul>
+                                            <li>represent double-precision numbers</li>
+                                            <li>64 bits wide</li>
+                                        </ul>
+                                    </div>
+                                </li>
+                            </ul>
+                            <p>Of the two, <code>double</code> is the most commonly used, and many of the math functions in Java's class library use <code>double</code> values. For example, the <code>sqrt()</code> method (which is defined by the standard <code>Math</code> class) returns a <code>double</code> value that is the square root of its <code>double</code> argument. Here, <code>sqrt()</code> is used to compute the length of the hypotenuse, given the lengths of the two opposing sides:</p>
+                            <p class="srcFile"><a href="../JBG_HS_Ch02/JBG_HS_Ch02_Exmp/Hypot.java" target="_blank">../JBG_HS_Ch02/JBG_HS_Ch02_Exmp/Hypot.java</a></p>
+                            <pre><code class="language-java">/**
+* Use the Pythagorean theorem to find the length of 
+* the hypotenuse given the lengths of the two 
+* opposing sides.
+* 
+* Call this file "Hypot.java".
+*/
+class Hypot {
+public static void main(String[] args) {
+double x, y, z;
+
+x = 3;
+y = 4;
+
+z = Math.sqrt(x*x + y*y);
+
+System.out.println("Hypotenuse is " + z);
+}
+}</code></pre>  <!-- java code -->
+                            <div class="gallery2">
+                                <figure class="standAloneFigure">
+                                    <img src="./plantUMLs/ch02/Hypot_class.svg" alt="Class diagram of Hypot class">
+                                    <figcaption>Class diagram of Hypot class<br>src: <a href="./plantUMLs/ch02/Hypot_class.puml" target="_blank">./plantUMLs/ch02/Hypot_class.puml</a></figcaption>
+                                </figure>  <!-- standAloneFigure -->
+                                <figure class="standAloneFigure">
+                                    <img src="./plantUMLs/ch02/Hypot_act.svg" alt="Activity diagram of Hypot.main() method">
+                                    <figcaption>Activity diagram of Hypot.main() method<br>src: <a href="./plantUMLs/ch02/Hypot_act.puml" target="_blank">./plantUMLs/ch02/Hypot_act.puml</a></figcaption>
+                                </figure>  <!-- standAloneFigure -->
+                            </div>  <!-- gallery2 -->
+                            <p>The output from the program is shown here:</p>
+                            <pre><code class="language-plaintext">Hypotenuse is 5.0</code></pre>  <!-- plaintext block -->
+                            <p>One other point about the preceding example: As mentioned, <code>sqrt()</code> is a member of the standard <code>Math</code> class. Notice how <code>sqrt()</code> is called; it is preceded by the name <code>Math</code>. This is similar to the way <code>System.out</code> precedes <code>println()</code>. Although not all standard methods are called by specifying their class name first, several are.</p>
+                        </div>  <!-- content -->
+                    </div>  <!-- right -->
+                </div>  <!-- lvl2 -->
+                <div class="lvl2">
+                    <div class="left">
+                        <h3>Characters</h3>
+                    </div>  <!-- left -->
+                    <div class="right">
+                        <div class="content">
+                            <p><em>In Java, characters are not 8-bit quantities</em> like they are in many other computer languages. Instead, Java uses Unicode. Unicode defines a character set that can represent all of the characters found in all human languages. In Java, <span class="highlight"><code>char</code> is an unsigned 16-bit type having a range of 0 to 65,535</span>. The standard 8-bit ASCII character set is a subset of Unicode and ranges from 0 to 127. Thus, the ASCII characters are still valid Java characters.</p>
+                            <p>A character variable can be assigned a value by enclosing the character in single quotes. For example, this assigns the variable <code>ch</code> the letter <code>X</code>:</p>
+                            <pre><code class="language-java">char ch;
+ch = 'X';</code></pre>  <!-- java code -->
+                            <p>You can output a <code>char</code> value using a <code>println()</code> statement. For example, this line outputs the value in <code>ch</code>:</p>
+                            <pre><code class="language-java">System.out.println("This is ch: " + ch);</code></pre>  <!-- java code -->
+                            <p>Since <code>char</code> is an unsigned 16-bit type, it is possible to perform various arithmetic manipulations on a <code>char</code> variable. For example, consider the following program:</p>
+                            <p class="srcFile"><a href="../JBG_HS_Ch02/JBG_HS_Ch02_Exmp/CharArithDemo.java" target="_blank">../JBG_HS_Ch02/JBG_HS_Ch02_Exmp/CharArithDemo.java</a></p>
+                            <pre><code class="language-java">/**
+* Character variables can be handled like integers.
+* 
+* Call this file "CharArithDemo.java".
+*/
+class CharArithDemo {
+public static void main(String[] args) {
+char ch;
+
+ch = 'X';
+System.out.println("ch contains " + ch);
+
+ch++;  // increment ch
+System.out.println("ch is now " + ch);
+
+ch = 90;  // give ch the value 'Z'.
+System.out.println("ch is now " + ch);
+}
+}</code></pre>  <!-- java code -->
+                            <div class="gallery2">
+                                <figure class="standAloneFigure">
+                                    <img src="./plantUMLs/ch02/CharArithDemo_class.svg" alt="Class diagram of CharArithDemo class">
+                                    <figcaption>Class diagram of CharArithDemo class<br>src: <a href="./plantUMLs/ch02/CharArithDemo_class.puml" target="_blank">./plantUMLs/ch02/CharArithDemo_class.puml</a></figcaption>
+                                </figure>  <!-- standAloneFigure -->
+                                <figure class="standAloneFigure">
+                                    <img src="./plantUMLs/ch02/CharArithDemo_act.svg" alt="Activity diagram of CharArithDemo.main() method">
+                                    <figcaption>Activity diagram of CharArithDemo.main() method<br>src: <a href="./plantUMLs/ch02/CharArithDemo_act.puml" target="_blank">./plantUMLs/ch02/CharArithDemo_act.puml</a></figcaption>
+                                </figure>  <!-- standAloneFigure -->
+                            </div>  <!-- gallery2 -->
+                            <p>The output generated by this program is shown here:</p>
+                            <pre><code class="language-plaintext">ch contains X
+ch is now Y
+ch is now Z</code></pre>  <!-- plaintext block -->
+                            <p>In the program, <code>ch</code> is first given the value <code>X</code>. Next, <code>ch</code> is incremented. This results in <code>ch</code> containing <code>Y</code>, the next character in the ASCII (and Unicode) sequence. Next, <code>ch</code> is assigned the value 90, which is the ASCII (and Unicode) value that corresponds to the letter <code>Z</code>. Since the ASCII character set occupies the first 127 values in the Unicode character set, all the "old tricks" that you may have used with characters in other languages will work in Java, too.</p>
+                        </div>  <!-- content -->
+                        <div class="askTheExpert">
+                            <h3 class="top"></h3>
+                            <p class="question">Why does Java use Unicode?</p>
+                            <p class="answer">Java was designed for worldwide use. Thus, it needs to use a character set that can represent all the world's languages. Unicode is the standard character set designed expressly for this purpose. Of course, the use of Unicode is inefficient for languages such as English, German, Spanish, or French, whose characters can be contained within 8 bits. But such is the price that must be paid for global portability.</p>
+                        </div>  <!-- askTheExpert -->
+                    </div>  <!-- right -->
+                </div>  <!-- lvl2 -->
+                <div class="lvl2">
+                    <div class="left">
+                        <h3>THE BOOLEAN TYPE</h3>
+                    </div>  <!-- left -->
+                    <div class="right">
+                        <div class="content">
+                            <p>The boolean type represents true/false values. Java defines the values true and false using the reserved words <code>true</code> and <code>false</code>. Thus, a variable or expression of type <code>boolean</code> will be one of these two values.</p>
+                            <p>Here is a program that demonstrates the boolean type:</p>
+                            <p class="srcFile"><a href="../JBG_HS_Ch02/JBG_HS_Ch02_Exmp/BoolDemo.java" target="_blank">../JBG_HS_Ch02/JBG_HS_Ch02_Exmp/BoolDemo.java</a></p>
+                            <pre><code class="language-java">/**
+* Demonstrate boolean values.
+* 
+* Call this file "BoolDemo.java".
+*/
+
+class BoolDemo {
+public static void main(String[] args) {
+boolean b;
+
+b = false;
+System.out.println("b is " + b);
+b = true;
+System.out.println("b is " + b);
+
+// a boolean value can control the if statement.
+if(b) System.out.println("This is executed.");
+
+b = false;
+if(b) System.out.println("This is not executed.");
+
+// Outcome of a relational operator is a boolean value.
+System.out.println("10 > 9 is " + (10 > 9));
+}
+}
+</code></pre>  <!-- java code -->
+                            <div class="gallery2">
+                                <figure class="standAloneFigure">
+                                    <img src="./plantUMLs/ch02/BoolDemo_class.svg" alt="Class diagram of BoolDemo class">
+                                    <figcaption>Class diagram of BoolDemo class<br>src: <a href="./plantUMLs/ch02/BoolDemo_class.puml" target="_blank">./plantUMLs/ch02/BoolDemo_class.puml</a></figcaption>
+                                </figure>  <!-- standAloneFigure -->
+                                <figure class="standAloneFigure">
+                                    <img src="./plantUMLs/ch02/BoolDemo_act.svg" alt="Activity diagram of BoolDemo.main() method">
+                                    <figcaption>Activity diagram of BoolDemo.main() method<br>src: <a href="./plantUMLs/ch02/BoolDemo_act.puml" target="_blank">./plantUMLs/ch02/BoolDemo_act.puml</a></figcaption>
+                                </figure>  <!-- standAloneFigure -->
+                            </div>  <!-- gallery2 -->
+                            <p>The output generated by this program is shown here:</p>
+                            <pre><code class="language-plaintext">b is false
+b is true
+This is executed.
+10 > 9 is true</code></pre>  <!-- plaintext block -->
+                            <p>There are three interesting things to notice about this program. First, as you can see, when a <code>boolean</code> value is output by <code>println()</code>, "true" or "false" is displayed. Second,the value of a <code>boolean</code> variable is sufficient, by itself, to control the <code>if</code> statement. There is no need to write an <code>if</code> statement like this:</p>
+                            <pre><code class="language-java">if(b == true) ...</code></pre>  <!-- java code -->
+                            <p>Third, the outcome of a relational operator, such as <code>&lt;</code>, is a <code>boolean</code> value. This is why the expression <code>10 &gt; 9</code> displays the value "true." Further, the extra set of parentheses around <code>10 &gt; 9</code> is necessary because the <code>+</code> operator has a higher precedence than the <code>&gt;</code>.</p>
+                        </div>  <!-- content -->
+                    </div>  <!-- right -->
+                </div>  <!-- lvl2 -->
+                <div class="content">
+                    <table>
+                        <caption><span class="capId">Table --</span> Java's built-in Data types</caption>
+                        <thead>
+                            <tr>
+                                <th>General categories of <br>built-in data types</th>
+                                <th>Classification</th>
+                                <th>Type</th>
+                                <th>Width in Bits</th>
+                                <th>Range</th>
+                                <th>Notes</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Object-oriented <br>data types</td>
+                                <td colspan="4" style="text-align: center;">--Pending--</td>
+                                <td style="text-align: center;">-- Pending --</td>
+                            </tr>
+                            <tr>
+                                <td rowspan="8">Non-Object-oriented <br>data types</td>
+                                <td rowspan="4">Integers</td>
+                                <td><code>byte</code></td>
+                                <td>8</td>
+                                <td>-128 to 127</td>
+                                <td>-</td>
+                            </tr>
+                            <tr>
+                                <td><code>short</code></td>
+                                <td>16</td>
+                                <td>-32,768 to 32,767</td>
+                                <td>-</td>
+                            </tr>
+                            <tr>
+                                <td><code>int</code></td>
+                                <td>32</td>
+                                <td>-2,147,483,648 to 2,147,483,647</td>
+                                <td>-</td>
+                            </tr>
+                            <tr>
+                                <td><code>long</code></td>
+                                <td>64</td>
+                                <td>-9,223,372,036,854,775,808 to 9,223,372,036,854,775,807</td>
+                                <td>-</td>
+                            </tr>
+                            <tr>
+                                <td rowspan="2">Floatin-point types</td>
+                                <td><code>float</code></td>
+                                <td>32</td>
+                                <td>-</td>
+                                <td>- represent single-precision numbers</td>
+                            </tr>
+                            <tr>
+                                <td><code>double</code></td>
+                                <td>64</td>
+                                <td>-</td>
+                                <td>- represent double-precision numbers</td>
+                            </tr>
+                            <tr>
+                                <td>Character types</td>
+                                <td><code>char</code></td>
+                                <td>16</td>
+                                <td>0 to 65,535</td>
+                                <td>- unsigned 16-bit type<br>- The purpose of <code>char</code> is to represent characters which differs from other integral types <code>byte</code>, <code>short</code>, <code>int</code> and <code>long</code>. For that reason <code>char</code> is categorized separately.</td>
+                            </tr>
+                            <tr>
+                                <td>Boolean type</td>
+                                <td><code>boolean</code></td>
+                                <td>-</td>
+                                <td><code>false</code>, <code>true</code></td>
+                                <td>-</td>
+                            </tr>
+                        </tbody>
+                    </table>  <!-- table -->
+                </div>  <!-- content -->
+            </div>  <!-- right -->
+        </div>  <!-- lvl1 -->
+        <div class="lvl1">
+            <div class="left">
+                <h2>Try This 2-1</h2>
+            </div>  <!-- left -->
+            <div class="right">
+                <div class="content">
+                    <h3 class="tryThis"><span class="hl">TryThis 2-1</span> How Far Away Is the Lightning?</h3>
+                    <ul class="tryThisSrc">
+                        <li><code>Sound.java</code></li>
+                    </ul>
+                    <p>In this project, you will create a program that computes how far away, in feet, a listener is from a lightning strike. Sound travels approximately 1,100 feet per second through air. Thus, knowing the interval between the time you see a lightning bolt and the time the sound reaches you enables you to compute the distance to the lightning. For this project, assume that the time interval is 7.2 seconds.</p>
+                    <ol class="tryThisOl">
+                        <li>Create a new file called <code>Sound.java</code>.</li>
+                        <li>To compute the distance, you will need to use floating-point values. Why? Because the time interval, 7.2, has a fractional component. Although it would be permissible to use a value of type <code>float</code>, we will use <code>double</code> in the example.</li>
+                        <li>To compute the distance, you will multiply 7.2 by <code>1,100</code>. You will then assign this value to a variable.</li>
+                        <li>
+                            <div>
+                                <p>Finally, you will display the result.</p>
+                                <p>Here is the entire <code>Sound.java</code> program listing:</p>
+                                <p class="srcFile"><a href="../JBG_HS_Ch02/JBG_HS_Ch02_Exmp/Sound.java" target="_blank">../JBG_HS_Ch02/JBG_HS_Ch02_Exmp/Sound.java</a></p>
+                                <pre><code class="language-java">/**
+* Try This 2-1
+* 
+* Compute the distance to a lightning strike
+* whose sound takes 7.2 seconds to reach you.
+* 
+* Call this file "Sound.java".
+*/
+class Sound {
+public static void main(String[] args) {
+double dist;
+
+dist = 7.2 * 1100;
+
+System.out.println("The lightning is " + dist + " feet away.");
+}
+}</code></pre>  <!-- java code -->
+                                <div class="gallery2">
+                                    <figure class="standAloneFigure">
+                                        <img src="./plantUMLs/ch02/Sound_class.svg" alt="Class diagram of Sound class">
+                                        <figcaption>Class diagram of Sound class<br>src: <a href="./plantUMLs/ch02/Sound_class.puml" target="_blank">./plantUMLs/ch02/Sound_class.puml</a></figcaption>
+                                    </figure>  <!-- standAloneFigure -->
+                                    <figure class="standAloneFigure">
+                                        <img src="./plantUMLs/ch02/Sound_act.svg" alt="Activity diagram of Sound method">
+                                        <figcaption>Activity diagram of Sound.main() method<br>src: <a href="./plantUMLs/ch02/Sound_act.puml" target="_blank">./plantUMLs/ch02/Sound_act.puml</a></figcaption>
+                                    </figure>  <!-- standAloneFigure -->
+                                </div>  <!-- gallery2 -->
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                <p>Compile and run the program. The following result is displayed:</p>
+                                <pre><code class="language-plaintext">The lightning is 7920.0 feet away.</code></pre>  <!-- plaintext block -->
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                <p>Extra challenge: You can compute the distance to a large object, such as a rock wall, by timing the echo. For example, if you clap your hands and time how long it takes for you to hear the echo, then you know the total round-trip time. Dividing this value by two yields the time it takes the sound to go one way. You can then use this value to compute the distance to the object. Modify the preceding program so that it computes the distance, assuming that the time interval is that of an echo.</p>
+                                <p class="srcFile"><a href="../JBG_HS_Ch02/JBG_HS_Ch02_Exmp/Sound2.java" target="_blank">../JBG_HS_Ch02/JBG_HS_Ch02_Exmp/Sound2.java</a></p>
+                                <pre><code class="language-java">/**
+* Try This 2-1-1
+* 
+* Compute the distance to a large object,
+* such as a rock wall, by timing the echo.
+* 
+* Call this file "Sound2.java".
+*/
+class Sound2 {
+public static void main(String[] args) {
+double dist;  // in feet
+double roundTripTime = 4.8;  // in seconds
+double timeForOneWay = roundTripTime / 2;  // in seconds
+
+double speedOfSound = 1100.0;  // Speed of sound in feet per second.
+
+dist = timeForOneWay * speedOfSound;
+
+System.out.println("The object is " + dist + " feet away.");
+}
+}</code></pre>  <!-- java code -->
+                                <div class="gallery2">
+                                    <figure class="standAloneFigure">
+                                        <img src="./plantUMLs/ch02/Sound2_class.svg" alt="Class diagram of Sound2 class">
+                                        <figcaption>Class diagram of Sound2 class<br>src: <a href="./plantUMLs/ch02/Sound2_class.puml" target="_blank">./plantUMLs/ch02/Sound2_class.puml</a></figcaption>
+                                    </figure>  <!-- standAloneFigure -->
+                                    <figure class="standAloneFigure">
+                                        <img src="./plantUMLs/ch02/Sound2_act.svg" alt="Activity diagram of Sound2 method">
+                                        <figcaption>Activity diagram of Sound2.main() method<br>src: <a href="./plantUMLs/ch02/Sound2_act.puml" target="_blank">./plantUMLs/ch02/Sound2_act.puml</a></figcaption>
+                                    </figure>  <!-- standAloneFigure -->
+                                </div>  <!-- gallery2 -->
+                                <p><b>Execution Logs: </b></p>
+                                <pre><code class="language-plaintext">The object is 2640.0 feet away.</code></pre>  <!-- plaintext block -->
+                            </div>
+                        </li>
+                    </ol>  <!-- tryThisOl -->
+                </div>  <!-- content -->
+            </div>  <!-- right -->
+        </div>  <!-- lvl1 -->
+        <div class="lvl1">
+            <div class="left">
+                <h2>LITERALS</h2>
+            </div>  <!-- left -->
+            <div class="right">
+                <div class="content">
+                    <p>In Java, <em>literals</em> refer to fixed values that are represented in their human-readable form. For example, the number 100 is a literal. Literals are also commonly called <em>constants</em>. For the most part, literals, and their usage, are so intuitive that they have been used in one form or another by all the preceding sample programs. Now the time has come to explain them formally.</p>
+                    <p>Java literals can be of any of the primitive data types. The way each literal is represented depends upon its type. As explained earlier, character constants are enclosed in single quotes. For example, <code>'a'</code> and <code>'%'</code> are both character constants. Integer literals are specified as numbers without fractional components. For example, 10 and -100 are integer literals. Floating-point literals require the use of the decimal point followed by the number's fractional component. For example, 11.123 is a floating-point literal. Java also allows you to use scientific notation for floating-point numbers.</p>
+                    <p>By default, integer literals are of type <code>int</code>. If you want to specify a long literal, append an <code>l</code> or an <code>L</code>. For example, 12 is an <code>int</code>, but <code>12L</code> is a <code>long</code>.</p>
+                    <p>By default, floating-point literals are of type <code>double</code>. To specify a <code>float</code> literal, append an <code>F</code> or <code>f</code> to the constant. For example, <code>10.19F</code> is of type <code>float</code>.</p>
+                    <p>Although integer literals create an <code>int</code> value by default, they can still be assigned to variables of type <code>char</code>, <code>byte</code>, or <code>short</code> as long as the value being assigned can be represented by the target type. An integer literal can always be assigned to a <code>long</code> variable.</p>
+                    <p>You can embed one or more underscores into an integer or floating-point literal. Doing so can make it easier to read values consisting of many digits. When the literal is compiled, the underscores are simply discarded. Here is an example:</p>
+                    <pre><code class="language-plaintext">123_45_1234</code></pre>  <!-- plaintext block -->
+                    <p>This specifies the value <code>123,451,234</code>. The use of underscores is particularly useful when encoding things like part numbers, customer IDs, and status codes that are commonly thought of as consisting of subgroups of digits.</p>
+                </div>  <!-- content -->
+                <div class="lvl2">
+                    <div class="left">
+                        <h3>Hexadecimal, Octal, and Binary Literals</h3>
+                    </div>  <!-- left -->
+                    <div class="right">
+                        <div class="content">
+                            <p>As you may know, in programming it is sometimes easier to use a number system based on 8 or 16 instead of 10. The number system based on 8 is called <em>octal</em>, and it uses the digits 0 through 7. In octal the number 10 is the same as 8 in decimal. The base 16 number system is called <em>hexadecimal</em> and uses the digits 0 through 9 plus the letters A through F, which stand for 10, 11, 12, 13, 14, and 15. For example, the hexadecimal number 10 is 16 in decimal. Because of the frequency with which these two number systems are used, Java allows you to specify integer literals in hexadecimal or octal instead of decimal. A hexadecimal literal must begin with <code>0x</code> or <code>0X</code> (a zero followed by an <code>x</code> or <code>X</code>). An octal literal begins with a zero. Here are some examples:</p>
+                            <pre><code class="language-java">hex = 0xFF;  // 255 in decimal
+oct = 011;  // 9 in decimal</code></pre>  <!-- java code -->
+                            <p>As a point of interest, Java also allows hexadecimal floating-point literals, but they are seldom used.</p>
+                            <p>It is possible to specify an integer literal by use of binary. To do so, precede the binary number with a <code>0b</code> or <code>0B</code>. For example, this specifies the value 12 in binary: <code>0b1100</code>.</p>
+                        </div>  <!-- content -->
+                    </div>  <!-- right -->
+                </div>  <!-- lvl2 -->
+                <div class="lvl2">
+                    <div class="left">
+                        <h3>Character Escape Sequences</h3>
+                    </div>  <!-- left -->
+                    <div class="right">
+                        <div class="content">
+                            <p>Enclosing character constants in single quotes works for most printing characters, but a few characters, such as the carriage return, pose a special problem when a text editor is used. In addition, certain other characters, such as the single and double quotes, have special meaning in Java, so you cannot use them directly. For these reasons, Java provides special escape sequences, sometimes referred to as backslash character constants, shown in <a href="#Table2-2">Table 2-2</a>. These sequences are used in place of the characters that they represent.</p>
+                            <table id="2-2">
+                                <caption><span class="capId">Table 2-2</span> Character Escape Sequences</caption>
+                                <thead>
+                                    <tr>
+                                        <th>Escape Sequence</th>
+                                        <th>Description</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><code>\'</code></td>
+                                        <td>Single quote</td>
+                                    </tr>
+                                    <tr>
+                                        <td><code>\"</code></td>
+                                        <td>Double quote</td>
+                                    </tr>
+                                    <tr>
+                                        <td><code>\\</code></td>
+                                        <td>Backslash</td>
+                                    </tr>
+                                    <tr>
+                                        <td><code>\r</code></td>
+                                        <td>Carriage return</td>
+                                    </tr>
+                                    <tr>
+                                        <td><code>\n</code></td>
+                                        <td>New line</td>
+                                    </tr>
+                                    <tr>
+                                        <td><code>\f</code></td>
+                                        <td>Form feed</td>
+                                    </tr>
+                                    <tr>
+                                        <td><code>\t</code></td>
+                                        <td>Horizontal tab</td>
+                                    </tr>
+                                    <tr>
+                                        <td><code>\b</code></td>
+                                        <td>Backspace</td>
+                                    </tr>
+                                    <tr>
+                                        <td><code>\ddd</code></td>
+                                        <td>Octal constant (where <code>ddd</code> is an octal constant)</td>
+                                    </tr>
+                                    <tr>
+                                        <td><code>\uxxxx</code></td>
+                                        <td>Hexadecimal constant (where <code>xxxx</code> is an hexadecimal constant)</td>
+                                    </tr>
+                                </tbody>
+                            </table>  <!-- table -->
+                            <p>For example, this assigns <code>ch</code> the tab character:</p>
+                            <pre><code class="language-plaintext">ch = '\t';</code></pre>  <!-- plaintext block -->
+                            <p>The next example assigns a single quote to <code>ch</code>:</p>
+                            <pre><code class="language-plaintext">ch = '\'';</code></pre>  <!-- plaintext block -->
+                        </div>  <!-- content -->
+                    </div>  <!-- right -->
+                </div>  <!-- lvl2 -->
+                <div class="lvl2">
+                    <div class="left">
+                        <h3>String Literals</h3>
+                    </div>  <!-- left -->
+                    <div class="right">
+                        <div class="content">
+                            <p>Java supports one other type of literal: the string. A <i>string</i> is a set of characters enclosed by double quotes. For example,</p>
+                            <pre><code class="language-plaintext">"this is a test"</code></pre>  <!-- plaintext block -->
+                            <p>is a string. You have seen examples of strings in many of the <code>println()</code> statements in the preceding sample programs.</p>
+                            <p>In addition to normal characters, a string literal can also contain one or more of the escape sequences just described. For example, consider the following program. It uses the <code>\n</code> and <code>\t</code> escape sequences.</p>
+                            <p class="srcFile"><a href="../JBG_HS_Ch02/JBG_HS_Ch02_Exmp/strDemo.java" target="_blank">../JBG_HS_Ch02/JBG_HS_Ch02_Exmp/strDemo.java</a></p>
+                            <pre><code class="language-java">/**
+* Demonstrate escape sequences in strings.
+* 
+* Call this file "strDemo.java".
+*/
+class strDemo {
+public static void main(String[] args) {
+System.out.println("First line\nSecond line");
+System.out.println("A\tB\tC");
+System.out.println("D\tE\tF");
+}
+}</code></pre>  <!-- java code -->
+                            <div class="gallery2">
+                                <figure class="standAloneFigure">
+                                    <img src="./plantUMLs/ch02/strDemo_class.svg" alt="Class diagram of strDemo class">
+                                    <figcaption>Class diagram of strDemo class<br>src: <a href="./plantUMLs/ch02/strDemo_class.puml" target="_blank">./plantUMLs/ch02/strDemo_class.puml</a></figcaption>
+                                </figure>  <!-- standAloneFigure -->
+                                <figure class="standAloneFigure">
+                                    <img src="./plantUMLs/ch02/strDemo_act.svg" alt="Activity diagram of strDemo.main() method">
+                                    <figcaption>Activity diagram of strDemo.main() method<br>src: <a href="./plantUMLs/ch02/strDemo_act.puml" target="_blank">./plantUMLs/ch02/strDemo_act.puml</a></figcaption>
+                                </figure>  <!-- standAloneFigure -->
+                            </div>  <!-- gallery2 -->
+                            <p><b>Execution Logs: </b></p>
+                            <pre><code class="language-plaintext">First line
+Second line
+A       B       C
+D       E       F</code></pre>  <!-- plaintext block -->
+                            <p>Notice how the <code>\n</code> escape sequence is used to generate a new line. You don't need to use multiple <code>println()</code> statements to get multiline output. Just embed <code>\n</code> within a longer string at the points where you want the new lines to occur.</p>
+                        </div>  <!-- content -->
+                        <div class="lvl3">
+                            <div class="left">
+                                <h4>Ask the Expert</h4>
+                            </div>  <!-- left -->
+                            <div class="right">
+                                <div class="askTheExpert">
+                                    <h3 class="top"></h3>
+                                    <p class="question">Is a string consisting of a single character the same as a character literal? For example, is <code>"k"</code> the same as <code>'k'</code>?</p>
+                                    <p class="answer">No. You must not confuse strings with characters. A character literal represents a single letter of type <code>char</code>. A string containing only one letter is still a string. Although strings consist of characters, they are not the same type.</p>
+                                </div>  <!-- askTheExpert -->
+                            </div>  <!-- right -->
+                        </div>  <!-- lvl3 -->
+                    </div>  <!-- right -->
+                </div>  <!-- lvl2 -->
+            </div>  <!-- right -->
+        </div>  <!-- lvl1 -->
+        <div class="lvl1">
+            <div class="left">
+                <h2>A CLOSER LOOK AT VARIABLES</h2>
+            </div>  <!-- left -->
+            <div class="right">
+                <div class="content">
+                    <p>Variables were introduced in Chapter 1. Here, we will take a closer look at them. As you learned earlier, variables are declared using this form of statement,</p>
+                    <pre><code class="language-plaintext">type var-name;</code></pre>  <!-- plaintext block -->
+                    <p>where <code>type</code> is the data type of the variable, and <code>var-name</code> is its name. You can declare a variable of any valid type, including the simple types just described, and every variable will have a type. Thus, the capabilities of a variable are determined by its type. For example, a variable of type <code>boolean</code> cannot be used to store floating-point values. Furthermore, the type of a variable cannot change during its lifetime. An <code>int</code> variable cannot turn into a <code>char</code> variable, for example.</p>
+                    <p>All variables in Java must be declared prior to their use. This is necessary because the compiler must know what type of data a variable contains before it can properly compile any statement that uses the variable. It also enables Java to perform strict type checking.</p>
+                </div>  <!-- content -->
+                <div class="lvl2">
+                    <div class="left">
+                        <h3>Initializing a Variable</h3>
+                    </div>  <!-- left -->
+                    <div class="right">
+                        <div class="content">
+                            <p>In general, you must give a variable a value prior to using it. One way to give a variable a value is through an assignment statement, as you have already seen. Another way is by giving it an initial value when it is declared. To do this, follow the variable's name with an equal sign and the value being assigned. The general form of initialization is shown here:</p>
+                            <pre><code class="language-plaintext">type var = value;</code></pre>  <!-- plaintext block -->
+                            <p>Here, value is the value that is given to <code>var</code> when <code>var</code> is created. The value must be compatible with the specified type. Here are some examples:</p>
+                            <pre><code class="language-java">int count = 10;  // give count an initial value of 10
+char ch = 'X';  // initialize ch with letter X
+float f = 1.2F;  // f is initialized with 1.2</code></pre>  <!-- java code -->
+                            <p>When declaring two or more variables of the same type using a comma-separated list, you can give one or more of those variables an initial value. For example:</p>
+                            <pre><code class="language-java">int a, b = 8, c = 19, d;  // b and c have initializations</code></pre>  <!-- java code -->
+                            <p>In this case only <code>b</code> and <code>c</code> are initialized.</p>
+                        </div>  <!-- content -->
+                    </div>  <!-- right -->
+                </div>  <!-- lvl2 -->
+                <div class="lvl2">
+                    <div class="left">
+                        <h3>Dynamic Initialization</h3>
+                    </div>  <!-- left -->
+                    <div class="right">
+                        <div class="content">
+                            <p>Although the preceding examples have used only constants as initializers, Java allows variables to be initialized dynamically, using any expression valid at the time the variable is declared. For example, here is a short program that computes the volume of a cylinder given the radius of its base and its height:</p>
+                            <p class="srcFile"><a href="../JBG_HS_Ch02/JBG_HS_Ch02_Exmp/DynInit.java" target="_blank">../JBG_HS_Ch02/JBG_HS_Ch02_Exmp/DynInit.java</a></p>
+                            <pre><code class="language-java">/**
+* Demonstrate dynamic initialization.
+* 
+* Call this file "DynInit.java".
+*/
+class DynInit {
+public static void main(String[] args) {
+double radius = 4, height = 5;
+
+// dynamically initialize volume
+double volume = 3.1416 * radius * radius * height;
+
+System.out.println("Volume is " + volume);
+}
+}</code></pre>  <!-- java code -->
+                            <div class="gallery2">
+                                <figure class="standAloneFigure">
+                                    <img src="./plantUMLs/ch02/DynInit_class.svg" alt="Class diagram of DynInit class">
+                                    <figcaption>Class diagram of DynInit class<br>src: <a href="./plantUMLs/ch02/DynInit_class.puml" target="_blank">./plantUMLs/ch02/DynInit_class.puml</a></figcaption>
+                                </figure>  <!-- standAloneFigure -->
+                                <figure class="standAloneFigure">
+                                    <img src="./plantUMLs/ch02/DynInit_act.svg" alt="Activity diagram of DynInit.main() method">
+                                    <figcaption>Activity diagram of DynInit.main() method<br>src: <a href="./plantUMLs/ch02/DynInit_act.puml" target="_blank">./plantUMLs/ch02/DynInit_act.puml</a></figcaption>
+                                </figure>  <!-- standAloneFigure -->
+                            </div>  <!-- gallery2 -->
+                            <p><b>Execution Logs: </b></p>
+                            <pre><code class="language-plaintext">Volume is 251.328</code></pre>  <!-- plaintext block -->
+                            <p>Here, three local variables—<code>radius</code>, <code>height</code>, and <code>volume</code>—are declared. The first two, <code>radius</code> and <code>height</code>, are initialized by constants. However, <code>volume</code> is initialized dynamically to the volume of the cylinder. The key point here is that the initialization expression can use any element valid at the time of the initialization, including calls to methods, other variables, or literals.</p>
+                        </div>  <!-- content -->
+                    </div>  <!-- right -->
+                </div>  <!-- lvl2 -->
+            </div>  <!-- right -->
+        </div>  <!-- lvl1 -->
+        <div class="lvl1">
+            <div class="left">
+                <h2>THE SCOPE AND LIFETIME OF VARIABLES</h2>
+            </div>  <!-- left -->
+            <div class="right">
+                <div class="content">
+                    <p>So far, all of the variables that we have been using were declared at the start of the <code>main()</code> method. However, Java allows variables to be declared within any block. As explained in Chapter 1, a block is begun with an opening curly brace and ended by a closing curly brace. A block defines a scope. Thus, each time you start a new block, you are creating a new scope. A scope determines what objects are visible to other parts of your program. It also determines the lifetime of those objects.</p>
+                    <p>In general, every declaration in Java has a scope. As a result, Java defines a powerful, finely grained concept of scope. <span class="highlight">Two of the most common scopes in Java are those defined by a class and those defined by a method</span>. A discussion of class scope (and variables declared within it) is deferred until later in this book, when classes are described. For now, we will examine only the scopes defined by or within a method.</p>
+                    <p>The scope defined by a method begins with its opening curly brace. However, if that method has parameters, they too are included within the method's scope. A method's scope ends with its closing curly brace. This block of code is called the <em>method body</em>. As a general rule, variables declared inside a scope are not visible (that is, accessible) to code that is defined outside that scope. Thus, when you declare a variable within a scope, you are localizing that variable and protecting it from unauthorized access and/or modification. Indeed, the scope rules provide the foundation for encapsulation. A variable declared within a block is called a <em>local variable</em>.</p>
+                    <p>Scopes can be nested. For example, each time you create a block of code, you are creating a new, nested scope. When this occurs, the outer scope encloses the inner scope. This means that objects declared in the outer scope will be visible to code within the inner scope. However, the reverse is not true. Objects declared within the inner scope will not be visible outside it.</p>
+                    <p>To understand the effect of nested scopes, consider the following program:</p>
+                    <p class="srcFile"><a href="../JBG_HS_Ch02/JBG_HS_Ch02_Exmp/ScopeDemo.java" target="_blank">../JBG_HS_Ch02/JBG_HS_Ch02_Exmp/ScopeDemo.java</a></p>
+                    <pre><code class="language-java">/**
+* Demonstrate block scope.
+* 
+* Call this file "ScopeDemo.java".
+*/
+class ScopeDemo {
+public static void main(String[] args) {
+int x; // known to all code within main
+
+x = 10;
+if(x == 10) { // start new scope
+int y = 20; // known only to this block
+
+// x and y both known here.
+System.out.println("x and y: " + x + " " + y);
+x = y * 2;
+}
+// y = 100; // Error! y not known here
+
+// x is still known here.
+System.out.println("x is " + x);
+}
+}</code></pre>  <!-- java code -->
+                    <div class="gallery2">
+                        <figure class="standAloneFigure">
+                            <img src="./plantUMLs/ch02/ScopeDemo_class.svg" alt="Class diagram of SCopeDemo class">
+                            <figcaption>Class diagram of SCopeDemo class<br>src: <a href="./plantUMLs/ch02/ScopeDemo_class.puml" target="_blank">./plantUMLs/ch02/ScopeDemo_class.puml</a></figcaption>
+                        </figure>  <!-- standAloneFigure -->
+                        <figure class="standAloneFigure">
+                            <img src="./plantUMLs/ch02/ScopeDemo_act.svg" alt="Activity diagram of ScopeDemo.main() method">
+                            <figcaption>Activity diagram of ScopeDemo.main() method<br>src: <a href="./plantUMLs/ch02/ScopeDemo_act.puml" target="_blank">./plantUMLs/ch02/ScopeDemo_act.puml</a></figcaption>
+                        </figure>  <!-- standAloneFigure -->
+                    </div>  <!-- gallery2 -->
+                    <p><b>Execution Logs: </b></p>
+                    <pre><code class="language-plaintext">x and y: 10 20
+x is 40</code></pre>  <!-- plaintext block -->
+                    <p>As the comments indicate, the variable <code>x</code> is declared at the start of <code>main()</code>'s scope and is accessible to all subsequent code within <code>main()</code>. Within the <code>if</code> block, <code>y</code> is declared. Since a block defines a scope, <code>y</code> is visible only to other code within its block. This is why outside of its block, the line <code>y = 100;</code> is commented out. If you remove the leading comment symbol, a compile-time error will occur, because <code>y</code> is not visible outside of its block. Within the <code>if</code> block, <code>x</code> can be used because code within a block (that is, a nested scope) has access to variables declared by an enclosing scope.</p>
+                    <p>Within a block, variables can be declared at any point, but are valid only after they are declared. Thus, if you define a variable at the start of a method, it is available to all of the code within that method. Conversely, if you declare a variable at the end of a block, it is effectively useless, because no code will have access to it.</p>
+                    <p>Here is another important point to remember: variables are created when their scope is entered, and destroyed when their scope is left. This means that a variable will not hold its value once it has gone out of scope. Therefore, variables declared within a method will not hold their values between calls to that method. Also, a variable declared within a block will lose its value when the block is left. Thus, the lifetime of a variable is confined to its scope.</p>
+                    <p>If a variable declaration includes an initializer, that variable will be reinitialized each time the block in which it is declared is entered. For example, consider this program:</p>
+                    <p class="srcFile"><a href="../JBG_HS_Ch02/JBG_HS_Ch02_Exmp/VarInitDemo.java" target="_blank">../JBG_HS_Ch02/JBG_HS_Ch02_Exmp/VarInitDemo.java</a></p>
+                    <pre><code class="language-java">/**
+* Demonstrate lifetime of a variable.
+* 
+* Call this file "VarInitDemo.java".
+*/
+class VarInitDemo {
+public static void main(String[] args) {
+int x;
+
+for(x = 0; x < 3; x++) {
+int y = -1; // y is initialized each time block is entered.
+System.out.println("y is " + y);
+y = 100;
+System.out.println("y is now " + y);
+}
+}
+}</code></pre>  <!-- java code -->
+                    <div class="gallery2">
+                        <figure class="standAloneFigure">
+                            <img src="./plantUMLs/ch02/VarInitDemo_class.svg" alt="Class diagram of VarInitDemoclass">
+                            <figcaption>Class diagram of VarInitDemoclass<br>src: <a href="./plantUMLs/ch02/VarInitDemo_class.puml" target="_blank">./plantUMLs/ch02/VarInitDemo_class.puml</a></figcaption>
+                        </figure>  <!-- standAloneFigure -->
+                        <figure class="standAloneFigure">
+                            <img src="./plantUMLs/ch02/VarInitDemo_act.svg" alt="Activity diagram of VarInitDemo.main() method">
+                            <figcaption>Activity diagram of VarInitDemo.main() method<br>src: <a href="./plantUMLs/ch02/VarInitDemo_act.puml" target="_blank">./plantUMLs/ch02/VarInitDemo_act.puml</a></figcaption>
+                        </figure>  <!-- standAloneFigure -->
+                    </div>  <!-- gallery2 -->
+                    <p>The output generated by this program is shown here:</p>
+                    <pre><code class="language-plaintext">y is -1
+y is now 100
+y is -1
+y is now 100
+y is -1
+y is now 100</code></pre>  <!-- plaintext block -->
+                    <p>As you can see, <code>y</code> is reinitialized to -1 each time the inner <code>for</code> loop is entered. Even though it is subsequently assigned the value 100, this value is lost.</p>
+                    <p>There is one quirk to Java's scope rules that may surprise you: although blocks can be nested, <span class="highlight">no variable declared within an inner scope can have the same name as a variable declared by an enclosing scope</span>. For example, the following program, which tries to declare two separate variables with the same name, will not compile.</p>
+                    <p class="srcFile"><a href="../JBG_HS_Ch02/JBG_HS_Ch02_Exmp/NestVar.java" target="_blank">../JBG_HS_Ch02/JBG_HS_Ch02_Exmp/NestVar.java</a></p>
+                    <pre><code class="language-java">/**
+* This program attempts to declare a variable
+* in an inner scope with the same name as one
+* defined in an outer scope.
+* 
+* *** This program will not compile. ***
+* 
+* Call this file "NestVar.java".
+*/
+class NestVar {
+public static void main(String[] args) {
+int count;
+
+for(count = 0; count < 10; count = count + 1) {
+System.out.println("This is count: " + count);
+
+int count; // illegal!!!
+for(count = 0; count < 2; count++) {
+    System.out.println("This program is in error!");
+}
+}
+}
+}</code></pre>  <!-- java code -->
+                    <div class="gallery2">
+                        <figure class="standAloneFigure">
+                            <img src="./plantUMLs/ch02/NestVar_class.svg" alt="Class diagram of NestVar class">
+                            <figcaption>Class diagram of NestVar class<br>src: <a href="./plantUMLs/ch02/NestVar_class.puml" target="_blank">./plantUMLs/ch02/NestVar_class.puml</a></figcaption>
+                        </figure>  <!-- standAloneFigure -->
+                        <figure class="standAloneFigure">
+                            <img src="./plantUMLs/ch02/NestVar_act.svg" alt="Activity diagram of NestVar.main() method">
+                            <figcaption>Activity diagram of NestVar.main() method<br>src: <a href="./plantUMLs/ch02/NestVar_act.puml" target="_blank">./plantUMLs/ch02/NestVar_act.puml</a></figcaption>
+                        </figure>  <!-- standAloneFigure -->
+                    </div>  <!-- gallery2 -->
+                    <p><b>Execution Logs: </b></p>
+                    <pre><code class="language-plaintext">NestVar.java:17: error: variable count is already defined in method main(String[])
+int count; // illegal!!!
+    ^
+1 error</code></pre>  <!-- plaintext block -->
+                </div>  <!-- content -->
+            </div>  <!-- right -->
+        </div>  <!-- lvl1 -->
+        <div class="lvl1">
+            <div class="left">
+                <h2>OPERATORS</h2>
+            </div>  <!-- left -->
+            <div class="right">
+                <div class="content">
+                    <p>Java provides a rich operator environment. An operator is a symbol that tells the compiler to perform a specific mathematical or logical manipulation. <span class="highlight">Java has four general classes of operators: arithmetic, bitwise, relational, and logical.</span> Java also defines some additional operators that handle certain special situations. This chapter will examine the arithmetic, relational, and logical operators. We will also examine the assignment operator. The bitwise and other special operators are examined later.</p>
+                </div>  <!-- content -->
+            </div>  <!-- right -->
+        </div>  <!-- lvl1 -->
+        <div class="lvl1">
+            <div class="left">
+                <h2>ARITHMETIC OPERATORS</h2>
+            </div>  <!-- left -->
+            <div class="right">
+                <div class="content">
+                    <p>Java defines the following arithmetic operators:</p>
+                    <table>
+                        <caption><span class="capId">Table --</span> Arithmetic operators</caption>
+                        <thead>
+                            <tr>
+                                <th>Operator</th>
+                                <th>Meaning</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>+</code></td>
+                                <td>Addition (also unary plus)</td>
+                            </tr>
+                            <tr>
+                                <td><code>-</code></td>
+                                <td>Subtraction (also unary minus)</td>
+                            </tr>
+                            <tr>
+                                <td><code>*</code></td>
+                                <td>Multiplication</td>
+                            </tr>
+                            <tr>
+                                <td><code>/</code></td>
+                                <td>Division</td>
+                            </tr>
+                            <tr>
+                                <td><code>%</code></td>
+                                <td>Modulus</td>
+                            </tr>
+                            <tr>
+                                <td><code>++</code></td>
+                                <td>Increment/td>
+                            </tr>
+                            <tr>
+                                <td><code>--</code></td>
+                                <td>Decrement</td>
+                            </tr>
+                        </tbody>
+                    </table>  <!-- table -->
+                    <p>The operators <code>+</code>, <code>-</code>, <code>*</code>, and <code>/</code> all work the same way in Java as they do in any other computer language (or algebra, for that matter). These can be applied to any built-innumeric data type. They can also be used on objects of type <code>char</code>.</p>
+                    <p>Although the actions of arithmetic operators are well known to all readers, a few special situations warrant some explanation. First, remember that when <code>/</code> is applied to an integer, any remainder will be truncated; for example, 10/3 will equal 3 in integer division. You can obtain the remainder of this division by using the modulus operator <code>%</code>. It yields the remainder of an integer division. For example, <span class="highlight">10 % 3 is 1. In Java, the <code>%</code> can be applied to both integer and floating-point types. Thus, 10.0 % 3.0 is also 1.</span> The following program demonstrates the modulus operator.</p>
+                    <p class="srcFile"><a href="../JBG_HS_Ch02/JBG_HS_Ch02_Exmp/ModDemo.java" target="_blank">../JBG_HS_Ch02/JBG_HS_Ch02_Exmp/ModDemo.java</a></p>
+                    <pre><code class="language-java">/**
+* Demonstrate the % operator
+* 
+* Call this file "ModDemo.java"
+*/
+class ModDemo {
+public static void main(String[] args) {
+int iresult, irem;
+double dresult, drem;
+
+iresult = 10 / 3;
+irem = 10 % 3;
+dresult = 10.0 / 3.0;
+drem = 10.0 % 3.0;
+
+System.out.println("Result and remainder of 10 / 3 : " + iresult + " " + irem);
+System.out.println("Result and remainder of 10.0 / 3.0 : " + dresult + " " + drem);
+}
+}</code></pre>  <!-- java code -->
+                    <div class="gallery2">
+                        <figure class="standAloneFigure">
+                            <img src="./plantUMLs/ch02/ModDemo_class.svg" alt="Class diagram of ModDemo class">
+                            <figcaption>Class diagram of ModDemo class<br>src: <a href="./plantUMLs/ch02/ModDemo_class.puml" target="_blank">./plantUMLs/ch02/ModDemo_class.puml</a></figcaption>
+                        </figure>  <!-- standAloneFigure -->
+                        <figure class="standAloneFigure">
+                            <img src="./plantUMLs/ch02/ModDemo_act.svg" alt="Activity diagram of ModDemo.main() method">
+                            <figcaption>Activity diagram of ModDemo.main() method<br>src: <a href="./plantUMLs/ch02/ModDemo_act.puml" target="_blank">./plantUMLs/ch02/ModDemo_act.puml</a></figcaption>
+                        </figure>  <!-- standAloneFigure -->
+                    </div>  <!-- gallery2 -->
+                    <p>The output from the program is shown here:</p>
+                    <pre><code class="language-plaintext">Result and remainder of 10 / 3 : 3 1
+Result and remainder of 10.0 / 3.0 : 3.3333333333333335 1.0</code></pre>  <!-- plaintext block -->
+                    <p>As you can see, the <code>%</code> yields a remainder of 1 for both integer and floating-point operations.</p>
+                </div>  <!-- content -->
+                <div class="lvl2">
+                    <div class="left">
+                        <h3>Increment and Decrement</h3>
+                    </div>  <!-- left -->
+                    <div class="right">
+                        <div class="content">
+                            <p>Introduced in Chapter 1, the <code>++</code> and the <code>--</code> are Java's increment and decrement operators. As you will see, they have some special properties that make them quite interesting. Let's begin by reviewing precisely what the increment and decrement operators do.</p>
+                            <p>The increment operator adds 1 to its operand, and the decrement operator subtracts 1.</p>
+                            <p>Therefore,</p>
+                            <pre><code class="language-java">x = x + 1;</code></pre>  <!-- java code -->
+                            <p>is the same as</p>
+                            <pre><code class="language-java">x++;</code></pre>  <!-- java code -->
+                            <p>and</p>
+                            <pre><code class="language-java">x = x - 1;</code></pre>  <!-- java code -->
+                            <p>is the same as</p>
+                            <pre><code class="language-java">x--;</code></pre>  <!-- java code -->
+                            <p>Both the increment and decrement operators can either precede (prefix) or follow (postfix) the operand. For example,</p>
+                            <pre><code class="language-java">x = x + 1;</code></pre>  <!-- java code -->
+                            <p>can be written as</p>
+                            <pre><code class="language-java">++x;  // prefix form</code></pre>  <!-- java code -->
+                            <p>or as</p>
+                            <pre><code class="language-java">x++;  // postfix form</code></pre>  <!-- java code -->
+                            <p>In the foregoing example, there is no difference whether the increment is applied as a prefix or a postfix. However, when an increment or decrement is used as part of a larger expression, there is an important difference. When an increment or decrement operator precedes its operand, Java will perform the corresponding operation prior to obtaining the operand's value for use by the rest of the expression. If the operator follows its operand, Java will obtain the operand's value before incrementing or decrementing it. Consider the following:</p>
+                            <pre><code class="language-java">x = 10;
+y = ++x;</code></pre>  <!-- java code -->
+                            <p>In this case, <code>y</code> will be set to 11. However, if the code is written as</p>
+                            <pre><code class="language-java">x = 10;
+y = x++;</code></pre>  <!-- java code -->
+                            <p>then <code>y</code> will be set to 10. In both cases, <code>x</code> is still set to 11; the difference is when it happens. There are significant advantages in being able to control when the increment or decrement operation takes place.</p>
+                        </div>  <!-- content -->
+                    </div>  <!-- right -->
+                </div>  <!-- lvl2 -->
+            </div>  <!-- right -->
+        </div>  <!-- lvl1 -->
+        <div class="lvl1">
+            <div class="left">
+                <h2>RELATIONAL AND LOGICAL OPERATORS</h2>
+            </div>  <!-- left -->
+            <div class="right">
+                <div class="content">
+                    <p>In the terms relational operator and logical operator, relational refers to the relationships that values can have with one another, and logical refers to the ways in which true and false values can be connected together. Since the relational operators produce true or false results, they often work with the logical operators. For this reason they will be discussed together here.</p>
+                    <p>The relational operators are shown here:</p>
+                    <table>
+                        <caption><span class="capId">Table --</span> Relational operators</caption>
+                        <thead>
+                            <tr>
+                                <th>Operator</th>
+                                <th>Meaning</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>==</code></td>
+                                <td>Equal to</td>
+                            </tr>
+                            <tr>
+                                <td><code>!=</code></td>
+                                <td>Not equal to</td>
+                            </tr>
+                            <tr>
+                                <td><code>&gt;</code></td>
+                                <td>Greater than</td>
+                            </tr>
+                            <tr>
+                                <td><code>&lt;</code></td>
+                                <td>Less than</td>
+                            </tr>
+                            <tr>
+                                <td><code>&gt;=</code></td>
+                                <td>Greater than or equal to</td>
+                            </tr>
+                            <tr>
+                                <td><code>&lt;=</code></td>
+                                <td>Less than or equal to</td>
+                            </tr>
+                        </tbody>
+                    </table>  <!-- table -->
+                    <table>
+                        <caption><span class="capId">Table --</span> Logical operators</caption>
+                        <thead>
+                            <tr>
+                                <th>Operator</th>
+                                <th>Meaning</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>&</code></td>
+                                <td>AND</td>
+                            </tr>
+                            <tr>
+                                <td><code>|</code></td>
+                                <td>OR</td>
+                            </tr>
+                            <tr>
+                                <td><code>^</code></td>
+                                <td>XOR (exclusive OR)</td>
+                            </tr>
+                            <tr>
+                                <td><code>||</code></td>
+                                <td>Short-circuit OR</td>
+                            </tr>
+                            <tr>
+                                <td><code>&&</code></td>
+                                <td>Short-circuit AND</td>
+                            </tr>
+                            <tr>
+                                <td><code>!</code></td>
+                                <td>NOT</td>
+                            </tr>
+                        </tbody>
+                    </table>  <!-- table -->
+                    <p>The outcome of the relational and logical operators is a boolean value.</p>
+                    <p>In Java, all objects can be compared for equality or inequality using <code>==</code> and <code>!=</code>. However, the comparison operators, <code>&lt;</code>, <code>&gt;</code>, <code>&lt;=</code>, or <code>&gt;=</code>, can be applied only to those types that support an ordering relationship. Therefore, all of the relational operators can be applied to all numeric types and to type <code>char</code>. However, values of type <code>boolean</code> can only be compared for equality or inequality, since the <code>true</code> and <code>false</code> values are not ordered. For example, <code>true &gt; false</code> has no meaning in Java.</p>
+                    <p><span class="highlight">For the logical operators, the operands must be of type <code>boolean</code>, and the result of a logical operation is of type <code>boolean</code></span>. The logical operators, <code>&</code>, <code>|</code>, <code>^</code>, and <code>!</code>, support the basic logical operations <em>AND</em>, <em>OR</em>, <em>XOR</em>, and <em>NOT</em>, according to the following truth table:</p>
+                    <table>
+                        <caption><span class="capId">Table --</span> Truth table</caption>
+                        <thead>
+                            <tr>
+                                <th><code>p</code></th>
+                                <th><code>q</code></th>
+                                <th><code>p & q</code></th>
+                                <th><code>p | q</code></th>
+                                <th><code>p ^ q</code></th>
+                                <th><code>!p</code></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>false</code></td>
+                                <td><code>false</code></td>
+                                <td><code>false</code></td>
+                                <td><code>false</code></td>
+                                <td><code>false</code></td>
+                                <td><code>true</code></td>
+                            </tr>
+                            <tr>
+                                <td><code>true</code></td>
+                                <td><code>false</code></td>
+                                <td><code>false</code></td>
+                                <td><code>true</code></td>
+                                <td><code>true</code></td>
+                                <td><code>false</code></td>
+                            </tr>
+                            <tr>
+                                <td><code>false</code></td>
+                                <td><code>true</code></td>
+                                <td><code>false</code></td>
+                                <td><code>true</code></td>
+                                <td><code>true</code></td>
+                                <td><code>true</code></td>
+                            </tr>
+                            <tr>
+                                <td><code>true</code></td>
+                                <td><code>true</code></td>
+                                <td><code>true</code></td>
+                                <td><code>true</code></td>
+                                <td><code>false</code></td>
+                                <td><code>false</code></td>
+                            </tr>
+                        </tbody>
+                    </table>  <!-- table -->
+                    <p>As the table shows, the outcome of an exclusive OR operation is <code>true</code> when exactly one and only one operand is <code>true</code>.</p>
+                    <p>Here is a program that demonstrates several of the relational and logical operators:</p>
+                    <p class="srcFile"><a href="../JBG_HS_Ch02/JBG_HS_Ch02_Exmp/RelLogOps.java" target="_blank">../JBG_HS_Ch02/JBG_HS_Ch02_Exmp/RelLogOps.java</a></p>
+                    <pre><code class="language-java">/**
+* Demonstrate the relational and logical operators.
+* 
+* Call this file "RelLogOps.java".
+*/
+class RelLogOps {
+public static void main(String[] args) {
+int i, j;
+boolean b1, b2;
+
+i = 10;
+j = 11;
+if(i < j) System.out.println("i < j");
+if(i <= j) System.out.println("i <= j");
+if(i != j) System.out.println("i != j");
+if(i == j) System.out.println("This won't execute");
+if(i >= j) System.out.println("This won't execute");
+if(i > j) System.out.println("This won't execute");
+
+b1 = true;
+b2 = false;
+if(b1 & b2) System.out.println("This won't execute");
+if(!(b1 & b2)) System.out.println("!(b1 & b2) is true");
+if(b1 | b2) System.out.println("b1 | b2 is true");
+if(b1 ^ b2) System.out.println("b1 ^ b2 is true");
+}
+}</code></pre>  <!-- java code -->
+                    <div class="gallery2">
+                        <figure class="standAloneFigure">
+                            <img src="./plantUMLs/ch02/RelLogOps_class.svg" alt="Class diagram of RelLogOps class">
+                            <figcaption>Class diagram of RelLogOps class<br>src: <a href="./plantUMLs/ch02/RelLogOps_class.puml" target="_blank">./plantUMLs/ch02/RelLogOps_class.puml</a></figcaption>
+                        </figure>  <!-- standAloneFigure -->
+                        <figure class="standAloneFigure">
+                            <img src="./plantUMLs/ch02/RelLogOps_act.svg" alt="Activity diagram of RelLogOps.main() method">
+                            <figcaption>Activity diagram of RelLogOps.main() method<br>src: <a href="./plantUMLs/ch02/RelLogOps_act.puml" target="_blank">./plantUMLs/ch02/RelLogOps_act.puml</a></figcaption>
+                        </figure>  <!-- standAloneFigure -->
+                    </div>  <!-- gallery2 -->
+                    <p>The output from the program is shown here:</p>
+                    <pre><code class="language-plaintext">i < j
+i <= j
+i != j
+!(b1 & b2) is true
+b1 | b2 is true
+b1 ^ b2 is true</code></pre>  <!-- plaintext block -->
+                </div>  <!-- content -->
+            </div>  <!-- right -->
+        </div>  <!-- lvl1 -->
+        <div class="lvl1">
+            <div class="left">
+                <h2>SHORT-CIRCUIT LOGICAL OPERATORS</h2>
+            </div>  <!-- left -->
+            <div class="right">
+                <div class="content">
+                    <p>Java supplies special <em>short-circuit</em> versions of its AND and OR logical operators that can be used to produce more efficient code. To understand why, consider the following. In an AND operation, if the first operand is false, the outcome is <code>false</code> no matter what value the second operand has. In an OR operation, if the first operand is true, the outcome of the operation is true no matter what the value of the second operand. Thus, in these two cases there is no need to evaluate the second operand. By not evaluating the second operand, time is saved and more efficient code is produced.</p>
+                    <p>The short-circuit AND operator is <code>&&</code>, and the short-circuit OR operator is <code>||</code>. Their normal counterparts are <code>&</code> and <code>|</code>. The only difference between the normal and short-circuit versions is that <span class="highlight">the normal operands will always evaluate each operand</span>, but short-circuit versions will evaluate the second operand only when necessary.</p>
+                    <p>Here is a program that demonstrates the short-circuit AND operator. The program determines whether the value in <code>d</code> is a factor of <code>n</code>. It does this by performing a modulus operation. If the remainder of <code>n / d</code> is zero, then <code>d</code> is a factor. However, since the modulus operation involves a division, the short-circuit form of the AND is used to prevent a divide-by-zero error.</p>
+                    <p class="srcFile"><a href="../JBG_HS_Ch02/JBG_HS_Ch02_Exmp/SCops.java" target="_blank">../JBG_HS_Ch02/JBG_HS_Ch02_Exmp/SCops.java</a></p>
+                    <pre><code class="language-java">/**
+* Demonstrate the short-circuit operators.
+* 
+* Call this file "SCops.java".
+*/
+class SCops {
+public static void main(String[] args) {
+int n, d, q;
+
+n = 10;
+d = 2;
+if(d != 0 && (n % d) == 0) {
+System.out.println(d + " is a factor of " + n);
+}
+
+d = 0; // now, set d to zero
+
+// since d is zero, the second operand is not evaluated.
+if(d != 0 && (n % d) == 0) { // Will not enter the block
+System.out.println(d + " is a factor of " + n);
+}
+
+/**
+*  Now, try same thing without short-circuit operator.
+* This will cause a divide-by-zero error.
+*/
+if(d != 0 & (n % d) == 0) {
+System.out.println(d + " is a factor of " + n);
+}
+}
+}</code></pre>  <!-- java code -->
+                    <div class="gallery2">
+                        <figure class="standAloneFigure">
+                            <img src="./plantUMLs/ch02/SCops_class.svg" alt="Class diagram of SCops class">
+                            <figcaption>Class diagram of SCops class<br>src: <a href="./plantUMLs/ch02/SCops_class.puml" target="_blank">./plantUMLs/ch02/SCops_class.puml</a></figcaption>
+                        </figure>  <!-- standAloneFigure -->
+                        <figure class="standAloneFigure">
+                            <img src="./plantUMLs/ch02/SCops_act.svg" alt="Activity diagram of SCops.main() method">
+                            <figcaption>Activity diagram of SCops.main() method<br>src: <a href="./plantUMLs/ch02/SCops_act.puml" target="_blank">./plantUMLs/ch02/SCops_act.puml</a></figcaption>
+                        </figure>  <!-- standAloneFigure -->
+                    </div>  <!-- gallery2 -->
+                    <p><b>Execution Logs: </b></p>
+                    <pre><code class="language-plaintext">2 is a factor of 10
+Exception in thread "main" java.lang.ArithmeticException: / by zero
+at SCops.main(SCops.java:27)</code></pre>  <!-- plaintext block -->
+                    <p>To prevent a divide-by-zero, the <code>if</code> statement first checks to see if <code>d</code> is equal to zero. If it is, the short-circuit AND stops at that point and does not perform the modulus division. Thus, in the first test, <code>d</code> is 2 and the modulus operation is performed. The second test fails because <code>d</code> is set to zero, and the modulus operation is skipped, avoiding a divide-by-zero error. Finally, the normal AND operator is tried. This causes both operands to be evaluated, which leads to a run-time error when the division by zero occurs.</p>
+                    <p>One last point: The formal specification for Java refers to the short-circuit operators as the conditional-or and the conditional-and operators, but the term "short-circuit" is commonly used.</p>
+                </div>  <!-- content -->
+            </div>  <!-- right -->
+        </div>  <!-- lvl1 -->
+        <div class="lvl1">
+            <div class="left">
+                <h2>Ask the Expert</h2>
+            </div>  <!-- left -->
+            <div class="right">
+                <div class="askTheExpert">
+                    <h3 class="top"></h3>
+                    <p class="question">Since the short-circuit operators are, in some cases, more efficient than their normal counterparts, why does Java still offer the normal AND and OR operators?</p>
+                    <div class="answer">
+                        <p>In some cases you will want both operands of an AND or OR operation to be evaluated because of the side effects produced. Consider the following:</p>
+                        <p class="srcFile"><a href="../JBG_HS_Ch02/JBG_HS_Ch02_Exmp/SideEffects.java" target="_blank">../JBG_HS_Ch02/JBG_HS_Ch02_Exmp/SideEffects.java</a></p>
+                        <pre><code class="language-java">/**
+* Side effects of logical operators can be important.
+* 
+* Call this file "SideEffects.java".
+*/
+class SideEffects {
+public static void main(String[] args) {
+int i;
+
+i = 0;
+
+/**
+* Here, i is still incremented even though the if statement fails.
+*/
+if(false & (++i < 100))
+System.out.println("this won't be displayed.");
+System.out.println("if statement executed: " + i); // displays 1
+
+/**
+* In this case, i is not incremented because
+* the short-circuit operator skips the increment.
+*/
+if(false && (++i < 100))
+System.out.println("this won't be displayed");
+System.out.println("if statement executed: " + i); // still 1 !!
+}
+}</code></pre>  <!-- java code -->
+                        <div class="gallery2">
+                            <figure class="standAloneFigure">
+                                <img src="./plantUMLs/ch02/SideEffects_class.svg" alt="Class diagram of SideEffects class">
+                                <figcaption>Class diagram of SideEffects class<br>src: <a href="./plantUMLs/ch02/SideEffects_class.puml" target="_blank">./plantUMLs/ch02/SideEffects_class.puml</a></figcaption>
+                            </figure>  <!-- standAloneFigure -->
+                            <figure class="standAloneFigure">
+                                <img src="./plantUMLs/ch02/SideEffects_act.svg" alt="Activity diagram of SideEffects.main() method">
+                                <figcaption>Activity diagram of SideEffects.main() method<br>src: <a href="./plantUMLs/ch02/SideEffects_act.puml" target="_blank">./plantUMLs/ch02/SideEffects_act.puml</a></figcaption>
+                            </figure>  <!-- standAloneFigure -->
+                        </div>  <!-- gallery2 -->
+                        <p><b>Execution Logs: </b></p>
+                        <pre><code class="language-plaintext">if statement executed: 1
+if statement executed: 1</code></pre>  <!-- plaintext block -->
+                        <p>As the comments indicate, in the first <code>if</code> statement, <code>i</code> is incremented whether the <code>if</code> succeeds or not. However, when the short-circuit operator is used, the variable <code>i</code> is not incremented when the first operand is <code>false</code>. The lesson here is that if your code expects the right-hand operand of an AND or OR operation to be evaluated, you must use Java's non-short-circuit forms of these operations.</p>
+                    </div>
+                </div>  <!-- askTheExpert -->
+            </div>  <!-- right -->
+        </div>  <!-- lvl1 -->
+        <div class="lvl1">
+            <div class="left">
+                <h2>THE ASSIGNMENT OPERATOR</h2>
+            </div>  <!-- left -->
+            <div class="right">
+                <div class="content">
+                    <p>You have been using the assignment operator since Chapter 1. Now it is time to take a formal look at it. The assignment operator is the single equal sign, <code>=</code>. This operator works in Java much as it does in any other computer language. It has this general form:</p>
+                    <pre><code class="language-plaintext">var = expression;</code></pre>  <!-- plaintext block -->
+                    <p>Here, the type of <code>var</code> must be compatible with the type of expression.</p>
+                    <p>The assignment operator does have one interesting attribute that you may not be familiar with: it allows you to create a chain of assignments. For example, consider this fragment:</p>
+                    <pre><code class="language-java">int x, y, z;
+x = y = z = 100;  // set x, y and z equal to 100</code></pre>  <!-- java code -->
+                    <p>This fragment sets the variables <code>x</code>, <code>y</code>, and <code>z</code> to 100 using a single statement. This works because the <code>=</code> is an operator that yields the value of the right-hand expression. Thus, the value of <code>z = 100</code> is 100, which is then assigned to <code>y</code>, which in turn is assigned to <code>x</code>. Using a "chain of assignment" is an easy way to set a group of variables to a common value.</p>
+                </div>  <!-- content -->
+            </div>  <!-- right -->
+        </div>  <!-- lvl1 -->
+        <div class="lvl1">
+            <div class="left">
+                <h2>SHORTHAND ASSIGNMENTS</h2>
+            </div>  <!-- left -->
+            <div class="right">
+                <div class="content">
+                    <p>Java provides special shorthand assignment operators that simplify the coding of certain assignment statements. Let"s begin with an example. The assignment statement shown here</p>
+                    <pre><code class="language-java">x = x + 10;</code></pre>  <!-- java code -->
+                    <p>can be written, using Java shorthand, as</p>
+                    <pre><code class="language-java">x += 10;</code></pre>  <!-- java code -->
+                    <p>The operator pair <code>+=</code> tells the compiler to assign to <code>x</code> the value of <code>x</code> plus 10. Here is another example. The statement</p>
+                    <pre><code class="language-java">x = x - 100;</code></pre>  <!-- java code -->
+                    <p>is the same as</p>
+                    <pre><code class="language-java">x -= 100;</code></pre>  <!-- java code -->
+                    <p>Both statements assign to <code>x</code> the value of <code>x</code> minus 100.</p>
+                    <p>This shorthand will work for all the binary operators in Java (that is, those that require two operands). The general form of the shorthand is</p>
+                    <pre><code class="language-plaintext">var op= expression;</code></pre>  <!-- plaintext block -->
+                    <p>Thus, the arithmetic and logical shorthand assignment operators are the following:</p>
+                    <table>
+                        <caption><span class="capId">Table --</span> Arithmetic and Logical shorthand assignment operators</caption>
+                        <tbody>
+                            <tr>
+                                <td><code>+=</code></td>
+                                <td><code>-=</code></td>
+                                <td><code>*=</code></td>
+                                <td><code>/=</code></td>
+                            </tr>
+                            <tr>
+                                <td><code>%=</code></td>
+                                <td><code>&=</code></td>
+                                <td><code>|=</code></td>
+                                <td><code>^=</code></td>
+                            </tr>
+                        </tbody>
+                    </table>  <!-- table -->
+                    <p>Because these operators combine an operation with an assignment, they are formally referred to as <span class="highlight">compound assignment operators</span>.</p>
+                    <p>The compound assignment operators provide two benefits.</p>
+                    <ul>
+                        <li>First, they are more compact than their "longhand" equivalents.</li>
+                        <li>Second, in some cases, they are more efficient.</li>
+                    </ul>
+                    <p>For these reasons, you will often see the compound assignment operators used in professionally written Java programs.</p>
+                </div>  <!-- content -->
+            </div>  <!-- right -->
+        </div>  <!-- lvl1 -->
+        <div class="lvl1">
+            <div class="left">
+                <h2>TYPE CONVERSION IN ASSIGNMENTS</h2>
+            </div>  <!-- left -->
+            <div class="right">
+                <div class="content">
+                    <p>In programming, it is common to assign one type of variable to another. For example, you might want to assign an <code>int</code> value to a <code>float</code> variable, as shown here:</p>
+                    <pre><code class="language-java">int i;
+float f;
+
+i = 10;
+f = i;  // assign an int to a float</code></pre>  <!-- java code -->
+                    <p>When compatible types are mixed in an assignment, the value of the right side is automatically converted to the type of the left side. Thus, in the preceding fragment, the value in <code>i</code> is converted into a <code>float</code> and then assigned to <code>f</code>. However, because of Java's strict type checking, not all types are compatible, and thus, not all type conversions are implicitly allowed. For example, <code>boolean</code> and <code>int</code> are not compatible.</p>
+                    <p>When one type of data is assigned to another type of variable, an <i>automatic type conversion</i> will take place if</p>
+                    <ul>
+                        <li>The two types are compatible.</li>
+                        <li>The destination type is larger than the source type.</li>
+                    </ul>
+                    <p>When these two conditions are met, a widening conversion takes place. For example, the <code>int</code> type is always large enough to hold all valid byte values, and both <code>int</code> and <code>byte</code> are integer types, so an automatic conversion from <code>byte</code> to <code>int</code> can be applied.</p>
+                    <p>For widening conversions, the numeric types, including integer and floating-point types, are compatible with each other. For example, the following program is perfectly valid since <code>long</code> to <code>double</code> is a widening conversion that is automatically performed.</p>
+                    <p class="srcFile"><a href="../JBG_HS_Ch02/JBG_HS_Ch02_Exmp/LtoD.java" target="_blank">../JBG_HS_Ch02/JBG_HS_Ch02_Exmp/LtoD.java</a></p>
+                    <pre><code class="language-java">/**
+* Demonstrate automatic conversion from long to double.
+* 
+* Call this file "LtoD.java"
+*/
+class LtoD {
+public static void main(String[] args) {
+long L;
+double D;
+
+L = 100123285L;
+D = L;
+
+System.out.println("L and D: " + L + " " + D);
+}
+}</code></pre>  <!-- java code -->
+                    <div class="gallery2">
+                        <figure class="standAloneFigure">
+                            <img src="./plantUMLs/ch02/LtoD_class.svg" alt="Class diagram of LtoD class">
+                            <figcaption>Class diagram of LtoD class<br>src: <a href="./plantUMLs/ch02/LtoD_class.puml" target="_blank">./plantUMLs/ch02/LtoD_class.puml</a></figcaption>
+                        </figure>  <!-- standAloneFigure -->
+                        <figure class="standAloneFigure">
+                            <img src="./plantUMLs/ch02/LtoD_act.svg" alt="Activity diagram of LtoD.main() method">
+                            <figcaption>Activity diagram of LtoD.main() method<br>src: <a href="./plantUMLs/ch02/LtoD_act.puml" target="_blank">./plantUMLs/ch02/LtoD_act.puml</a></figcaption>
+                        </figure>  <!-- standAloneFigure -->
+                    </div>  <!-- gallery2 -->
+                    <p><b>Execution Logs: </b></p>
+                    <pre><code class="language-plaintext">L and D: 100123285 1.00123285E8</code></pre>  <!-- plaintext block -->
+                    <p>Although there is an automatic conversion from <code>long</code> to <code>double</code>, there is no automatic conversion from <code>double</code> to <code>long</code>, since this is not a widening conversion. Thus, the following version of the preceding program is invalid.</p>
+                    <p class="srcFile"><a href="../JBG_HS_Ch02/JBG_HS_Ch02_Exmp/DtoL.java" target="_blank">../JBG_HS_Ch02/JBG_HS_Ch02_Exmp/DtoL.java</a></p>
+                    <pre><code class="language-java">/**
+* Demonstrate automatic conversion from double to long.
+* 
+* *** This program will not compile. ***
+* 
+* Call this file "DtoL.java"
+*/
+class DtoL {
+public static void main(String[] args) {
+long L;
+double D;
+
+D = 100123285.0;
+L = D;  // Illegal!!! No automatic conversion from double to long
+
+System.out.println("L and D: " + L + " " + D);
+}
+}</code></pre>  <!-- java code -->
+                    <div class="gallery2">
+                        <figure class="standAloneFigure">
+                            <img src="./plantUMLs/ch02/DtoL_class.svg" alt="Class diagram of DtoL class">
+                            <figcaption>Class diagram of DtoL method<br>src: <a href="./plantUMLs/ch02/DtoL_class.puml" target="_blank">./plantUMLs/ch02/DtoL_class.puml</a></figcaption>
+                        </figure>  <!-- standAloneFigure -->
+                        <figure class="standAloneFigure">
+                            <img src="./plantUMLs/ch02/DtoL_act.svg" alt="Activity diagram of DtoL.main() method">
+                            <figcaption>Activity diagram of DtoL.main() method<br>src: <a href="./plantUMLs/ch02/DtoL_act.puml" target="_blank">./plantUMLs/ch02/DtoL_act.puml</a></figcaption>
+                        </figure>  <!-- standAloneFigure -->
+                    </div>  <!-- gallery2 -->
+                    <p><b>Execution Logs: </b></p>
+                    <pre><code class="language-plaintext">DtoL.java:14: error: incompatible types: possible lossy conversion from double to long
+L = D;
+^
+1 error</code></pre>  <!-- plaintext block -->
+                    <p><span class="highlight">There are no automatic conversions from the numeric types to <code>char</code> or <code>boolean</code>. Also, <code>char</code> and <code>boolean</code> are not compatible with each other. However, an integer literal can be assigned to <code>char</code>.</span></p>
+                </div>  <!-- content -->
+            </div>  <!-- right -->
+        </div>  <!-- lvl1 -->
+        <div class="lvl1">
+            <div class="left">
+                <h2>CASTING INCOMPATIBLE TYPES</h2>
+            </div>  <!-- left -->
+            <div class="right">
+                <div class="content">
+                    <p>Although the automatic type conversions are helpful, they will not fulfill all programming needs because they apply only to widening conversions between compatible types. For all other cases you must employ a cast. A cast is an instruction to the compiler to convert one type into another. Thus, it requests an explicit type conversion. A cast has this general form:</p>
+                    <pre><code class="language-plaintext">(target-type) expression</code></pre>  <!-- plaintext block -->
+                    <p>Here, target-type specifies the desired type to convert the specified expression to. For example, if you want to convert the type of the expression <code>x/y</code> to <code>int</code>, you can write</p>
+                    <pre><code class="language-java">double x, y;
+// ...
+(int) x / y</code></pre>  <!-- java code -->
+                    <p>Here, even though <code>x</code> and <code>y</code> are of type <code>double</code>, the cast converts the <i>outcome of the expression</i> to <code>int</code>. The parentheses surrounding <code>x / y</code> are necessary. Otherwise, the cast to <code>int</code> would apply only to the <code>x</code> and not to the outcome of the division. The cast is necessary here because there is no automatic conversion from <code>double</code> to <code>int</code>.</p>
+                    <p>When a cast involves a narrowing conversion, information might be lost. For example, when casting a <code>long</code> into a <code>short</code>, information will be lost if the long's value is greater than the range of a <code>short</code> because its high-order bits are removed. When a floating-point value is cast to an integer type, the fractional component will also be lost due to truncation. For example, if the value 1.23 is assigned to an integer, the resulting value will simply be 1. The 0.23 is lost.</p>
+                    <p>The following program demonstrates some type conversions that require casts:</p>
+                    <p class="srcFile"><a href="../JBG_HS_Ch02/JBG_HS_Ch02_Exmp/CastDemo.java" target="_blank">../JBG_HS_Ch02/JBG_HS_Ch02_Exmp/CastDemo.java</a></p>
+                    <pre><code class="language-java">/**
+* Demonstrate casting.
+* 
+* Call this file "CastDemo.java".
+*/
+class CastDemo {
+public static void main(String[] args) {
+double x, y;
+byte b;
+int i;
+char ch;
+
+x = 10.0;
+y = 3.0;
+
+i = (int) (x / y); // cast double too int
+System.out.println("integer outcome of x / y: " + i);
+
+i = 100;
+b = (byte) i; // No loss of info here. byte can store 100.
+System.out.println("Value of b: " + b);
+
+i = 257;
+b = (byte) i; // Information loss here. byte cannot hold the value 257.
+System.out.println("Value of b: " + b);
+
+b = 88; // ASCII code for x
+ch = (char) b; // Cast between incompatible types.
+System.out.println("ch: " + ch);
+}
+}</code></pre>  <!-- java code -->
+                    <div class="gallery2">
+                        <figure class="standAloneFigure">
+                            <img src="./plantUMLs/ch02/CastDemo_class.svg" alt="Class diagram of CastDemo class">
+                            <figcaption>Class diagram of CastDemo method<br>src: <a href="./plantUMLs/ch02/CastDemo_class.puml" target="_blank">./plantUMLs/ch02/CastDemo_class.puml</a></figcaption>
+                        </figure>  <!-- standAloneFigure -->
+                        <figure class="standAloneFigure">
+                            <img src="./plantUMLs/ch02/CastDemo_act.svg" alt="Activity diagram of CastDemo.main() method">
+                            <figcaption>Activity diagram of CastDemo.main() method<br>src: <a href="./plantUMLs/ch02/CastDemo_act.puml" target="_blank">./plantUMLs/ch02/CastDemo_act.puml</a></figcaption>
+                        </figure>  <!-- standAloneFigure -->
+                    </div>  <!-- gallery2 -->
+                    <p>The output from the program is shown here:</p>
+                    <pre><code class="language-plaintext">integer outcome of x / y: 3
+Value of b: 100
+Value of b: 1
+ch: X</code></pre>  <!-- plaintext block -->
+                    <p>In the program, the cast of <code>(x / y)</code> to <code>int</code> results in the truncation of the fractional component, and information is lost. Next, no loss of information occurs when <code>b</code> is assigned the value 100 because a <code>byte</code> can hold the value 100. However, when the attempt is made to assign <code>b</code> the value 257, information loss occurs because 257 exceeds a byte's maximum value. Finally, no information is lost, but a cast is needed when assigning a <code>byte</code> value to a <code>char</code>.</p>
+                </div>  <!-- content -->
+            </div>  <!-- right -->
+        </div>  <!-- lvl1 -->
+        <div class="lvl1">
+            <div class="left">
+                <h2>OPERATOR PRECEDENCE</h2>
+            </div>  <!-- left -->
+            <div class="right">
+                <div class="content">
+                    <p><a href="#Table2-3">Table 2-3</a> shows the order of precedence for all Java operators, from highest to lowest. This table includes several operators that will be discussed later in this book. Although technically separators, the <code>[]</code>, <code>()</code>, and <code>.</code> can also act like operators. In that capacity, they would have the highest precedence.</p>
+                    <table id="Table2-3">
+                        <caption><span class="capId">Table 2-3</span> The Precedence of the Java Operators</caption>
+                        <thead>
+                            <tr>
+                                <th>Highest</th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>++</code> (postfix)</td>
+                                <td><code>--</code> (postfix)</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td><code>++</code> (prefix)</td>
+                                <td><code>--</code> (prefix)</td>
+                                <td><code>~</code></td>
+                                <td><code>!</code></td>
+                                <td><code>+</code> (unary)</td>
+                                <td><code>-</code> (unary)</td>
+                                <td><pre>(type-cast)</pre></td>
+                            </tr>
+                            <tr>
+                                <td><code>*</code></td>
+                                <td><code>/</code></td>
+                                <td><code>%</code></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td><code>+</code></td>
+                                <td><code>-</code></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td><code>>></code></td>
+                                <td><code>>>></code></td>
+                                <td><code><<</code></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td><code>></code></td>
+                                <td><code>>=</code></td>
+                                <td><code><</code></td>
+                                <td><code><=</code></td>
+                                <td><code>instanceof</code></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td><code>==</code></td>
+                                <td><code>!=</code></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td><code>&</code></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td><code>^</code></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td><code>|</code></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td><code>&&</code></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td><code>||</code></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td><code>?:</code></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td><code>-></code></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td><code>=</code></td>
+                                <td><code>op=</code> (compound <br>assignment operators)</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <th>Lowest</th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                            </tr>
+                        </tbody>
+                    </table>  <!-- table -->
+                </div>  <!-- content -->
+            </div>  <!-- right -->
+        </div>  <!-- lvl1 -->
+        <div class="lvl1">
+            <div class="left">
+                <h2>Try This 2-2</h2>
+            </div>  <!-- left -->
+            <div class="right">
+                <div class="content">
+                    <h3 class="tryThis"><span class="hl">TryThis 2-2</span> Display a Truth Table for the Logical Operators</h3>
+                    <ul class="tryThisSrc">
+                        <li><code>LogicalOpTable.java</code></li>
+                    </ul>
+                    <p>In this project, you will create a program that displays the truth table for Java's logical operators. You must make the columns in the table line up. This project makes use of several features covered in this chapter, including one of Java's escape sequences and the logical operators. It also illustrates the differences in the precedence between the arithmetic <code>+</code> operator and the logical operators.</p>
+                    <ol class="tryThisOl">
+                        <li>Create a new file called <code>LogicalOpTable.java</code>.</li>
+                        <li>
+                            <div>
+                                <p>To ensure that the columns line up, you will use the <code>\t</code> escape sequence to embed tabs into each output string. For example, this <code>println()</code> statement displays the header for the table:</p>
+                                <pre><code class="language-java">System.out.println(P\tQ\tAND\tOR\tXOR\tNOT);</code></pre>  <!-- java code -->
+                            </div>
+                        </li>
+                        <li>Each subsequent line in the table will use tabs to position the outcome of each operation under its proper heading.</li>
+                        <li>
+                            <div>
+                                <p>Here is the entire <code>LogicalOpTable.java</code> program listing. Enter it at this time.</p>
+                                <p class="srcFile"><a href="../JBG_HS_Ch02/JBG_HS_Ch02_Exmp/LogicalOpTable.java" target="_blank">../JBG_HS_Ch02/JBG_HS_Ch02_Exmp/LogicalOpTable.java</a></p>
+                                <pre><code class="language-java">/**
+* Try This 2-2: a truth table for the logical operators.
+* 
+* Call this file "LogicalOpTable.java".
+*/
+class LogicalOpTable {
+public static void main(String[] args) {
+boolean p, q;
+
+System.out.println("P\tQ\tAND\tOR\tXOR\tNOT");
+
+p = true;
+q = true;
+System.out.print(p + "\t" + q + "\t");
+System.out.print((p & q) + "\t" + (p | q) + "\t");
+System.out.println((p ^ q) + "\t" + (!p));
+
+p = true;
+q = false;
+System.out.print(p + "\t" + q + "\t");
+System.out.print((p & q) + "\t" + (p | q) + "\t");
+System.out.println((p ^ q) + "\t" + (!p));
+
+p = false;
+q = true;
+System.out.print(p + "\t" + q + "\t");
+System.out.print((p & q) + "\t" + (p | q) + "\t");
+System.out.println((p ^ q) + "\t" + (!p));
+
+p = false;
+q = false;
+System.out.print(p + "\t" + q + "\t");
+System.out.print((p & q) + "\t" + (p | q) + "\t");
+System.out.println((p ^ q) + "\t" + (!p));
+
+}
+}</code></pre>  <!-- java code -->
+                                <div class="gallery2">
+                                    <figure class="standAloneFigure">
+                                        <img src="./plantUMLs/ch02/LogicalOpTable_class.svg" alt="Class diagram of LogicalOpTable class">
+                                        <figcaption>Class diagram of LogicalOpTable class<br>src: <a href="./plantUMLs/ch02/LogicalOpTable_class.puml" target="_blank">./plantUMLs/ch02/LogicalOpTable_class.puml</a></figcaption>
+                                    </figure>  <!-- standAloneFigure -->
+                                    <figure class="standAloneFigure">
+                                        <img src="./plantUMLs/ch02/LogicalOpTable_act.svg" alt="Activity diagram of LogicalOpTable.main() method">
+                                        <figcaption>Activity diagram of LogicalOpTable.main() method<br>src: <a href="./plantUMLs/ch02/LogicalOpTable_act.puml" target="_blank">./plantUMLs/ch02/LogicalOpTable_act.puml</a></figcaption>
+                                    </figure>  <!-- standAloneFigure -->
+                                </div>  <!-- gallery2 -->
+                                <p>Notice the parentheses surrounding the logical operations inside the <code>println()</code> statements. They are necessary because of the precedence of Java's operators. The <code>+</code> operator is higher than the logical operators.</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                <p>Compile and run the program. The following table is displayed.</p>
+                                <pre><code class="language-plaintext">P       Q       AND     OR      XOR     NOT
+true    true    true    true    false   false
+true    false   false   true    true    false
+false   true    false   true    true    true
+false   false   false   false   false   true</code></pre>  <!-- plaintext block -->
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                <p>On your own, try modifying the program so that it uses and displays 1's and 0's, rather than true and false. This may involve a bit more effort than you might at firstthink!</p>
+                                <p class="srcFile"><a href="../JBG_HS_Ch02/JBG_HS_Ch02_Exmp/LogicalOpTable2.java" target="_blank">../JBG_HS_Ch02/JBG_HS_Ch02_Exmp/LogicalOpTable2.java</a></p>
+                                <pre><code class="language-java">/**
+* Try This 2-2: a truth table for the logical operators.
+* Print 1's and 0's instead of true and false.
+* 
+* Call this file "LogicalOpTable2.java".
+*/
+class LogicalOpTable2 {
+public static void main(String[] args) {
+boolean pBoolean, qBoolean;
+byte p, q, pANDq, pORq, pXORq, pNOT = 0;
+boolean b_pANDq, b_pORq, b_pXORq;
+
+
+System.out.println("P\tQ\tAND\tOR\tXOR\tNOT");
+
+pBoolean = true;
+qBoolean = true;
+
+p = 0;
+q = 0;
+if(pBoolean) p = 1;
+if(qBoolean) q = 1;
+
+b_pANDq = pBoolean & qBoolean;
+pANDq = 0;
+if(b_pANDq) pANDq = 1;
+b_pORq = pBoolean | qBoolean;
+pORq = 0;
+if(b_pORq) pORq = 1;
+b_pXORq = pBoolean ^ qBoolean;
+pXORq = 0;
+if(b_pXORq) pXORq = 1;
+
+if(pBoolean) pNOT = 0;
+if(!pBoolean) pNOT = 1;
+
+System.out.print(p + "\t" + q + "\t");
+System.out.print(pANDq + "\t" + pORq + "\t");
+System.out.println(pXORq + "\t" + pNOT);
+
+pBoolean = true;
+qBoolean = false;
+
+p = 0;
+q = 0;
+if(pBoolean) p = 1;
+if(qBoolean) q = 1;
+
+b_pANDq = pBoolean & qBoolean;
+pANDq = 0;
+if(b_pANDq) pANDq = 1;
+b_pORq = pBoolean | qBoolean;
+pORq = 0;
+if(b_pORq) pORq = 1;
+b_pXORq = pBoolean ^ qBoolean;
+pXORq = 0;
+if(b_pXORq) pXORq = 1;
+
+if(pBoolean) pNOT = 0;
+if(!pBoolean) pNOT = 1;
+
+System.out.print(p + "\t" + q + "\t");
+System.out.print(pANDq + "\t" + pORq + "\t");
+System.out.println(pXORq + "\t" + pNOT);
+
+pBoolean = false;
+qBoolean = true;
+
+p = 0;
+q = 0;
+if(pBoolean) p = 1;
+if(qBoolean) q = 1;
+
+b_pANDq = pBoolean & qBoolean;
+pANDq = 0;
+if(b_pANDq) pANDq = 1;
+b_pORq = pBoolean | qBoolean;
+pORq = 0;
+if(b_pORq) pORq = 1;
+b_pXORq = pBoolean ^ qBoolean;
+pXORq = 0;
+if(b_pXORq) pXORq = 1;
+
+if(pBoolean) pNOT = 0;
+if(!pBoolean) pNOT = 1;
+
+System.out.print(p + "\t" + q + "\t");
+System.out.print(pANDq + "\t" + pORq + "\t");
+System.out.println(pXORq + "\t" + pNOT);
+
+pBoolean = false;
+qBoolean = false;
+
+p = 0;
+q = 0;
+if(pBoolean) p = 1;
+if(qBoolean) q = 1;
+
+b_pANDq = pBoolean & qBoolean;
+pANDq = 0;
+if(b_pANDq) pANDq = 1;
+b_pORq = pBoolean | qBoolean;
+pORq = 0;
+if(b_pORq) pORq = 1;
+b_pXORq = pBoolean ^ qBoolean;
+pXORq = 0;
+if(b_pXORq) pXORq = 1;
+
+if(pBoolean) pNOT = 0;
+if(!pBoolean) pNOT = 1;
+
+System.out.print(p + "\t" + q + "\t");
+System.out.print(pANDq + "\t" + pORq + "\t");
+System.out.println(pXORq + "\t" + pNOT);
+
+}
+}</code></pre>  <!-- java code -->
+                                <div class="gallery2">
+                                    <figure class="standAloneFigure">
+                                        <img src="./plantUMLs/ch02/LogicalOpTable2_class.svg" alt="Class diagram of LogicalOpTable2 class">
+                                        <figcaption>Class diagram of LogicalOpTable2 class<br>src: <a href="./plantUMLs/ch02/LogicalOpTable2_class.puml" target="_blank">./plantUMLs/ch02/LogicalOpTable2_class.puml</a></figcaption>
+                                    </figure>  <!-- standAloneFigure -->
+                                    <figure class="standAloneFigure">
+                                        <img src="./plantUMLs/ch02/LogicalOpTable2_act.svg" alt="Activity diagram of LogicalOpTable2.main() method">
+                                        <figcaption>Activity diagram of LogicalOpTable2.main() method<br>src: <a href="./plantUMLs/ch02/LogicalOpTable2_act.puml" target="_blank">./plantUMLs/ch02/LogicalOpTable2_act.puml</a></figcaption>
+                                    </figure>  <!-- standAloneFigure -->
+                                </div>  <!-- gallery2 -->
+                                <p><b>Execution Logs: </b></p>
+                                <pre><code class="language-plaintext">P       Q       AND     OR      XOR     NOT
+1       1       1       1       0       0
+1       0       0       1       1       0
+0       1       0       1       1       1
+0       0       0       0       0       1</code></pre>  <!-- plaintext block -->
+                            </div>
+                        </li>
+                    </ol>  <!-- tryThisOl -->
+                </div>  <!-- content -->
+            </div>  <!-- right -->
+        </div>  <!-- lvl1 -->
+        <div class="lvl1">
+            <div class="left">
+                <h2>EXPRESSIONS</h2>
+            </div>  <!-- left -->
+            <div class="right">
+                <div class="content">
+                    <p>Operators, variables, and literals are constituents of <em>expressions</em>. You probably already know the general form of an expression from your other programming experience, or from algebra. However, a few aspects of expressions will be discussed now.</p>
+                </div>  <!-- content -->
+                <div class="lvl2">
+                    <div class="left">
+                        <h3>Type Conversion in Expressions</h3>
+                    </div>  <!-- left -->
+                    <div class="right">
+                        <div class="content">
+                            <p>Within an expression, it is possible to mix two or more different types of data as long as they are compatible with each other. For example, you can mix <code>short</code> and <code>long</code> within an expression because they are both numeric types. When different types of data are mixed within an expression, they are all converted to the same type. This is accomplished through the use of Java's <em>type promotion rules</em>.</p>
+                            <p>First, all <code>char</code>, <code>byte</code>, and <code>short</code> values are promoted to <code>int</code>. Then, if one operand is a <code>long</code>, the whole expression is promoted to <code>long</code>. If one operand is a <code>float</code> operand, the entire expression is promoted to <code>float</code>. If any of the operands is <code>double</code>, the result is <code>double</code>.</p>
+                            <p>It is important to understand that type promotions apply only to the values operated upon when an expression is evaluated. For example, if the value of a <code>byte</code> variable is promoted to <code>int</code> inside an expression, outside the expression, the variable is still a <code>byte</code>. Type promotion only affects the evaluation of an expression.</p>
+                            <p>Type promotion can, however, lead to somewhat unexpected results. For example, when an arithmetic operation involves two <code>byte</code> values, the following sequence occurs:</p>
+                            <ul>
+                                <li>First, the byte operands are promoted to <code>int</code>.</li>
+                                <li>Then the operation takes place, yielding an <code>int</code> result.</li>
+                            </ul>
+                            <p>Thus, <span class="highlight">the outcome of an operation involving two <code>byte</code> values will be an <code>int</code></span>. This is not what you might intuitively expect. Consider the following program:</p>
+                            <p class="srcFile"><a href="../JBG_HS_Ch02/JBG_HS_Ch02_Exmp/PromDemo.java" target="_blank">../JBG_HS_Ch02/JBG_HS_Ch02_Exmp/PromDemo.java</a></p>
+                            <pre><code class="language-java">/**
+* A promotion surprise!
+* 
+* Call this file "PromDemo.java".
+*/
+class PromDemo {
+public static void main(String[] args) {
+byte b;
+int i;
+
+b = 10;
+i = b * b; // OK, no cast needed. Because result is already elevated to int.
+
+b = 10;
+b = (byte) (b * b); // cast needed!! Cast is needed here to assign an int to a byte!
+System.out.println("i and b: " + i + " " + b);
+}
+}</code></pre>  <!-- java code -->
+                            <div class="gallery2">
+                                <figure class="standAloneFigure">
+                                    <img src="./plantUMLs/ch02/PromDemo_class.svg" alt="Class diagram of PromDemo class">
+                                    <figcaption>Class diagram of PromDemo class<br>src: <a href="./plantUMLs/ch02/PromDemo_class.puml" target="_blank">./plantUMLs/ch02/PromDemo_class.puml</a></figcaption>
+                                </figure>  <!-- standAloneFigure -->
+                                <figure class="standAloneFigure">
+                                    <img src="./plantUMLs/ch02/PromDemo_act.svg" alt="Activity diagram of PromDemo.main() method">
+                                    <figcaption>Activity diagram of PromDemo.main() method<br>src: <a href="./plantUMLs/ch02/PromDemo_act.puml" target="_blank">./plantUMLs/ch02/PromDemo_act.puml</a></figcaption>
+                                </figure>  <!-- standAloneFigure -->
+                            </div>  <!-- gallery2 -->
+                            <p><b>Execution Logs: </b></p>
+                            <pre><code class="language-plaintext">i and b: 100 100</code></pre>  <!-- plaintext block -->
+                            <p>Somewhat counterintuitively, no cast is needed when assigning <code>b * b</code> to <code>i</code>, because <code>b</code> is promoted to <code>int</code> when the expression is evaluated. However, when you try to assign <code>b * b</code> to <code>b</code>, you do need a cast—back to <code>byte</code>! Keep this in mind if you get unexpected type-incompatibility error messages on expressions that would otherwise seem perfectly OK.</p>
+                            <p>This same sort of situation also occurs when performing operations on <code>char</code>s. For example, in the following fragment, the cast back to <code>char</code> is needed because of the promotion of <code>ch1</code> and <code>ch2</code> to <code>int</code> within the expression:</p>
+                            <pre><code class="language-java">char ch1 = 'a', ch2 = 'b';
+ch1 = (char) (ch1 + ch2);</code></pre>  <!-- java code -->
+                            <p>Without the cast, the result of adding <code>ch1</code> to <code>ch2</code> would be <code>int</code>, which can't be assigned to a <code>char</code>.</p>
+                            <p>Casts are not only useful when converting between types in an assignment. For example, consider the following program. It uses a cast to <code>double</code> to obtain a fractional component from an otherwise integer division.</p>
+                            <p class="srcFile"><a href="../JBG_HS_Ch02/JBG_HS_Ch02_Exmp/UseCast.java" target="_blank">../JBG_HS_Ch02/JBG_HS_Ch02_Exmp/UseCast.java</a></p>
+                            <pre><code class="language-java">/**
+* Using a cast.
+* 
+* Call this file "UseCast.java".
+*/
+class UseCast {
+public static void main(String[] args) {
+int i;
+
+for(i = 0; i < 5; i++) {
+System.out.println(i + " / 3: " + i / 3);
+System.out.println(i + " / 3 with fractions: " + (double) i / 3);
+System.out.println();
+}
+}    
+}</code></pre>  <!-- java code -->
+                            <div class="gallery2">
+                                <figure class="standAloneFigure">
+                                    <img src="./plantUMLs/ch02/UseCast_class.svg" alt="Class diagram of UseCase class">
+                                    <figcaption>Class diagram of UseCase class<br>src: <a href="./plantUMLs/ch02/UseCast_class.puml" target="_blank">./plantUMLs/ch02/UseCast_class.puml</a></figcaption>
+                                </figure>  <!-- standAloneFigure -->
+                                <figure class="standAloneFigure">
+                                    <img src="./plantUMLs/ch02/UseCast_act.svg" alt="Activity diagram of UseCase.main() method">
+                                    <figcaption>Activity diagram of UseCase.main() method<br>src: <a href="./plantUMLs/ch02/UseCast_act.puml" target="_blank">./plantUMLs/ch02/UseCast_act.puml</a></figcaption>
+                                </figure>  <!-- standAloneFigure -->
+                            </div>  <!-- gallery2 -->
+                            <p>The output from the program is shown here:</p>
+                            <pre><code class="language-plaintext">0 / 3: 0
+0 / 3 with fractions: 0.0
+
+1 / 3: 0
+1 / 3 with fractions: 0.3333333333333333
+
+2 / 3: 0
+2 / 3 with fractions: 0.6666666666666666
+
+3 / 3: 1
+3 / 3 with fractions: 1.0
+
+4 / 3: 1
+4 / 3 with fractions: 1.3333333333333333
+</code></pre>  <!-- plaintext block -->
+                        </div>  <!-- content -->
+                    </div>  <!-- right -->
+                </div>  <!-- lvl2 -->
+                <div class="lvl2">
+                    <div class="left">
+                        <h3>Spacing and Parentheses</h3>
+                    </div>  <!-- left -->
+                    <div class="right">
+                        <div class="content">
+                            <p>An expression in Java may have tabs and spaces in it to make it more readable. For example, the following two expressions are the same, but the second is easier to read:</p>
+                            <pre><code class="language-java">x=10/y*(127/x);
+x = 10 / y * (127 / x);</code></pre>  <!-- java code -->
+                            <p>Parentheses increase the precedence of the operations contained within them, just like in algebra. Use of redundant or additional parentheses will not cause errors or slow down the execution of the expression. You are encouraged to use parentheses to make clear the exact order of evaluation, both for yourself and for others who may have to figure out your program later. For example, which of the following two expressions is easier to read?</p>
+                            <pre><code class="language-java">x = y/3-34*temp+127;
+x = (y / 3) - (34 * temp) + 127;</code></pre>  <!-- java code -->
+                        </div>  <!-- content -->
+                    </div>  <!-- right -->
+                </div>  <!-- lvl2 -->
+            </div>  <!-- right -->
+        </div>  <!-- lvl1 -->
+        <div class="lvl1">
+            <div class="left">
+                <h2>Chapter 02 Self Test</h2>
+            </div>  <!-- left -->
+            <div class="right">
+                <div class="selfTestItem">
+                    <div class="selfTestQuestion">
+                        <p class="question"><span class="questionNumber">1: </span>Why does Java strictly specify the range and behavior of its primitive types?</p>
+                    </div>  <!-- selfTestQuestion -->
+                    <div class="selfTestAnswer">
+                        <p class="answer">Java strictly specifies a range and behavior for each primitive type, which all implementations of the Java Virtual Machine must support. Because of Java's portability requirement, Java is uncompromising on this account. For example, an <code>int</code> is the same in all execution environments. This allows programs to be fully portable. There is no need to rewrite code to fit a specific platform. Although strictly specifying the range of the primitive types may cause a small loss of performance in some environments, it is necessary in order to achieve portability.</p>
+                    </div>  <!-- selfTestAnswer -->
+                </div>  <!-- selfTestItem -->
+                <hr class="selfTestItemSeparator">
+                <div class="selfTestItem">
+                    <div class="selfTestQuestion">
+                        <p class="question"><span class="questionNumber">2: </span>What is Java's character type, and how does it differ from the character type used by some other programming languages?</p>
+                    </div>  <!-- selfTestQuestion -->
+                    <div class="selfTestAnswer">
+                        <p class="answer">In Java, characters are not 8-bit quantities like they are in many other computer languages. Instead, Java uses Unicode. Unicode defines a character set that can represent all of the characters found in all human languages. In Java, <code>char</code> is an unsigned 16-bit type having a range of 0 to 65,535. The standard 8-bit ASCII character set is a subset of Unicode and ranges from 0 to 127. Thus, the ASCII characters are still valid Java characters.</p>
+                    </div>  <!-- selfTestAnswer -->
+                </div>  <!-- selfTestItem -->
+                <hr class="selfTestItemSeparator">
+                <div class="selfTestItem">
+                    <div class="selfTestQuestion">
+                        <p class="question"><span class="questionNumber">3: </span>A <code>boolean</code> value can have any value you like because any non-zero value is <code>true</code>. True or False?</p>
+                    </div>  <!-- selfTestQuestion -->
+                    <div class="selfTestAnswer">
+                        <p class="answer">False. The <code>boolean</code> type represents <code>true</code>/<code>false</code> values. Java defines the values <code>true</code> and <code>false</code> using the reserved words <code>true</code> and <code>false</code>. Thus, a variable or expression of type <code>boolean</code> will be one of these two values.</p>
+                    </div>  <!-- selfTestAnswer -->
+                </div>  <!-- selfTestItem -->
+                <hr class="selfTestItemSeparator">
+                <div class="selfTestItem">
+                    <div class="selfTestQuestion">
+                        <p class="question"><span class="questionNumber">4: </span>Given this output,</p>
+                        <pre><code class="language-plaintext">One
+Two
+Three</code></pre>  <!-- plaintext block -->
+                        <p>using a single string, show the <code>println()</code> statement that produced it.</p>
+                    </div>  <!-- selfTestQuestion -->
+                    <div class="selfTestAnswer">
+                        <p class="answer"></p>
+                        <pre><code class="language-java">System.out.println("One\nTwo\nThree");</code></pre>  <!-- java code -->
+                    </div>  <!-- selfTestAnswer -->
+                </div>  <!-- selfTestItem -->
+                <hr class="selfTestItemSeparator">
+                <div class="selfTestItem">
+                    <div class="selfTestQuestion">
+                        <p class="question"><span class="questionNumber">5: </span>What is wrong with this fragment?</p>
+                        <pre><code class="language-java">for(i = 0; i < 10; i++) {
+int sum;
+
+sum = sum + i;
+}
+System.out.println("Sum is: " + sum);</code></pre>  <!-- java code -->
+                    </div>  <!-- selfTestQuestion -->
+                    <div class="selfTestAnswer">
+                        <p class="answer">The <code>sum</code> variable used in the <code>println</code> statement is not actually visible to it. Regardless of the <code>sum</code> variable's requirement in the <code>println</code> statement, due to the declaration of <code>sum</code> varibale is inside the <code>for</code> loop, by the end of the loop, <code>sum</code> will not actually have the total sum expected. The declaration of the <code>sum</code> variable must be before the <code>for</code> loop. The correct version is as follows: </p>
+                        <pre><code class="language-java">int sum;
+for(i = 0; i < 10; i++) {
+sum = sum + i;
+}
+System.out.println("Sum is: " + sum);</code></pre>  <!-- java code -->
+                    </div>  <!-- selfTestAnswer -->
+                </div>  <!-- selfTestItem -->
+                <hr class="selfTestItemSeparator">
+                <div class="selfTestItem">
+                    <div class="selfTestQuestion">
+                        <p class="question"><span class="questionNumber">6: </span>Explain the difference between the prefix and postfix forms of the increment operator.</p>
+                    </div>  <!-- selfTestQuestion -->
+                    <div class="selfTestAnswer">
+                        <p class="answer">When an increment operator precedes its operand (i.e., prefix), Java will perform the corresponding operation prior to obtaining the operand's value for use by the rest of the expression. If the operator follows its operand (i.e., postfix), Java will obtain the operand's value before incrementing or decrementing it.</p>
+                    </div>  <!-- selfTestAnswer -->
+                </div>  <!-- selfTestItem -->
+                <hr class="selfTestItemSeparator">
+                <div class="selfTestItem">
+                    <div class="selfTestQuestion">
+                        <p class="question"><span class="questionNumber">7: </span>Show how a short-circuit AND can be used to prevent a divide-by-zero error.</p>
+                    </div>  <!-- selfTestQuestion -->
+                    <div class="selfTestAnswer">
+                        <p class="answer"></p>
+                        <pre><code class="language-java">int n, d, q;
+
+n = 10;
+d = 2;
+                            
+// if(expression1 && expression2)
+if(d != 0 && (n % d) == 0) {
+System.out.println(d + " is a factor of " + n);
+} // When the expression1 results in true, only then the expression2 gets evaluated. 
+// As a part of expression1 we are checking if the denominator is not 0.
+// If the denominator is not zero only then the expression2 (i.e., division/modulus) gets evaluated otherwise the entire if blocked will be skipped. This happens due to the usage of && (short-circuit AND) operator.
+                            
+d = 0; // now, set d to zero
+                            
+// since d is zero, the second operand is not evaluated.
+if(d != 0 && (n % d) == 0) { // Will not enter the block
+System.out.println(d + " is a factor of " + n);
+}                                        
+                        </code></pre>  <!-- java code -->
+                    </div>  <!-- selfTestAnswer -->
+                </div>  <!-- selfTestItem -->
+                <hr class="selfTestItemSeparator">
+                <div class="selfTestItem">
+                    <div class="selfTestQuestion">
+                        <p class="question"><span class="questionNumber">8: </span>In an expression, what type are <code>byte</code> and <code>short</code> promoted to?</p>
+                    </div>  <!-- selfTestQuestion -->
+                    <div class="selfTestAnswer">
+                        <p class="answer">In an expression, the <code>byte</code> and <code>short</code> will get promoted to <code>int</code>.</p>
+                    </div>  <!-- selfTestAnswer -->
+                </div>  <!-- selfTestItem -->
+                <hr class="selfTestItemSeparator">
+                <div class="selfTestItem">
+                    <div class="selfTestQuestion">
+                        <p class="question"><span class="questionNumber">9: </span>In general, when is a cast needed?</p>
+                    </div>  <!-- selfTestQuestion -->
+                    <div class="selfTestAnswer">
+                        <p class="answer">A cast is needed when converting between incompatible types or when a narrowing conversion is occurring.</p>
+                    </div>  <!-- selfTestAnswer -->
+                </div>  <!-- selfTestItem -->
+                <hr class="selfTestItemSeparator">
+                <div class="selfTestItem">
+                    <div class="selfTestQuestion">
+                        <p class="question"><span class="questionNumber">10: </span>Write a program that finds all of the prime numbers between 2 and 100.</p>
+                    </div>  <!-- selfTestQuestion -->
+                    <div class="selfTestAnswer">
+                        <p class="answer"></p>
+                        <p class="srcFile"><a href="../JBG_HS_Ch02/JBG_HS_Ch02_SelfTest/JBG_HS_Ch02_SelfTest_10.java" target="_blank">../JBG_HS_Ch02/JBG_HS_Ch02_SelfTest/JBG_HS_Ch02_SelfTest_10.java</a></p>
+                        <pre><code class="language-java">/**
+* Find all of the prime numbers between 2 and 100.
+* 
+* Call this file "JBG_HS_SelfTest_10.java".  
+*/
+class JBG_HS_SelfTest_10 {
+public static void main(String[] args) {
+int i, j;
+
+System.out.println("Prime numbers between 2 and 100: ");
+System.out.print("2 ");
+for(i = 3; i <= 100; i++) {
+int upto = (int)(Math.sqrt((double) i)) + 1;
+boolean isPrime = true;
+for(j = 2; j <= upto; j++) {
+    if(i%j == 0) {
+        isPrime = false;
+    }
+}
+if(isPrime) {
+    System.out.print(i + " ");
+}
+}
+System.out.println();
+}
+}</code></pre>  <!-- java code -->
+                        <div class="gallery2">
+                            <figure class="standAloneFigure">
+                                <img src="./plantUMLs/ch02/JBG_HS_Ch02_SelfTest_10_class.svg" alt="Class diagram of JBG_HS_Ch02_SelfTest_10 class">
+                                <figcaption>Class diagram of JBG_HS_Ch02_SelfTest_10 class<br>src: <a href="./plantUMLs/ch02/JBG_HS_Ch02_SelfTest_10_class.puml" target="_blank">./plantUMLs/ch02/JBG_HS_Ch02_SelfTest_10_class.puml</a></figcaption>
+                            </figure>  <!-- standAloneFigure -->
+                            <figure class="standAloneFigure">
+                                <img src="./plantUMLs/ch02/JBG_HS_Ch02_SelfTest_10_act.svg" alt="Activity diagram of JBG_HS_Ch02_SelfTest_10.main() method">
+                                <figcaption>Activity diagram of JBG_HS_Ch02_SelfTest_10.main() method<br>src: <a href="./plantUMLs/ch02/JBG_HS_Ch02_SelfTest_10_act.puml" target="_blank">./plantUMLs/ch02/JBG_HS_Ch02_SelfTest_10_act.puml</a></figcaption>
+                            </figure>  <!-- standAloneFigure -->
+                        </div>  <!-- gallery2 -->
+                        <p><b>Execution Logs: </b></p>
+                        <pre><code class="language-plaintext">Prime numbers between 2 and 100: 
+2 3 5 7 11 13 17 19 23 29 31 37 41 43 47 53 59 61 67 71 73 79 83 89 97 </code></pre>  <!-- plaintext block -->
+                    </div>  <!-- selfTestAnswer -->
+                </div>  <!-- selfTestItem -->
+                <hr class="selfTestItemSeparator">
+                <div class="selfTestItem">
+                    <div class="selfTestQuestion">
+                        <p class="question"><span class="questionNumber">11: </span>Does the use of redundant parentheses affect program performance?</p>
+                    </div>  <!-- selfTestQuestion -->
+                    <div class="selfTestAnswer">
+                        <p class="answer">Use of redundant or additional parentheses will not cause errors or slow down the execution of the expression.</p>
+                    </div>  <!-- selfTestAnswer -->
+                </div>  <!-- selfTestItem -->
+                <hr class="selfTestItemSeparator">
+                <div class="selfTestItem">
+                    <div class="selfTestQuestion">
+                        <p class="question"><span class="questionNumber">12: </span>Does a block define a scope?</p>
+                    </div>  <!-- selfTestQuestion -->
+                    <div class="selfTestAnswer">
+                        <p class="answer">Yes.</p>
+                    </div>  <!-- selfTestAnswer -->
+                </div>  <!-- selfTestItem -->
+                <hr class="selfTestItemSeparator">
+            </div>  <!-- right -->
+        </div>  <!-- lvl1 -->
+    </div>  <!-- right -->
+</div>  <!-- lvl0 -->

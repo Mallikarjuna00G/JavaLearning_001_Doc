@@ -1,0 +1,1750 @@
+<div class="lvl0" id="theoryCh01">
+    <div class="left">
+        <h4>Chapter 01</h4>
+        <h1>Java Fundamentals</h1>
+    </div>  <!-- left -->
+    <div class="right">
+        <div class="lvl1">
+            <div class="left">
+                <h2>Key Skills & Concepts</h2>
+            </div>  <!-- left -->
+            <div class="right">
+                <div class="content">
+                    <p>
+                        <ul>
+                            <li>Know the history and philosophy of Java</li>
+                            <li>Understand Java's contribution to the Internet</li>
+                            <li>Understand the importance of bytecode</li>
+                            <li>Know the Java buzzwords</li>
+                            <li>Understand the foundational principles of object-oriented programming</li>
+                            <li>Create, compile, and run a simple Java program</li>
+                            <li>Use variables</li>
+                            <li>Use the <code>if</code> and <code>for</code> control statements</li>
+                            <li>Create blocks of code</li>
+                            <li>Understand how statements are positioned, indented, and terminated</li>
+                            <li>Know the Java keywords</li>
+                            <li>Understand the rules for Java identifiers</li>
+                        </ul>
+                    </p>
+                </div>  <!-- content -->
+            </div>  <!-- right -->
+        </div>  <!-- lvl1 -->
+        <div class="content">
+            <p>In computing, few technologies have had the impact of Java. Its creation in the early days of the Web helped shape the modern form of the Internet, including both the client and server sides. Its innovative features advanced the art and science of programming, setting a new standard in computer language design. The forward-thinking culture that grew up around Java ensured it would remain vibrant and alive, adapting to the often rapid and varied changes in the computing landscape. Simply put: not only is Java one of the world's most important computer languages, it is a force that revolutionized programming and, in the process, changed the world.</p>
+            <p>Although Java is a language often associated with Internet programming, it is by no means limited in that regard. Java is a powerful, full-featured, general-purpose programming language. Thus, if you are new to programming, Java is an excellent language to learn. Moreover, to be a professional programmer today implies the ability to program in Java—it is that important. In the course of this book, you will learn the basic skills that will help you master it.</p>
+            <p>The purpose of this chapter is to introduce you to Java, beginning with its history, its design philosophy, and several of its most important features. By far, the hardest thing about learning a programming language is the fact that no element exists in isolation. Instead, the components of the language work in conjunction with each other. This interrelatedness is especially pronounced in Java. In fact, it is difficult to discuss one aspect of Java without involving others. To help overcome this problem, this chapter provides a brief overview of several Java features, including the general form of a Java program, some basic control structures, and simple operators. It does not go into too many details, but, rather, concentrates on general concepts common to any Java program.</p>
+        </div>  <!-- content -->
+        <div class="lvl1">
+            <div class="left">
+                <h2>THE HISTORY AND PHILOSOPHY OF JAVA</h2>
+            </div>  <!-- left -->
+            <div class="right">
+                <div class="content">
+                    <p>Before one can fully appreciate the unique aspects of Java, it is necessary to understand the forces that drove its creation, the programming philosophy that it embodies, and key concepts of its design. As you advance through this book, you will see that many aspects of Java are either a direct or indirect result of the historical forces that shaped the language. Thus, it is fitting that we begin our examination of Java by exploring how Java relates to the larger programming universe.</p>
+                </div>  <!-- content -->
+                <div class="lvl2">
+                    <div class="left">
+                        <h3>The Origins of Java</h3>
+                    </div>  <!-- left -->
+                    <div class="right">
+                        <div class="content">
+                            <p>Java was conceived by <span class="man">James Gosling</span>, <span class="man">Patrick Naughton</span>, <span class="man">Chris Warth</span>, <span class="man">Ed Frank</span>, and <span class="man">Mike Sheridan</span> at <span class="building">Sun Microsystems</span> in 1991.</p>
+                            <div class="gallery">
+                                <figure>
+                                    <img src="./images/JamesGosling.jpg" alt="James Gosling">
+                                    <figcaption>James Gosling</figcaption>
+                                </figure>
+                                <figure>
+                                    <img src="./images/PatrickNaughton.jpeg" alt="Patrick Naughton">
+                                    <figcaption>Patrick Naughton</figcaption>
+                                </figure>
+                                <figure>
+                                    <img src="./images/person.png" alt="Chris Warth">
+                                    <figcaption>Chris Warth</figcaption>
+                                </figure>
+                                <figure>
+                                    <img src="./images/person.png" alt="Ed Frank">
+                                    <figcaption>Ed Frank</figcaption>
+                                </figure>
+                                <figure>
+                                    <img src="./images/person.png" alt="Mike Sheridan">
+                                    <figcaption>Mike Sheridan</figcaption>
+                                </figure>
+                            </div>
+                            <div class="gallery">
+                                <figure>
+                                    <img src="./images/SunMicrosystemsLogo.svg" alt="Sun Microsystems Logo">
+                                    <figcaption>Sun Microsystems Logo</figcaption>
+                                </figure>
+                            </div>
+                            <p>This language was initially called <strong>"Oak"</strong> but was renamed <strong>"Java"</strong> in 1995.</p>
+                            <p>Read more <a target="_blank" href="https://brainscode.github.io/java-tutorial/intro_java_history.html">here</a>.</p>
+                            <figure class="standAloneFigure">
+                                <img src="./plantUMLs/ch01/ch01puml01.svg" alt="Language Renamed">
+                                <figcaption>Language renamed from "Oak" to "Java"<br>src: <a href="./plantUMLs/ch01/ch01puml01.puml" target="_blank">./plantUMLs/ch01/ch01puml01.puml</a></figcaption>
+                            </figure>
+                            <p>Somewhat surprisingly, the original impetus for Java was not the Internet! Instead, the <span class="highlight">primary motivation was the need for a platform-independent language</span> that could be used to create software to be embedded in various consumer electronic devices, such as toasters, microwave ovens, and remote controls. As you can probably guess, many different types of CPUs are used as controllers. The trouble was that (at the time) most computer languages were designed to be compiled into machine code that was targeted for a specific type of CPU. For example, consider the C++ language.</p>
+                            <p>Although it was possible to compile a C++ program for just about any type of CPU, to do so required a full C++ compiler targeted for that CPU. The problem, however, is that compilers are expensive and time consuming to create. In an attempt to find a better solution, Gosling and the others worked on a portable, cross-platform language that could produce code that would run on a variety of CPUs under differing environments. <span class="highlight">This effort ultimately led to the creation of Java</span>.</p>
+                            <p>About the time that the details of Java were being worked out, a second, and ultimately more important, factor emerged that would play a crucial role in the future of Java. This second force was, of course, the <strong>World Wide Web</strong>. <span class="highlight">Had the Web not taken shape at about the same time that Java was being implemented, Java might have remained a useful but obscure language for programming consumer electronics</span>. However, with the emergence of the Web, Java was propelled to the forefront of computer language design, because the Web, too, demanded portable programs.</p>
+                            <p>Most programmers learn early in their careers that portable programs are as elusive as they are desirable. While the quest for a way to create efficient, portable (platform-independent) programs is nearly as old as the discipline of programming itself, it had taken a back seat to other, more pressing problems. However, with the advent of the Internet and the Web, the old problem of portability returned with a vengeance. After all, the Internet consisted of a diverse, distributed universe populated with many types of computers, operating systems, and CPUs.</p>
+                            <p>What was once an irritating but low-priority problem had become a high-profile necessity. By 1993 it became obvious to members of the Java design team that the problems of portability frequently encountered when creating code for embedded controllers are also found when attempting to create code for the Internet. This realization caused the focus of Java to switch from consumer electronics to Internet programming. So, although it was the desire for an architecture-neutral programming language that provided the initial spark, it was the Internet that ultimately led to Java's large-scale success.</p>
+                        </div>  <!-- content -->
+                    </div>  <!-- right -->
+                </div>  <!-- lvl2 -->
+                <div class="lvl2">
+                    <div class="left">
+                        <h3>Java's Lineage: C and C++</h3>
+                    </div>  <!-- left -->
+                    <div class="right">
+                        <div class="content">
+                            <p>The history of computer languages is not one of isolated events. Rather, it is a continuum in which each new language is influenced in one way or another by what has come before. In this regard, Java is no exception. Before moving on, it is useful to understand where Java fits into the family tree of computer languages.</p>
+                            <p>The two languages that form Java's closest ancestors are C and C++. As you may know, C and C++ are among the most important computer languages ever invented and are still in widespread use today. <span class="highlight">From <code>C</code>, Java inherits its syntax. Java's object model is adapted from <code>C++</code></span>. Java's relationship to C and C++ is important for a number of reasons. First, at the time of Java's creation, many programmers were familiar with the C/C++ syntax. Because Java uses a similar syntax, it was relatively easy for a C/C++ programmer to learn Java. This made it possible for Java to be readily utilized by the pool of existing programmers, thus facilitating Java's acceptance by the programming community.</p>
+                            <p>Second, Java's designers did not "reinvent the wheel." Instead, they further refined an already highly successful programming paradigm. The modern age of programming began with C. It moved to C++ and then to Java. By inheriting and building on that rich heritage, Java provides a powerful, logically consistent programming environment that takes the best of the past and adds new features related to the online environment and advances in the art of programming. Perhaps most important, because of their similarities, C, C++, and Java define a common, conceptual framework for the professional programmer. Programmers do not face major rifts when switching from one language to another.</p>
+                            <p>Java has another attribute in common with C and C++: it was designed, tested, and refined by real working programmers. It is a language grounded in the needs and experiences of the people who devised it. There is no better way to produce a top-flight professional programming language.</p>
+                            <p>One last point: although C++ and Java are related, especially in their support for object-oriented programming, Java is not simply the "Internet version of C++." Java has significant practical and philosophical differences from C++. Furthermore, Java is not an enhanced version of C++. For example, it is neither upwardly nor downwardly compatible with C++. Moreover, Java was not designed to replace C++. Java was designed to solve a certain set of problems. C++ was designed to solve a different set of problems. They will coexist for many years to come.</p>
+                        </div>  <!-- content -->
+                    </div>  <!-- right -->
+                </div>  <!-- lvl2 -->
+                <div class="lvl2">
+                    <div class="left">
+                        <h3>Ask The Expert</h3>
+                    </div>  <!-- left -->
+                    <div class="right">
+                        <div class="askTheExpert">
+                            <h3 class="top"></h3>
+                            <p class="question">What is <code>C#</code> and how does it relate to Java?</p>
+                            <p class="answer">A few years after the creation of Java, Microsoft developed the C# language. This is important because C# is closely related to Java. In fact, many of C#'s features directly parallel Java. Both Java and C# share the same general C++-style syntax, support distributed programming, and utilize a similar object model. There are, of course, differences between Java and C#, but the overall "look and feel" of these languages is very similar. This means that if you already know C#, then learning Java will be especially easy. Conversely, if C# is in your future, then your knowledge of Java will come in handy.</p>
+                        </div>  <!-- askTheExpert -->
+                    </div>  <!-- right -->
+                </div>  <!-- lvl2 -->
+                <div class="lvl2">
+                    <div class="left">
+                        <h3>How Java Impacted the Internet</h3>
+                    </div>  <!-- left -->
+                    <div class="right">
+                        <div class="content">
+                            <p>The Internet helped catapult Java to the forefront of programming, and Java, in turn, had a profound effect on the Internet. First, the creation of Java simplified Internet programming in general, acting as a catalyst that drew legions of programmers to the Web. Second, Java innovated a new type of networked program called the <strong>applet</strong> that changed the way the online world thought about content. Finally, and perhaps most importantly, Java addressed some of the thorniest issues associated with the Internet: portability and security.</p>
+                        </div>  <!-- content -->
+                        <div class="lvl3">
+                            <div class="left">
+                                <h4>Java Simplified Web-Based Programming</h4>
+                            </div>  <!-- left -->
+                            <div class="right">
+                                <div class="content">
+                                    <p>From the start, Java simplified web-based programming in a number of ways. Arguably the most important is found in its ability to create portable, cross-platform programs. Of nearly equal importance is Java's support for networking. Its library of ready-to-use functionality enabled programmers to easily write programs that accessed or made use of the Internet. It also provided mechanisms that enabled programs to be readily delivered over the Internet. Although the details are beyond the scope of this book, it is sufficient to know that Java's support for networking was a key factor in its rapid rise.</p>
+                                </div>  <!-- content -->
+                            </div>  <!-- right -->
+                        </div>  <!-- lvl3 -->
+                        <div class="lvl3">
+                            <div class="left">
+                                <h4>Java Applets</h4>
+                            </div>  <!-- left -->
+                            <div class="right">
+                                <div class="content">
+                                    <p>At the time of Java's creation, one of its most exciting features was the applet. An applet is a special kind of Java program that is designed to be transmitted over the Internet and automatically executed inside a Java-compatible web browser. If the user clicks a link that contains an applet, the applet will download and run in the browser automatically. Applets were intended to be small programs, typically used to display data provided by the server, handle user input, or provide simple functions, such as a loan calculator. The key feature of applets is that they execute locally, rather than on the server. In essence, the applet allowed some functionality to be moved from the server to the client.</p>
+                                    <p>The creation of the applet was important because, at the time, it expanded the universe of objects that could move about freely in cyberspace. In general, there are two very broad categories of objects that are transmitted between the server and the client: <i>passive information</i> and <i>dynamic active programs</i>. For example, when you read your e-mail, you are viewing passive data. Even when you download a program, the program's code is still only passive data until you execute it. By contrast, the applet is a dynamic, self-executing program. Such a program is an active agent on the client computer, yet it is delivered by the server.</p>
+                                    <p>In the early days of Java, applets were a crucial part of Java programming. They illustrated the power and benefits of Java, added an exciting dimension to web pages, and enabled programmers to explore the full extent of what was possible with Java. Although it is likely that there are still applets in use today, over time they became less important, and for reasons that will be explained shortly, JDK 9 began their phase-out process. Finally, applet support was removed by JDK 11.</p>
+                                </div>  <!-- content -->
+                            </div>  <!-- right -->
+                        </div>  <!-- lvl3 -->
+                        <div class="lvl3">
+                            <div class="left">
+                                <h4>Security</h4>
+                            </div>  <!-- left -->
+                            <div class="right">
+                                <div class="content">
+                                    <p>As desirable as dynamic, networked programs are, they also present serious problems in the areas of security and portability. Obviously, a program that downloads and  executes on the client computer must be prevented from doing harm. It must also be able to run in a variety of different environments and under different operating systems. As you will see, Java addressed these problems in an effective and elegant way. Let's look a bit more closely at each, beginning with security.</p>
+                                    <p>As you are likely aware, every time that you download a program, you are taking a risk because the code you are downloading might contain a virus, Trojan horse, or other harmful code. At the core of the problem is the fact that malicious code can cause damage because it has gained unauthorized access to system resources. For example, a virus program might gather private information, such as credit card numbers, bank account balances, and passwords, by searching the contents of your computer's local file system. In order for Java to enable programs to be safely downloaded and executed on the client computer, it was necessary to prevent them from launching such an attack.</p>
+                                    <p>Java achieved this protection by enabling you to <span class="highlight">confine an application to the Java execution environment and prevent it from accessing other parts of the computer</span>. (You will see how this is accomplished shortly.) The ability to download an application with a high level of confidence that no harm will be done contributed significantly to Java's early success.</p>
+                                </div>  <!-- content -->
+                            </div>  <!-- right -->
+                        </div>  <!-- lvl3 -->
+                    </div>  <!-- right -->
+                </div>  <!-- lvl2 -->
+                <div class="lvl2">
+                    <div class="left">
+                        <h3>Java's Magic: The Bytecode</h3>
+                    </div>  <!-- left -->
+                    <div class="right">
+                        <div class="content">
+                            <p>The key that allowed Java to address both the security and the portability problems just described is that <span class="highlight">the output of a Java compiler is not executable code. Rather, it is bytecode</span>. <b>Bytecode</b> is a highly optimized set of instructions designed to be executed by what is called the <em>Java Virtual Machine (JVM)</em>, which is part of the <em>Java RuntimeEnvironment (JRE)</em>. In essence, the original JVM was designed as an interpreter for bytecode. This may come as a bit of a surprise because many modern languages are designed to be compiled into CPU-specific, executable code due to performance concerns. However, the fact that a Java program is executed by the JVM helps solve the major problems associated with web-based programs. Here is why.</p>
+                            <p>Translating a Java program into bytecode makes it much easier to run a program in a wide variety of environments because only the JRE (which includes the JVM) needs to be implemented for each platform. Once a JRE exists for a given system, any Java program can run on it. Remember, although the details of the JRE will differ from platform to platform, all JREs understand the same Java bytecode. If a Java program were compiled to native code, then different versions of the same program would have to exist for each type of CPU connected to the Internet. This is, of course, not a feasible solution. Thus, the execution of bytecode by the JVM is the easiest way to create truly portable programs.</p>
+                            <p>The fact that a Java program is executed by the JVM also helps to make it secure. Because the JVM is in control, it manages program execution. Thus, it is possible for the JVM to create a restricted execution environment, called the <em>sandbox</em>, that contains the program, preventing unrestricted access to the machine. Safety is also enhanced by certain restrictions that exist in the Java language.</p>
+                            <p>When a program is interpreted, it generally runs slower than the same program would run if compiled to executable code. However, with Java, the differential between the two is not so great. Because bytecode has been highly optimized, the use of bytecode enables the JVM to execute programs much faster than you might expect.</p>
+                            <p>Although Java was designed as an interpreted language, there is nothing about Java that prevents on-the-fly compilation of bytecode into native code in order to boost performance. For this reason, the <em>HotSpot JVM</em> was introduced not long after Java's initial release. <span class="highlight">HotSpot includes a just-in-time (JIT) compiler for bytecode</span>. When a JIT compiler is part of the JVM, selected portions of bytecode are compiled into executable code in real time on a piece-by-piece demand basis. That is, a JIT compiler compiles code as it is needed during execution. Furthermore, not all sequences of bytecode are compiled—only those that will benefit from compilation. The remaining code is simply interpreted. However, the just-in-time approach still yields a significant performance boost. Even when dynamic compilation is applied to bytecode, the portability and safety features still apply because the JVM is still in charge of the execution environment.</p>
+                            <p>One other point: Beginning with JDK 9, some Java environments will also support an ahead-of-time compiler that can be used to compile bytecode into native code prior to execution by the JVM, rather than on-the-fly. <em>Ahead-of-time compilation</em> is a specialized feature and it does not replace Java's traditional approach just described. Because of the highly sophisticated nature of ahead-of-time compilation, it is not something that you will use when learning Java, and it is <i>not</i> discussed further in this book.</p>
+                        </div>  <!-- content -->
+                    </div>  <!-- right -->
+                </div>  <!-- lvl2 -->
+                <div class="lvl2">
+                    <div class="left">
+                        <h3>Ask the Expert</h3>
+                    </div>  <!-- left -->
+                    <div class="right">
+                        <div class="askTheExpert">
+                            <h3 class="top"></h3>
+                            <p class="question">I have heard about a special type of Java program called a <b>servlet</b>. What is it?</p>
+                            <p class="answer">A Java servlet is a small program that executes on a server. Servlets dynamically extend the functionality of a web server. It is helpful to understand that as useful as client-side applications can be, they are just one half of the client/server equation. Not long after the initial release of Java, it became obvious that Java would also be useful on the server side. The result was the servlet. Thus, with the advent of the servlet, Java spanned both sides of the client/server connection. Although the topic of servlets, and server-side programming in general, is beyond the scope of this beginner's guide, they are something that you will likely find of interest as you advance in Java programming.</p>
+                        </div>  <!-- askTheExpert -->
+                    </div>  <!-- right -->
+                </div>  <!-- lvl2 -->
+                <div class="lvl2">
+                    <div class="left">
+                        <h3>Moving Beyond Applets</h3>
+                    </div>  <!-- left -->
+                    <div class="right">
+                        <div class="content">
+                            <p>At the time of this writing, it has been more than two decades since Java's original release. Over those years, many changes have taken place. At the time of Java's creation, the Internet was a new and exciting innovation; web browsers were undergoing rapid development and refinement; the modern form of the smartphone had not yet been invented; and the near ubiquitous use of computers was still a few years off. As you would expect, Java has also changed and so, too, has the way that Java is used. Perhaps nothing illustrates the ongoing evolution of Java better than the applet.</p>
+                            <p>As explained previously, in the early years of Java, applets were a crucial part of Java programming. They not only added excitement to a web page, they were a highly visible part of Java, which added to its charisma. However, applets rely on a Java browser plug-in. Thus, for an applet to work, it must be supported by the browser. Recently,support for the Java browser plug-in has been waning. Simply put, without browser support, applets are not viable. Because of this, beginning with JDK 9, the phase-out of applets was begun, with support for applets being deprecated. In the language of Java, deprecated means that a feature is still available but flagged as obsolete. Thus, a deprecated feature should not be used for new code. The phase-out became complete <span class="highlight">with the release of JDK 11 because support for applets was removed</span>.</p>
+                            <p>As a point of interest, a few years after Java's creation an alternative to applets was added. Called <b>Java Web Start</b>, it enabled an application to be dynamically downloaded from a web page. It was a deployment mechanism that was especially useful for larger Java applications that were not appropriate for applets. The difference between an applet and a Web Start application is that a Web Start application runs on its own, not inside the browser. Thus, it looks much like a "normal" application. It does, however, require that a stand-alone JRE that supports Web Start is available on the host system. <span class="highlight">Beginning with JDK 11, support for Java Web Start has been removed</span>.</p>
+                            <p>Given that neither applets nor Java Web Start are viable options for modern versions of Java, you might wonder what mechanism should be used to deploy a Java application. At the time of this writing, one part of the answer is to use the <b>jlink</b> tool added by JDK 9. It can create a complete run-time image that includes all necessary support for your program, including the JRE. As you might guess, deployment is a rather advanced topic that is outside the scope of this book. Fortunately, you won't need to worry about deployment to use this book because all of the sample programs run directly on your computer. They are not deployed over the Internet.</p>
+                        </div>  <!-- content -->
+                    </div>  <!-- right -->
+                </div>  <!-- lvl2 -->
+                <div class="lvl2">
+                    <div class="left">
+                        <h3>A Faster Release Schedule</h3>
+                    </div>  <!-- left -->
+                    <div class="right">
+                        <div class="content">
+                            <p>Another major change has recently occurred in Java, but it does not involve changes to the language or the run-time environment. Rather, it relates to the way that Java releases are scheduled. In the past, major Java releases were typically separated by two or more years. However, subsequent to the release of JDK 9, the time between major Java releases has been decreased. Today, it is anticipated that a major release will occur on a strict time-based schedule, with the expected time between major releases being just six months.</p>
+                            <p>Each major release, now called a <em>feature release</em>, will include those features ready at the time of the release. This increased <i>release cadence</i> enables new features and enhancements to be available to Java programmers in a timely fashion. Furthermore, it allows Java to respond quickly to the demands of an ever-changing programming environment. Simply put, the faster release schedule promises to be a very positive development for Java programmers.</p>
+                            <p>Currently, feature releases are scheduled for March and September of each year. As a result, JDK 10 was released in March 2018, which was six months after the release of JDK 9. The next release (JDK 11) was in September 2018. Again, it is anticipated that every six months a new feature release will take place. You will want to consult the Java documentation for latest release schedule information.</p>
+                            <p>At the time of this writing, there are a number of new Java features on the horizon. Because of the faster release schedule, it is very likely that several of them will be added to Java over the next few years. You will want to review the information and release notes provided by each six-month release in detail. It is truly an exciting time to be a Java programmer!</p>
+                        </div>  <!-- content -->
+                    </div>  <!-- right -->
+                </div>  <!-- lvl2 -->
+                <div class="lvl2">
+                    <div class="left">
+                        <h3>The Java Buzzwords</h3>
+                    </div>  <!-- left -->
+                    <div class="right">
+                        <div class="content">
+                            <p>No history of Java is complete without a look at the Java buzzwords. Although the fundamental forces that necessitated the invention of Java are portability and security, other factors played an important role in molding the final form of the language. The key considerations were summed up by the Java design team in the following list of buzzwords.</p>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Java Buzzword</th>
+                                        <th>Description</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Simple</td>
+                                        <td>Java has a concise, cohesive set of features that make it easy to learn and use.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Secure</td>
+                                        <td>Java provides a secure means of creating internet applications</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Portable</td>
+                                        <td>Java programs can execute in any environment for which there is a Java run-time system.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Object-oriented</td>
+                                        <td>Java embodies the modern object-oriented programming philosophy.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Robust</td>
+                                        <td>Java encourages error-free programming by being strictly typed and performing run-time checks.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Multithreaded</td>
+                                        <td>Java provides integrated support for multithreaded programming.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Architecture-neutral</td>
+                                        <td>Java is not tied to a specific machine or operating system architecture.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Interpreted</td>
+                                        <td>Java supports cross-platform code through the use of Java bytecode.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>High performance</td>
+                                        <td>The java bytecode is highly optimized for speed of execution.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Distributed</td>
+                                        <td>Java was designed with the distributed environment of the Internet in mind.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Dynamic</td>
+                                        <td>Java programs carry with them substantial amounts of run-time type information that is used to verify and resolve access to objects at run time.</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>  <!-- content -->
+                    </div>  <!-- right -->
+                </div>  <!-- lvl2 -->
+            </div>  <!-- right -->
+        </div>  <!-- lvl1 -->
+        <div class="lvl1">
+            <div class="left">
+                <h2>OBJECT-ORIENTED PROGRAMMING</h2>
+            </div>  <!-- left -->
+            <div class="right">
+                <div class="content">
+                    <p>At the center of Java is object-oriented programming (OOP). The object-oriented methodology is inseparable from Java, and all Java programs are, to at least some extent, object-oriented. Because of OOP's importance to Java, it is useful to understand in a general way OOP's basic principles before you write even a simple Java program. Later in this book, you will see how to put these concepts into practice.</p>
+                    <p>OOP is a powerful way to approach the job of programming. Programming methodologies have changed dramatically since the invention of the computer, primarily to accommodate the increasing complexity of programs. For example, when computers were first invented, programming was done by toggling in the binary machine instructions using the computer's front panel. As long as programs were just a few hundred instructions long, this approach worked. As programs grew, assembly language was invented so that a programmer could deal with larger, increasingly complex programs, using symbolic representations of the machine instructions. As programs continued to grow, high-level languages were introduced that gave the programmer more tools with which to handle complexity. The first widespread language was, of course, FORTRAN. Although FORTRAN was a very impressive first step, it was hardly a language that encouraged clear, easy-to-understand programs.</p>
+                    <p>The 1960s gave birth to structured programming. This is the method encouraged by languages such as C and Pascal. The use of structured languages made it possible to write moderately complex programs fairly easily. Structured languages are characterized by their support for stand-alone subroutines, local variables, rich control constructs, and their lack of reliance upon the GOTO. Although structured languages are a powerful tool, even they reach their limit when a project becomes too large.</p>
+                    <p>Consider this: At each milestone in the development of programming, techniques and tools were created to allow the programmer to deal with increasingly greater complexity. Each step of the way, the new approach took the best elements of the previous methods and moved forward. Prior to the invention of OOP, many projects were nearing (or exceeding) the point where the structured approach no longer works. Object-oriented methods were created to help programmers break through these barriers.</p>
+                    <p>Object-oriented programming took the best ideas of structured programming and combined them with several new concepts. The result was a different way of organizing a program. In the most general sense, <span class="highlight">a program can be organized in one of two ways: around its code (what is happening) or around its data (what is being affected)</span>. Using only structured programming techniques, programs are typically organized around code. This approach can be thought of as "code acting on data."</p>
+                    <p>Object-oriented programs work the other way around. <span class="highlight">They are organized around data, with the key principle being "data controlling access to code." In an object-oriented language, you define the data and the routines that are permitted to act on that data. Thus, a data type defines precisely what sort of operations can be applied to that data.</span></p>
+                    <p>To support the principles of object-oriented programming, all OOP languages, including Java, have three traits in common: <em>encapsulation</em>, <em>polymorphism</em>, and <em>inheritance</em>. Let's examine each.</p>
+                    <figure class="standAloneFigure">
+                        <img src="./plantUMLs/ch01/ch01puml02.svg" alt="Three Traits of OOP">
+                        <figcaption>Three Traits of OOP<br>src: <a href="./plantUMLs/ch01/ch01puml02.puml" target="_blank">./plantUMLs/ch01/ch01puml02.puml</a></figcaption>
+                    </figure>  <!-- figure -->
+                </div>  <!-- content -->
+                <div class="lvl2">
+                    <div class="left">
+                        <h3>Encapsulation</h3>
+                    </div>  <!-- left -->
+                    <div class="right">
+                        <div class="content">
+                            <p><em><i>Encapsulation</i> is a programming mechanism that binds together code and the data it manipulates, and that keeps both safe from outside interference and misuse.</em> In an object-oriented language, code and data can be bound together in such a way that a self-contained <i>black box</i> is created. Within the box are all necessary data and code. When code and data are linked together in this fashion, an object is created. In other words, an object is the device that supports encapsulation.</p>
+                            <p>Within an object, code, data, or both may be <em><code>private</code> to that object</em> or <em><code>public</code></em>.</p>
+                            <ul>
+                                <li>Private code or data is known to and accessible by only another part of the object. That is, private code or data cannot be accessed by a piece of the program that exists outside the object.</li>
+                                <li>When code or data is public, other parts of your program can access it even though it is defined within an object. Typically, the public parts of an object are used to provide a controlled interface to the private elements of the object.</li>
+                            </ul>
+                            <p>Java's basic unit of encapsulation is the <em>class</em>. Although the class will be examined in great detail later in this book, the following brief discussion will be helpful now. A class defines the form of an object. It specifies both the data and the code that will operate on that data. Java uses a class specification to construct objects. Objects are instances of a class. Thus, a class is essentially a set of plans that specify how to build an object.</p>
+                            <p>The code and data that constitute a class are called <em>members of the class</em>. Specifically, the data defined by the class are referred to as <em>member variables</em> or <em>instance variables</em>. The code that operates on that data is referred to as <em></em>member methods</em> or just <em>methods</em>. Method is Java's term for a subroutine. If you are familiar with C/C++, it may help to know that what a Java programmer calls a method, a C/C++ programmer calls a function.</p>
+                        </div>  <!-- content -->
+                    </div>  <!-- right -->
+                </div>  <!-- lvl2 -->
+                <div class="lvl2">
+                    <div class="left">
+                        <h3>Polymorphism</h3>
+                    </div>  <!-- left -->
+                    <div class="right">
+                        <div class="content">
+                            <p><em><i>Polymorphism</i> (from Greek, meaning "many forms") is the quality that allows one interface to access a general class of actions. The specific action is determined by the exact nature of the situation.</em> A simple example of polymorphism is found in the steering wheel of an automobile. The steering wheel (i.e., the interface) is the same no matter what type of actual steering mechanism is used. That is, the steering wheel works the same whether your car has manual steering, power steering, or rack-and-pinion steering. Therefore, once you know how to operate the steering wheel, you can drive any type of car.</p>
+                            <p>The same principle can also apply to programming. For example, consider a stack (which is a first-in, last-out list). You might have a program that requires three different types of stacks. One stack is used for integer values, one for floating-point values, and one for characters. In this case, the algorithm that implements each stack is the same, even though the data being stored differs. In a non-object-oriented language, you would be required to create three different sets of stack routines, with each set using different names. However, because of polymorphism, in Java you can create one general set of stack routines that works for all three specific situations. This way, once you know how to use one stack, you can use them all.</p>
+                            <p>More generally, the concept of polymorphism is often expressed by the phrase "one interface, multiple methods." This means that it is possible to design a generic interface to a group of related activities. Polymorphism helps reduce complexity by allowing the same interface to be used to specify a <i>general class of action</i>. It is the compiler's job to select the <i>specific action</i> (i.e., method) as it applies to each situation. You, the programmer, don't need to do this selection manually. You need only remember and utilize the general interface.</p>
+                        </div>  <!-- content -->
+                    </div>  <!-- right -->
+                </div>  <!-- lvl2 -->
+                <div class="lvl2">
+                    <div class="left">
+                        <h3>Inheritance</h3>
+                    </div>  <!-- left -->
+                    <div class="right">
+                        <div class="content">
+                            <p><em><i>Inheritance</i> is the process by which one object can acquire the properties of another object.</em> This is important because it supports the concept of hierarchical classification. If you think about it, most knowledge is made manageable by hierarchical (i.e., top-down) classifications. For example, a Red Delicious apple is part of the classification <code>apple</code>, which in turn is part of the <code>fruit</code> class, which is under the larger class <code>food</code>. That is, the <code>food</code> class possesses certain qualities (edible, nutritious, etc.) which also, logically, apply to its subclass, <code>fruit</code>. In addition to these qualities, the <code>fruit</code> class has specific characteristics (juicy, sweet, etc.) that distinguish it from other food. The <code>apple</code> class defines those qualities specific to an apple (grows on trees, not tropical, etc.). A Red Delicious apple would, in turn, inherit all the qualities of all preceding classes, and would define only those qualities that make it unique.</p>
+                            <p>Without the use of hierarchies, each object would have to explicitly define all of its characteristics. Using inheritance, an object need only define those qualities that make it unique within its class. It can inherit its general attributes from its parent. Thus, it is the inheritance mechanism that makes it possible for one object to be a specific instance of a more general case.</p>
+                        </div>  <!-- content -->
+                    </div>  <!-- right -->
+                </div>  <!-- lvl2 -->
+            </div>  <!-- right -->
+        </div>  <!-- lvl1 -->
+        <div class="lvl1">
+            <div class="left">
+                <h2>THE JAVA DEVELOPMENT KIT</h2>
+            </div>  <!-- left -->
+            <div class="right">
+                <div class="content">
+                    <p>Now that the theoretical underpinning of Java has been explained, it is time to start writing Java programs. Before you can compile and run those programs, you must have a Java Development Kit (JDK). At the time of this writing, the current release of the JDK is JDK 11. This is the version for Java SE 11. (SE stands for Standard Edition.) It is also the version described in this book. Because JDK 11 contains features that are not supported by earlier versions of Java, it is recommended that you use JDK 11 (or later) to compile and run the programs in this book. (Remember, because of Java's faster release schedule, JDK feature releases are expected at six-month intervals. Thus, don't be surprised by a JDK with a higher release number.) However, depending on the environment in which you are working, an earlier JDK may already be installed. If this is the case, then newer Java features will not be available.</p>
+                    <p>If you need to install the JDK on your computer, be aware that for modern versions of Java, both Oracle JDKs and open source OpenJDKs are available for download. In general, you should first find the JDK you want to use. For example, at the time of this writing, the Oracle JDK can be downloaded from <a target="_blank" href="https://www.oracle.com/technetwork/java/javase/downloads/index.html">www.oracle.com/technetwork/java/javase/downloads/index.html</a>. Also at the time of this writing, an open source version is available at <a target="_blank" href="https://jdk.java.net/">jdk.java.net</a>. Next, download the JDK of your choice and follow its instructions to install it on your computer. After you have installed the JDK, you will be able to compile and run programs.</p>
+                    <p>The JDK supplies two primary programs.</p>
+                    <ul>
+                        <li>The first is <code>javac</code>, which is the Java compiler.</li>
+                        <li>The second is <code>java</code>, which is the standard Java interpreter and is also referred to as the <i>application launcher</i>.</li>
+                    </ul>
+                    <p>One other point: The JDK runs in the command-prompt environment and uses command-line tools. It is not a windowed application. It is also not an integrated development environment (IDE).</p>
+                </div>  <!-- content -->
+                <div class="note">
+                    <h3 class="noteHeading"></h3>
+                    <p>In addition to the basic command-line tools supplied with the JDK, there are several high-quality IDEs available for Java, such as <i>NetBeans</i> and <i>Eclipse</i>. An IDE can be very helpful when developing and deploying commercial applications. As a general rule, you can also use an IDE to compile and run the programs in this book if you so choose. However, the instructions presented in this book for compiling and running a Java program describe only the JDK command-line tools. The reasons for this are easy to understand. First, the JDK is readily available to all readers. Second, the instructions for using the JDK will be the same for all readers. Furthermore, for the simple programs presented in this book, using the JDK command-line tools is usually the easiest approach. If you are using an IDE, you will need to follow its instructions. Because of differences between IDEs, no general set of instructions can be given.</p>
+                </div>  <!-- note -->
+            </div>  <!-- right -->
+        </div>  <!-- lvl1 -->
+        <div class="lvl1">
+            <div class="left">
+                <h2>Ask the Expert</h2>
+            </div>  <!-- left -->
+            <div class="right">
+                <div class="askTheExpert">
+                    <h3 class="top"></h3>
+                    <p class="question">You state that object-oriented programming is an effective way to manage large programs. However, it seems that it might add substantial overhead to relatively small ones. Since you say that all Java programs are, to some extent, object-oriented, does this impose a penalty for smaller programs?</p>
+                    <p class="answer">No. As you will see, for small programs, Java's object-oriented features are nearly transparent. Although it is true that Java follows a strict object model, you have wide latitude as to the degree to which you employ it. For smaller programs, their "object-orientedness" is barely perceptible. As your programs grow, you will integrate more object-oriented features effortlessly.</p>
+                </div>  <!-- askTheExpert -->
+            </div>  <!-- right -->
+        </div>  <!-- lvl1 -->
+        <div class="lvl1">
+            <div class="left">
+                <h2>A FIRST SIMPLE PROGRAM</h2>
+            </div>  <!-- left -->
+            <div class="right">
+                <div class="content">
+                    <p>Let's start by compiling and running the short sample program shown here:</p>
+                    <p class="srcFile"><a href="../JBG_HS_Ch01/JBG_HS_Ch01_Exmp/Example.java" target="_blank">../JBG_HS_Ch01/JBG_HS_Ch01_Exmp/Example.java</a></p>
+                    <pre><code class="language-java">/*
+This is a simple java program.
+
+Call this file Example.java
+*/
+
+class Example {
+// A Java program begins with a call to main().
+public static void main(String args[]) {
+System.out.println("Java drives the web.");
+}
+}</code></pre>
+                    <div class="gallery2">
+                        <figure class="standAloneFigure">
+                            <img src="./plantUMLs/ch01/ch01puml03_01.svg" alt="Class digram of Example.java">
+                            <figcaption>Class digram of Example.java<br>src: <a href="./plantUMLs/ch01/ch01puml03_01.puml" target="_blank">./plantUMLs/ch01/ch01puml03_01.puml</a></figcaption>
+                        </figure>  <!-- standAloneFigure -->
+                        <figure class="standAloneFigure">
+                            <img src="./plantUMLs/ch01/ch01puml03_02.svg" alt="Activity digram of `Example.main()` method">
+                            <figcaption>Activity digram of `Example.main()` method<br>src: <a href="./plantUMLs/ch01/ch01puml03_02.puml" target="_blank">./plantUMLs/ch01/ch01puml03_02.puml</a></figcaption>
+                        </figure>  <!-- standAloneFigure -->
+                    </div>
+                    <p>You will follow these three steps:</p>
+                    <ol>
+                        <li>Enter the program.</li>
+                        <li>Compile the program.</li>
+                        <li>Run the program.</li>
+                    </ol>
+                </div>  <!-- content -->
+                <div class="lvl2">
+                    <div class="left">
+                        <h4>Entering the Program</h4>
+                    </div>  <!-- left -->
+                    <div class="right">
+                        <div class="content">
+                            <p>The programs shown in this book are available from <a href="http://www.oraclepressbooks.com" target="_blank">www.oraclepressbooks.com</a>. However, if you want to enter the programs by hand, you are free to do so. In this case, you must enter the program into your computer using a text editor, not a word processor. Word processors typically store format information along with text. This format information will confuse the Java compiler. If you are using a Windows platform, you can use WordPad or any other programming editor that you like.</p>
+                            <p>For most computer languages, the name of the file that holds the source code to a program is arbitrary. However, this is not the case with Java. The first thing that you must learn about Java is that <em>the name you give to a source file is very important</em>. For this example, the name of the source file should be <code>Example.java</code>. Let's see why.</p>
+                            <p>In Java, a source file is officially called a <em>compilation unit</em>. It is a text file that contains (among other things) one or more class definitions. (For now, we will be using source files that contain only one class.) The Java compiler requires that a source file use the <code>.java</code> filename extension. As you can see by looking at the program, the name of the class defined by the program is also <code>Example</code>. This is not a coincidence. In Java, all code must reside inside a class. By convention, the name of the main class should match the name of the file that holds the program. You should also make sure that the capitalization of the filename matches the class name. The reason for this is that Java is case sensitive. At this point, the convention that filenames correspond to class names may seem arbitrary. However, this convention makes it easier to maintain and organize your programs. Furthermore, as you will see later in this book, in some cases, it is required.</p>
+                        </div>  <!-- content -->
+                    </div>  <!-- right -->
+                </div>  <!-- lvl2 -->
+                <div class="lvl2">
+                    <div class="left">
+                        <h3>Compiling the Program</h3>
+                    </div>  <!-- left -->
+                    <div class="right">
+                        <div class="content">
+                            <p>To compile the <code>Example</code> program, execute the compiler, <code>javac</code>, specifying the name of the source file on the command line, as shown here:</p>
+                            <pre><code class="language-plaintext">javac Example.java</code></pre>  <!-- plaintext block -->
+                            <p>The <code>javac</code> compiler creates a file called <code>Example.class</code> that contains the bytecode version of the program. Remember, <em>bytecode is not executable code</em>. Bytecode must be executed by a Java Virtual Machine. Thus, the output of <code>javac</code> is not code that can be directly executed.</p>
+                            <p>To actually run the program, you must use the Java interpreter, <code>java</code>. To do so, pass the class name <code>Example</code> as a command-line argument, as shown here:</p>
+                            <pre><code class="language-plaintext">java Example</code></pre>  <!-- plaintext block -->
+                            <p>When the program is run, the following output is displayed:</p>
+                            <pre><code class="language-plaintext">Java drives the web.</code></pre>  <!-- plaintext block -->
+                            <p>When Java source code is compiled, each individual class is put into its own output file named after the class and using the <code>.class</code> extension. This is why it is a good idea to give your Java source files the same name as the class they contain—the name of the source file will match the name of the <code>.class</code> file. When you execute the Java interpreter as just shown, you are actually specifying the name of the class that you want the interpreter to execute. It will automatically search for a file by that name that has the <code>.class</code> extension. If it finds the file, it will execute the code contained in the specified class.</p>
+                            <p>Before moving on, it is important to mention that beginning with JDK 11, Java provides a way to run some types of simple programs directly from a source file, without explicitly invoking <code>javac</code>. This technique, which can be useful in some situations, is described in Appendix C. For the purposes of this book, it is assumed that you are using the normal compilation process just described.</p>
+                        </div>  <!-- content -->
+                        <div class="note">
+                            <h3 class="noteHeading"></h3>
+                            <p>If, when you try to compile the program, the computer cannot find <code>javac</code> (and assuming that you have installed the JDK correctly), you may need to specify the path to the command-line tools. In Windows, for example, this means that you will need to add the path to the command-line tools to the paths defined for the <code>PATH</code> environmental variable. For example, if JDK 11 was installed under the Program Files directory, then the path to the command-line tools will be similar to <code>C:\Program Files\Java\jdk-11\bin</code>. (Of course, you will need to find the path to Java on your computer, which may differ from the one just shown. Also the specific version of the JDK may differ.) You will need to consult the documentation for your operating system on how to set the path, because this procedure differs between OSes.</p>
+                        </div>  <!-- note -->
+                    </div>  <!-- right -->
+                </div>  <!-- lvl2 -->
+                <div class="lvl2">
+                    <div class="left">
+                        <h3>The First Sample Program Line by Line</h3>
+                    </div>  <!-- left -->
+                    <div class="right">
+                        <div class="content">
+                            <p>Although <code>Example.java</code> is quite short, it includes several key features that are common to all Java programs. Let's closely examine each part of the program.</p>
+                            <p>The program begins with the following lines:</p>
+                            <pre><code class="language-java">/*
+This is a simple java program.
+
+Call this file Example.java
+*/</code></pre>
+                            <p>This is a <i>comment</i>. Like most other programming languages, Java lets you enter a remark into a program's source file. The contents of a comment are ignored by the compiler. Instead, a comment describes or explains the operation of the program to anyone who is reading its source code. In this case, the comment describes the program and reminds you that the source file should be called <code>Example.java</code>. Of course, in real applications, comments generally explain how some part of the program works or what a specific feature does.</p>
+                            <p>Java supports three styles of comments. The one shown at the top of the program is called a <em>multiline comment</em>. This type of comment must begin with <code>/*</code> and end with <code>*/</code>. Anything between these two comment symbols is ignored by the compiler. As the name suggests, a multiline comment may be several lines long.</p>
+                            <p>The next line of code in the program is shown here:</p>
+                            <pre><code class="language-java">class Example {</code></pre>  <!-- java code -->
+                            <p>This line uses the keyword <code>class</code> to declare that a new class is being defined. As mentioned, the class is Java's basic unit of encapsulation. <code>Example</code> is the name of the class. The class definition begins with the opening curly brace (<code>{</code>) and ends with the closing curly brace (<code>}</code>). The elements between the two braces are members of the class. For the moment, don't worry too much about the details of a class except to note that in Java, all program activity occurs within one. This is one reason why all Java programs are (at least a little bit) object-oriented.</p>
+                            <p>The next line in the program is the <em>single-line comment</em>, shown here:</p>
+                            <pre><code class="language-java">// A Java program begins with a call to main().</code></pre>  <!-- java code -->
+                            <p>This is the second type of comment supported by Java. A single-line comment begins with a <code>//</code> and ends at the end of the line. As a general rule, programmers use multiline comments for longer remarks and single-line comments for brief, line-by-line descriptions.</p>
+                            <p>The next line of code is shown here:</p>
+                            <pre><code class="language-java">public static void main(String args[]) {</code></pre>  <!-- java code -->
+                            <p>This line begins the <code>main()</code> method. As mentioned earlier, in Java, a subroutine is called a method. As the comment preceding it suggests, this is the line at which the program will begin executing. In general, Java applications begin execution by calling <code>main()</code>. The exact meaning of each part of this line cannot be given now, since it involves a detailed understanding of several other of Java's features. However, since many of the examples in this book will use this line of code, let's take a brief look at each part now.</p>
+                            <ul>
+                                <li>The <code>public</code> keyword is an <em>access modifier</em>. An access modifier determines how other parts of the program can access the members of the class. When a class member is preceded by <code>public</code>, then that member can be accessed by code outside the class in which it is declared. (The opposite of <code>public</code> is <code>private</code>, which prevents a member from being used by code defined outside of its class.) In this case, <code>main()</code> must be declared as <code>public</code>, since it must be called by code outside of its class when the program is started.</li>
+                                <li><em>The keyword <code>static</code> allows <code>main()</code> to be called before an object of the class has been created. This is necessary because <code>main()</code> is called by the JVM before any objects are made.</em></li>
+                                <li>The keyword <code>void</code> simply tells the compiler that <code>main()</code> does not return a value. As you will see, methods may also return values.</li>
+                            </ul>
+                            <p>If all this seems a bit confusing, don't worry. All of these concepts will be discussed in detail in subsequent chapters.</p>
+                            <p>As stated, <code>main()</code> is the method called when a Java application begins. Any information that you need to pass to a method is received by variables specified within the set of parentheses that follow the name of the method. These variables are called <em>parameters</em>. If no parameters are required for a given method, you still need to include the empty parentheses. In <code>main()</code> there is only one parameter, <code>String args[]</code>, which declares a parameter named <code>args</code>. This is an array of objects of type <code>String</code>. (Arrays are collections of similar objects.) Objects of type <code>String</code> store sequences of characters. In this case, <code>args</code> receives any command-line arguments present when the program is executed. This program does not make use of this information, but other programs shown later in this book will.</p>
+                            <p>The last character on the line is the <code>{</code>. This signals the start of <code>main()</code>'s body. All of the code included in a method will occur between the method's opening curly brace and its closing curly brace.</p>
+                            <p>The next line of code is shown here. Notice that it occurs inside <code>main()</code>.</p>
+                            <pre><code class="language-java">System.out.println("Java drives the web.");</code></pre>  <!-- java code -->
+                            <p>This line outputs the string <code>"Java drives the Web."</code> followed by a new line on the screen. Output is actually accomplished by the built-in <code>println()</code> method. In this case, <code>println()</code> displays the string that is passed to it. As you will see, <code>println()</code> can be used to display other types of information, too. The line begins with <code>System.out</code>. While too complicated to explain in detail at this time, briefly, <code>System</code> is a predefined class that provides access to the system, and <code>out</code> is the output stream that is connected to the <em>console</em>. Thus, <code>System.out</code> is an object that encapsulates console output. The fact that Java uses an object to define console output is further evidence of its object-oriented nature.</p>
+                            <p>As you have probably guessed, <em>console output (and input) is not used frequently in real-world Java applications</em>. Since most modern computing environments are windowed and graphical in nature, <em>console I/O is used mostly for simple utility programs, for demonstration programs, and for server-side code</em>. Later in this book, you will learn other ways to generate output using Java, but for now, we will continue to use the console I/O methods.</p>
+                            <p>Notice that the <code>println()</code> statement ends with a semicolon. Many statements in Java end with a semicolon. As you will see, the semicolon is an important part of the Java syntax.</p>
+                            <p>The first <code>}</code> in the program ends <code>main()</code>, and the last <code>}</code> ends the <code>Example</code> class definition.</p>
+                            <p>One last point: <em>Java is case sensitive</em>. Forgetting this can cause you serious problems. For example, if you accidentally type <code>Main</code> instead of <code>main</code>, or <code>PrintLn</code> instead of <code>println</code>, the preceding program will be incorrect. Furthermore, although the Java compiler will compile classes that do not contain a <code>main()</code> method, it has no way to execute them. So, if you had mistyped <code>main</code>, the compiler would still compile your program. However, the Java interpreter would report an error because it would be unable to find the <code>main()</code> method.</p>
+                        </div>  <!-- content -->
+                    </div>  <!-- right -->
+                </div>  <!-- lvl2 -->
+            </div>  <!-- right -->
+        </div>  <!-- lvl1 -->
+        <div class="lvl1">
+            <div class="left">
+                <h2>HANDLING SYNTAX ERRORS</h2>
+            </div>  <!-- left -->
+            <div class="right">
+                <div class="content">
+                    <p>If you have not yet done so, enter, compile, and run the preceding program. As you may know from your previous programming experience, it is quite easy to accidentally type something incorrectly when entering code into your computer. Fortunately, if you enter something incorrectly into your program, the compiler will report a syntax error message when it tries to compile it. The Java compiler attempts to make sense out of your source code no matter what you have written. For this reason, the error that is reported may not always reflect the actual cause of the problem. In the preceding program, for example, an accidental omission of the opening curly brace after the <code>main()</code> method causes the compiler to report the following two errors:</p>
+                    <pre><code class="language-plaintext">Example.java:8: ';' expected
+public static void main(String args[])
+                            ^
+Example.java:11: class, interface, or enum expected
+}
+^</code></pre>  <!-- plaintext block -->
+                    <p>Clearly, the first error message is completely wrong because what is missing is not a semicolon, but a curly brace.</p>
+                    <p>The point of this discussion is that when your program contains a syntax error, you shouldn't necessarily take the compiler's messages at face value. The messages may be misleading. You may need to "second-guess" an error message in order to find the real problem. Also, look at the last few lines of code in your program that precede the line being flagged. Sometimes an error will not be reported until several lines after the point at which the error actually occurred.</p>
+                </div>  <!-- content -->
+            </div>  <!-- right -->
+        </div>  <!-- lvl1 -->
+        <div class="lvl1">
+            <div class="left">
+                <h2>A SECOND SIMPLE PROGRAM</h2>
+            </div>  <!-- left -->
+            <div class="right">
+                <div class="content">
+                    <p>Perhaps no other construct is as important to a programming language as the assignment of a value to a variable. A <span class="highlight">variable is a named memory location that can be assigned a value</span>. Further, <span class="highlight">the value of a variable can be changed during the execution of a program</span>. That is, the content of a variable is changeable, not fixed. The following program creates two variables called <code>myVar1</code> and <code>myVar2</code>:</p>
+                    <p class="srcFile"><a href="../JBG_HS_Ch01/JBG_HS_Ch01_Exmp/Example2.java" target="_blank">../JBG_HS_Ch01/JBG_HS_Ch01_Exmp/Example2.java</a></p>
+                    <pre><code class="language-java">/**
+* This demonstrates a variable.
+* 
+* Call this file Example2.java.
+*/
+class Example2 {
+public static void main(String[] args) {
+int myVar1;  // this declares a variable
+int myVar2;  // this declares another variable
+
+myVar1 = 1024; // this assigns 1024 to myVar1
+
+System.out.println("myVar1 contains: " + myVar1);
+
+myVar2 = myVar1 / 2;
+
+System.out.print("myVar2 contains myVar1 / 2: ");
+System.err.println(myVar2);
+}
+}</code></pre>  <!-- java code -->
+                    <div class="gallery2">
+                        <figure class="standAloneFigure">
+                            <img src="./plantUMLs/ch01/ch01puml04_01.svg" alt="Class diagram of Example2.java">
+                            <figcaption>Class diagram of Example2.java<br>src: <a href="./plantUMLs/ch01/ch01puml04_01.puml" target="_blank">./plantUMLs/ch01/ch01puml04_01.puml</a></figcaption>
+                        </figure>  <!-- standAloneFigure -->
+                        <figure class="standAloneFigure">
+                            <img src="./plantUMLs/ch01/ch01puml04_02.svg" alt="Activity diagram of Example2.main() method">
+                            <figcaption>Activity diagram of Example2.main() method<br>src: <a href="./plantUMLs/ch01/ch01puml04_02.puml" target="_blank">./plantUMLs/ch01/ch01puml04_02.puml</a></figcaption>
+                        </figure>  <!-- standAloneFigure -->
+                    </div>
+                    <p>When you run this program, you will see the following output:</p>
+                    <pre><code class="language-plaintext">myVar1 contains: 1024
+myVar2 contains myVar1 / 2: 512</code></pre>  <!-- plaintext block -->
+                    <p>This program introduces several new concepts. First, the statement</p>
+                    <pre><code class="language-java">int myVar1;  // this declares a variable</code></pre>  <!-- java code -->
+                    <p>declares a variable called <code>myVar1</code> of type integer. In Java, all variables must be declared before they are used. Further, the type of values that the variable can hold must also be specified. This is called the <em>type of the variable</em>. In this case, <code>myVar1</code> can hold integer values. These are whole number values. In Java, to declare a variable to be of type integer, precede its name with the keyword <code>int</code>. Thus, the preceding statement declares a variable called <code>myVar1</code> of type <code>int</code>.</p>
+                    <p>The next line declares a second variable called <code>myVar2</code>:</p>
+                    <pre><code class="language-java">int myVar2;  // this declares another variable</code></pre>  <!-- java code -->
+                    <p>Notice that this line uses the same format as the first line except that the name of the variable is different.</p>
+                    <p>In general, to declare a variable you will use a statement like this:</p>
+                    <pre><code class="language-plaintext">type var-name;</code></pre>  <!-- plaintext block -->
+                    <p>Here, <i>type</i> specifies the type of variable being declared, and <i>var-name</i> is the name of the variable. In addition to <code>int</code>, Java supports several other data types.</p>
+                    <p>The following line of code assigns <code>myVar1</code> the value 1024:</p>
+                    <pre><code class="language-java">myVar1 = 1024; // this assigns 1024 to myVar1</code></pre>  <!-- java code -->
+                    <p>In Java, the assignment operator is the single equal sign. It copies the value on its right side into the variable on its left.</p>
+                    <p>The next line of code outputs the value of <code>myVar1</code> preceded by the string <code>"myVar1 contains "</code>:</p>
+                    <pre><code class="language-java">System.out.println("myVar1 contains: " + myVar1);</code></pre>  <!-- java code -->
+                    <p>In this statement, the plus sign causes the value of <code>myVar1</code> to be displayed after the string that precedes it. This approach can be generalized. Using the <code>+</code> operator, you can chain together as many items as you want within a single <code>println()</code> statement.</p>
+                    <p>The next line of code assigns <code>myVar2</code> the value of <code>myVar1</code> divided by 2:</p>
+                    <pre><code class="language-java">myVar2 = myVar1 / 2;</code></pre>  <!-- java code -->
+                    <p>This line divides the value in <code>myVar1</code> by 2 and then stores that result in <code>myVar2</code>. Thus, after the line executes, <code>myVar2</code> will contain the value 512. The value of <code>myVar1</code> will be unchanged. Like most other computer languages, Java supports a full range of arithmetic operators, including those shown here:</p>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Arithmetic Operator</th>
+                                <th>Operation</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>+</code></td>
+                                <td>Addition</td>
+                            </tr>
+                            <tr>
+                                <td><code>-</code></td>
+                                <td>Subtraction</td>
+                            </tr>
+                            <tr>
+                                <td><code>*</code></td>
+                                <td>Multiplication</td>
+                            </tr>
+                            <tr>
+                                <td><code>/</code></td>
+                                <td>Division</td>
+                            </tr>
+                        </tbody>
+                    </table>  <!-- table -->
+                    <p>Here are the next two lines in the program:</p>
+                    <pre><code class="language-java">System.out.print("myVar2 contains myVar1 / 2: ");
+System.err.println(myVar2);</code></pre>  <!-- java code -->
+                    <p>Two new things are occurring here. First, the built-in method <code>print()</code> is used to display the string <code>"myVar2 contains myVar1 / 2: "</code>. This string is not followed by a new line. This means that when the next output is generated, it will start on the same line. The <code>print()</code> method is just like <code>println()</code>, except that it does not output a new line after each call. Second, in the call to <code>println()</code>, notice that <code>myVar2</code> is used by itself. Both <code>print()</code> and <code>println()</code> can be used to output values of any of Java's built-in types.</p>
+                    <p>One more point about declaring variables before we move on: It is possible to declare two or more variables using the same declaration statement. Just separate their names by commas. For example, <code>myVar1</code> and <code>myVar2</code> could have been declared like this:</p>
+                    <pre><code class="language-java">int myVar1, myVar2; // both declared using one statement</code></pre>  <!-- java code -->
+                </div>  <!-- content -->
+            </div>  <!-- right -->
+        </div>  <!-- lvl1 -->
+        <div class="lvl1">
+            <div class="left">
+                <h2>ANOTHER DATA TYPE</h2>
+            </div>  <!-- left -->
+            <div class="right">
+                <div class="content">
+                    <p>In the preceding program, a variable of type <code>int</code> was used. However, a variable of type <code>int</code> can hold only whole numbers. Thus, it cannot be used when a fractional component is required. For example, an <code>int</code> variable can hold the value 18, but not the value 18.3. Fortunately, <code>int</code> is only one of several data types defined by Java. To allow numbers with fractional components, Java defines two floating-point types: <code>float</code> and <code>double</code>, which represent single- and double-precision values, respectively. Of the two, <code>double</code> is the most commonly used.</p>
+                    <p>To declare a variable of type <code>double</code>, use a statement similar to that shown here:</p>
+                    <pre><code class="language-java">double x;</code></pre>  <!-- java code -->
+                    <p>Here, <code>x</code> is the name of the variable, which is of type <code>double</code>. Because <code>x</code> has a floating-point type, it can hold values such as 122.23, 0.034, or -19.0.</p>
+                    <p>To better understand the difference between int and double, try the following program:</p>
+                    <p class="srcFile"><a href="../JBG_HS_Ch01/JBG_HS_Ch01_Exmp/Example3.java" target="_blank">../JBG_HS_Ch01/JBG_HS_Ch01_Exmp/Example3.java</a></p>
+                    <pre><code class="language-java">/**
+* This program illustrates the differences 
+* between int and double.
+* 
+* Call this file Example3.java.
+*/
+class Example3 {
+public static void main(String[] args) {
+int v;  // This declares an int variable.
+double x;  // This declares a floating-point variable.
+
+v = 10;  // Assign v the value 10.
+
+x = 10.0;  // Assign x the value 10.0.
+
+System.out.println("Original value of v: " + v);
+System.out.println("Original value of x: " + x);
+System.out.println();  // Print a blank line.
+
+// Now, divide both by 4.
+v = v / 4;
+x = x / 4;
+
+System.out.println("v after division: " + v);
+System.out.println("x after division: " + x);
+}
+}</code></pre>  <!-- java code -->
+                    <div class="gallery2">
+                        <figure class="standAloneFigure">
+                            <img src="./plantUMLs/ch01/ch01puml05_01.svg" alt="Class diagram of Example3">
+                            <figcaption>Class diagram of Example3<br>src: <a href="./plantUMLs/ch01/ch01puml05_01.puml" target="_blank">./plantUMLs/ch01/ch01puml05_01.puml</a></figcaption>
+                        </figure>  <!-- standAloneFigure -->
+                        <figure class="standAloneFigure">
+                            <img src="./plantUMLs/ch01/ch01puml05_02.svg" alt="Activity diagram of Example3.main() method">
+                            <figcaption>Activity diagram of Example3.main() method<br>src: <a href="./plantUMLs/ch01/ch01puml05_02.puml" target="_blank">./plantUMLs/ch01/ch01puml05_02.puml</a></figcaption>
+                        </figure>  <!-- standAloneFigure -->
+                    </div>
+                    <p>The output from this program is shown here:</p>
+                    <pre><code class="language-plaintext">Original value of v: 10
+Original value of x: 10.0
+
+v after division: 2
+x after division: 2.5</code></pre>  <!-- plaintext block -->
+                    <p>As you can see, when <code>v</code> is divided by 4, a whole-number division is performed, and the outcome is 2—the fractional component is lost. However, when the <code>double</code> variable <code>x</code> is divided by 4, the fractional component is preserved, and the proper answer is displayed.</p>
+                    <p>There is one other new thing to notice in the program. To print a blank line, simply call <code>println()</code> without any arguments.</p>
+                </div>  <!-- content -->
+            </div>  <!-- right -->
+        </div>  <!-- lvl1 -->
+        <div class="lvl1">
+            <div class="left">
+                <h2>Ask the Expert</h2>
+            </div>  <!-- left -->
+            <div class="right">
+                <div class="askTheExpert">
+                    <h3 class="top"></h3>
+                    <p class="question">Why does Java have different data types for integers and floating-point values? That is, why aren't all numeric values just the same type?</p>
+                    <p class="answer">Java supplies different data types so that you can write efficient programs. For example, integer arithmetic is faster than floating-point calculations. Thus, if you don't need fractional values, then you don't need to incur the overhead associated with types <code>float</code> or <code>double</code>. Second, the amount of memory required for one type of data might be less than that required for another. By supplying different types, Java enables you to make best use of system resources. Finally, some algorithms require (or at least benefit from) the use of a specific type of data. In general, Java supplies a number of built-in types to give you the greatest flexibility.</p>
+                </div>  <!-- askTheExpert -->
+            </div>  <!-- right -->
+        </div>  <!-- lvl1 -->
+        <div class="lvl1">
+            <div class="left">
+                <h2>Try This 1-1</h2>
+            </div>  <!-- left -->
+            <div class="right">
+                <div class="content">
+                    <h3 class="tryThis"><span class="hl">Try This 1-1</span> Converting Gallons to Liters</h3>
+                    <ul class="tryThisSrc">
+                        <li><code>GalToLit.java</code></li>
+                    </ul>
+                    <p>Although the preceding sample programs illustrate several important features of the Java language, they are not very useful. Even though you do not know much about Java at this point, you can still put what you have learned to work to create a practical program. In this project, we will create a program that converts gallons to liters. The program will work by declaring two <code>double</code> variables. One will hold the number of the gallons, and the second will hold the number of liters after the conversion. There are 3.7854 liters in a gallon. Thus, to convert gallons to liters, the gallon value is multiplied by 3.7854. The program displays both the number of gallons and the equivalent number of liters.</p>
+                    <ol class="tryThisOl">
+                        <li>Create a new file called <code>GalToLit.java</code>.</li>
+                        <li>
+                            <div>
+                                <p>Enter the following program into the file:</p>
+                                <p class="srcFile"><a href="../JBG_HS_Ch01/JBG_HS_Ch01_Exmp/GalToLit.java" target="_blank">../JBG_HS_Ch01/JBG_HS_Ch01_Exmp/GalToLit.java</a></p>
+                                <pre><code class="language-java">/**
+* Try This 1-1
+* 
+* This program converts gallons to liters.
+* 
+* Call this program GalToLit.java.
+*/
+class GalToLit {
+public static void main(String[] args) {
+double gallons; // holds the number of gallons
+double liters; // holds conversion to liters
+
+gallons = 10; // start with 10 gallons
+
+liters = gallons * 3.7854; // convert to liters
+
+System.out.println(gallons + " gallons is " + liters + " liters.");
+}
+}</code></pre>  <!-- java code -->
+                                <div class="gallery2">
+                                    <figure class="standAloneFigure">
+                                        <img src="./plantUMLs/ch01/ch01puml06_01.svg" alt="Class diagram of GalToLit class">
+                                        <figcaption>Class diagram of GalToLit class<br>src: <a href="./plantUMLs/ch01/ch01puml06_01.puml" target="_blank">./plantUMLs/ch01/ch01puml06_01.puml</a></figcaption>
+                                    </figure>  <!-- standAloneFigure -->
+                                    <figure class="standAloneFigure">
+                                        <img src="./plantUMLs/ch01/ch01puml06_02.svg" alt="Activity diagram of GalToLit.main() method">
+                                        <figcaption>Activity diagram of GalToLit.main() method<br>src: <a href="./plantUMLs/ch01/ch01puml06_02.puml" target="_blank">./plantUMLs/ch01/ch01puml06_02.puml</a></figcaption>
+                                    </figure>  <!-- standAloneFigure -->
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                <p>Compile the program using the following command line:</p>
+                                <pre><code class="language-plaintext">javac GalToLit.java</code></pre>  <!-- plaintext block -->
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                <p>Run the program using this command:</p>
+                                <pre><code class="language-plaintext">java GalToLit</code></pre>  <!-- plaintext block -->
+                                <p>You will see this output:</p>
+                                <pre><code class="language-plaintext">10.0 gallons is 37.854 liters.</code></pre>  <!-- plaintext block -->
+                            </div>
+                        </li>
+                        <li>As it stands, this program converts 10 gallons to liters. However, by changing the value assigned to gallons, you can have the program convert a different number of gallons into its equivalent number of liters.</li>
+                    </ol> <!-- tryThisOl -->
+                </div>  <!-- content -->
+            </div>  <!-- right -->
+        </div>  <!-- lvl1 -->
+        <div class="lvl1">
+            <div class="left">
+                <h2>TWO CONTROL STATEMENTS</h2>
+            </div>  <!-- left -->
+            <div class="right">
+                <div class="content">
+                    <p>Inside a method, execution proceeds from one statement to the next, top to bottom. However, it is possible to alter this flow through the use of the various program control statements supported by Java. Although we will look closely at control statements later, two are briefly introduced here because we will be using them to write sample programs.</p>
+                </div>  <!-- content -->
+                <div class="lvl2">
+                    <div class="left">
+                        <h3>The <code>if</code> Statement</h3>
+                    </div>  <!-- left -->
+                    <div class="right">
+                        <div class="content">
+                            <p>You can selectively execute part of a program through the use of Java's conditional statement: the <code>if</code>. The Java <code>if</code> statement works much like the IF statement in any other language. It determines the flow of program execution based on whether some condition is true or false. Its simplest form is shown here:</p>
+                            <pre><code class="language-plaintext">if(condition) statement;</code></pre>  <!-- plaintext block -->
+                            <p>Here, <i>condition</i> is a Boolean expression. (A Boolean expression is one that evaluates to either true or false.) If <i>condition</i> is true, then the statement is executed. If <i>condition</i> is false, then the statement is bypassed. Here is an example:</p>
+                            <pre><code class="language-java">if(10 < 11) System.out.println("10 is less than 11");</code></pre>  <!-- java code -->
+                            <p>In this case, since 10 is less than 11, the conditional expression is true, and <code>println()</code> will execute. However, consider the following:</p>
+                            <pre><code class="language-java">if(10 < 9) System.out.prinln("this won't be displayed");</code></pre>  <!-- java code -->
+                            <p>In this case, 10 is not less than 9. Thus, the call to <code>println()</code> will not take place.</p>
+                            <p>Java defines a full complement of <em>relational operators</em> that may be used in a conditional expression. They are shown here:</p>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Operator</th>
+                                        <th>Meaning</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><code>&lt;</code></td>
+                                        <td>Less than</td>
+                                    </tr>
+                                    <tr>
+                                        <td><code>&lt;=</code></td>
+                                        <td>Less than or equal</td>
+                                    </tr>
+                                    <tr>
+                                        <td><code>&gt;</code></td>
+                                        <td>Greater than</td>
+                                    </tr>
+                                    <tr>
+                                        <td><code>&gt;=</code></td>
+                                        <td>Greater than or equal</td>
+                                    </tr>
+                                    <tr>
+                                        <td><code>==</code></td>
+                                        <td>Equal to</td>
+                                    </tr>
+                                    <tr>
+                                        <td><code>!=</code></td>
+                                        <td>Not equal</td>
+                                    </tr>
+                                </tbody>
+                            </table>  <!-- table -->
+                            <p>Notice that the test for equality is the double equal sign.</p>
+                            <p>Here is a program that illustrates the <code>if</code> statement:</p>
+                            <p class="srcFile"><a href="../JBG_HS_Ch01/JBG_HS_Ch01_Exmp/IfDemo.java" target="_blank">../JBG_HS_Ch01/JBG_HS_Ch01_Exmp/IfDemo.java</a></p>
+                            <pre><code class="language-java">/**
+* Demonstrate the if.
+* 
+* Call this file IfDemo.java.
+*/
+class IfDemo {
+public static void main(String[] args) {
+int a, b, c;
+
+a = 2;
+b = 3;
+
+if(a < b) System.out.println("a is less than b");
+
+// this won't display anything
+if(a == b) System.out.println("you won't see this");
+
+System.out.println();
+
+c = a - b; // c contains -1
+
+System.out.println("c contains -1");
+if(c >= 0) System.out.println("c is non-negative");
+if(c < 0) System.out.println("c is negative");
+
+System.out.println();
+
+c = b - a; // c contains -1
+
+System.out.println("c contains 1");
+if(c >= 0) System.out.println("c is non-negative");
+if(c < 0) System.out.println("c is negative");
+}
+}</code></pre>  <!-- java code -->
+                            <div class="gallery2">
+                                <figure class="standAloneFigure">
+                                    <img src="./plantUMLs/ch01/ch01puml07_01.svg" alt="Class diagram of IfDemo class">
+                                    <figcaption>Class diagram of IfDemo class<br>src: <a href="./plantUMLs/ch01/ch01puml07_01.puml" target="_blank">./plantUMLs/ch01/ch01puml07_01.puml</a></figcaption>
+                                </figure>  <!-- standAloneFigure -->
+                                <figure class="standAloneFigure">
+                                    <img src="./plantUMLs/ch01/ch01puml07_02.svg" alt="Activity diagram of IfDemo.main() method">
+                                    <figcaption>Activity diagram of IfDemo.main() method<br>src: <a href="./plantUMLs/ch01/ch01puml07_02.puml" target="_blank">./plantUMLs/ch01/ch01puml07_02.puml</a></figcaption>
+                                </figure>  <!-- standAloneFigure -->
+                            </div>
+                            <p>The output generated by this program is shown here:</p>
+                            <pre><code class="language-plaintext">a is less than b
+
+c contains -1
+c is negative
+
+c contains 1
+c is non-negative</code></pre>  <!-- plaintext block -->
+                            <p>Notice one other thing in this program. The line</p>
+                            <pre><code class="language-java">int a, b, c;</code></pre>  <!-- java code -->
+                            <p>declares three variables, <code>a</code>, <code>b</code>, and <code>c</code>, by use of a comma-separated list. As mentioned earlier, when you need two or more variables of the same type, they can be declared in one statement. Just separate the variable names by commas.</p>
+                        </div>  <!-- content -->
+                    </div>  <!-- right -->
+                </div>  <!-- lvl2 -->
+                <div class="lvl2">
+                    <div class="left">
+                        <h3>The <code>for</code> Loop</h3>
+                    </div>  <!-- left -->
+                    <div class="right">
+                        <div class="content">
+                            <p>You can repeatedly execute a sequence of code by creating a loop. Loops are used whenever you need to perform a repetitive task because they are much simpler and easier than trying to write the same statement sequence over and over again. Java supplies a powerful assortment of loop constructs. The one we will look at here is the <code>for</code> loop. The simplest form of the <code>for</code> loop is shown here:</p>
+                            <pre><code class="language-plaintext">for(initialization; condition; iteration) statement;</code></pre>  <!-- plaintext block -->
+                            <ul>
+                                <li>In its most common form, the <i>initialization</i> portion of the loop sets a loop control variable to an initial value.</li>
+                                <li>The <i>condition</i> is a Boolean expression that tests the loop control variable. If the outcome of that test is true, statement executes and the <code>for</code> loop continues to iterate. If it is false, the loop terminates.</li>
+                                <li>The <i>iteration</i> expression determines how the loop control variable is changed each time the loop iterates.</li>
+                            </ul>
+                            <p>Here is a short program that illustrates the <code>for</code> loop:</p>
+                            <p class="srcFile"><a href="../JBG_HS_Ch01/JBG_HS_Ch01_Exmp/ForDemo.java" target="_blank">../JBG_HS_Ch01/JBG_HS_Ch01_Exmp/ForDemo.java</a></p>
+                            <pre><code class="language-java">/**
+* Demonstrate the <code>for</code> loop.
+* 
+* Call this file ForDemo.java.
+*/
+class ForDemo {
+public static void main(String[] args) {
+int count;
+
+for(count = 0; count < 5; count++)
+System.out.println("This is count: " + count);
+
+System.out.println("Done!");
+}
+}</code></pre>  <!-- java code -->
+                            <div class="gallery2">
+                                <figure class="standAloneFigure">
+                                    <img src="./plantUMLs/ch01/ch01puml08_01.svg" alt="Class diagram of ForDemo class">
+                                    <figcaption>Class diagram of ForDemo class<br>src: <a href="./plantUMLs/ch01/ch01puml08_01.puml" target="_blank">./plantUMLs/ch01/ch01puml08_01.puml</a></figcaption>
+                                </figure>  <!-- standAloneFigure -->
+                                <figure class="standAloneFigure">
+                                    <img src="./plantUMLs/ch01/ch01puml08_02.svg" alt="Activity diagram of ForDemo.main() method">
+                                    <figcaption>Activity diagram of ForDemo.main() method<br>src: <a href="./plantUMLs/ch01/ch01puml08_02.puml" target="_blank">./plantUMLs/ch01/ch01puml08_02.puml</a></figcaption>
+                                </figure>  <!-- standAloneFigure -->
+                            </div>
+                            <p>The output generated by the program is shown here:</p>
+                            <pre><code class="language-plaintext">This is count: 0
+This is count: 1
+This is count: 2
+This is count: 3
+This is count: 4
+Done!</code></pre>  <!-- plaintext block -->
+                            <p>In this example, <code>count</code> is the loop control variable. It is set to zero in the initialization portion of the <code>for</code>. At the start of each iteration (including the first one), the conditional test <code>count < 5</code> is performed. If the outcome of this test is true, the <code>println()</code> statement is executed, and then the iteration portion of the loop is executed, which increases <code>count</code> by 1. This process continues until the conditional test is false, at which point execution picks up at the bottom of the loop. As a point of interest, in professionally written Java programs, you will almost never see the iteration portion of the loop written as shown in the preceding program. That is, you will seldom see statements like this:</p>
+                            <pre><code class="language-java">count = count + 1;</code></pre>  <!-- java code -->
+                            <p>The reason is that Java includes a special increment operator that performs this operation more efficiently. The increment operator is <code>++</code> (that is, two plus signs back to back). The increment operator increases its operand by one. By use of the increment operator, the preceding statement can be written like this:</p>
+                            <pre><code class="language-java">count++;</code></pre>  <!-- java code -->
+                            <p>Thus, the <code>for</code> in the preceding program will usually be written like this:</p>
+                            <pre><code class="language-java">for(count = 0; count < 5; count++)</code></pre>  <!-- java code -->
+                            <p>You might want to try this. As you will see, the loop still runs exactly the same as it did before.</p>
+                            <p>Java also provides a decrement operator, which is specified as <code>--</code>. This operator decreases its operand by one.</p>
+                        </div>  <!-- content -->
+                    </div>  <!-- right -->
+                </div>  <!-- lvl2 -->
+            </div>  <!-- right -->
+        </div>  <!-- lvl1 -->
+        <div class="lvl1">
+            <div class="left">
+                <h2>CREATE BLOCKS OF CODE</h2>
+            </div>  <!-- left -->
+            <div class="right">
+                <div class="content">
+                    <p>Another key element of Java is the <em>code block</em>. A code block is a grouping of two or more statements. This is done by enclosing the statements <em>between opening and closing curly braces</em>. Once a block of code has been created, it becomes a logical unit that can be used any place that a single statement can. For example, a block can be a target for Java's <code>if</code> and <code>for</code> statements. Consider this <code>if</code> statement:</p>
+                    <pre><code class="language-java">if(w < h) {  // Start of block
+v = w * h;
+w = 0;
+}  // End of block</code></pre>  <!-- java code -->
+                    <p>Here, if <code>w</code> is less than <code>h</code>, both statements inside the block will be executed. Thus, the two statements inside the block form a logical unit, and one statement cannot execute without the other also executing. The key point here is that whenever you need to logically link two or more statements, you do so by creating a block. Code blocks allow many algorithms to be implemented with greater clarity and efficiency.</p>
+                    <p>Here is a program that uses a block of code to prevent a division by zero:</p>
+                    <p class="srcFile"><a href="../JBG_HS_Ch01/JBG_HS_Ch01_Exmp/BlockDemo.java" target="_blank">../JBG_HS_Ch01/JBG_HS_Ch01_Exmp/BlockDemo.java</a></p>
+                    <pre><code class="language-java">/**
+* Demonstrate a block of code.
+* 
+* Call this file BlockDemo.java
+*/
+class BlockDemo {
+public static void main(String[] args) {
+double i, j, d;
+
+i = 5;
+j = 10;
+
+// the target of this if is a block
+if(i != 0) {
+System.out.println("i does not equal zero");
+d = j / i;
+System.out.println("j / i is " + d);
+}
+}
+}</code></pre>  <!-- java code -->
+                    <div class="gallery2">
+                        <figure class="standAloneFigure">
+                            <img src="./plantUMLs/ch01/ch01puml09_01.svg" alt="Class diagram of BlockDemo class">
+                            <figcaption>Class diagram of BlockDemo class<br>src: <a href="./plantUMLs/ch01/ch01puml09_01.puml" target="_blank">./plantUMLs/ch01/ch01puml09_01.puml</a></figcaption>
+                        </figure>  <!-- standAloneFigure -->
+                        <figure class="standAloneFigure">
+                            <img src="./plantUMLs/ch01/ch01puml09_02.svg" alt="Activity diagram of BlockDemo.main() method">
+                            <figcaption>Activity diagram of BlockDemo.main() method<br>src: <a href="./plantUMLs/ch01/ch01puml09_02.puml" target="_blank">./plantUMLs/ch01/ch01puml09_02.puml</a></figcaption>
+                        </figure>  <!-- standAloneFigure -->
+                    </div>  <!-- gallery2 -->
+                    <p>The output generated by this program is shown here:</p>
+                    <pre><code class="language-plaintext">i does not equal zero
+j / i is 2.0</code></pre>  <!-- plaintext block -->
+                    <p>In this case, the target of the <code>if</code> statement is a block of code and not just a single statement. If the condition controlling the <code>if</code> is true (as it is in this case), the three statements inside the block will be executed. Try setting <code>i</code> to zero and observe the result. You will see that the entire block is skipped.</p>
+                </div>  <!-- content -->
+                <div class="askTheExpert">
+                    <h3 class="top"></h3>
+                    <p class="question">Does the use of a code block introduce any run-time inefficiencies? In other words, does Java actually execute the <code>{</code> and <code>}</code>?</p>
+                    <p class="answer">No. Code blocks do not add any overhead whatsoever. In fact, because of their ability to simplify the coding of certain algorithms, their use generally increases speed and efficiency. Also, the <code>{</code> and <code>}</code> exist only in your program's source code. Java does not, per se, execute the <code>{</code> or <code>}</code>.</p>
+                </div>  <!-- askTheExpert -->
+                <div class="content">
+                    <p>As you will see later in this book, blocks of code have additional properties and uses. However, the main reason for their existence is to create logically inseparable units of code.</p>
+                </div>  <!-- content -->
+            </div>  <!-- right -->
+        </div>  <!-- lvl1 -->
+        <div class="lvl1">
+            <div class="left">
+                <h2>SEMICOLONS AND POSITIONING</h2>
+            </div>  <!-- left -->
+            <div class="right">
+                <div class="content">
+                    <p>In Java, the <em>semicolon</em> is a <i>separator</i>. It is often <em>used to terminate a statement</em>. In essence, the <em>semicolon indicates the end of one logical entity</em>.</p>
+                    <p>As you know, a block is a set of logically connected statements that are surrounded by opening and closing braces. <em>A block is not terminated with a semicolon</em>. Instead, the end of the block is indicated by the closing brace.</p>
+                    <p>Java does not recognize the end of the line as a terminator. For this reason, it does not matter where on a line you put a statement. For example,</p>
+                    <pre><code class="language-java">x = y;
+y = y + 1;
+System.out.println(x + " " + y);</code></pre>  <!-- java code -->
+                    <p>is the same as the following, to Java:</p>
+                    <pre><code class="language-java">x = y; y = y + 1; System.out.println(x + " " + y);</code></pre>  <!-- java code -->
+                    <p>Furthermore, the individual elements of a statement can also be put on separate lines. For example, the following is perfectly acceptable:</p>
+                    <pre><code class="language-java">System.out.println("This is a long line of output" +
+       x + y + z +
+       "more output");</code></pre>  <!-- java code -->
+                    <p>Breaking long lines in this fashion is often used to make programs more readable. It can also help prevent excessively long lines from wrapping.</p>
+                </div>  <!-- content -->
+            </div>  <!-- right -->
+        </div>  <!-- lvl1 -->
+        <div class="lvl1">
+            <div class="left">
+                <h2>INDENTATION PRACTICES</h2>
+            </div>  <!-- left -->
+            <div class="right">
+                <div class="content">
+                    <p>You may have noticed in the previous examples that certain statements were indented. Java is a free-form language, meaning that it does not matter where you place statements relative to each other on a line. However, over the years, a common and accepted indentation style has developed that allows for very readable programs. This book follows that style, and it is recommended that you do so as well. Using this style, you indent one level after each opening brace, and move back out one level after each closing brace. Certain statements encourage some additional indenting; these will be covered later.</p>
+                </div>  <!-- content -->
+            </div>  <!-- right -->
+        </div>  <!-- lvl1 -->
+        <div class="lvl1">
+            <div class="left">
+                <h2>Try This 1-2</h2>
+            </div>  <!-- left -->
+            <div class="right">
+                <div class="content">
+                    <h3 class="tryThis"><span class="hl">Try This 1-2</span> Improving the Gallons-to-Liters Converter</h3>
+                    <ul class="tryThisSrc">
+                        <li><code>GalToLitTable.java</code></li>
+                    </ul>
+                    <p>You can use the <code>for</code> loop, the <code>if</code> statement, and code blocks to create an improved version of the gallons-to-liters converter that you developed in the first project. This new version will print a table of conversions, beginning with 1 gallon and ending at 100 gallons. After every 10 gallons, a blank line will be output. This is accomplished through the use of a variable called <code>counter</code> that counts the number of lines that have been output. Pay special attention to its use.</p>
+                    <ol class="tryThisOl">
+                        <li>Create a new file called <code>GalToLitTable.java</code>.</li>
+                        <li>
+                            <div>
+                                <p>Enter the following program into the file:</p>
+                                <p class="srcFile"><a href="../JBG_HS_Ch01/JBG_HS_Ch01_Exmp/GalToLitTable.java" target="_blank">../JBG_HS_Ch01/JBG_HS_Ch01_Exmp/GalToLitTable.java</a></p>
+                                <pre><code class="language-java">/**
+* Try This 1-2
+* 
+* This program displays a conversion
+* table of gallons to litres.
+* 
+* Call this program "GalToLitTable.java"
+*/
+class GalToLitTable {
+public static void main(String[] args) {
+double gallons, liters;
+int counter;
+
+counter = 0;
+for(gallons = 1; gallons <= 100; gallons++) {
+liters = gallons * 3.7854; // convert to liters
+System.out.println(gallons + " gallons is " + liters + " liters.");
+
+counter++;
+// every 10th line, print a blank line
+if(counter == 10) {
+    System.out.println();
+    counter = 0;  // reset the line counter
+}
+}
+}
+}</code></pre>  <!-- java code -->
+                                <div class="gallery2">
+                                    <figure class="standAloneFigure">
+                                        <img src="./plantUMLs/ch01/GalToLitTable_class.svg" alt="Class diagram of GalToLitTable class">
+                                        <figcaption>Class diagram of GalToLitTable class<br>src: <a href="./plantUMLs/ch01/GalToLitTable_class.puml" target="_blank">./plantUMLs/ch01/GalToLitTable_class.puml</a></figcaption>
+                                    </figure>  <!-- standAloneFigure -->
+                                    <figure class="standAloneFigure">
+                                        <img src="./plantUMLs/ch01/GalToLitTable_act.svg" alt="Activity diagram of GalToLitTable.main() method">
+                                        <figcaption>Activity diagram of GalToLitTable.main() method<br>src: <a href="./plantUMLs/ch01/GalToLitTable_act.puml" target="_blank">./plantUMLs/ch01/GalToLitTable_act.puml</a></figcaption>
+                                    </figure>  <!-- standAloneFigure -->
+                                </div>  <!-- gallery2 -->
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                <p>Compile the program using the following command line:</p>
+                                <pre><code class="language-plaintext">javac GalToLitTable.java</code></pre>  <!-- plaintext block -->
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                <p>Run the program using this command:</p>
+                                <pre><code class="language-plaintext">java GalToLitTable</code></pre>  <!-- plaintext block -->
+                                <p>Here is the output that you will see:</p>
+                                <pre><code class="language-plaintext">1.0 gallons is 3.7854 liters.
+2.0 gallons is 7.5708 liters.
+3.0 gallons is 11.356200000000001 liters.
+4.0 gallons is 15.1416 liters.
+5.0 gallons is 18.927 liters.
+6.0 gallons is 22.712400000000002 liters.
+7.0 gallons is 26.4978 liters.
+8.0 gallons is 30.2832 liters.
+9.0 gallons is 34.0686 liters.
+10.0 gallons is 37.854 liters.
+
+11.0 gallons is 41.6394 liters.
+12.0 gallons is 45.424800000000005 liters.
+13.0 gallons is 49.2102 liters.
+14.0 gallons is 52.9956 liters.
+15.0 gallons is 56.781 liters.
+16.0 gallons is 60.5664 liters.
+17.0 gallons is 64.3518 liters.
+18.0 gallons is 68.1372 liters.
+19.0 gallons is 71.9226 liters.
+20.0 gallons is 75.708 liters.
+
+21.0 gallons is 79.49340000000001 liters.
+22.0 gallons is 83.2788 liters.
+23.0 gallons is 87.0642 liters.
+24.0 gallons is 90.84960000000001 liters.
+25.0 gallons is 94.635 liters.
+26.0 gallons is 98.4204 liters.
+27.0 gallons is 102.2058 liters.
+28.0 gallons is 105.9912 liters.
+29.0 gallons is 109.7766 liters.
+30.0 gallons is 113.562 liters.
+
+31.0 gallons is 117.34740000000001 liters.
+32.0 gallons is 121.1328 liters.
+33.0 gallons is 124.9182 liters.
+34.0 gallons is 128.7036 liters.
+35.0 gallons is 132.489 liters.
+36.0 gallons is 136.2744 liters.
+37.0 gallons is 140.0598 liters.
+38.0 gallons is 143.8452 liters.
+39.0 gallons is 147.63060000000002 liters.
+40.0 gallons is 151.416 liters.
+
+41.0 gallons is 155.2014 liters.
+42.0 gallons is 158.98680000000002 liters.
+43.0 gallons is 162.7722 liters.
+44.0 gallons is 166.5576 liters.
+45.0 gallons is 170.34300000000002 liters.
+46.0 gallons is 174.1284 liters.
+47.0 gallons is 177.9138 liters.
+48.0 gallons is 181.69920000000002 liters.
+49.0 gallons is 185.4846 liters.
+50.0 gallons is 189.27 liters.
+
+51.0 gallons is 193.0554 liters.
+52.0 gallons is 196.8408 liters.
+53.0 gallons is 200.6262 liters.
+54.0 gallons is 204.4116 liters.
+55.0 gallons is 208.197 liters.
+56.0 gallons is 211.9824 liters.
+57.0 gallons is 215.7678 liters.
+58.0 gallons is 219.5532 liters.
+59.0 gallons is 223.3386 liters.
+60.0 gallons is 227.124 liters.
+
+61.0 gallons is 230.9094 liters.
+62.0 gallons is 234.69480000000001 liters.
+63.0 gallons is 238.4802 liters.
+64.0 gallons is 242.2656 liters.
+65.0 gallons is 246.05100000000002 liters.
+66.0 gallons is 249.8364 liters.
+67.0 gallons is 253.6218 liters.
+68.0 gallons is 257.4072 liters.
+69.0 gallons is 261.1926 liters.
+70.0 gallons is 264.978 liters.
+
+71.0 gallons is 268.7634 liters.
+72.0 gallons is 272.5488 liters.
+73.0 gallons is 276.3342 liters.
+74.0 gallons is 280.1196 liters.
+75.0 gallons is 283.90500000000003 liters.
+76.0 gallons is 287.6904 liters.
+77.0 gallons is 291.4758 liters.
+78.0 gallons is 295.26120000000003 liters.
+79.0 gallons is 299.0466 liters.
+80.0 gallons is 302.832 liters.
+
+81.0 gallons is 306.61740000000003 liters.
+82.0 gallons is 310.4028 liters.
+83.0 gallons is 314.1882 liters.
+84.0 gallons is 317.97360000000003 liters.
+85.0 gallons is 321.759 liters.
+86.0 gallons is 325.5444 liters.
+87.0 gallons is 329.32980000000003 liters.
+88.0 gallons is 333.1152 liters.
+89.0 gallons is 336.9006 liters.
+90.0 gallons is 340.68600000000004 liters.
+
+91.0 gallons is 344.4714 liters.
+92.0 gallons is 348.2568 liters.
+93.0 gallons is 352.04220000000004 liters.
+94.0 gallons is 355.8276 liters.
+95.0 gallons is 359.613 liters.
+96.0 gallons is 363.39840000000004 liters.
+97.0 gallons is 367.1838 liters.
+98.0 gallons is 370.9692 liters.
+99.0 gallons is 374.7546 liters.
+100.0 gallons is 378.54 liters.
+</code></pre>  <!-- plaintext block -->
+                            </div>
+                        </li>
+                    </ol>  <!-- tryThisOl -->
+                </div>  <!-- content -->
+            </div>  <!-- right -->
+        </div>  <!-- lvl1 -->
+        <div class="lvl1">
+            <div class="left">
+                <h2>THE JAVA KEYWORDS</h2>
+            </div>  <!-- left -->
+            <div class="right">
+                <div class="content">
+                    <p>Sixty-one keywords are currently defined in the Java language (see Table 1-1). These keywords, combined with the syntax of the operators and separators, form the definition of the Java language. In general, keywords cannot be used as names for a variable, class, or method. The exceptions to this rule are the context-sensitive keywords added by JDK 9 to support modules. (See Chapter 15 for details.) Also, beginning with JDK 9, an underscore by itself is considered a keyword in order to prevent its use as the name of something in your program.</p>
+                    <table id="Table1-1">
+                        <caption><span class="capId">Table 1-1</span> The Java Keywords</caption>
+                        <tbody>
+                            <tr>
+                                <td><code>abstract</code></td>
+                                <td><code>assert</code></td>
+                                <td><code>boolean</code></td>
+                                <td><code>break</code></td>
+                                <td><code>byte</code></td>
+                                <td><code>case</code></td>
+                            </tr>
+                            <tr>
+                                <td><code>catch</code></td>
+                                <td><code>char</code></td>
+                                <td><code>class</code></td>
+                                <td><code>const</code></td>
+                                <td><code>continue</code></td>
+                                <td><code>default</code></td>
+                            </tr>
+                            <tr>
+                                <td><code>do</code></td>
+                                <td><code>double</code></td>
+                                <td><code>else</code></td>
+                                <td><code>enum</code></td>
+                                <td><code>exports</code></td>
+                                <td><code>extends</code></td>
+                            </tr>
+                            <tr>
+                                <td><code>final</code></td>
+                                <td><code>finally</code></td>
+                                <td><code>float</code></td>
+                                <td><code>for</code></td>
+                                <td><code>goto</code></td>
+                                <td><code>if</code></td>
+                            </tr>
+                            <tr>
+                                <td><code>implements</code></td>
+                                <td><code>import</code></td>
+                                <td><code>instanceof</code></td>
+                                <td><code>int</code></td>
+                                <td><code>interface</code></td>
+                                <td><code>long</code></td>
+                            </tr>
+                            <tr>
+                                <td><code>module</code></td>
+                                <td><code>native</code></td>
+                                <td><code>new</code></td>
+                                <td><code>open</code></td>
+                                <td><code>opens</code></td>
+                                <td><code>package</code></td>
+                            </tr>
+                            <tr>
+                                <td><code>private</code></td>
+                                <td><code>protected</code></td>
+                                <td><code>provides</code></td>
+                                <td><code>public</code></td>
+                                <td><code>requires</code></td>
+                                <td><code>return</code></td>
+                            </tr>
+                            <tr>
+                                <td><code>short</code></td>
+                                <td><code>static</code></td>
+                                <td><code>strictfp</code></td>
+                                <td><code>super</code></td>
+                                <td><code>switch</code></td>
+                                <td><code>synchronized</code></td>
+                            </tr>
+                            <tr>
+                                <td><code>this</code></td>
+                                <td><code>throw</code></td>
+                                <td><code>throws</code></td>
+                                <td><code>to</code></td>
+                                <td><code>transient</code></td>
+                                <td><code>transitive</code></td>
+                            </tr>
+                            <tr>
+                                <td><code>try</code></td>
+                                <td><code>uses</code></td>
+                                <td><code>void</code></td>
+                                <td><code>volatile</code></td>
+                                <td><code>while</code></td>
+                                <td><code>with</code></td>
+                            </tr>
+                            <tr>
+                                <td><code>_</code></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>  <!-- table -->
+                    <p>The keywords <code>const</code> and <code>goto</code> are reserved but not used. In the early days of Java, several other keywords were reserved for possible future use. However, the current specification for Java defines only the keywords shown in <a href="#Table1-1">Table 1-1</a>.</p>
+                    <p>In addition to the keywords, Java reserves four other names. Three have been part of Java since the start: <code>true</code>, <code>false</code>, and <code>null</code>. These are values defined by Java. You may not use these words for the names of variables, classes, and so on. Beginning with JDK 10, the word <code>var</code> has been added as a context-sensitive, reserved type name. (See Chapter 5 for details on <code>var</code>.)</p>
+                </div>  <!-- content -->
+            </div>  <!-- right -->
+        </div>  <!-- lvl1 -->
+        <div class="lvl1">
+            <div class="left">
+                <h2>IDENTIFIERS IN JAVA</h2>
+            </div>  <!-- left -->
+            <div class="right">
+                <div class="content">
+                    <p>In Java an identifier is, essentially, a name given to </p>
+                    <ul>
+                        <li>a method</li>
+                        <li>a variable</li>
+                        <li>or any other user-defined item</li>
+                    </ul>
+                    <p>Identifiers can be from one to several characters long. Variable names may start with </p>
+                    <ul>
+                        <li>any letter of the alphabet</li>
+                        <li>an underscore</li>
+                        <li>or a dollar sign</li>
+                    </ul>
+                    <p>Next may be either </p>
+                    <ul>
+                        <li>a letter</li>
+                        <li>a digit</li>
+                        <li>a dollar sign</li>
+                        <li>or an underscore</li>
+                    </ul>
+                    <p>The underscore can be used to enhance the readability of a variable name, as in <code>line_count</code>. Uppercase and lowercase are different; that is, to Java, <code>myvar</code> and <code>MyVar</code> are separate names. Here are some examples of acceptable identifiers:</p>
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td><code>Test</code></td>
+                                <td><code>x</code></td>
+                                <td><code>y2</code></td>
+                                <td><code>MaxLoad</code></td>
+                            </tr>
+                            <tr>
+                                <td><code>$up</code></td>
+                                <td><code>_top</code></td>
+                                <td><code>my_var</code></td>
+                                <td><code>sample23</code></td>
+                            </tr>
+                        </tbody>
+                    </table>  <!-- table -->
+                    <p>Remember, <em>you can't start an identifier with a digit</em>. Thus, <code>12x</code> is invalid, for example.In general, you cannot use the Java keywords as identifier names. Also, you should not use the name of any standard method, such as <code>println</code>, as an identifier. Beyond these two restrictions, good programming practice dictates that you use identifier names that reflect the meaning or usage of the items being named.</p>
+                </div>  <!-- content -->
+            </div>  <!-- right -->
+        </div>  <!-- lvl1 -->
+        <div class="lvl1">
+            <div class="left">
+                <h2>THE JAVA CLASS LIBRARIES</h2>
+            </div>  <!-- left -->
+            <div class="right">
+                <div class="content">
+                    <p>The sample programs shown in this chapter make use of two of Java's built-in methods: <code>println()</code> and <code>print()</code>. These methods are accessed through <code>System.out</code>. <code>System</code> is a class predefined by Java that is automatically included in your programs. In the larger view, <em>the Java environment relies on several built-in class libraries that contain many built-in methods that provide support for such things as I/O, string handling, networking, and graphics. The standard classes also provide support for a graphical user interface (GUI)</em>. Thus, Java as a totality is a combination of the Java language itself, plus its standard classes. As you will see, the class libraries provide much of the functionality that comes with Java. Indeed, part of becoming a Java programmer is learning to use the standard Java classes. Throughout this book, various elements of the standard library classes and methods are described. However, the Java library is something that you will also want to explore more on your own.</p>
+                </div>  <!-- content -->
+            </div>  <!-- right -->
+        </div>  <!-- lvl1 -->
+        <div class="lvl1">
+            <div class="left">
+                <h2>Chapter 01 SelfTest</h2>
+            </div>  <!-- left -->
+            <div class="right">
+                <div class="selfTestItem">
+                    <div class="selfTestQuestion">
+                        <p class="question"><span class="questionNumber">1: </span>What is bytecode and why is it important to Java's use for Internet programming?</p>
+                    </div>  <!-- selfTestQuestion -->
+                    <div class="selfTestAnswer">
+                        <p class="answer">Portability is a major aspect of the Internet because there are many different types of computers and operating systems connected to it. If a Java program were to be run on virtually any computer connected to the Internet, there needed to be some way to enable that program to execute on different types of systems. It is not practical to have different versions of the same application for different computers.</p>
+                        <p>The key that allowed Java to address both the security and the portability problems just described is that the output of a Java compiler is not executable code. Rather, it is bytecode. <em>Bytecode</em> is a highly optimized set of instructions designed to be executed by what is called the Java Virtual Machine (JVM), which is part of the Java RuntimeEnvironment (JRE).</p>
+                        <p>Translating a Java program into bytecode makes it much easier to run a program in a wide variety of environments because only the JRE (which includes the JVM) needs to be implemented for each platform.</p>
+                    </div>  <!-- selfTestAnswer -->
+                </div>  <!-- selfTestItem -->
+                <hr class="selfTestItemSeparator">
+                <div class="selfTestItem">
+                    <div class="selfTestQuestion">
+                        <p class="question"><span class="questionNumber">2: </span>What are the three main principles of object-oriented programming?</p>
+                    </div>  <!-- selfTestQuestion -->
+                    <div class="selfTestAnswer">
+                        <p class="answer"></p>
+                        <figure class="standAloneFigure">
+                            <img src="./plantUMLs/ch01/ch01puml02.svg" alt="Three main principles of OOP">
+                            <figcaption>Three main principles of OOP<br>src: <a href="./plantUMLs/ch01/ch01puml02.puml" target="_blank">./plantUMLs/ch01/ch01puml02.puml</a></figcaption>
+                        </figure>  <!-- standAloneFigure -->
+                        <ol>
+                            <li><b>Encapsulation</b>: Encapsulation is a programming mechanism that binds together code and the data it manipulates, and that keeps both safe from outside interference and misuse.</li>
+                            <li><b>Polymorphism</b>: Polymorphism (<em>from Greek, meaning "many forms"</em>) is the quality that allows one interface to access a general class of actions. The specific action is determined by the exact nature of the situation.</li>
+                            <li><b>Inheritance</b>: Inheritance is the process by which one object can acquire the properties of another object.</li>
+                        </ol>
+                    </div>  <!-- selfTestAnswer -->
+                </div>  <!-- selfTestItem -->
+                <hr class="selfTestItemSeparator">
+                <div class="selfTestItem">
+                    <div class="selfTestQuestion">
+                        <p class="question"><span class="questionNumber">3: </span>Where do Java programs begin execution?</p>
+                    </div>  <!-- selfTestQuestion -->
+                    <div class="selfTestAnswer">
+                        <p class="answer">In general, java programs begin execution by calling <code>main()</code>.</p>
+                    </div>  <!-- selfTestAnswer -->
+                </div>  <!-- selfTestItem -->
+                <hr class="selfTestItemSeparator">
+                <div class="selfTestItem">
+                    <div class="selfTestQuestion">
+                        <p class="question"><span class="questionNumber">4: </span>What is a variable?</p>
+                    </div>  <!-- selfTestQuestion -->
+                    <div class="selfTestAnswer">
+                        <p class="answer">A <i>variable</i> is a named memory location that can be assigned a value. Further, the value of a variable can be changed during the execution of a program. That is, the content of a variable is changeable, not fixed.</p>
+                    </div>  <!-- selfTestAnswer -->
+                </div>  <!-- selfTestItem -->
+                <hr class="selfTestItemSeparator">
+                <div class="selfTestItem">
+                    <div class="selfTestQuestion">
+                        <p class="question"><span class="questionNumber">5: </span>Which of the following variable names is invalid?</p>
+                        <ol type="A">
+                            <li><code>count</code></li>
+                            <li><code>$count</code></li>
+                            <li><code>count27</code></li>
+                            <li><code>67count</code></li>
+                        </ol>
+                    </div>  <!-- selfTestQuestion -->
+                    <div class="selfTestAnswer">
+                        <p class="answer">Option <b>D. <code>67count</code></b> is invalid. We can't start an identifier with a digit.</p>
+                    </div>  <!-- selfTestAnswer -->
+                </div>  <!-- selfTestItem -->
+                <hr class="selfTestItemSeparator">
+                <div class="selfTestItem">
+                    <div class="selfTestQuestion">
+                        <p class="question"><span class="questionNumber">6: </span>How do you create a single-line comment? How do you create a multi-line comment?</p>
+                    </div>  <!-- selfTestQuestion -->
+                    <div class="selfTestAnswer">
+                        <p class="answer">A single-line comment begins with <code>//</code> and ends at the end of the line. A multiline comment begins with <code>/*</code> and ends with <code>*/</code>.</p>
+                    </div>  <!-- selfTestAnswer -->
+                </div>  <!-- selfTestItem -->
+                <hr class="selfTestItemSeparator">
+                <div class="selfTestItem">
+                    <div class="selfTestQuestion">
+                        <p class="question"><span class="questionNumber">7: </span>Show the general form of the <code>if</code> statement. Show the general form of the <code>for</code> loop.</p>
+                    </div>  <!-- selfTestQuestion -->
+                    <div class="selfTestAnswer">
+                        <p class="answer"></p>
+                        <p><b>General form of <code>if</code>:</b></p>
+                        <ol>
+                            <li>
+                                <div>
+                                    <p>For single statement body:</p>
+                                    <pre><code class="language-plaintext">if(condition) statement;</code></pre>  <!-- plaintext block -->
+                                </div>
+                            </li>
+                            <li>
+                                <div>
+                                    <p>For multi-statement body:</p>
+                                    <pre><code class="language-plaintext">if(condition) {
+statement1;
+statement2;
+}</code></pre>  <!-- plaintext block -->
+                                </div>
+                            </li>
+                        </ol>
+                        <p><b>General form of <code>for</code>:</b></p>
+                        <ol>
+                            <li>
+                                <div>
+                                    <p>For single statement body:</p>
+                                    <pre><code class="language-plaintext">for(initialization; condition; iteration) statement;</code></pre>  <!-- plaintext block -->
+                                </div>
+                            </li>
+                            <li>
+                                <div>
+                                    <p>For multi-statement body:</p>
+                                    <pre><code class="language-plaintext">for(initialization; condition; iteration) {
+statement1;
+statement2;
+}</code></pre>  <!-- plaintext block -->
+                                </div>
+                            </li>
+                        </ol>
+                    </div>  <!-- selfTestAnswer -->
+                </div>  <!-- selfTestItem -->
+                <hr class="selfTestItemSeparator">
+                <div class="selfTestItem">
+                    <div class="selfTestQuestion">
+                        <p class="question"><span class="questionNumber">8: </span>How do you create a block of code?</p>
+                    </div>  <!-- selfTestQuestion -->
+                    <div class="selfTestAnswer">
+                        <p class="answer">A block of code is started with a <code>{</code> and ended with a <code>}</code>.</p>
+                    </div>  <!-- selfTestAnswer -->
+                </div>  <!-- selfTestItem -->
+                <hr class="selfTestItemSeparator">
+                <div class="selfTestItem">
+                    <div class="selfTestQuestion">
+                        <p class="question"><span class="questionNumber">9: </span>The moon's gravity is about 17 percent that of earth's. Write a program that computes your effective weight on the moon.</p>
+                    </div>  <!-- selfTestQuestion -->
+                    <div class="selfTestAnswer">
+                        <p class="answer"></p>
+                        <p class="srcFile"><a href="../JBG_HS_Ch01/JBG_HS_Ch01_SelfTest/JBG_HS_Ch01_SelfTest_09.java" target="_blank">../JBG_HS_Ch01/JBG_HS_Ch01_SelfTest/JBG_HS_Ch01_SelfTest_09.java</a></p>
+                        <pre><code class="language-java">/**
+* Compute your effective weight (Kgs) on the moon.
+* 
+* Call this file "JBG_HS_Ch01_SelfTest_09"
+*/
+class JBG_HS_Ch01_SelfTest_09 {
+public static void main(String[] args) {
+double yourWeightOnEarthKgs;
+double yourWeightOnMoonKgs;
+
+yourWeightOnEarthKgs = 63.2;
+
+yourWeightOnMoonKgs = yourWeightOnEarthKgs * 0.17;
+
+System.out.println("Your weight on earth which is " + yourWeightOnEarthKgs + "Kgs is equal to " + yourWeightOnMoonKgs + "Kgs on the moon.");
+}
+}</code></pre>  <!-- java code -->
+                        <div class="gallery2">
+                            <figure class="standAloneFigure">
+                                <img src="./plantUMLs/ch01/ch01_st09_class.svg" alt="Class diagram of SelfTest09 class">
+                                <figcaption>Class diagram of SelfTest09 class<br>src: <a href="./plantUMLs/ch01/ch01_st09_class.puml" target="_blank">./plantUMLs/ch01/ch01_st09_class.puml</a></figcaption>
+                            </figure>  <!-- standAloneFigure -->
+                            <figure class="standAloneFigure">
+                                <img src="./plantUMLs/ch01/ch01_st09_act.svg" alt="Activity diagram of Ch01SelfTest09's main() method">
+                                <figcaption>Activity diagram of Ch01SelfTest09's main() method<br>src: <a href="./plantUMLs/ch01/ch01_st09_act.puml" target="_blank">./plantUMLs/ch01/ch01_st09_act.puml</a></figcaption>
+                            </figure>  <!-- standAloneFigure -->
+                        </div>  <!-- gallery2 -->
+                        <p><b>Execution Logs:</b></p>
+                        <pre><code class="language-plaintext">Your weight on earth which is 63.2Kgs is equal to 10.744000000000002Kgs on the moon.</code></pre>  <!-- plaintext block -->
+                    </div>  <!-- selfTestAnswer -->
+                </div>  <!-- selfTestItem -->
+                <hr class="selfTestItemSeparator">
+                <div class="selfTestItem">
+                    <div class="selfTestQuestion">
+                        <p class="question"><span class="questionNumber">10: </span>Adapt <i>Try This 1-2</i> so that it prints a conversion table of inches to meters. Display 12 feet of conversions, inch by inch. Output a blank line every 12 inches. (One meter equals approximately 39.37 inches.)</p>
+                    </div>  <!-- selfTestQuestion -->
+                    <div class="selfTestAnswer">
+                        <p class="answer"></p>
+                        <p class="srcFile"><a href="../JBG_HS_Ch01/JBG_HS_Ch01_SelfTest/JBG_HS_Ch01_SelfTest_10.java" target="_blank">../JBG_HS_Ch01/JBG_HS_Ch01_SelfTest/JBG_HS_Ch01_SelfTest_10.java</a></p>
+                        <pre><code class="language-java">/**
+* Try This 1-2
+* 
+* This program displays a conversion
+* table of inches to meters.
+* 
+* Call this program "JBG_HS_Ch01_SelfTest_10.java"
+*/
+class JBG_HS_Ch01_SelfTest_10 {
+public static void main(String[] args) {
+double inches, meters;
+int counter;
+int inchesPerFeet = 12;
+int runForNFeets = 12;
+
+counter = 0;
+for(inches = 1; inches <= inchesPerFeet*runForNFeets; inches++) {
+meters = inches / 39.37; // convert to meters
+System.out.println(inches + " inches is " + meters + " meters.");
+
+counter++;
+// every 10th line, print a blank line
+if(counter == 12) {
+    System.out.println();
+    counter = 0;  // reset the line counter
+}
+}
+}
+}</code></pre>  <!-- java code -->
+                        <div class="gallery2">
+                            <figure class="standAloneFigure">
+                                <img src="./plantUMLs/ch01/ch01_st10_class.svg" alt="Class diagram of JBG_HS_Ch01_SelfTest_10 class">
+                                <figcaption>Class diagram of JBG_HS_Ch01_SelfTest_10 class<br>src: <a href="./plantUMLs/ch01/ch01_st10_class.puml" target="_blank">./plantUMLs/ch01/ch01_st10_class.puml</a></figcaption>
+                            </figure>  <!-- standAloneFigure -->
+                            <figure class="standAloneFigure">
+                                <img src="./plantUMLs/ch01/ch01_st10_act.svg" alt="Activity diagram of JBG_HS_Ch01_SelfTest_10.main() method">
+                                <figcaption>Activity diagram of JBG_HS_Ch01_SelfTest_10.main() method<br>src: <a href="./plantUMLs/ch01/ch01_st10_act.puml" target="_blank">./plantUMLs/ch01/ch01_st10_act.puml</a></figcaption>
+                            </figure>  <!-- standAloneFigure -->
+                        </div>  <!-- gallery2 -->
+                        <p><b>Execution Logs:</b></p>
+                        <pre><code class="language-plaintext">1.0 inches is 0.025400050800101603 meters.
+2.0 inches is 0.05080010160020321 meters.
+3.0 inches is 0.07620015240030481 meters.
+4.0 inches is 0.10160020320040641 meters.
+5.0 inches is 0.12700025400050802 meters.
+6.0 inches is 0.15240030480060962 meters.
+7.0 inches is 0.17780035560071122 meters.
+8.0 inches is 0.20320040640081283 meters.
+9.0 inches is 0.2286004572009144 meters.
+10.0 inches is 0.25400050800101603 meters.
+11.0 inches is 0.27940055880111764 meters.
+12.0 inches is 0.30480060960121924 meters.
+
+13.0 inches is 0.33020066040132084 meters.
+14.0 inches is 0.35560071120142245 meters.
+15.0 inches is 0.38100076200152405 meters.
+16.0 inches is 0.40640081280162565 meters.
+17.0 inches is 0.43180086360172726 meters.
+18.0 inches is 0.4572009144018288 meters.
+19.0 inches is 0.4826009652019304 meters.
+20.0 inches is 0.5080010160020321 meters.
+21.0 inches is 0.5334010668021336 meters.
+22.0 inches is 0.5588011176022353 meters.
+23.0 inches is 0.5842011684023368 meters.
+24.0 inches is 0.6096012192024385 meters.
+
+25.0 inches is 0.63500127000254 meters.
+26.0 inches is 0.6604013208026417 meters.
+27.0 inches is 0.6858013716027432 meters.
+28.0 inches is 0.7112014224028449 meters.
+29.0 inches is 0.7366014732029464 meters.
+30.0 inches is 0.7620015240030481 meters.
+31.0 inches is 0.7874015748031497 meters.
+32.0 inches is 0.8128016256032513 meters.
+33.0 inches is 0.8382016764033529 meters.
+34.0 inches is 0.8636017272034545 meters.
+35.0 inches is 0.8890017780035561 meters.
+36.0 inches is 0.9144018288036576 meters.
+
+37.0 inches is 0.9398018796037593 meters.
+38.0 inches is 0.9652019304038608 meters.
+39.0 inches is 0.9906019812039625 meters.
+40.0 inches is 1.0160020320040641 meters.
+41.0 inches is 1.0414020828041657 meters.
+42.0 inches is 1.0668021336042672 meters.
+43.0 inches is 1.0922021844043688 meters.
+44.0 inches is 1.1176022352044706 meters.
+45.0 inches is 1.143002286004572 meters.
+46.0 inches is 1.1684023368046736 meters.
+47.0 inches is 1.1938023876047752 meters.
+48.0 inches is 1.219202438404877 meters.
+
+49.0 inches is 1.2446024892049785 meters.
+50.0 inches is 1.27000254000508 meters.
+51.0 inches is 1.2954025908051816 meters.
+52.0 inches is 1.3208026416052834 meters.
+53.0 inches is 1.346202692405385 meters.
+54.0 inches is 1.3716027432054865 meters.
+55.0 inches is 1.397002794005588 meters.
+56.0 inches is 1.4224028448056898 meters.
+57.0 inches is 1.4478028956057913 meters.
+58.0 inches is 1.4732029464058929 meters.
+59.0 inches is 1.4986029972059944 meters.
+60.0 inches is 1.5240030480060962 meters.
+
+61.0 inches is 1.5494030988061978 meters.
+62.0 inches is 1.5748031496062993 meters.
+63.0 inches is 1.6002032004064008 meters.
+64.0 inches is 1.6256032512065026 meters.
+65.0 inches is 1.6510033020066042 meters.
+66.0 inches is 1.6764033528067057 meters.
+67.0 inches is 1.7018034036068073 meters.
+68.0 inches is 1.727203454406909 meters.
+69.0 inches is 1.7526035052070106 meters.
+70.0 inches is 1.7780035560071121 meters.
+71.0 inches is 1.8034036068072137 meters.
+72.0 inches is 1.8288036576073152 meters.
+
+73.0 inches is 1.854203708407417 meters.
+74.0 inches is 1.8796037592075185 meters.
+75.0 inches is 1.90500381000762 meters.
+76.0 inches is 1.9304038608077216 meters.
+77.0 inches is 1.9558039116078234 meters.
+78.0 inches is 1.981203962407925 meters.
+79.0 inches is 2.0066040132080265 meters.
+80.0 inches is 2.0320040640081283 meters.
+81.0 inches is 2.0574041148082296 meters.
+82.0 inches is 2.0828041656083314 meters.
+83.0 inches is 2.108204216408433 meters.
+84.0 inches is 2.1336042672085345 meters.
+
+85.0 inches is 2.1590043180086362 meters.
+86.0 inches is 2.1844043688087376 meters.
+87.0 inches is 2.2098044196088393 meters.
+88.0 inches is 2.235204470408941 meters.
+89.0 inches is 2.2606045212090424 meters.
+90.0 inches is 2.286004572009144 meters.
+91.0 inches is 2.311404622809246 meters.
+92.0 inches is 2.3368046736093473 meters.
+93.0 inches is 2.362204724409449 meters.
+94.0 inches is 2.3876047752095504 meters.
+95.0 inches is 2.413004826009652 meters.
+96.0 inches is 2.438404876809754 meters.
+
+97.0 inches is 2.4638049276098553 meters.
+98.0 inches is 2.489204978409957 meters.
+99.0 inches is 2.514605029210059 meters.
+100.0 inches is 2.54000508001016 meters.
+101.0 inches is 2.565405130810262 meters.
+102.0 inches is 2.590805181610363 meters.
+103.0 inches is 2.616205232410465 meters.
+104.0 inches is 2.6416052832105668 meters.
+105.0 inches is 2.667005334010668 meters.
+106.0 inches is 2.69240538481077 meters.
+107.0 inches is 2.717805435610871 meters.
+108.0 inches is 2.743205486410973 meters.
+
+109.0 inches is 2.7686055372110747 meters.
+110.0 inches is 2.794005588011176 meters.
+111.0 inches is 2.819405638811278 meters.
+112.0 inches is 2.8448056896113796 meters.
+113.0 inches is 2.870205740411481 meters.
+114.0 inches is 2.8956057912115827 meters.
+115.0 inches is 2.921005842011684 meters.
+116.0 inches is 2.9464058928117858 meters.
+117.0 inches is 2.9718059436118875 meters.
+118.0 inches is 2.997205994411989 meters.
+119.0 inches is 3.0226060452120906 meters.
+120.0 inches is 3.0480060960121924 meters.
+
+121.0 inches is 3.0734061468122937 meters.
+122.0 inches is 3.0988061976123955 meters.
+123.0 inches is 3.124206248412497 meters.
+124.0 inches is 3.1496062992125986 meters.
+125.0 inches is 3.1750063500127004 meters.
+126.0 inches is 3.2004064008128017 meters.
+127.0 inches is 3.2258064516129035 meters.
+128.0 inches is 3.2512065024130052 meters.
+129.0 inches is 3.2766065532131066 meters.
+130.0 inches is 3.3020066040132083 meters.
+131.0 inches is 3.3274066548133097 meters.
+132.0 inches is 3.3528067056134114 meters.
+
+133.0 inches is 3.378206756413513 meters.
+134.0 inches is 3.4036068072136145 meters.
+135.0 inches is 3.4290068580137163 meters.
+136.0 inches is 3.454406908813818 meters.
+137.0 inches is 3.4798069596139194 meters.
+138.0 inches is 3.505207010414021 meters.
+139.0 inches is 3.5306070612141225 meters.
+140.0 inches is 3.5560071120142243 meters.
+141.0 inches is 3.581407162814326 meters.
+142.0 inches is 3.6068072136144274 meters.
+143.0 inches is 3.632207264414529 meters.
+144.0 inches is 3.6576073152146305 meters.
+</code></pre>  <!-- plaintext block -->
+                    </div>  <!-- selfTestAnswer -->
+                </div>  <!-- selfTestItem -->
+                <hr class="selfTestItemSeparator">
+                <div class="selfTestItem">
+                    <div class="selfTestQuestion">
+                        <p class="question"><span class="questionNumber">11: </span>If you make a typing mistake when entering your program, what sort of error will result?</p>
+                    </div>  <!-- selfTestQuestion -->
+                    <div class="selfTestAnswer">
+                        <p class="answer">Will result in syntax error.</p>
+                    </div>  <!-- selfTestAnswer -->
+                </div>  <!-- selfTestItem -->
+                <hr class="selfTestItemSeparator">
+                <div class="selfTestItem">
+                    <div class="selfTestQuestion">
+                        <p class="question"><span class="questionNumber">12: </span>Does it matter where on a line you put a statement?</p>
+                    </div>  <!-- selfTestQuestion -->
+                    <div class="selfTestAnswer">
+                        <p class="answer">No. Java is a free-form language, meaning that it does not matter where you place statements relative to each other on a line.</p>
+                    </div>  <!-- selfTestAnswer -->
+                </div>  <!-- selfTestItem -->
+                <hr class="selfTestItemSeparator">
+            </div>  <!-- right -->
+        </div>  <!-- lvl1 -->
+    </div>  <!-- right -->
+</div>  <!-- lvl0 -->

@@ -1,0 +1,160 @@
+<div class="lvl0" id="theoryIntroduction">
+    <div class="left">
+        <h2>Introduction</h2>
+    </div>
+    <div class="right">
+        <div class="content">
+            <p>The purpose of this book is to teach you the fundamentals of Java programming. It uses a step-by-step approach complete with numerous examples, self tests, and projects. It assumes no previous programming experience. The book starts with the basics, such as how to compile and run a Java program. It then discusses the keywords, features, and constructs that form the core of the Java language. You'll also find coverage of some of Java's most advanced features, including multithreaded programming, generics, lambda expressions, and modules. An introduction to the fundamentals of Swing concludes the book. By the time you finish, you will have a firm grasp of the essentials of Java programming.</p>
+            <p>It is important to state at the outset that this book is just a starting point. Java is more than just the elements that define the language. Java also includes extensive libraries and tools that aid in the development of programs. To be a top-notch Java programmer implies mastery of these areas, too. After completing this book, you will have the knowledge to pursue any and all other aspects of Java.</p>
+
+        </div>
+        <div class="lvl1">
+            <div class="left">
+                <h2>THE EVOLUTION OF JAVA</h2>
+            </div>  <!-- left -->
+            <div class="right">
+                <div class="content">
+                    <p>Only a few languages have fundamentally reshaped the very essence of programming. In this elite group, one stands out because its impact was both rapid and widespread. This language is, of course, Java. It is not an overstatement to say that the original release of Java 1.0 in 1995 by <strong>Sun Microsystems, Inc.</strong>, caused a revolution in programming. This revolution radically transformed the Web into a highly interactive environment. In the process, Java set a new standard in computer language design.</p>
+                    <p>Over the years, Java has continued to grow, evolve, and otherwise redefine itself. Unlike many other languages, which are slow to incorporate new features, Java has often been at the forefront of computer language development. One reason for this is the culture of innovation and change that came to surround Java. As a result, Java has gone through several upgrades—some relatively small, others more significant.</p>
+                    <p>The first major update to Java was version 1.1. The features added by Java 1.1 were more substantial than the increase in the minor revision number would have you think. For example, Java 1.1 added many new library elements, redefined the way events are handled, and reconfigured many features of the original 1.0 library.</p>
+                    <p>The next major release of Java was Java 2, where the 2 indicates "second generation." The creation of Java 2 was a watershed event, marking the beginning of Java's "modern age." The first release of Java 2 carried the version number 1.2. It may seem odd that the first release of Java 2 used the 1.2 version number. The reason is that it originally referred to the internal version number of the Java libraries but then was generalized to refer to the entire release itself. With Java 2, Sun repackaged the Java product as J2SE (Java 2 Platform Standard Edition), and the version numbers began to be applied to that product.</p>
+                    <p>The next upgrade of Java was J2SE 1.3. This version of Java was the first major upgrade to the original Java 2 release. For the most part, it added to existing functionality and "tightened up" the development environment. The release of J2SE 1.4 further enhanced Java. This release contained several important new features, including chained exceptions, channel-based I/O, and the <code>assert</code> keyword.</p>
+                    <p>The release of J2SE 5 created nothing short of a second Java revolution. Unlike most of the previous Java upgrades, which offered important but incremental improvements, J2SE 5 fundamentally expanded the scope, power, and range of the language. To give you an idea of the magnitude of the changes caused by J2SE 5, here is a list of its major new features:
+                        <ul>
+                            <li>Generics</li>
+                            <li>Autoboxing/unboxing</li>
+                            <li>Enumerations</li>
+                            <li>The enhanced "for-each" style <code>for</code> loop</li>
+                            <li>Variable-length arguments (varargs)</li>
+                            <li>Static import</li>
+                            <li>Annotations</li>
+                        </ul>
+                    </p>
+                    <p>This is not a list of minor tweaks or incremental upgrades. Each item in the list represents a significant addition to the Java language. Some, such as generics, the enhanced <code>for</code> loop, and varargs, introduced new syntax elements. Others, such as autoboxing and auto-unboxing, altered the semantics of the language. Annotations added an entirely new dimension to programming.</p>
+                    <p>The importance of these new features is reflected in the use of the version number "5." The next version number for Java would normally have been 1.5. However, the new features were so significant that a shift from 1.4 to 1.5 just didn't seem to express the magnitude of the change. Instead, Sun elected to increase the version number to 5 as a way of emphasizing that a major event was taking place. Thus, it was named J2SE 5, and the Java Development Kit (JDK) was called JDK 5. In order to maintain consistency, however, Sun decided to use 1.5 as its <em>internal version</em> number, which is also referred to as the <em>developer version</em> number. The "5" in J2SE 5 is called the <em>product version</em> number.</p>
+                    <p>The next release of Java was called Java SE 6, and Sun once again decided to change the name of the Java platform. First, notice that the "2" has been dropped. Thus, the platform now had the name Java SE, and the official product name was Java Platform, Standard Edition 6, with the development kit being called JDK 6. As with J2SE 5, the 6 in Java SE 6 is the <em>product version</em> number. The internal, <em>developer version</em> number is 1.6.</p>
+                    <p>Java SE 6 built on the base of J2SE 5, adding incremental improvements. Java SE 6 added no major features to the Java language proper, but it did enhance the API libraries, added several new packages, and offered improvements to the run time. It also went through several updates during its long (in Java terms) life cycle, with several upgrades added along the way. In general, Java SE 6 served to further solidify the advances made by J2SE 5.</p>
+                    <p>The next release of Java was called Java SE 7, with the development kit being called JDK 7. It has an internal version number of 1.7. Java SE 7 was the first major release of Java after <strong>Sun Microsystems was acquired by Oracle</strong>. Java SE 7 added several new features, including significant additions to the language and the API libraries. Some of the most important features added by Java SE 7 were those developed as part of <em>Project Coin</em>. The purpose of Project Coin was to identify a number of small changes to the Java language that would be incorporated into JDK 7, including
+                        <ul>
+                            <li>A <code>String</code> can control a <code>switch</code> statement.</li>
+                            <li>Binary integer literals.</li>
+                            <li>Underscores in numeric literals.</li>
+                            <li>An expanded <code>try</code> statement, called <code>try</code><i>-with-resources</i>, that supports automatic resource management.</li>
+                            <li>Type inference (via the diamond operator) when constructing a generic instance.</li>
+                            <li>Enhanced exception handling in which two or more exceptions can be caught by a single catch (multi-catch) and better type checking for exceptions that are rethrown.</li>
+                        </ul>
+                    </p>
+                    <p>As you can see, even though the Project Coin features were considered to be small changes to the language, their benefits were much larger than the qualifier "small" would suggest. In particular, the <code>try</code><i>-with-resources</i> statement profoundly affects the way that a substantial amount of code is written.</p>
+                    <p>The next release of Java was Java SE 8, with the development kit being called JDK 8. It has an internal version number of 1.8. JDK 8 represented a very significant upgrade to the Java language because of the inclusion of a far-reaching new language feature: the <i><b>lambda expression</b></i>. The impact of lambda expressions was, and continues to be, quite profound, changing both the way that programming solutions are conceptualized and how Java code is written. In the process, lambda expressions can simplify and reduce the amount of source code needed to create certain constructs. The addition of lambda expressions also caused a new operator (the <code>-></code>) and a new syntax element to be added to the language. In addition to lambda expressions, JDK 8 added many other important new features. For example, beginning with JDK 8, it is now possible to define a default implementation for a method specified by an interface. In the final analysis, Java SE 8 was a major release that profoundly expanded the capabilities of the language and changed the way that Java code is written.</p>
+                    <p>The next release of Java was Java SE 9. The developer's kit was called JDK 9. With the release of JDK 9, the internal version number is also 9. JDK 9 represented a major Java release, incorporating significant enhancements to both the Java language and its libraries. The primary new feature was <b>modules</b>, which enable you to specify the relationships and dependencies of the code that comprises an application. Modules also add another dimension to Java's access control features. The inclusion of modules caused a new syntax element, several new keywords, and various tool enhancements to be added to Java. Modules had a profound effect on the API library because, beginning with JDK 9, the library packages are now organized into modules.</p>
+                    <p>In addition to modules, JDK 9 included several other new features. One of particular interest is <b>JShell</b>, which is a tool that supports interactive program experimentation and learning. (An introduction to JShell is found in <i>Appendix D</i>.) Another interesting upgrade is support for <i>private interface methods</i>. Their inclusion further enhanced JDK 8's support for default methods in interfaces. JDK 9 added a search feature to the <b>javadoc</b> tool and a new tag called <code>@index</code> to support it. As with previous releases, JDK 9 contains a number of updates and enhancements to Java's API libraries.</p>
+                    <p>As a general rule, in any Java release, it is the new features that receive the most attention. However, there is one high-profile aspect of Java that was <i>deprecated by JDK 9: applets</i>. <strong>Beginning with JDK 9, applets are no longer recommended for new projects</strong>. As will be explained in greater detail in Chapter 1, because of waning browser support for applets (and other factors), JDK 9 deprecated the entire applet API.</p>
+                    <p>The next release of Java was Java SE 10 (JDK 10). However, prior to its release, a major change occurred in the Java release schedule. In the past, major releases were often separated by two or more years. However, beginning with JDK 10, the time between releases was significantly shortened. Releases are now expected to occur on a strict time-based schedule, with the anticipated time between major releases (now called <i>feature releases</i>) to be just six months. As a result, JDK 10 was released in March 2018, which is six months after the release of JDK 9. This more rapid <b>release cadence</b> enables new features and improvements to be quickly available to Java programmers. Instead of waiting two or more years, when a new feature is ready, it becomes part of the next scheduled release.</p>
+                    <p>The primary new language feature added by JDK 10 was support for <em>local variable type inference</em>. With local variable type inference, it is now possible to let the type of a local variable be inferred from the type of its initializer, rather than being explicitly specified. To support this new capability, the context-sensitive identifier <code>var</code> was added to Java as a reserved type name. Type inference can streamline code by eliminating the need to redundantly specify a variable's type when it can be inferred from its initializer. It can also simplify declarations in cases in which the type is difficult to discern or cannot be explicitly specified. Local variable type inference has become a common part of the contemporary programming environment. Its inclusion in Java helps keep Java up-to-date with evolving trends in language design. Along with a number of other changes, JDK 10 also redefined the Java version string, changing the meaning of the version numbers so they better align with the new time-based release schedule.</p>
+                    <p><span class="highlight">At the time of this writing, the latest version of Java is Java SE 11 (JDK 11). It was released in September 2018</span>, which is six months after JDK 10. The primary new language feature in JDK 11 is its support for the use of <code>var</code> in a lambda expression. Also, another execution mode was added to the Java launcher that enables it to directly execute simple single-file programs. JDK 11 also removes some features. Perhaps of greatest interest, because of its historical significance, is the removal of support for applets. Recall that applets were first deprecated by JDK 9. <span class="highlight">With the release of JDK 11, applet support has been removed</span>. Support for another deployment-related technology called <em>Java Web Start</em> has also been removed from JDK 11. There is one other <em>high-profile removal in JDK 11: JavaFX</em>. This GUI framework is no longer part of the JDK, becoming a separate open-source project instead. Because these features have been removed from the JDK, they are not discussed in this book.</p>
+                    <p>One other point about the evolution of Java: Beginning in 2006, the process of open-sourcing Java began. Today, open-source implementations of the JDK are available. Open sourcing further contributes to the dynamic nature of Java development. In the final analysis, Java's legacy of innovation is secure. Java remains the vibrant, nimble language that the programming world has come to expect.</p>
+                    <p><span class="highlight">The material in this book has been updated through <strong>JDK 11</strong></span>. As the preceding discussion has highlighted, however, the history of Java programming is marked by dynamic change. As you advance in your study of Java, you will want to watch for new features of each subsequent Java release. Simply put: The evolution of Java continues!</p>
+                </div>  <!-- content -->
+            </div>  <!-- right -->
+        </div>  <!-- lvl1 -->
+        <div class="lvl1">
+            <div class="left">
+                <h2>HOW THIS BOOK IS ORGANIZED</h2>
+            </div>  <!-- left -->
+            <div class="right">
+                <div class="content">
+                    <p>This book presents an evenly paced tutorial in which each section builds upon the previous one. It contains 16 chapters, each discussing an aspect of Java. This book is unique because it includes several special elements that reinforce what you are learning.</p>
+                </div>  <!-- content -->
+                <div class="lvl2">
+                    <div class="left">
+                        <h3>Key Skills & Concepts</h3>
+                    </div>  <!-- left -->
+                    <div class="right">
+                        <div class="content">
+                            <p>Each chapter begins with a set of critical skills that you will be learning.</p>
+                        </div>  <!-- content -->
+                    </div>  <!-- right -->
+                </div>  <!-- lvl2 -->
+                <div class="lvl2">
+                    <div class="left">
+                        <h3>Self Test</h3>
+                    </div>  <!-- left -->
+                    <div class="right">
+                        <div class="content">
+                            <p>Each chapter concludes with a Self Test that lets you test your knowledge. The answers are in Appendix A.</p>
+                        </div>  <!-- content -->
+                    </div>  <!-- right -->
+                </div>  <!-- lvl2 -->
+                <div class="lvl2">
+                    <div class="left">
+                        <h3>Ask the Expert</h3>
+                    </div>  <!-- left -->
+                    <div class="right">
+                        <div class="content">
+                            <p>Sprinkled throughout the book are special "Ask the Expert" boxes. These contain additional information or interesting commentary about a topic. They use a Question/Answer format.</p>
+                        </div>  <!-- content -->
+                    </div>  <!-- right -->
+                </div>  <!-- lvl2 -->
+                <div class="lvl2">
+                    <div class="left">
+                        <h3>Try This Elements</h3>
+                    </div>  <!-- left -->
+                    <div class="right">
+                        <div class="content">
+                            <p>Each chapter contains one or more "Try This" elements, which are projects that show you how to apply what you are learning. In many cases, these are real-world examples that you can use as starting points for your own programs.</p>
+                        </div>  <!-- content -->
+                    </div>  <!-- right -->
+                </div>  <!-- lvl2 -->
+            </div>  <!-- right -->
+        </div>  <!-- lvl1 -->
+        <div class="lvl1">
+            <div class="left">
+                <h2>NO PREVIOUS PROGRAMMING EXPERIENCE REQUIRED</h2>
+            </div>  <!-- left -->
+            <div class="right">
+                <div class="content">
+                    <p>This book assumes no previous programming experience. Thus, if you have never programmed before, you can use this book. If you do have some previous programming experience, you will be able to advance a bit more quickly. Keep in mind, however, that Java differs in several key ways from other popular computer languages. It is important not to jump to conclusions. Thus, even for the experienced programmer, a careful reading is advised.</p>
+                </div>  <!-- content -->
+            </div>  <!-- right -->
+        </div>  <!-- lvl1 -->
+        <div class="lvl1">
+            <div class="left">
+                <h2>REQUIRED SOFTWARE</h2>
+            </div>  <!-- left -->
+            <div class="right">
+                <div class="content">
+                    <p>To compile and run all of the programs in this book, you will need the latest Java Development Kit (JDK), which, at the time of this writing, is JDK 11. This is the JDK for Java SE 11. Instructions for obtaining the Java JDK are given in Chapter 1.</p>
+                    <p>If you are using an earlier version of Java, you will still be able to use this book, but you won't be able to compile and run the programs that use Java's newer features.</p>
+                </div>  <!-- content -->
+            </div>  <!-- right -->
+        </div>  <!-- lvl1 -->
+        <div class="lvl1">
+            <div class="left">
+                <h2>DON'T FORGET: CODE ON THE WEB</h2>
+            </div>  <!-- left -->
+            <div class="right">
+                <div class="content">
+                    <p>Remember, the source code for all of the examples and projects in this book is available free of charge on the Web at <a target="_blank" href="http://www.oraclepressbooks.com">www.oraclepressbooks.com</a>.</p>
+                </div>  <!-- content -->
+            </div>  <!-- right -->
+        </div>  <!-- lvl1 -->
+        <div class="lvl1">
+            <div class="left">
+                <h2>FOR FURTHER STUDY</h2>
+            </div>  <!-- left -->
+            <div class="right">
+                <div class="content">
+                    <p><i>Java: A Beginner's Guide</i> is your gateway to the Herb Schildt series of Java programming books. Here are some others that you will find of interest:
+                        <ul>
+                            <li>Java: The Complete Reference</li>
+                            <li>Herb Schildt's Java Programming Cookbook</li>
+                            <li>The Art of Java</li>
+                            <li>Swing: A Beginner's Guide</li>
+                            <li>Introducing JavaFX 8 Programming</li>
+                        </ul>
+                    </p>
+                </div>  <!-- content -->
+            </div>  <!-- right -->
+        </div>  <!-- lvl1 -->
+    </div>
+</div>
